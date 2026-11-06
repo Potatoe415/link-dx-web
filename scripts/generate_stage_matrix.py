@@ -93,7 +93,7 @@ def generate_stage_01_02():
         '',
         '## Légende des 4 Passes par Écran',
         '1. **`[EXTRACT]`** : Exécuter `python scripts/extract_room.py ...` $\\rightarrow$ génère `*_bg_pixel.png`, `*_grid_ruler.png`, `*_manifest.json`.',
-        '2. **`[WIRE_WHITEBOX]`** : Déclarer la salle dans `src/data/rooms.ts` avec ses `colliders`, `neighbors` et `bgPixel` $\\rightarrow$ jouable immédiatement en mode Pixel-Art (`G`).',
+        '2. **`[WIRE_WHITEBOX]`** : Déclarer la salle dans `src/data/rooms/<region>.ts` avec ses `colliders`, `neighbors` et `bgPixel` $\\rightarrow$ jouable immédiatement en mode Pixel-Art (`G`).',
         '3. **`[ENTITIES_DIALOGUES]`** : Câbler les PNJ, ennemis, objets, warps et dialogues français depuis `docs/la_dx_knowledge_base/`.',
         '4. **`[GHIBLI_PAINT]`** : Générer `*_bg.png` (`1280x1024`) calé sur `*_grid_ruler.png` + extraire `*_fg.png` (toits/arbres) par masque alpha pur.',
         '',
@@ -115,7 +115,7 @@ def generate_stage_01_02():
                     f"- [{chk}] `[{zone['code']}-{room_id.upper()}-P1]` **[EXTRACT]** : `python scripts/extract_room.py --overworld-row {r} --overworld-col {c} --out-id {room_id}`"
                 )
                 lines.append(
-                    f"- [{chk}] `[{zone['code']}-{room_id.upper()}-P2]` **[WIRE_WHITEBOX]** : Ajouter `{room_id}` dans `src/data/rooms.ts` (`colliders`, `neighbors`, `bgPixel`)."
+                    f"- [{chk}] `[{zone['code']}-{room_id.upper()}-P2]` **[WIRE_WHITEBOX]** : Ajouter `{room_id}` dans `src/data/rooms/<region>.ts` (`colliders`, `neighbors`, `bgPixel`)."
                 )
                 lines.append(
                     f"- [{chk}] `[{zone['code']}-{room_id.upper()}-P3]` **[ENTITIES_DIALOGUES]** : Câbler entités, portes et dialogues FR de `{room_id}`."
@@ -134,7 +134,7 @@ def generate_stage_01_02():
                     f"- [{chk}] `[{zone['code']}-{room_id.upper()}-P1]` **[EXTRACT]** : `python scripts/extract_room.py --map-file {map_file} --room-row {r} --room-col {c} --out-id {room_id}`"
                 )
                 lines.append(
-                    f"- [{chk}] `[{zone['code']}-{room_id.upper()}-P2]` **[WIRE_WHITEBOX]** : Ajouter `{room_id}` dans `src/data/rooms.ts` (`colliders`, `warps`, `bgPixel`)."
+                    f"- [{chk}] `[{zone['code']}-{room_id.upper()}-P2]` **[WIRE_WHITEBOX]** : Ajouter `{room_id}` dans `src/data/rooms/<region>.ts` (`colliders`, `warps`, `bgPixel`)."
                 )
                 lines.append(
                     f"- [{chk}] `[{zone['code']}-{room_id.upper()}-P3]` **[ENTITIES_DIALOGUES]** : Câbler PNJ, événements et dialogues FR de `{room_id}`."

@@ -44,7 +44,7 @@
 - [x] **[T-1.2.1-01]** Créer `scripts/extract_room.py` lisant `_ref_repo/Data/Maps/*.map`, `objects.atlas` et `musicOverworld.data` (Overworld, maisons intérieures, grottes et donjons via `--map-file` et `--offset-x`/`--offset-y`).
 - [x] **[T-1.2.1-02]** Extraire automatiquement les boîtes de collision `c1..c13`, `lowCollider*`, `colliderL*`, `fence*` (bitmasks `1..15`) et `tree0..9` dans `<id>_manifest.json` et `<id>_grid_ruler.png`.
 - [x] **[T-1.2.1-03]** Enrichir `scripts/extract_room.py` pour générer directement le bloc de code TypeScript `RoomDef` (`<id>_room.ts`) prêt à être importé dans `src/data/rooms/`.
-- [ ] **[T-1.2.1-04]** Découper `src/data/rooms.ts` en sous-fichiers modulaires par région (`src/data/rooms/mabe_village.ts`, `src/data/rooms/toronbo_shores.ts`, `src/data/rooms/mysterious_forest.ts`, `src/data/rooms/dungeon1.ts`, etc.) ré-exportés par `src/data/rooms/index.ts` pour respecter la limite de ~300 lignes par fichier (`AGENTS.md`).
+- [x] **[T-1.2.1-04]** Découper `src/data/rooms.ts` en sous-fichiers modulaires par région (`src/data/rooms/mabe_village.ts`, `src/data/rooms/toronbo_shores.ts`, `src/data/rooms/mysterious_forest.ts`, `src/data/rooms/dungeon1.ts`, etc.) ré-exportés par `src/data/rooms/index.ts` pour respecter la limite de ~300 lignes par fichier (`AGENTS.md`).
 
 ### 1.2.2 — Moteur Audio Original (`.gbs` & `.wav`)
 - [x] **[T-1.2.2-01]** Créer `scripts/export_gbs_audio.py` compilant l'émulateur C# `_ref_repo/GbsPlayer/` pour exporter les pistes de `_ref_repo/Data/Music/awakening.gbs` en `.wav` 44.1 kHz.

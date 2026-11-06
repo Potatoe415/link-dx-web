@@ -55,7 +55,7 @@ Toute la construction du jeu se décompose en **4 opérateurs atomiques**. Un ag
    - Copier le tableau `colliders` (généré automatiquement depuis `c1..c13`, `fence*`, `tree*`, `pot_1`, etc. dans `GameObjectTemplates.cs`).
    - Copier `neighbors` (`north`, `south`, `east`, `west`) et les `warp` (`door`, `stairs`).
    - Copier `musicTrackId`. Si la piste `.gbs` n'est pas encore exportée dans `public/assets/audio/`, l'ajouter dans `scripts/export_gbs_audio.py` et l'exécuter.
-3. **Ajouter l'entrée dans `src/data/rooms.ts` :**
+3. **Ajouter l'entrée dans `src/data/rooms/<region>.ts` :**
    - `bgPixel: '/assets/rooms/<roomId>_bg_pixel.png'`
    - `bgGhibli: '/assets/rooms/<roomId>_bg_pixel.png'` *(fallback temporaire tant que l'Opérateur B n'a pas été lancé sur cet écran).*
 4. **Critère de validation (`Gate A`) :** `npm run build` passe à `0` erreur + les boîtes rouges en mode `C` correspondent à `<roomId>_grid_ruler.png`.
@@ -77,7 +77,7 @@ Toute la construction du jeu se décompose en **4 opérateurs atomiques**. Un ag
    fg.putalpha(mask_blurred) # JAMAIS de paste() sur fond noir (0,0,0,0)
    fg.save(f'public/assets/rooms/{room_id}_fg.png')
    ```
-5. **Brancher `bgGhibli` et `fgGhibli` dans `src/data/rooms.ts`**.
+5. **Brancher `bgGhibli` et `fgGhibli` dans `src/data/rooms/<region>.ts`**.
 6. **Critère de validation (`Gate B`) :** Basculer `G` + `C` : alignement 1:1 entre les boîtes rouges (`colliders`) et le décor peint Ghibli.
 
 ---

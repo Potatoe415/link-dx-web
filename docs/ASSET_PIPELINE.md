@@ -23,7 +23,7 @@ Toutes les cartes originales du jeu se trouvent dans `_ref_repo/Data/Maps/` :
    - *Fidélité géométrique :* Chaque mur, porte, meuble, barrière, arbre et chemin doit conserver **exactement** sa boîte englobante en coordonnées `1280x1024` pour correspondre à la grille de collision `160x128`.
    - *Exclusion :* Aucun personnage (ni Link, ni PNJ, ni ennemis) ne doit être peint dans le décor de fond.
 3. **Vérification sur grille :**
-   - Superposer une grille `160x128` (tous les `10` ou `16` pixels logiques) sur l'image `1280x1024` générée pour relever au pixel près les boîtes `colliders` et `warpTriggers` dans `src/data/rooms.ts`.
+   - Superposer une grille `160x128` (tous les `10` ou `16` pixels logiques) sur l'image `1280x1024` générée pour relever au pixel près les boîtes `colliders` et `warpTriggers` dans `src/data/rooms/<region>.ts`.
 
 ---
 

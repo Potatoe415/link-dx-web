@@ -28,5 +28,5 @@ If you need to export additional tracks from `_ref_repo/Data/Music/awakening.gbs
 See `docs/ASSET_PIPELINE.md` for the complete workflow:
 1. Extract the `160x128` pixel-art reference (`<room>_bg_pixel.png`) from `_ref_repo/Data/Maps/`.
 2. Generate the `1280x1024` Studio Ghibli background (`<room>_bg.png`) and optional foreground occlusion mask (`<room>_fg.png`).
-3. Register the room's `colliders`, `warpTriggers`, and `props` in `src/data/rooms.ts`.
+3. Register the room's `colliders`, `warpTriggers`, and `props` in `src/data/rooms/<region>.ts`.
 4. Verify in-game using `G` (Pixel/Ghibli toggle) and `C` (Collider overlay).

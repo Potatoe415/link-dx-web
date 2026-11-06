@@ -72,7 +72,7 @@ Chaque étape ci-dessous est indépendante, testable en moins d'une session, et 
 * **Sous-étapes :**
   - `2.1` Créer `src/core/GameState.ts` gérant les drapeaux de `00_GAME_SYSTEMS_AND_STATE_MACHINE.md` (`FLAG_SHIELD_OBTAINED`, `FLAG_SWORD_OBTAINED`, etc.), les points de vie (3 coeurs) et la sauvegarde `localStorage`.
   - `2.2` Ajouter le bandeau HUD (`Bouton A`, `Bouton B`, `Rubis`, `Coeurs`) activable/désactivable.
-  - `2.3` Créer le script `scripts/extract_room.py` qui prend des coordonnées `(col, row)` dans `overworld.map` et génère automatiquement `<room>_bg_pixel.png` + le squelette de collisions pour `src/data/rooms.ts`.
+  - `2.3` Créer le script `scripts/extract_room.py` qui prend des coordonnées `(col, row)` dans `overworld.map` et génère automatiquement `<room>_bg_pixel.png` + le squelette de collisions pour `src/data/rooms/<region>.ts`.
 
 ---
 
