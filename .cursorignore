@@ -24,9 +24,3 @@ tmp-*/
 .cache/
 
 # Large local data & reference dumps
-docs/scraped_raw/
-scripts/kb_scraper_archive/
-_ref_repo/
-*.sqlite
-*.db
-*.dump
