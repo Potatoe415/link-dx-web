@@ -31,11 +31,15 @@ npm run build
 
 ---
 
-## 🕹️ Commandes en Jeu (Vertical Slice 01)
+## 🕹️ Commandes en Jeu
 
 * **Déplacement :** <kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd>, <kbd>Z</kbd><kbd>Q</kbd><kbd>S</kbd><kbd>D</kbd> ou Flèches directionnelles (`1.0 px/frame` à 60 FPS).
 * **Réveil / Parler aux PNJ / Valider :** <kbd>Espace</kbd>, <kbd>Entrée</kbd>, <kbd>E</kbd> ou clic souris.
 * **Lever le Bouclier (une fois remis par Tarkin) :** Maintenir <kbd>Shift</kbd> ou <kbd>X</kbd>.
+* **Bouton A / B (objet équipé) :** A = <kbd>Espace</kbd> / <kbd>J</kbd>, B = <kbd>Shift</kbd> / <kbd>X</kbd> / <kbd>K</kbd>. L'Épée (plage, au sud du village) frappe ; maintenir puis relâcher pour l'Attaque Tournoyante.
+* **Inventaire (<kbd>Tab</kbd> / <kbd>I</kbd>) :** Assigner un objet aux boutons A / B, voir les Instruments des Sirènes.
+* **Lire un panneau / Ouvrir un coffre :** Face au panneau ou par le bas du coffre, <kbd>Espace</kbd>.
+* **Sauvegarde :** Automatique (`localStorage`). Bouton « Reset Save » sous le jeu pour recommencer.
 * **Basculer le rendu (<kbd>G</kbd>) :** Alterne en temps réel entre **Studio Ghibli HD (`1280x1024`)** et **Pixel-Art Original (`160x128` x8)**.
 * **Afficher la grille de collision (<kbd>C</kbd>) :** Affiche les boîtes AABB des murs (rouge), des PNJ (violet), des portes (cyan) et des pieds de Link (vert).
 * **Couper / Activer l'audio (<kbd>M</kbd>) :** Active ou coupe les musiques `.gbs` et bruitages `.wav` originaux.
