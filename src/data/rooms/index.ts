@@ -2,7 +2,7 @@ import { RoomDef } from './types';
 import { MABE_VILLAGE_ROOMS } from './mabe_village';
 import { MABE_VILLAGE_OVERWORLD_ROOMS } from './mabe_village_overworld';
 
-export type { Rect, WarpTrigger, RoomProp, RoomDef, RoomNeighbors, RoomMusic, RoomAmbience, GroundKind, GroundZone } from './types';
+export type { Rect, WarpTrigger, RoomProp, RoomDef, RoomNeighbors, RoomMusic, RoomAmbience, GroundKind, GroundZone, SignDef, ChestDef, ChestContents, InteractableDef } from './types';
 
 // One module per region (mabe_village, toronbo_shores, mysterious_forest, dungeon1, ...).
 // Region modules must not share room ids; collisions are reported at startup.

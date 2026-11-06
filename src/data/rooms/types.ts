@@ -33,6 +33,34 @@ export interface GroundZone extends Rect {
   kind: GroundKind;
 }
 
+/** Readable signpost (ObjSignpost): text shown when Link faces it and presses the action key. */
+export interface SignDef {
+  kind: 'sign';
+  id: string;
+  x: number; // map object origin (top-left of the 16x16 cell), logical px
+  y: number;
+  pages: string[]; // French copy
+  requiredDirection?: number; // ObjSignpost direction (1 = must face Up); undefined = any
+  sprite?: 'signpost_0' | 'signpost_1'; // undefined = invisible text trigger ("sign" objects)
+}
+
+/** Treasure chest (ObjChest): opened from below, item recorded in GameState.openedChests. */
+export interface ChestDef {
+  kind: 'chest';
+  id: string;
+  x: number;
+  y: number;
+  contents: ChestContents;
+}
+
+export type ChestContents =
+  | { type: 'rupees'; amount: number }
+  | { type: 'item'; item: string }
+  | { type: 'key'; dungeon: string }
+  | { type: 'heartPiece' };
+
+export type InteractableDef = SignDef | ChestDef;
+
 /** Music track key understood by SoundManager.playMusic. */
 export type RoomMusic = 'indoor' | 'outdoor';
 /** Ambient particle style (ParticleSystem). */
@@ -63,5 +91,6 @@ export interface RoomDef {
   warpTriggers: WarpTrigger[];
   colliders: Rect[];
   groundZones?: GroundZone[];
+  interactables?: InteractableDef[];
   props: RoomProp[];
 }

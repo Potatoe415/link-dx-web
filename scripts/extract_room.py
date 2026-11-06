@@ -153,7 +153,6 @@ COLLIDER_SHAPES = {
     'strandplant': [(0, 4, 15, 12)],
     'pot_1': [(1, 2, 14, 13)],
     'stone_1': [(1, 2, 14, 13)],
-    'signpost': [(1, 2, 14, 13)],
 }
 
 
@@ -209,6 +208,27 @@ def compute_ground_zone(obj_id, lx, ly):
     return {'kind': kind, 'x': x0, 'y': y0, 'w': x1 - x0, 'h': y1 - y0}
 
 
+# Interactables: ObjSignpost (`signpost`, `signpostWoods`, `sign`) and ObjChest (`chest`).
+# Params follow GameObjectTemplates.cs: sign = [signText, spriteId, rect, direction], chest = [item, spawn, saveKey, spriteType].
+SIGN_SPRITES = {'signpost': 'signpost_0', 'signpostWoods': 'signpost_1', 'sign': None}
+SIGN_DIRECTION = {'signpost': 1, 'signpostWoods': 1, 'sign': None}
+RUNTIME_OBJECTS = set(SIGN_SPRITES) | {'chest'}  # drawn + collided by src/entities/Interactables.ts
+
+
+def compute_interactable(obj, lx, ly):
+    if not (0 <= lx < 160 and 0 <= ly < 128):
+        return None
+    params = obj['params']
+    if obj['id'] in SIGN_SPRITES:
+        return {'kind': 'sign', 'id': f"{obj['id']}_{lx}_{ly}", 'x': lx, 'y': ly,
+                'textKey': params[0] if params else '', 'sprite': SIGN_SPRITES[obj['id']],
+                'requiredDirection': SIGN_DIRECTION[obj['id']]}
+    if obj['id'] == 'chest':
+        return {'kind': 'chest', 'id': (params[2] if len(params) > 2 and params[2] else f'chest_{lx}_{ly}'),
+                'x': lx, 'y': ly, 'item': params[0] if params else ''}
+    return None
+
+
 def compute_object_colliders(obj_id, lx, ly, params, templates):
     rects = []
     if obj_id in COLLIDER_SHAPES:
@@ -218,7 +238,7 @@ def compute_object_colliders(obj_id, lx, ly, params, templates):
         # Each post is an ObjSprite with collision Rectangle(-3, -5, 6, 6) around its anchor
         for ax, ay in fence_posts(obj_id, params):
             rects.append({'x': lx + ax - 3, 'y': ly + ay - 5, 'w': 6, 'h': 6, 'source': obj_id})
-    elif obj_id in templates and templates[obj_id]['collider']:
+    elif obj_id in templates and templates[obj_id]['collider'] and obj_id not in RUNTIME_OBJECTS:
         cx, cy, cw, ch = templates[obj_id]['collider']
         rects.append({'x': lx + cx, 'y': ly + cy, 'w': cw, 'h': ch, 'source': obj_id})
     return rects
@@ -294,6 +314,7 @@ def extract_room(map_name, screen_col, screen_row, out_id, out_dir, offset_px_x=
     local_objects = []
     extracted_colliders = []
     ground_zones = []
+    interactables = []
     for obj in parsed['objects']:
         lx = obj['mapX'] - world_px_x
         ly = obj['mapY'] - world_px_y
@@ -307,6 +328,10 @@ def extract_room(map_name, screen_col, screen_row, out_id, out_dir, offset_px_x=
                 'params': obj['params'],
             }
             local_objects.append(entry)
+
+            inter = compute_interactable(obj, lx, ly)
+            if inter:
+                interactables.append(inter)
 
             zone = compute_ground_zone(obj['id'], lx, ly)
             if zone:
@@ -332,7 +357,7 @@ def extract_room(map_name, screen_col, screen_row, out_id, out_dir, offset_px_x=
                 for ax, ay in fence_posts(obj['id'], obj['params']):
                     f = sprites['fence']
                     draws.append((LAYER_PLAYER, ly + ay, 'fence', lx + ax - f['ox'], ly + ay - f['oy']))
-            elif obj['id'] in templates:
+            elif obj['id'] in templates and not inter:  # signposts/chests are drawn at runtime
                 t = templates[obj['id']]
                 sprite_id = obj['params'][0] if (t['cls'] == 'ObjSprite' and obj['params'] and obj['params'][0] in sprites) else t['sprite']
                 dx, dy = t['draw']
@@ -410,6 +435,7 @@ def extract_room(map_name, screen_col, screen_row, out_id, out_dir, offset_px_x=
         },
         'colliders': extracted_colliders,
         'groundZones': ground_zones,
+        'interactables': interactables,
         'objects': [o for o in local_objects if o['category'] != 'collider'],
         'tiles': room_tiles,
     }

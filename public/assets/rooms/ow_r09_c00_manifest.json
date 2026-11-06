@@ -1,0 +1,1585 @@
+{
+  "roomId": "ow_r09_c00",
+  "sourceMap": "overworld.map",
+  "screenCol": 0,
+  "screenRow": 9,
+  "tileOrigin": {
+    "col": 1,
+    "row": 72
+  },
+  "worldPixelOrigin": {
+    "x": 16,
+    "y": 1152
+  },
+  "logicalSize": {
+    "w": 160,
+    "h": 128
+  },
+  "displaySize": {
+    "w": 1280,
+    "h": 1024
+  },
+  "musicTrackId": 3,
+  "neighbors": {
+    "north": "ow_r08_c00",
+    "south": "ow_r10_c00",
+    "west": null,
+    "east": "ow_r09_c01"
+  },
+  "colliders": [
+    {
+      "x": 96,
+      "y": 33,
+      "w": 16,
+      "h": 14,
+      "source": "bush"
+    },
+    {
+      "x": 32,
+      "y": 4,
+      "w": 32,
+      "h": 28,
+      "source": "tree0"
+    },
+    {
+      "x": 32,
+      "y": 36,
+      "w": 32,
+      "h": 28,
+      "source": "tree0"
+    },
+    {
+      "x": 32,
+      "y": 68,
+      "w": 32,
+      "h": 28,
+      "source": "tree0"
+    },
+    {
+      "x": 32,
+      "y": 100,
+      "w": 32,
+      "h": 28,
+      "source": "tree0"
+    },
+    {
+      "x": 48,
+      "y": 20,
+      "w": 32,
+      "h": 28,
+      "source": "tree0"
+    },
+    {
+      "x": 64,
+      "y": 4,
+      "w": 32,
+      "h": 28,
+      "source": "tree0"
+    },
+    {
+      "x": 112,
+      "y": 4,
+      "w": 32,
+      "h": 28,
+      "source": "tree0"
+    },
+    {
+      "x": 128,
+      "y": 20,
+      "w": 32,
+      "h": 28,
+      "source": "tree0"
+    },
+    {
+      "x": 128,
+      "y": 52,
+      "w": 32,
+      "h": 28,
+      "source": "tree0"
+    },
+    {
+      "x": 128,
+      "y": 84,
+      "w": 32,
+      "h": 28,
+      "source": "tree0"
+    },
+    {
+      "x": 128,
+      "y": 116,
+      "w": 32,
+      "h": 12,
+      "source": "tree0"
+    },
+    {
+      "x": 144,
+      "y": 4,
+      "w": 16,
+      "h": 28,
+      "source": "tree0"
+    },
+    {
+      "x": 144,
+      "y": 36,
+      "w": 16,
+      "h": 28,
+      "source": "tree0"
+    },
+    {
+      "x": 144,
+      "y": 68,
+      "w": 16,
+      "h": 28,
+      "source": "tree0"
+    },
+    {
+      "x": 144,
+      "y": 100,
+      "w": 16,
+      "h": 28,
+      "source": "tree0"
+    },
+    {
+      "x": 48,
+      "y": 0,
+      "w": 32,
+      "h": 16,
+      "source": "treeWoods"
+    },
+    {
+      "x": 128,
+      "y": 0,
+      "w": 32,
+      "h": 16,
+      "source": "treeWoods"
+    }
+  ],
+  "groundZones": [
+    {
+      "kind": "grass",
+      "x": 64,
+      "y": 48,
+      "w": 16,
+      "h": 16
+    },
+    {
+      "kind": "grass",
+      "x": 64,
+      "y": 64,
+      "w": 16,
+      "h": 16
+    },
+    {
+      "kind": "grass",
+      "x": 80,
+      "y": 32,
+      "w": 16,
+      "h": 16
+    },
+    {
+      "kind": "grass",
+      "x": 112,
+      "y": 112,
+      "w": 16,
+      "h": 16
+    }
+  ],
+  "interactables": [
+    {
+      "kind": "sign",
+      "id": "signpost_80_80",
+      "x": 80,
+      "y": 80,
+      "textKey": "signpost2",
+      "sprite": "signpost_0",
+      "requiredDirection": 1
+    }
+  ],
+  "objects": [
+    {
+      "id": "bush",
+      "category": "other",
+      "localX": 96,
+      "localY": 32,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "flower",
+      "category": "animated_prop",
+      "localX": 112,
+      "localY": 96,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gras",
+      "category": "static_decor",
+      "localX": 64,
+      "localY": 48,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gras",
+      "category": "static_decor",
+      "localX": 64,
+      "localY": 64,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gras",
+      "category": "static_decor",
+      "localX": 80,
+      "localY": 32,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gras",
+      "category": "static_decor",
+      "localX": 112,
+      "localY": 112,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gras",
+      "category": "static_decor",
+      "localX": 112,
+      "localY": 128,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "signpost",
+      "category": "static_decor",
+      "localX": 80,
+      "localY": 80,
+      "params": [
+        "signpost2",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "tree0",
+      "category": "static_decor",
+      "localX": 32,
+      "localY": 0,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "tree0",
+      "category": "static_decor",
+      "localX": 32,
+      "localY": 32,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "tree0",
+      "category": "static_decor",
+      "localX": 32,
+      "localY": 64,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "tree0",
+      "category": "static_decor",
+      "localX": 32,
+      "localY": 96,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "tree0",
+      "category": "static_decor",
+      "localX": 32,
+      "localY": 128,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "tree0",
+      "category": "static_decor",
+      "localX": 48,
+      "localY": 16,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "tree0",
+      "category": "static_decor",
+      "localX": 64,
+      "localY": 0,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "tree0",
+      "category": "static_decor",
+      "localX": 112,
+      "localY": 0,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "tree0",
+      "category": "static_decor",
+      "localX": 128,
+      "localY": 16,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "tree0",
+      "category": "static_decor",
+      "localX": 128,
+      "localY": 48,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "tree0",
+      "category": "static_decor",
+      "localX": 128,
+      "localY": 80,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "tree0",
+      "category": "static_decor",
+      "localX": 128,
+      "localY": 112,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "tree0",
+      "category": "static_decor",
+      "localX": 144,
+      "localY": 0,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "tree0",
+      "category": "static_decor",
+      "localX": 144,
+      "localY": 32,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "tree0",
+      "category": "static_decor",
+      "localX": 144,
+      "localY": 64,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "tree0",
+      "category": "static_decor",
+      "localX": 144,
+      "localY": 96,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "tree0",
+      "category": "static_decor",
+      "localX": 160,
+      "localY": -16,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "tree0",
+      "category": "static_decor",
+      "localX": 160,
+      "localY": 112,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "treeWoods",
+      "category": "static_decor",
+      "localX": 32,
+      "localY": -32,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "treeWoods",
+      "category": "static_decor",
+      "localX": 48,
+      "localY": -16,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "treeWoods",
+      "category": "static_decor",
+      "localX": 64,
+      "localY": -32,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "treeWoods",
+      "category": "static_decor",
+      "localX": 112,
+      "localY": -32,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "treeWoods",
+      "category": "static_decor",
+      "localX": 128,
+      "localY": -16,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "treeWoods",
+      "category": "static_decor",
+      "localX": 144,
+      "localY": -32,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "upperLevel",
+      "category": "other",
+      "localX": 64,
+      "localY": 48,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "upperLevel",
+      "category": "other",
+      "localX": 64,
+      "localY": 64,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "upperLevel",
+      "category": "other",
+      "localX": 64,
+      "localY": 80,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "upperLevel",
+      "category": "other",
+      "localX": 64,
+      "localY": 96,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "upperLevel",
+      "category": "other",
+      "localX": 64,
+      "localY": 112,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "upperLevel",
+      "category": "other",
+      "localX": 64,
+      "localY": 128,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "upperLevel",
+      "category": "other",
+      "localX": 80,
+      "localY": 32,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "upperLevel",
+      "category": "other",
+      "localX": 80,
+      "localY": 48,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "upperLevel",
+      "category": "other",
+      "localX": 80,
+      "localY": 64,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "upperLevel",
+      "category": "other",
+      "localX": 80,
+      "localY": 80,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "upperLevel",
+      "category": "other",
+      "localX": 80,
+      "localY": 96,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "upperLevel",
+      "category": "other",
+      "localX": 80,
+      "localY": 112,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "upperLevel",
+      "category": "other",
+      "localX": 80,
+      "localY": 128,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "upperLevel",
+      "category": "other",
+      "localX": 96,
+      "localY": 16,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "upperLevel",
+      "category": "other",
+      "localX": 96,
+      "localY": 32,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "upperLevel",
+      "category": "other",
+      "localX": 96,
+      "localY": 48,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "upperLevel",
+      "category": "other",
+      "localX": 96,
+      "localY": 64,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "upperLevel",
+      "category": "other",
+      "localX": 96,
+      "localY": 80,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "upperLevel",
+      "category": "other",
+      "localX": 96,
+      "localY": 96,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "upperLevel",
+      "category": "other",
+      "localX": 96,
+      "localY": 112,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "upperLevel",
+      "category": "other",
+      "localX": 96,
+      "localY": 128,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "wave3",
+      "category": "other",
+      "localX": -32,
+      "localY": -32,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave3",
+      "category": "other",
+      "localX": -32,
+      "localY": -16,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave3",
+      "category": "other",
+      "localX": -32,
+      "localY": 0,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave3",
+      "category": "other",
+      "localX": -16,
+      "localY": -32,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave3",
+      "category": "other",
+      "localX": -16,
+      "localY": -16,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave3",
+      "category": "other",
+      "localX": -16,
+      "localY": 0,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave3",
+      "category": "other",
+      "localX": -16,
+      "localY": 16,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave3",
+      "category": "other",
+      "localX": -16,
+      "localY": 32,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave3",
+      "category": "other",
+      "localX": -16,
+      "localY": 48,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave3",
+      "category": "other",
+      "localX": -16,
+      "localY": 64,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave3",
+      "category": "other",
+      "localX": -16,
+      "localY": 80,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave3",
+      "category": "other",
+      "localX": -16,
+      "localY": 96,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave3",
+      "category": "other",
+      "localX": -16,
+      "localY": 112,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave3",
+      "category": "other",
+      "localX": -16,
+      "localY": 128,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave3",
+      "category": "other",
+      "localX": 0,
+      "localY": -16,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave3",
+      "category": "other",
+      "localX": 0,
+      "localY": 0,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave3",
+      "category": "other",
+      "localX": 0,
+      "localY": 16,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave3",
+      "category": "other",
+      "localX": 0,
+      "localY": 32,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave3",
+      "category": "other",
+      "localX": 0,
+      "localY": 48,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave3",
+      "category": "other",
+      "localX": 0,
+      "localY": 64,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave3",
+      "category": "other",
+      "localX": 0,
+      "localY": 80,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave3",
+      "category": "other",
+      "localX": 0,
+      "localY": 96,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave3",
+      "category": "other",
+      "localX": 0,
+      "localY": 112,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave3",
+      "category": "other",
+      "localX": 0,
+      "localY": 128,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave5",
+      "category": "other",
+      "localX": -32,
+      "localY": 16,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave5",
+      "category": "other",
+      "localX": -32,
+      "localY": 32,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave5",
+      "category": "other",
+      "localX": -32,
+      "localY": 48,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave5",
+      "category": "other",
+      "localX": -32,
+      "localY": 64,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave5",
+      "category": "other",
+      "localX": -32,
+      "localY": 80,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave5",
+      "category": "other",
+      "localX": -32,
+      "localY": 96,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave5",
+      "category": "other",
+      "localX": -32,
+      "localY": 112,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave5",
+      "category": "other",
+      "localX": -32,
+      "localY": 128,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    }
+  ],
+  "tiles": [
+    [
+      [
+        -1,
+        618,
+        434,
+        500,
+        500,
+        192,
+        619,
+        192,
+        500,
+        500
+      ],
+      [
+        -1,
+        463,
+        615,
+        615,
+        615,
+        615,
+        500,
+        500,
+        500,
+        500
+      ],
+      [
+        -1,
+        463,
+        615,
+        615,
+        615,
+        500,
+        500,
+        500,
+        615,
+        615
+      ],
+      [
+        -1,
+        463,
+        615,
+        615,
+        500,
+        373,
+        500,
+        500,
+        615,
+        615
+      ],
+      [
+        -1,
+        463,
+        615,
+        615,
+        500,
+        500,
+        500,
+        500,
+        615,
+        615
+      ],
+      [
+        -1,
+        463,
+        615,
+        615,
+        453,
+        500,
+        500,
+        352,
+        615,
+        615
+      ],
+      [
+        -1,
+        463,
+        615,
+        615,
+        432,
+        353,
+        356,
+        418,
+        615,
+        615
+      ],
+      [
+        -1,
+        463,
+        615,
+        615,
+        432,
+        452,
+        356,
+        500,
+        615,
+        615
+      ]
+    ],
+    [
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ]
+    ],
+    [
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ]
+    ]
+  ]
+}

@@ -4,16 +4,57 @@
 import { RoomDef } from './types';
 
 export const MABE_VILLAGE_OVERWORLD_ROOMS: Record<string, RoomDef> = {
-  ow_r08_c01: {
-    id: 'ow_r08_c01',
-    name: 'Village des Mouettes — Puits',
+  ow_r09_c00: {
+    id: "ow_r09_c00",
+    name: "Village des Mouettes — Sentier vers la Forêt",
     width: 160,
     height: 128,
-    bgPixel: '/assets/rooms/ow_r08_c01_bg_pixel.png',
-    bgGhibli: '/assets/rooms/ow_r08_c01_bg_pixel.png', // TEMP: pixel fallback until TASK_ROOM_GHIBLI
-    music: 'outdoor',
-    ambience: 'outdoor',
-    neighbors: { north: 'ow_r07_c01', south: 'ow_r09_c01', west: 'ow_r08_c00', east: 'ow_r08_c02' },
+    bgPixel: "/assets/rooms/ow_r09_c00_bg_pixel.png",
+    bgGhibli: "/assets/rooms/ow_r09_c00_bg_pixel.png", // TEMP: pixel fallback until TASK_ROOM_GHIBLI
+    music: "outdoor",
+    ambience: "outdoor",
+    neighbors: { north: "ow_r08_c00", south: "ow_r10_c00", east: "ow_r09_c01" },
+    spawnPoint: { x: 80, y: 72, direction: 3 },
+    warpTriggers: [],
+    colliders: [
+      { x: 48, y: 0, w: 32, h: 16 },
+      { x: 128, y: 0, w: 32, h: 16 },
+      { x: 32, y: 4, w: 64, h: 28 },
+      { x: 112, y: 4, w: 48, h: 28 },
+      { x: 48, y: 20, w: 32, h: 28 },
+      { x: 128, y: 20, w: 32, h: 28 },
+      { x: 96, y: 33, w: 16, h: 14 },
+      { x: 32, y: 36, w: 32, h: 28 },
+      { x: 144, y: 36, w: 16, h: 28 },
+      { x: 128, y: 52, w: 32, h: 28 },
+      { x: 32, y: 68, w: 32, h: 28 },
+      { x: 144, y: 68, w: 16, h: 28 },
+      { x: 128, y: 84, w: 32, h: 28 },
+      { x: 32, y: 100, w: 32, h: 28 },
+      { x: 144, y: 100, w: 16, h: 28 },
+      { x: 128, y: 116, w: 32, h: 12 },
+    ],
+    groundZones: [
+      { kind: 'grass', x: 80, y: 32, w: 16, h: 16 },
+      { kind: 'grass', x: 64, y: 48, w: 16, h: 32 },
+      { kind: 'grass', x: 112, y: 112, w: 16, h: 16 },
+    ],
+    interactables: [
+      { kind: 'sign', id: "signpost_80_80", x: 80, y: 80, pages: ["Forêt Enchantée\n(Elle est un peu... enchantée)"], sprite: 'signpost_0', requiredDirection: 1 },
+    ],
+    props: []
+  },
+
+  ow_r08_c01: {
+    id: "ow_r08_c01",
+    name: "Village des Mouettes — Puits",
+    width: 160,
+    height: 128,
+    bgPixel: "/assets/rooms/ow_r08_c01_bg_pixel.png",
+    bgGhibli: "/assets/rooms/ow_r08_c01_bg_pixel.png", // TEMP: pixel fallback until TASK_ROOM_GHIBLI
+    music: "outdoor",
+    ambience: "outdoor",
+    neighbors: { north: "ow_r07_c01", south: "ow_r09_c01", west: "ow_r08_c00", east: "ow_r08_c02" },
     spawnPoint: { x: 80, y: 72, direction: 3 },
     warpTriggers: [],
     colliders: [
@@ -43,15 +84,15 @@ export const MABE_VILLAGE_OVERWORLD_ROOMS: Record<string, RoomDef> = {
   },
 
   ow_r08_c02: {
-    id: 'ow_r08_c02',
-    name: 'Village des Mouettes — Maison de Mme Miaou',
+    id: "ow_r08_c02",
+    name: "Village des Mouettes — Maison de Mme Miaou",
     width: 160,
     height: 128,
-    bgPixel: '/assets/rooms/ow_r08_c02_bg_pixel.png',
-    bgGhibli: '/assets/rooms/ow_r08_c02_bg_pixel.png', // TEMP: pixel fallback until TASK_ROOM_GHIBLI
-    music: 'outdoor',
-    ambience: 'outdoor',
-    neighbors: { north: 'ow_r07_c02', south: 'ow_r09_c02', west: 'ow_r08_c01', east: 'ow_r08_c03' },
+    bgPixel: "/assets/rooms/ow_r08_c02_bg_pixel.png",
+    bgGhibli: "/assets/rooms/ow_r08_c02_bg_pixel.png", // TEMP: pixel fallback until TASK_ROOM_GHIBLI
+    music: "outdoor",
+    ambience: "outdoor",
+    neighbors: { north: "ow_r07_c02", south: "ow_r09_c02", west: "ow_r08_c01", east: "ow_r08_c03" },
     spawnPoint: { x: 80, y: 72, direction: 3 },
     warpTriggers: [],
     colliders: [
@@ -81,15 +122,15 @@ export const MABE_VILLAGE_OVERWORLD_ROOMS: Record<string, RoomDef> = {
   },
 
   ow_r08_c03: {
-    id: 'ow_r08_c03',
-    name: 'Village des Mouettes — Boutique',
+    id: "ow_r08_c03",
+    name: "Village des Mouettes — Boutique",
     width: 160,
     height: 128,
-    bgPixel: '/assets/rooms/ow_r08_c03_bg_pixel.png',
-    bgGhibli: '/assets/rooms/ow_r08_c03_bg_pixel.png', // TEMP: pixel fallback until TASK_ROOM_GHIBLI
-    music: 'outdoor',
-    ambience: 'outdoor',
-    neighbors: { north: 'ow_r07_c03', south: 'ow_r09_c03', west: 'ow_r08_c02', east: 'ow_r08_c04' },
+    bgPixel: "/assets/rooms/ow_r08_c03_bg_pixel.png",
+    bgGhibli: "/assets/rooms/ow_r08_c03_bg_pixel.png", // TEMP: pixel fallback until TASK_ROOM_GHIBLI
+    music: "outdoor",
+    ambience: "outdoor",
+    neighbors: { north: "ow_r07_c03", south: "ow_r09_c03", west: "ow_r08_c02", east: "ow_r08_c04" },
     spawnPoint: { x: 80, y: 72, direction: 3 },
     warpTriggers: [],
     colliders: [
@@ -114,15 +155,15 @@ export const MABE_VILLAGE_OVERWORLD_ROOMS: Record<string, RoomDef> = {
   },
 
   ow_r09_c01: {
-    id: 'ow_r09_c01',
-    name: 'Village des Mouettes — Maison des quadruplés',
+    id: "ow_r09_c01",
+    name: "Village des Mouettes — Maison des quadruplés",
     width: 160,
     height: 128,
-    bgPixel: '/assets/rooms/ow_r09_c01_bg_pixel.png',
-    bgGhibli: '/assets/rooms/ow_r09_c01_bg_pixel.png', // TEMP: pixel fallback until TASK_ROOM_GHIBLI
-    music: 'outdoor',
-    ambience: 'outdoor',
-    neighbors: { north: 'ow_r08_c01', south: 'ow_r10_c01', west: 'ow_r09_c00', east: 'ow_r09_c02' },
+    bgPixel: "/assets/rooms/ow_r09_c01_bg_pixel.png",
+    bgGhibli: "/assets/rooms/ow_r09_c01_bg_pixel.png", // TEMP: pixel fallback until TASK_ROOM_GHIBLI
+    music: "outdoor",
+    ambience: "outdoor",
+    neighbors: { north: "ow_r08_c01", south: "ow_r10_c01", west: "ow_r09_c00", east: "ow_r09_c02" },
     spawnPoint: { x: 80, y: 72, direction: 3 },
     warpTriggers: [],
     colliders: [
@@ -145,15 +186,15 @@ export const MABE_VILLAGE_OVERWORLD_ROOMS: Record<string, RoomDef> = {
   },
 
   ow_r09_c02: {
-    id: 'ow_r09_c02',
-    name: 'Village des Mouettes — Place centrale',
+    id: "ow_r09_c02",
+    name: "Village des Mouettes — Place centrale",
     width: 160,
     height: 128,
-    bgPixel: '/assets/rooms/ow_r09_c02_bg_pixel.png',
-    bgGhibli: '/assets/rooms/ow_r09_c02_bg_pixel.png', // TEMP: pixel fallback until TASK_ROOM_GHIBLI
-    music: 'outdoor',
-    ambience: 'outdoor',
-    neighbors: { north: 'ow_r08_c02', south: 'ow_r10_c02', west: 'ow_r09_c01', east: 'ow_r09_c03' },
+    bgPixel: "/assets/rooms/ow_r09_c02_bg_pixel.png",
+    bgGhibli: "/assets/rooms/ow_r09_c02_bg_pixel.png", // TEMP: pixel fallback until TASK_ROOM_GHIBLI
+    music: "outdoor",
+    ambience: "outdoor",
+    neighbors: { north: "ow_r08_c02", south: "ow_r10_c02", west: "ow_r09_c01", east: "ow_r09_c03" },
     spawnPoint: { x: 80, y: 72, direction: 3 },
     warpTriggers: [],
     colliders: [
@@ -169,15 +210,15 @@ export const MABE_VILLAGE_OVERWORLD_ROOMS: Record<string, RoomDef> = {
   },
 
   ow_r09_c03: {
-    id: 'ow_r09_c03',
-    name: 'Village des Mouettes — Champ est',
+    id: "ow_r09_c03",
+    name: "Village des Mouettes — Champ est",
     width: 160,
     height: 128,
-    bgPixel: '/assets/rooms/ow_r09_c03_bg_pixel.png',
-    bgGhibli: '/assets/rooms/ow_r09_c03_bg_pixel.png', // TEMP: pixel fallback until TASK_ROOM_GHIBLI
-    music: 'outdoor',
-    ambience: 'outdoor',
-    neighbors: { north: 'ow_r08_c03', south: 'ow_r10_c03', west: 'ow_r09_c02', east: 'ow_r09_c04' },
+    bgPixel: "/assets/rooms/ow_r09_c03_bg_pixel.png",
+    bgGhibli: "/assets/rooms/ow_r09_c03_bg_pixel.png", // TEMP: pixel fallback until TASK_ROOM_GHIBLI
+    music: "outdoor",
+    ambience: "outdoor",
+    neighbors: { north: "ow_r08_c03", south: "ow_r10_c03", west: "ow_r09_c02", east: "ow_r09_c04" },
     spawnPoint: { x: 80, y: 72, direction: 3 },
     warpTriggers: [],
     colliders: [
@@ -206,15 +247,15 @@ export const MABE_VILLAGE_OVERWORLD_ROOMS: Record<string, RoomDef> = {
   },
 
   ow_r10_c00: {
-    id: 'ow_r10_c00',
-    name: 'Village des Mouettes — Entrée ouest',
+    id: "ow_r10_c00",
+    name: "Village des Mouettes — Entrée ouest",
     width: 160,
     height: 128,
-    bgPixel: '/assets/rooms/ow_r10_c00_bg_pixel.png',
-    bgGhibli: '/assets/rooms/ow_r10_c00_bg_pixel.png', // TEMP: pixel fallback until TASK_ROOM_GHIBLI
-    music: 'outdoor',
-    ambience: 'outdoor',
-    neighbors: { north: 'ow_r09_c00', south: 'ow_r11_c00', east: 'ow_r10_c01' },
+    bgPixel: "/assets/rooms/ow_r10_c00_bg_pixel.png",
+    bgGhibli: "/assets/rooms/ow_r10_c00_bg_pixel.png", // TEMP: pixel fallback until TASK_ROOM_GHIBLI
+    music: "outdoor",
+    ambience: "outdoor",
+    neighbors: { north: "ow_r09_c00", south: "ow_r11_c00", east: "ow_r10_c01" },
     spawnPoint: { x: 80, y: 72, direction: 3 },
     warpTriggers: [],
     colliders: [
@@ -253,15 +294,15 @@ export const MABE_VILLAGE_OVERWORLD_ROOMS: Record<string, RoomDef> = {
   },
 
   ow_r10_c01: {
-    id: 'ow_r10_c01',
-    name: 'Village des Mouettes — Maison de Marine (ouest)',
+    id: "ow_r10_c01",
+    name: "Village des Mouettes — Maison de Marine (ouest)",
     width: 160,
     height: 128,
-    bgPixel: '/assets/rooms/ow_r10_c01_bg_pixel.png',
-    bgGhibli: '/assets/rooms/ow_r10_c01_bg_pixel.png', // TEMP: pixel fallback until TASK_ROOM_GHIBLI
-    music: 'outdoor',
-    ambience: 'outdoor',
-    neighbors: { north: 'ow_r09_c01', south: 'ow_r11_c01', west: 'ow_r10_c00', east: 'ow_r10_c02' },
+    bgPixel: "/assets/rooms/ow_r10_c01_bg_pixel.png",
+    bgGhibli: "/assets/rooms/ow_r10_c01_bg_pixel.png", // TEMP: pixel fallback until TASK_ROOM_GHIBLI
+    music: "outdoor",
+    ambience: "outdoor",
+    neighbors: { north: "ow_r09_c01", south: "ow_r11_c01", west: "ow_r10_c00", east: "ow_r10_c02" },
     spawnPoint: { x: 80, y: 72, direction: 3 },
     warpTriggers: [],
     colliders: [
@@ -290,15 +331,15 @@ export const MABE_VILLAGE_OVERWORLD_ROOMS: Record<string, RoomDef> = {
   },
 
   ow_r10_c03: {
-    id: 'ow_r10_c03',
-    name: 'Village des Mouettes — Champ de culture',
+    id: "ow_r10_c03",
+    name: "Village des Mouettes — Champ de culture",
     width: 160,
     height: 128,
-    bgPixel: '/assets/rooms/ow_r10_c03_bg_pixel.png',
-    bgGhibli: '/assets/rooms/ow_r10_c03_bg_pixel.png', // TEMP: pixel fallback until TASK_ROOM_GHIBLI
-    music: 'outdoor',
-    ambience: 'outdoor',
-    neighbors: { north: 'ow_r09_c03', south: 'ow_r11_c03', west: 'ow_r10_c02', east: 'ow_r10_c04' },
+    bgPixel: "/assets/rooms/ow_r10_c03_bg_pixel.png",
+    bgGhibli: "/assets/rooms/ow_r10_c03_bg_pixel.png", // TEMP: pixel fallback until TASK_ROOM_GHIBLI
+    music: "outdoor",
+    ambience: "outdoor",
+    neighbors: { north: "ow_r09_c03", south: "ow_r11_c03", west: "ow_r10_c02", east: "ow_r10_c04" },
     spawnPoint: { x: 80, y: 72, direction: 3 },
     warpTriggers: [],
     colliders: [
@@ -323,15 +364,15 @@ export const MABE_VILLAGE_OVERWORLD_ROOMS: Record<string, RoomDef> = {
   },
 
   ow_r11_c01: {
-    id: 'ow_r11_c01',
-    name: 'Village des Mouettes — Bibliothèque',
+    id: "ow_r11_c01",
+    name: "Village des Mouettes — Bibliothèque",
     width: 160,
     height: 128,
-    bgPixel: '/assets/rooms/ow_r11_c01_bg_pixel.png',
-    bgGhibli: '/assets/rooms/ow_r11_c01_bg_pixel.png', // TEMP: pixel fallback until TASK_ROOM_GHIBLI
-    music: 'outdoor',
-    ambience: 'outdoor',
-    neighbors: { north: 'ow_r10_c01', south: 'ow_r12_c01', west: 'ow_r11_c00', east: 'ow_r11_c02' },
+    bgPixel: "/assets/rooms/ow_r11_c01_bg_pixel.png",
+    bgGhibli: "/assets/rooms/ow_r11_c01_bg_pixel.png", // TEMP: pixel fallback until TASK_ROOM_GHIBLI
+    music: "outdoor",
+    ambience: "outdoor",
+    neighbors: { north: "ow_r10_c01", south: "ow_r12_c01", west: "ow_r11_c00", east: "ow_r11_c02" },
     spawnPoint: { x: 80, y: 72, direction: 3 },
     warpTriggers: [],
     colliders: [
@@ -356,15 +397,15 @@ export const MABE_VILLAGE_OVERWORLD_ROOMS: Record<string, RoomDef> = {
   },
 
   ow_r11_c02: {
-    id: 'ow_r11_c02',
-    name: 'Village des Mouettes — Cabine téléphonique',
+    id: "ow_r11_c02",
+    name: "Village des Mouettes — Cabine téléphonique",
     width: 160,
     height: 128,
-    bgPixel: '/assets/rooms/ow_r11_c02_bg_pixel.png',
-    bgGhibli: '/assets/rooms/ow_r11_c02_bg_pixel.png', // TEMP: pixel fallback until TASK_ROOM_GHIBLI
-    music: 'outdoor',
-    ambience: 'outdoor',
-    neighbors: { north: 'ow_r10_c02', south: 'ow_r12_c02', west: 'ow_r11_c01', east: 'ow_r11_c03' },
+    bgPixel: "/assets/rooms/ow_r11_c02_bg_pixel.png",
+    bgGhibli: "/assets/rooms/ow_r11_c02_bg_pixel.png", // TEMP: pixel fallback until TASK_ROOM_GHIBLI
+    music: "outdoor",
+    ambience: "outdoor",
+    neighbors: { north: "ow_r10_c02", south: "ow_r12_c02", west: "ow_r11_c01", east: "ow_r11_c03" },
     spawnPoint: { x: 80, y: 72, direction: 3 },
     warpTriggers: [],
     colliders: [
@@ -378,15 +419,15 @@ export const MABE_VILLAGE_OVERWORLD_ROOMS: Record<string, RoomDef> = {
   },
 
   ow_r11_c03: {
-    id: 'ow_r11_c03',
-    name: 'Village des Mouettes — Jeu de hasard',
+    id: "ow_r11_c03",
+    name: "Village des Mouettes — Jeu de hasard",
     width: 160,
     height: 128,
-    bgPixel: '/assets/rooms/ow_r11_c03_bg_pixel.png',
-    bgGhibli: '/assets/rooms/ow_r11_c03_bg_pixel.png', // TEMP: pixel fallback until TASK_ROOM_GHIBLI
-    music: 'outdoor',
-    ambience: 'outdoor',
-    neighbors: { north: 'ow_r10_c03', south: 'ow_r12_c03', west: 'ow_r11_c02', east: 'ow_r11_c04' },
+    bgPixel: "/assets/rooms/ow_r11_c03_bg_pixel.png",
+    bgGhibli: "/assets/rooms/ow_r11_c03_bg_pixel.png", // TEMP: pixel fallback until TASK_ROOM_GHIBLI
+    music: "outdoor",
+    ambience: "outdoor",
+    neighbors: { north: "ow_r10_c03", south: "ow_r12_c03", west: "ow_r11_c02", east: "ow_r11_c04" },
     spawnPoint: { x: 80, y: 72, direction: 3 },
     warpTriggers: [],
     colliders: [

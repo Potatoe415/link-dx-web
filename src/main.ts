@@ -13,6 +13,7 @@ import { ScreenScroll } from './core/ScreenScroll';
 import { ROOMS, RoomDef, Rect } from './data/rooms';
 import { Player } from './entities/Player';
 import { PropInstance, ParticleSystem } from './entities/Prop';
+import { InteractableSystem } from './entities/Interactables';
 
 export class GameEngine {
   private ctx: CanvasRenderingContext2D;
@@ -32,6 +33,7 @@ export class GameEngine {
   private scroller: ScreenScroll;
   private hud: HUD;
   private inventory: InventoryMenu;
+  private interactables: InteractableSystem;
 
   // Render mode: true = Pre-rendered Ghibli HD, false = Original Pixel-Art Whitebox
   public useGhibliMode = true;
@@ -54,6 +56,7 @@ export class GameEngine {
     this.dialogue = new DialogueSystem(this.game, this.sound);
     this.hud = new HUD(this.game, this.images);
     this.inventory = new InventoryMenu(this.game, this.images, this.sound);
+    this.interactables = new InteractableSystem(this.game, this.images, this.sound, this.dialogue);
     this.scroller = new ScreenScroll(this.camera, (key, props, x, y) => {
       this.initRoom(key, props);
       this.player.x = x;
@@ -101,6 +104,7 @@ export class GameEngine {
     this.currentRoomKey = roomKey;
     this.currentRoom = ROOMS[roomKey];
     this.props = props ?? this.currentRoom.props.map((p) => new PropInstance(p));
+    this.interactables?.setRoom(roomKey, this.currentRoom.interactables);
     if (previous && previous.ambience !== this.currentRoom.ambience) this.particles.clear();
     this.sound.playMusic(this.currentRoom.music);
     for (const key of Object.values(this.currentRoom.neighbors ?? {})) {
@@ -186,8 +190,11 @@ export class GameEngine {
       return;
     }
 
-    // Solid obstacles: room static colliders + prop collisions
-    const allColliders: Rect[] = [...this.currentRoom.colliders];
+    this.interactables.update(dtMs);
+    if (this.interactables.isBusy()) return;
+
+    // Solid obstacles: room static colliders + prop collisions + signposts / chests
+    const allColliders: Rect[] = [...this.currentRoom.colliders, ...this.interactables.colliders()];
     for (const prop of this.props) {
       if (prop.data.collision) allColliders.push(prop.data.collision);
     }
@@ -198,6 +205,8 @@ export class GameEngine {
       this.refreshStats();
       return;
     }
+    const canAct = this.player.state === 'IDLE' || this.player.state === 'WALKING';
+    if (canAct && this.input.wasInteractJustPressed() && this.interactables.tryInteract(this.player)) return;
 
     this.player.update(dtMs, this.input, allColliders, this.sound, this.currentRoom.groundZones);
 
@@ -251,7 +260,10 @@ export class GameEngine {
       ctx.imageSmoothingEnabled = this.useGhibliMode;
       playerRenderable.render(); // Link travels with the scroll, drawn over both screens
     } else {
-      this.roomRenderer.renderRoom(ctx, room, this.props, spritesheet, this.useGhibliMode, 0, 0, [playerRenderable]);
+      this.roomRenderer.renderRoom(ctx, room, this.props, spritesheet, this.useGhibliMode, 0, 0, [
+        playerRenderable,
+        ...this.interactables.renderables(ctx)
+      ]);
       this.particles.render(ctx);
       if (this.showColliders) renderCollidersDebug(ctx, room, this.props, this.player.x, this.player.y);
     }

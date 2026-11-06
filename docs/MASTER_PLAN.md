@@ -71,8 +71,8 @@
 
 ### 1.4.2 — Objets Interactifs du Monde (Buissons, Pierres, Pots, Coffres, Pancartes)
 - [ ] **[T-1.4.2-01]** Implémenter les **Buissons & Herbes coupables** (`bush_0`, `gras` depuis `ObjBush.cs`) : coupés d'un coup d'épée (animation de feuilles éparpillées + son `D378-05-05.wav`), révélant parfois un rubis, un coeur ou un passage secret.
-- [ ] **[T-1.4.2-02]** Implémenter les **Pancartes & Statues de Hibou** (`signpost`, `owl_statue`) : lecture du texte en appuyant sur `Espace` face au panneau.
-- [ ] **[T-1.4.2-03]** Implémenter les **Coffres au Trésor** (`chest` depuis `ObjChest.cs`) : ouverture avec `Espace` par le bas -> son d'ouverture (`D378-01-01.wav`) -> état `ITEM_GET` avec fanfare (`D368-16-10.wav`) -> enregistrement dans `GameState.openedChests`.
+- [x] **[T-1.4.2-02]** Implémenter les **Pancartes & Statues de Hibou** (`signpost`, `owl_statue`) : lecture du texte en appuyant sur `Espace` face au panneau.
+- [x] **[T-1.4.2-03]** Implémenter les **Coffres au Trésor** (`chest` depuis `ObjChest.cs`) : ouverture avec `Espace` par le bas -> son d'ouverture (`D378-01-01.wav`) -> état `ITEM_GET` avec fanfare (`D368-16-10.wav`) -> enregistrement dans `GameState.openedChests`.
 
 ---
 

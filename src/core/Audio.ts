@@ -13,7 +13,9 @@ export type SfxName =
   | 'menu_select'
   | 'splash'
   | 'drown'
-  | 'fall';
+  | 'fall'
+  | 'chest_open'
+  | 'treasure';
 
 export type MusicTrack = 'indoor' | 'outdoor' | 'marin_sing';
 
@@ -50,7 +52,9 @@ export class SoundManager {
       menu_select: '/assets/audio/sfx_menu_select.wav', // D360-19-13
       splash: '/assets/audio/sfx_splash.wav', // D360-14-0E (wading / swimming)
       drown: '/assets/audio/sfx_drown.wav', // D370-03-03
-      fall: '/assets/audio/sfx_fall.wav' // D370-12-0C (falling into a hole)
+      fall: '/assets/audio/sfx_fall.wav', // D370-12-0C (falling into a hole)
+      chest_open: '/assets/audio/sfx_chest_open.wav', // D378-04-04
+      treasure: '/assets/audio/sfx_treasure.wav' // D360-01-01 (rupee treasure jingle, ducks music)
     };
 
     for (const [key, url] of Object.entries(sfxFiles) as [SfxName, string][]) {
@@ -108,7 +112,7 @@ export class SoundManager {
     }
 
     // Duck background music during the Item Get fanfare, just like TurnDownMusic in Link's Awakening
-    if (name === 'item_get') {
+    if (name === 'item_get' || name === 'treasure') {
       this.duckMusic(2800);
     }
   }
