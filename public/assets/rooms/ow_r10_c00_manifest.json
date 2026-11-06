@@ -329,6 +329,22 @@
       "source": "tree0"
     }
   ],
+  "groundZones": [
+    {
+      "kind": "grass",
+      "x": 112,
+      "y": 0,
+      "w": 16,
+      "h": 16
+    },
+    {
+      "kind": "hole",
+      "x": 81,
+      "y": 81,
+      "w": 14,
+      "h": 14
+    }
+  ],
   "objects": [
     {
       "id": "bush",

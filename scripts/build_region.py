@@ -41,6 +41,14 @@ def merge_rects(rects):
     return sorted(merged, key=lambda r: (r[1], r[0]))
 
 
+def merge_zones(zones):
+    """Merge ground zones per kind with the same rectangle merging as colliders."""
+    out = []
+    for kind in sorted({z['kind'] for z in zones}):
+        out += [(kind, *r) for r in merge_rects([z for z in zones if z['kind'] == kind])]
+    return sorted(out, key=lambda z: (z[2], z[1], z[0]))
+
+
 def ts_string(s):
     return "'" + s.replace('\\', '\\\\').replace("'", "\\'") + "'"
 
@@ -75,7 +83,13 @@ def build_room(room_id, name, cfg):
         '    colliders: [',
     ]
     lines += [f'      {{ x: {x}, y: {y}, w: {w}, h: {h} }},' for x, y, w, h in colliders]
-    lines += ['    ],', '    props: []', '  }']
+    lines.append('    ],')
+    zones = merge_zones(m.get('groundZones') or [])
+    if zones:
+        lines.append('    groundZones: [')
+        lines += [f"      {{ kind: '{k}', x: {x}, y: {y}, w: {w}, h: {h} }}," for k, x, y, w, h in zones]
+        lines.append('    ],')
+    lines += ['    props: []', '  }']
     return '\n'.join(lines)
 
 

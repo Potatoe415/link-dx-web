@@ -217,6 +217,15 @@
       "source": "treeWoods2"
     }
   ],
+  "groundZones": [
+    {
+      "kind": "stairs",
+      "x": 16,
+      "y": 112,
+      "w": 16,
+      "h": 12
+    }
+  ],
   "objects": [
     {
       "id": "butterfly",

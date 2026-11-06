@@ -203,6 +203,15 @@
       "source": "tree0"
     }
   ],
+  "groundZones": [
+    {
+      "kind": "stairs",
+      "x": 16,
+      "y": 0,
+      "w": 16,
+      "h": 12
+    }
+  ],
   "objects": [
     {
       "id": "bird",

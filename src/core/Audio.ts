@@ -10,7 +10,10 @@ export type SfxName =
   | 'cursor'
   | 'menu_open'
   | 'menu_close'
-  | 'menu_select';
+  | 'menu_select'
+  | 'splash'
+  | 'drown'
+  | 'fall';
 
 export type MusicTrack = 'indoor' | 'outdoor' | 'marin_sing';
 
@@ -44,7 +47,10 @@ export class SoundManager {
       cursor: '/assets/audio/sfx_cursor.wav',
       menu_open: '/assets/audio/sfx_menu_open.wav', // D360-17-11
       menu_close: '/assets/audio/sfx_menu_close.wav', // D360-18-12
-      menu_select: '/assets/audio/sfx_menu_select.wav' // D360-19-13
+      menu_select: '/assets/audio/sfx_menu_select.wav', // D360-19-13
+      splash: '/assets/audio/sfx_splash.wav', // D360-14-0E (wading / swimming)
+      drown: '/assets/audio/sfx_drown.wav', // D370-03-03
+      fall: '/assets/audio/sfx_fall.wav' // D370-12-0C (falling into a hole)
     };
 
     for (const [key, url] of Object.entries(sfxFiles) as [SfxName, string][]) {

@@ -1,11 +1,33 @@
 import { Input } from '../core/Input';
 import { Collision } from '../core/Collision';
 import { SoundManager } from '../core/Audio';
-import { Rect } from '../data/rooms';
+import { GroundKind, GroundZone, Rect } from '../data/rooms';
 import { ANIMATIONS, AnimationDef, AnimationFrame } from '../data/animations';
+import { renderEquippedShield, renderItemGetOverhead, ShieldPose } from './PlayerShieldRender';
 import { GameState } from '../core/GameState';
+import {
+  DROWN_HIDDEN_MS,
+  DROWN_SINK_MS,
+  GROUND_SPEED,
+  HAZARD_DAMAGE_QUARTERS,
+  HOLE_FALL_MS,
+  WADE_SOUND_INTERVAL_MS,
+  groundAt,
+  isSafeGround,
+  renderGrassMask,
+  renderRipple
+} from './Ground';
 
-export type PlayerState = 'SLEEPING' | 'WAKING' | 'JUMPING_OUT' | 'IDLE' | 'WALKING' | 'ITEM_GET';
+export type PlayerState =
+  | 'SLEEPING'
+  | 'WAKING'
+  | 'JUMPING_OUT'
+  | 'IDLE'
+  | 'WALKING'
+  | 'ITEM_GET'
+  | 'SWIMMING'
+  | 'DROWNING'
+  | 'FALLING_PIT';
 
 export class Player {
   // Logical position (in 160x128 space, feet anchor)
@@ -44,6 +66,14 @@ export class Player {
   // Movement speed: 1.0 logical pixel per frame at 60 FPS (60.0 px/s)
   public readonly speed: number = 1.0;
 
+  // Special ground (grass, water, stairs, holes) — see Ground.ts
+  public ground: GroundKind | null = null;
+  private hazardTimer: number = 0;
+  private wadeTimer: number = 0;
+  private groundTime: number = 0;
+  private safeX: number = 56;
+  private safeY: number = 51;
+
   constructor(game: GameState, startX: number = 56, startY: number = 51, initialDirection: number = 3) {
     this.game = game;
     this.x = startX;
@@ -59,6 +89,9 @@ export class Player {
   public teleport(newX: number, newY: number, newDir: number): void {
     this.x = newX;
     this.y = newY;
+    this.safeX = newX;
+    this.safeY = newY;
+    this.ground = null;
     this.z = 0;
     this.direction = newDir;
     this.state = 'IDLE';
@@ -80,7 +113,19 @@ export class Player {
     }
   }
 
-  public update(dtMs: number, input: Input, colliders: Rect[], sound?: SoundManager): void {
+  /** Hidden while drowned (between sinking and respawn), like the original. */
+  public get isVisible(): boolean {
+    return !(this.state === 'DROWNING' && this.hazardTimer >= DROWN_SINK_MS);
+  }
+
+  public update(
+    dtMs: number,
+    input: Input,
+    colliders: Rect[],
+    sound?: SoundManager,
+    groundZones?: GroundZone[]
+  ): void {
+    this.groundTime += dtMs;
     switch (this.state) {
       case 'SLEEPING':
         this.updateSleeping(input, sound);
@@ -100,7 +145,14 @@ export class Player {
 
       case 'IDLE':
       case 'WALKING':
-        this.updateMovement(input, colliders, sound);
+      case 'SWIMMING':
+        this.updateMovement(input, colliders, sound, GROUND_SPEED[this.ground ?? 'hole']);
+        this.updateGround(dtMs, groundZones, sound);
+        break;
+
+      case 'DROWNING':
+      case 'FALLING_PIT':
+        this.updateHazard(dtMs);
         break;
     }
 
@@ -156,9 +208,64 @@ export class Player {
     }
   }
 
-  private updateMovement(input: Input, colliders: Rect[], sound?: SoundManager): void {
+  /** Applies the ground Link stands on after moving (ObjLink.UpdateSwimming / OnHoleAbsorb). */
+  private updateGround(dtMs: number, zones: GroundZone[] | undefined, sound?: SoundManager): void {
+    const previous = this.ground;
+    this.ground = groundAt(zones, this.x, this.y);
+
+    if (this.ground === 'hole') {
+      this.state = 'FALLING_PIT';
+      this.hazardTimer = 0;
+      this.isBlocking = false;
+      sound?.playSfx('fall', 0.7);
+      return;
+    }
+
+    if (this.ground === 'deepWater') {
+      if (this.game.hasItem('flippers')) {
+        if (this.state !== 'SWIMMING') sound?.playSfx('splash', 0.6);
+        this.state = 'SWIMMING';
+      } else {
+        this.state = 'DROWNING';
+        this.hazardTimer = 0;
+        this.isBlocking = false;
+        sound?.playSfx('drown', 0.7);
+      }
+      return;
+    }
+    if (this.state === 'SWIMMING') this.state = 'IDLE';
+
+    if (this.ground === 'shallowWater' && this.state === 'WALKING') {
+      this.wadeTimer += dtMs;
+      if (this.wadeTimer >= WADE_SOUND_INTERVAL_MS || previous !== 'shallowWater') {
+        this.wadeTimer = 0;
+        sound?.playSfx('splash', 0.35);
+      }
+    }
+
+    if (isSafeGround(this.ground)) {
+      this.safeX = this.x;
+      this.safeY = this.y;
+    }
+  }
+
+  /** Drowning / falling: play out, then respawn at the last safe spot with 2 quarter-hearts damage. */
+  private updateHazard(dtMs: number): void {
+    this.hazardTimer += dtMs;
+    const total = this.state === 'DROWNING' ? DROWN_SINK_MS + DROWN_HIDDEN_MS : HOLE_FALL_MS;
+    if (this.hazardTimer < total) return;
+
+    this.game.changeHealth(-HAZARD_DAMAGE_QUARTERS);
+    this.x = this.safeX;
+    this.y = this.safeY;
+    this.ground = null;
+    this.state = 'IDLE';
+    this.updateIdleAnimation();
+  }
+
+  private updateMovement(input: Input, colliders: Rect[], sound?: SoundManager, groundSpeed: number = 1): void {
     const wasBlocking = this.isBlocking;
-    this.isBlocking = this.hasShield && input.isShieldHeld();
+    this.isBlocking = this.hasShield && this.state !== 'SWIMMING' && input.isShieldHeld();
     if (!wasBlocking && this.isBlocking) {
       sound?.playSfx('shield', 0.65);
     }
@@ -182,8 +289,8 @@ export class Player {
       }
 
       const blockSpeedFactor = this.isBlocking ? 0.75 : 1.0;
-      const dx = vx * this.speed * blockSpeedFactor;
-      const dy = vy * this.speed * blockSpeedFactor;
+      const dx = vx * this.speed * blockSpeedFactor * groundSpeed;
+      const dy = vy * this.speed * blockSpeedFactor * groundSpeed;
 
       const { newX, newY } = Collision.moveWithSlide(this.x, this.y, dx, dy, colliders);
       this.x = newX;
@@ -269,7 +376,12 @@ export class Player {
    */
   public render(ctx: CanvasRenderingContext2D, spritesheet: HTMLImageElement): void {
     const frame = this.getCurrentFrame();
-    if (!frame) return;
+    if (!frame || !this.isVisible) return;
+
+    if (this.state === 'FALLING_PIT' || this.state === 'DROWNING' || this.state === 'SWIMMING') {
+      this.renderInHazard(ctx, spritesheet, frame);
+      return;
+    }
 
     // In sleeping state, Link is rendered inside the bed frame without drop shadow
     const drawShadow = this.state !== 'SLEEPING' && this.state !== 'WAKING';
@@ -301,7 +413,7 @@ export class Player {
 
     // If facing UP (direction === 1) and carrying shield, draw shield behind Link's body
     if (this.hasShield && this.state !== 'ITEM_GET' && drawShadow && this.direction === 1) {
-      this.renderEquippedShield(ctx);
+      renderEquippedShield(ctx, this.pose());
     }
 
     ctx.drawImage(
@@ -318,155 +430,61 @@ export class Player {
 
     // If facing Left/Right/Down and carrying shield, draw shield in front of Link
     if (this.hasShield && this.state !== 'ITEM_GET' && drawShadow && this.direction !== 1) {
-      this.renderEquippedShield(ctx);
+      renderEquippedShield(ctx, this.pose());
     }
 
     // If in ITEM_GET celebration pose, draw radiant golden rays + Shield held overhead
     if (this.state === 'ITEM_GET') {
-      this.renderItemGetOverhead(ctx);
+      renderItemGetOverhead(ctx, this.pose());
     }
+
+    if (this.ground === 'grass') renderGrassMask(ctx, this.x, this.y, this.animFrameIndex);
+    if (this.ground === 'shallowWater') renderRipple(ctx, this.x, this.y, this.groundTime);
   }
 
-  private renderEquippedShield(ctx: CanvasRenderingContext2D): void {
-    const bob = this.state === 'WALKING' && (this.animFrameIndex % 2 === 0) ? -0.6 : 0;
-
-    if (this.direction === 3) {
-      // Facing Down: shield on Link's left-viewer side (his right arm), or centered if blocking
-      const sx = this.isBlocking ? this.x + 1.0 : this.x - 4.2;
-      const sy = (this.isBlocking ? this.y - 6.8 : this.y - 6.2) + bob;
-      const scale = this.isBlocking ? 1.08 : 0.9;
-      this.drawCocolintShield(ctx, sx, sy, scale, false);
-    } else if (this.direction === 1) {
-      // Facing Up: shield on right-viewer side (his right arm)
-      const sx = this.isBlocking ? this.x : this.x + 4.2;
-      const sy = (this.isBlocking ? this.y - 9.5 : this.y - 6.8) + bob;
-      this.drawCocolintShield(ctx, sx, sy, 0.88, false);
-    } else if (this.direction === 0) {
-      // Facing Left: shield in profile on the left edge
-      const sx = this.isBlocking ? this.x - 5.5 : this.x - 3.8;
-      const sy = (this.isBlocking ? this.y - 7.2 : this.y - 6.2) + bob;
-      this.drawCocolintShield(ctx, sx, sy, this.isBlocking ? 0.95 : 0.78, true);
-    } else if (this.direction === 2) {
-      // Facing Right: shield in profile on the right edge
-      const sx = this.isBlocking ? this.x + 5.5 : this.x + 3.8;
-      const sy = (this.isBlocking ? this.y - 7.2 : this.y - 6.2) + bob;
-      this.drawCocolintShield(ctx, sx, sy, this.isBlocking ? 0.95 : 0.78, true);
-    }
-  }
-
-  private renderItemGetOverhead(ctx: CanvasRenderingContext2D): void {
-    const floatY = Math.sin(this.itemGetTimer * 0.006) * 1.2;
-    const cx = this.x;
-    const cy = this.y - 22 + floatY;
-
-    ctx.save();
-
-    // Rotating golden Ghibli sunburst behind the shield
-    const angle = this.itemGetTimer * 0.0025;
-    const numRays = 8;
-    for (let i = 0; i < numRays; i++) {
-      const a = angle + (i * Math.PI * 2) / numRays;
-      ctx.save();
-      ctx.translate(cx, cy);
-      ctx.rotate(a);
-      const grad = ctx.createLinearGradient(0, 0, 0, -14);
-      grad.addColorStop(0, 'rgba(253, 224, 71, 0.75)');
-      grad.addColorStop(1, 'rgba(251, 191, 36, 0.0)');
-      ctx.fillStyle = grad;
-      ctx.beginPath();
-      ctx.moveTo(-1.8, 0);
-      ctx.lineTo(1.8, 0);
-      ctx.lineTo(0, -14);
-      ctx.closePath();
-      ctx.fill();
-      ctx.restore();
-    }
-
-    // Soft warm glow circle
-    const radial = ctx.createRadialGradient(cx, cy, 1, cx, cy, 10);
-    radial.addColorStop(0, 'rgba(254, 240, 138, 0.9)');
-    radial.addColorStop(0.6, 'rgba(245, 158, 11, 0.35)');
-    radial.addColorStop(1, 'rgba(245, 158, 11, 0)');
-    ctx.fillStyle = radial;
-    ctx.beginPath();
-    ctx.arc(cx, cy, 10, 0, Math.PI * 2);
-    ctx.fill();
-
-    // Draw the shield large and clear overhead
-    this.drawCocolintShield(ctx, cx, cy, 1.35, false);
-
-    ctx.restore();
+  private pose(): ShieldPose {
+    return {
+      x: this.x,
+      y: this.y,
+      direction: this.direction,
+      state: this.state,
+      isBlocking: this.isBlocking,
+      animFrameIndex: this.animFrameIndex,
+      itemGetTimer: this.itemGetTimer
+    };
   }
 
   /**
-   * Draws Link's wooden & iron Cocolint Shield in hand-painted style
+   * TEMP: the Ghibli spritesheet has no fall/drown/swim frames yet, so these states reuse the
+   * current frame: shrink + fade into the pit, sink with ripples, or waist-deep while swimming.
    */
-  private drawCocolintShield(
-    ctx: CanvasRenderingContext2D,
-    cx: number,
-    cy: number,
-    scale: number,
-    narrowProfile: boolean
-  ): void {
+  private renderInHazard(ctx: CanvasRenderingContext2D, spritesheet: HTMLImageElement, frame: AnimationFrame): void {
+    const renderW = frame.renderW ?? frame.w;
+    const renderH = frame.renderH ?? frame.h;
     ctx.save();
-    ctx.translate(cx, cy);
-    ctx.scale(narrowProfile ? scale * 0.58 : scale, scale);
 
-    const w = 3.4;
-    const h = 4.4;
+    if (this.state === 'FALLING_PIT') {
+      const t = Math.min(1, this.hazardTimer / HOLE_FALL_MS);
+      const scale = 1 - 0.85 * t;
+      ctx.globalAlpha = 1 - t * 0.8;
+      ctx.translate(this.x, this.y - 4);
+      ctx.scale(scale, scale);
+      ctx.drawImage(spritesheet, frame.x, frame.y, frame.w, frame.h, -frame.originX, -frame.originY + 4, renderW, renderH);
+      ctx.restore();
+      return;
+    }
 
-    // Drop shadow
-    ctx.fillStyle = 'rgba(0, 0, 0, 0.35)';
-    this.shieldPath(ctx, 0.3, 0.4, w, h);
-    ctx.fill();
-
-    // Outer metallic iron/gold rim
-    const rimGrad = ctx.createLinearGradient(-w, -h, w, h);
-    rimGrad.addColorStop(0, '#fde68a');
-    rimGrad.addColorStop(0.5, '#d97706');
-    rimGrad.addColorStop(1, '#78350f');
-    ctx.fillStyle = rimGrad;
-    this.shieldPath(ctx, 0, 0, w, h);
-    ctx.fill();
-
-    ctx.lineWidth = 0.45;
-    ctx.strokeStyle = '#451a03';
-    ctx.stroke();
-
-    // Inner warm oak wood face
-    const woodGrad = ctx.createLinearGradient(0, -h * 0.78, 0, h * 0.78);
-    woodGrad.addColorStop(0, '#b45309');
-    woodGrad.addColorStop(0.5, '#92400e');
-    woodGrad.addColorStop(1, '#572407');
-    ctx.fillStyle = woodGrad;
-    this.shieldPath(ctx, 0, 0, w * 0.76, h * 0.76);
-    ctx.fill();
-
-    // Central golden Triforce/crest boss emblem
-    ctx.fillStyle = '#fbbf24';
-    ctx.beginPath();
-    ctx.moveTo(0, -1.6);
-    ctx.lineTo(1.3, 0.4);
-    ctx.lineTo(-1.3, 0.4);
-    ctx.closePath();
-    ctx.fill();
-
-    // Boss highlight
-    ctx.fillStyle = '#fef3c7';
-    ctx.beginPath();
-    ctx.arc(0, 1.3, 0.55, 0, Math.PI * 2);
-    ctx.fill();
-
+    // Water: show the sprite above the waterline only (sinks while drowning)
+    const sink = this.state === 'DROWNING' ? Math.min(1, this.hazardTimer / DROWN_SINK_MS) : 0;
+    const visibleH = renderH * (this.state === 'SWIMMING' ? 0.62 : 0.62 * (1 - sink));
+    const srcH = (visibleH / renderH) * frame.h;
+    // The waterline stays at 62% of the sprite height; sinking slides the sprite down behind it
+    const drawY = this.y - frame.originY + renderH * 0.62 * sink;
+    if (visibleH > 0.5) {
+      ctx.drawImage(spritesheet, frame.x, frame.y, frame.w, srcH, this.x - frame.originX, drawY, renderW, visibleH);
+    }
+    renderRipple(ctx, this.x, this.y - 2, this.groundTime);
     ctx.restore();
   }
 
-  private shieldPath(ctx: CanvasRenderingContext2D, ox: number, oy: number, w: number, h: number): void {
-    ctx.beginPath();
-    ctx.moveTo(ox - w, oy - h * 0.85);
-    ctx.quadraticCurveTo(ox, oy - h, ox + w, oy - h * 0.85);
-    ctx.lineTo(ox + w, oy + h * 0.1);
-    ctx.quadraticCurveTo(ox + w * 0.85, oy + h * 0.7, ox, oy + h);
-    ctx.quadraticCurveTo(ox - w * 0.85, oy + h * 0.7, ox - w, oy + h * 0.1);
-    ctx.closePath();
-  }
 }

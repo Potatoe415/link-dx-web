@@ -364,6 +364,7 @@
       "source": "treeWoods2"
     }
   ],
+  "groundZones": [],
   "objects": [
     {
       "id": "bush",

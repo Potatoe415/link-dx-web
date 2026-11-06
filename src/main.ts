@@ -199,9 +199,10 @@ export class GameEngine {
       return;
     }
 
-    this.player.update(dtMs, this.input, allColliders, this.sound);
+    this.player.update(dtMs, this.input, allColliders, this.sound, this.currentRoom.groundZones);
 
-    if (this.player.state === 'IDLE' || this.player.state === 'WALKING') {
+    const canLeave = this.player.state === 'IDLE' || this.player.state === 'WALKING' || this.player.state === 'SWIMMING';
+    if (canLeave) {
       if (this.scroller.checkEdges(this.currentRoom, this.player)) {
         void this.roomRenderer.prefetch(ROOMS[this.scroller.pending!.nextKey]);
         return;

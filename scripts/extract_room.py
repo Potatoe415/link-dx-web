@@ -183,6 +183,32 @@ def fence_posts(obj_id, params):
             yield 4 + (i % 2) * 8, 5 + (i // 2) * 8
 
 
+# Ground zones (MapStates.FieldStates + ObjSlow/ObjHole), one entry per object -> logical rect.
+# grass: ObjBush with setGrassField (Map.SetFieldState(tile, Grass)); water/waterDeep: AddFieldState(tile);
+# stairs: ObjSlow ObjectCollisionComponent Rectangle(x, y, 16, 12); hole: ObjHole CBox(x + 1, y + 1, 14, 14).
+GRASS_IDS = {'gras', 'gras0', 'gras1', 'gras2', 'gras3', 'grasForest', 'grasSwamp'}
+GROUND_ZONES = {
+    'water': ('shallowWater', (0, 0, 16, 16)),
+    'waterDeep': ('deepWater', (0, 0, 16, 16)),
+    'stairs': ('stairs', (0, 0, 16, 12)),
+    'hole': ('hole', (1, 1, 14, 14)),
+}
+
+
+def compute_ground_zone(obj_id, lx, ly):
+    if obj_id in GRASS_IDS:
+        kind, (ox, oy, w, h) = 'grass', (0, 0, 16, 16)
+    elif obj_id in GROUND_ZONES:
+        kind, (ox, oy, w, h) = GROUND_ZONES[obj_id]
+    else:
+        return None
+    x0, y0 = max(0, lx + ox), max(0, ly + oy)
+    x1, y1 = min(160, lx + ox + w), min(128, ly + oy + h)
+    if x1 <= x0 or y1 <= y0:
+        return None
+    return {'kind': kind, 'x': x0, 'y': y0, 'w': x1 - x0, 'h': y1 - y0}
+
+
 def compute_object_colliders(obj_id, lx, ly, params, templates):
     rects = []
     if obj_id in COLLIDER_SHAPES:
@@ -267,6 +293,7 @@ def extract_room(map_name, screen_col, screen_row, out_id, out_dir, offset_px_x=
 
     local_objects = []
     extracted_colliders = []
+    ground_zones = []
     for obj in parsed['objects']:
         lx = obj['mapX'] - world_px_x
         ly = obj['mapY'] - world_px_y
@@ -280,6 +307,10 @@ def extract_room(map_name, screen_col, screen_row, out_id, out_dir, offset_px_x=
                 'params': obj['params'],
             }
             local_objects.append(entry)
+
+            zone = compute_ground_zone(obj['id'], lx, ly)
+            if zone:
+                ground_zones.append(zone)
 
             for r in compute_object_colliders(obj['id'], lx, ly, obj['params'], templates):
                 # Clip collider to [0..160, 0..128] screen bounds
@@ -378,6 +409,7 @@ def extract_room(map_name, screen_col, screen_row, out_id, out_dir, offset_px_x=
             'east': f'ow_r{screen_row:02d}_c{screen_col + 1:02d}' if is_overworld and screen_col < 15 else None,
         },
         'colliders': extracted_colliders,
+        'groundZones': ground_zones,
         'objects': [o for o in local_objects if o['category'] != 'collider'],
         'tiles': room_tiles,
     }

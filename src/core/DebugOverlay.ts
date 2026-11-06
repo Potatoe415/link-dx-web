@@ -2,7 +2,7 @@ import { RoomDef } from '../data/rooms';
 import { PropInstance } from '../entities/Prop';
 import { Collision } from './Collision';
 
-/** AABB debug view (key C): red = static walls, violet = NPC colliders, cyan = warps, green = Link's feet. */
+/** AABB debug view (key C): red = static walls, violet = NPC colliders, cyan = warps, green = Link's feet; ground zones underneath. */
 export function renderCollidersDebug(
   ctx: CanvasRenderingContext2D,
   room: RoomDef,
@@ -22,6 +22,17 @@ export function renderCollidersDebug(
     }
   };
 
+  // Ground zones first (under walls): grass green, water blue, stairs amber, holes black
+  const zoneColors: Record<string, [string, string]> = {
+    grass: ['rgba(132, 204, 22, 0.25)', '#65a30d'],
+    shallowWater: ['rgba(56, 189, 248, 0.3)', '#0ea5e9'],
+    deepWater: ['rgba(30, 64, 175, 0.45)', '#1e40af'],
+    stairs: ['rgba(245, 158, 11, 0.35)', '#d97706'],
+    hole: ['rgba(0, 0, 0, 0.6)', '#000000']
+  };
+  for (const [kind, [fill, stroke]] of Object.entries(zoneColors)) {
+    drawBoxes(fill, stroke, (room.groundZones ?? []).filter((z) => z.kind === kind));
+  }
   drawBoxes('rgba(239, 68, 68, 0.45)', '#ef4444', room.colliders);
   drawBoxes(
     'rgba(168, 85, 247, 0.45)',

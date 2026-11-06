@@ -139,6 +139,15 @@ export const MABE_VILLAGE_ROOMS: Record<string, RoomDef> = {
       { x: 98, y: 95, w: 37, h: 12 },    // Bottom-right fence (starts after path at x=98)
       { x: 128, y: 64, w: 7, h: 43 }     // Right fence column
     ],
+    // Tall grass from overworld.map `gras` objects (scripts/extract_room.py groundZones)
+    groundZones: [
+      { kind: 'grass', x: 48, y: 32, w: 64, h: 16 },
+      { kind: 'grass', x: 144, y: 32, w: 16, h: 32 },
+      { kind: 'grass', x: 48, y: 48, w: 16, h: 32 },
+      { kind: 'grass', x: 112, y: 64, w: 16, h: 16 },
+      { kind: 'grass', x: 48, y: 80, w: 32, h: 16 },
+      { kind: 'grass', x: 96, y: 80, w: 32, h: 16 },
+    ],
     props: [
       {
         id: 'weathercock',

@@ -140,6 +140,7 @@
       "source": "tree0"
     }
   ],
+  "groundZones": [],
   "objects": [
     {
       "id": "bird",

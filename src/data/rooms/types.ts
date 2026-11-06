@@ -26,6 +26,13 @@ export interface RoomProp {
   dialogues?: string[][]; // Array of conversations (each conversation is an array of pages)
 }
 
+/** Special ground (MapStates.FieldStates + ObjSlow/ObjHole in `_ref_repo`). */
+export type GroundKind = 'grass' | 'shallowWater' | 'deepWater' | 'stairs' | 'hole';
+
+export interface GroundZone extends Rect {
+  kind: GroundKind;
+}
+
 /** Music track key understood by SoundManager.playMusic. */
 export type RoomMusic = 'indoor' | 'outdoor';
 /** Ambient particle style (ParticleSystem). */
@@ -55,5 +62,6 @@ export interface RoomDef {
   spawnPoint: { x: number; y: number; direction: number };
   warpTriggers: WarpTrigger[];
   colliders: Rect[];
+  groundZones?: GroundZone[];
   props: RoomProp[];
 }

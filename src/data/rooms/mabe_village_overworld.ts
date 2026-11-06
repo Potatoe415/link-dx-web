@@ -36,6 +36,9 @@ export const MABE_VILLAGE_OVERWORLD_ROOMS: Record<string, RoomDef> = {
       { x: 0, y: 116, w: 32, h: 12 },
       { x: 144, y: 116, w: 16, h: 12 },
     ],
+    groundZones: [
+      { kind: 'grass', x: 96, y: 48, w: 32, h: 16 },
+    ],
     props: []
   },
 
@@ -103,6 +106,9 @@ export const MABE_VILLAGE_OVERWORLD_ROOMS: Record<string, RoomDef> = {
       { x: 144, y: 100, w: 16, h: 28 },
       { x: 0, y: 112, w: 16, h: 16 },
       { x: 32, y: 112, w: 48, h: 16 },
+    ],
+    groundZones: [
+      { kind: 'stairs', x: 16, y: 112, w: 16, h: 12 },
     ],
     props: []
   },
@@ -193,6 +199,9 @@ export const MABE_VILLAGE_OVERWORLD_ROOMS: Record<string, RoomDef> = {
       { x: 144, y: 84, w: 16, h: 28 },
       { x: 144, y: 116, w: 16, h: 12 },
     ],
+    groundZones: [
+      { kind: 'stairs', x: 16, y: 0, w: 16, h: 12 },
+    ],
     props: []
   },
 
@@ -236,6 +245,10 @@ export const MABE_VILLAGE_OVERWORLD_ROOMS: Record<string, RoomDef> = {
       { x: 105, y: 104, w: 6, h: 6 },
       { x: 144, y: 116, w: 16, h: 12 },
     ],
+    groundZones: [
+      { kind: 'grass', x: 112, y: 0, w: 16, h: 16 },
+      { kind: 'hole', x: 81, y: 81, w: 14, h: 14 },
+    ],
     props: []
   },
 
@@ -266,6 +279,13 @@ export const MABE_VILLAGE_OVERWORLD_ROOMS: Record<string, RoomDef> = {
       { x: 73, y: 72, w: 6, h: 6 },
       { x: 0, y: 116, w: 16, h: 12 },
     ],
+    groundZones: [
+      { kind: 'grass', x: 64, y: 0, w: 48, h: 16 },
+      { kind: 'grass', x: 80, y: 16, w: 16, h: 16 },
+      { kind: 'grass', x: 112, y: 48, w: 16, h: 16 },
+      { kind: 'grass', x: 80, y: 64, w: 64, h: 16 },
+      { kind: 'grass', x: 48, y: 80, w: 80, h: 16 },
+    ],
     props: []
   },
 
@@ -292,6 +312,12 @@ export const MABE_VILLAGE_OVERWORLD_ROOMS: Record<string, RoomDef> = {
       { x: 144, y: 84, w: 16, h: 28 },
       { x: 32, y: 97, w: 96, h: 14 },
       { x: 144, y: 116, w: 16, h: 12 },
+    ],
+    groundZones: [
+      { kind: 'grass', x: 0, y: 0, w: 144, h: 32 },
+      { kind: 'grass', x: 0, y: 32, w: 32, h: 80 },
+      { kind: 'grass', x: 128, y: 32, w: 16, h: 80 },
+      { kind: 'grass', x: 0, y: 112, w: 144, h: 16 },
     ],
     props: []
   },
@@ -321,6 +347,10 @@ export const MABE_VILLAGE_OVERWORLD_ROOMS: Record<string, RoomDef> = {
       { x: 0, y: 84, w: 16, h: 28 },
       { x: 0, y: 100, w: 32, h: 28 },
       { x: 0, y: 116, w: 160, h: 12 },
+    ],
+    groundZones: [
+      { kind: 'grass', x: 32, y: 48, w: 16, h: 48 },
+      { kind: 'grass', x: 96, y: 48, w: 16, h: 48 },
     ],
     props: []
   },
@@ -380,6 +410,9 @@ export const MABE_VILLAGE_OVERWORLD_ROOMS: Record<string, RoomDef> = {
       { x: 96, y: 100, w: 32, h: 28 },
       { x: 128, y: 112, w: 32, h: 16 },
       { x: 0, y: 116, w: 112, h: 12 },
+    ],
+    groundZones: [
+      { kind: 'grass', x: 0, y: 0, w: 144, h: 16 },
     ],
     props: []
   }
