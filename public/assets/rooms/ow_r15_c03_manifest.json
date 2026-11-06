@@ -1,0 +1,2097 @@
+{
+  "roomId": "ow_r15_c03",
+  "sourceMap": "overworld.map",
+  "screenCol": 3,
+  "screenRow": 15,
+  "tileOrigin": {
+    "col": 31,
+    "row": 120
+  },
+  "worldPixelOrigin": {
+    "x": 496,
+    "y": 1920
+  },
+  "logicalSize": {
+    "w": 160,
+    "h": 128
+  },
+  "displaySize": {
+    "w": 1280,
+    "h": 1024
+  },
+  "musicTrackId": 4,
+  "neighbors": {
+    "north": "ow_r14_c03",
+    "south": null,
+    "west": "ow_r15_c02",
+    "east": "ow_r15_c04"
+  },
+  "colliders": [
+    {
+      "x": 0,
+      "y": 0,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 0,
+      "y": 16,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 0,
+      "y": 32,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 0,
+      "y": 96,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 0,
+      "y": 112,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 16,
+      "y": 0,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 16,
+      "y": 16,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 16,
+      "y": 32,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 16,
+      "y": 96,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 16,
+      "y": 112,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 32,
+      "y": 0,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 32,
+      "y": 16,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 32,
+      "y": 96,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 32,
+      "y": 112,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 48,
+      "y": 0,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 48,
+      "y": 96,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 48,
+      "y": 112,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 64,
+      "y": 0,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 64,
+      "y": 96,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 64,
+      "y": 112,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 80,
+      "y": 0,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 80,
+      "y": 96,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 80,
+      "y": 112,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 96,
+      "y": 0,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 96,
+      "y": 16,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 96,
+      "y": 96,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 96,
+      "y": 112,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 112,
+      "y": 0,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 112,
+      "y": 16,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 112,
+      "y": 96,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 112,
+      "y": 112,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 128,
+      "y": 0,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 128,
+      "y": 16,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 128,
+      "y": 96,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 128,
+      "y": 112,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 144,
+      "y": 0,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 144,
+      "y": 16,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 144,
+      "y": 96,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 144,
+      "y": 112,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 48,
+      "y": 0,
+      "w": 16,
+      "h": 8,
+      "source": "lowerLevelCollider"
+    },
+    {
+      "x": 48,
+      "y": 16,
+      "w": 16,
+      "h": 16,
+      "source": "lowerLevelCollider"
+    },
+    {
+      "x": 64,
+      "y": 0,
+      "w": 16,
+      "h": 8,
+      "source": "lowerLevelCollider"
+    },
+    {
+      "x": 64,
+      "y": 16,
+      "w": 16,
+      "h": 16,
+      "source": "lowerLevelCollider"
+    },
+    {
+      "x": 80,
+      "y": 0,
+      "w": 16,
+      "h": 8,
+      "source": "lowerLevelCollider"
+    },
+    {
+      "x": 80,
+      "y": 16,
+      "w": 16,
+      "h": 16,
+      "source": "lowerLevelCollider"
+    },
+    {
+      "x": 48,
+      "y": 68,
+      "w": 15,
+      "h": 12,
+      "source": "strandplant"
+    }
+  ],
+  "groundZones": [
+    {
+      "kind": "shallowWater",
+      "x": 0,
+      "y": 80,
+      "w": 16,
+      "h": 16
+    },
+    {
+      "kind": "shallowWater",
+      "x": 0,
+      "y": 96,
+      "w": 16,
+      "h": 16
+    },
+    {
+      "kind": "shallowWater",
+      "x": 0,
+      "y": 112,
+      "w": 16,
+      "h": 16
+    },
+    {
+      "kind": "shallowWater",
+      "x": 16,
+      "y": 80,
+      "w": 16,
+      "h": 16
+    },
+    {
+      "kind": "shallowWater",
+      "x": 16,
+      "y": 96,
+      "w": 16,
+      "h": 16
+    },
+    {
+      "kind": "shallowWater",
+      "x": 16,
+      "y": 112,
+      "w": 16,
+      "h": 16
+    },
+    {
+      "kind": "shallowWater",
+      "x": 32,
+      "y": 80,
+      "w": 16,
+      "h": 16
+    },
+    {
+      "kind": "shallowWater",
+      "x": 32,
+      "y": 96,
+      "w": 16,
+      "h": 16
+    },
+    {
+      "kind": "shallowWater",
+      "x": 32,
+      "y": 112,
+      "w": 16,
+      "h": 16
+    },
+    {
+      "kind": "shallowWater",
+      "x": 48,
+      "y": 80,
+      "w": 16,
+      "h": 16
+    },
+    {
+      "kind": "shallowWater",
+      "x": 48,
+      "y": 96,
+      "w": 16,
+      "h": 16
+    },
+    {
+      "kind": "shallowWater",
+      "x": 48,
+      "y": 112,
+      "w": 16,
+      "h": 16
+    },
+    {
+      "kind": "shallowWater",
+      "x": 64,
+      "y": 80,
+      "w": 16,
+      "h": 16
+    },
+    {
+      "kind": "shallowWater",
+      "x": 64,
+      "y": 96,
+      "w": 16,
+      "h": 16
+    },
+    {
+      "kind": "shallowWater",
+      "x": 64,
+      "y": 112,
+      "w": 16,
+      "h": 16
+    },
+    {
+      "kind": "shallowWater",
+      "x": 80,
+      "y": 80,
+      "w": 16,
+      "h": 16
+    },
+    {
+      "kind": "shallowWater",
+      "x": 80,
+      "y": 96,
+      "w": 16,
+      "h": 16
+    },
+    {
+      "kind": "shallowWater",
+      "x": 80,
+      "y": 112,
+      "w": 16,
+      "h": 16
+    },
+    {
+      "kind": "shallowWater",
+      "x": 96,
+      "y": 80,
+      "w": 16,
+      "h": 16
+    },
+    {
+      "kind": "shallowWater",
+      "x": 96,
+      "y": 96,
+      "w": 16,
+      "h": 16
+    },
+    {
+      "kind": "shallowWater",
+      "x": 96,
+      "y": 112,
+      "w": 16,
+      "h": 16
+    },
+    {
+      "kind": "shallowWater",
+      "x": 112,
+      "y": 80,
+      "w": 16,
+      "h": 16
+    },
+    {
+      "kind": "shallowWater",
+      "x": 112,
+      "y": 96,
+      "w": 16,
+      "h": 16
+    },
+    {
+      "kind": "shallowWater",
+      "x": 112,
+      "y": 112,
+      "w": 16,
+      "h": 16
+    },
+    {
+      "kind": "shallowWater",
+      "x": 128,
+      "y": 80,
+      "w": 16,
+      "h": 16
+    },
+    {
+      "kind": "shallowWater",
+      "x": 128,
+      "y": 96,
+      "w": 16,
+      "h": 16
+    },
+    {
+      "kind": "shallowWater",
+      "x": 128,
+      "y": 112,
+      "w": 16,
+      "h": 16
+    },
+    {
+      "kind": "shallowWater",
+      "x": 144,
+      "y": 80,
+      "w": 16,
+      "h": 16
+    },
+    {
+      "kind": "shallowWater",
+      "x": 144,
+      "y": 96,
+      "w": 16,
+      "h": 16
+    },
+    {
+      "kind": "shallowWater",
+      "x": 144,
+      "y": 112,
+      "w": 16,
+      "h": 16
+    }
+  ],
+  "interactables": [],
+  "enemies": [],
+  "unportedEnemies": [
+    "e4"
+  ],
+  "objects": [
+    {
+      "id": "enemy_respawner",
+      "category": "other",
+      "localX": 32,
+      "localY": 48,
+      "params": [
+        "e4",
+        ""
+      ]
+    },
+    {
+      "id": "enemy_respawner",
+      "category": "other",
+      "localX": 96,
+      "localY": 64,
+      "params": [
+        "e4",
+        ""
+      ]
+    },
+    {
+      "id": "jump",
+      "category": "other",
+      "localX": 48,
+      "localY": -8,
+      "params": [
+        "",
+        "42",
+        "48",
+        "8",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "strandplant",
+      "category": "other",
+      "localX": 48,
+      "localY": 64,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "strandshell",
+      "category": "other",
+      "localX": -32,
+      "localY": 48,
+      "params": [
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "strandshell",
+      "category": "other",
+      "localX": 48,
+      "localY": 32,
+      "params": [
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "strandshell",
+      "category": "other",
+      "localX": 128,
+      "localY": 48,
+      "params": [
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "upperLevel",
+      "category": "other",
+      "localX": 32,
+      "localY": -32,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "upperLevel",
+      "category": "other",
+      "localX": 48,
+      "localY": -32,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "upperLevel",
+      "category": "other",
+      "localX": 48,
+      "localY": -16,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "upperLevel",
+      "category": "other",
+      "localX": 64,
+      "localY": -32,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "upperLevel",
+      "category": "other",
+      "localX": 64,
+      "localY": -16,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "upperLevel",
+      "category": "other",
+      "localX": 80,
+      "localY": -32,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "upperLevel",
+      "category": "other",
+      "localX": 80,
+      "localY": -16,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "water",
+      "category": "other",
+      "localX": -32,
+      "localY": 80,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "water",
+      "category": "other",
+      "localX": -32,
+      "localY": 96,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "water",
+      "category": "other",
+      "localX": -32,
+      "localY": 112,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "water",
+      "category": "other",
+      "localX": -16,
+      "localY": 80,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "water",
+      "category": "other",
+      "localX": -16,
+      "localY": 96,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "water",
+      "category": "other",
+      "localX": -16,
+      "localY": 112,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "water",
+      "category": "other",
+      "localX": 0,
+      "localY": 80,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "water",
+      "category": "other",
+      "localX": 0,
+      "localY": 96,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "water",
+      "category": "other",
+      "localX": 0,
+      "localY": 112,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "water",
+      "category": "other",
+      "localX": 16,
+      "localY": 80,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "water",
+      "category": "other",
+      "localX": 16,
+      "localY": 96,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "water",
+      "category": "other",
+      "localX": 16,
+      "localY": 112,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "water",
+      "category": "other",
+      "localX": 32,
+      "localY": 80,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "water",
+      "category": "other",
+      "localX": 32,
+      "localY": 96,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "water",
+      "category": "other",
+      "localX": 32,
+      "localY": 112,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "water",
+      "category": "other",
+      "localX": 48,
+      "localY": 80,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "water",
+      "category": "other",
+      "localX": 48,
+      "localY": 96,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "water",
+      "category": "other",
+      "localX": 48,
+      "localY": 112,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "water",
+      "category": "other",
+      "localX": 64,
+      "localY": 80,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "water",
+      "category": "other",
+      "localX": 64,
+      "localY": 96,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "water",
+      "category": "other",
+      "localX": 64,
+      "localY": 112,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "water",
+      "category": "other",
+      "localX": 80,
+      "localY": 80,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "water",
+      "category": "other",
+      "localX": 80,
+      "localY": 96,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "water",
+      "category": "other",
+      "localX": 80,
+      "localY": 112,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "water",
+      "category": "other",
+      "localX": 96,
+      "localY": 80,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "water",
+      "category": "other",
+      "localX": 96,
+      "localY": 96,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "water",
+      "category": "other",
+      "localX": 96,
+      "localY": 112,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "water",
+      "category": "other",
+      "localX": 112,
+      "localY": 80,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "water",
+      "category": "other",
+      "localX": 112,
+      "localY": 96,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "water",
+      "category": "other",
+      "localX": 112,
+      "localY": 112,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "water",
+      "category": "other",
+      "localX": 128,
+      "localY": 80,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "water",
+      "category": "other",
+      "localX": 128,
+      "localY": 96,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "water",
+      "category": "other",
+      "localX": 128,
+      "localY": 112,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "water",
+      "category": "other",
+      "localX": 144,
+      "localY": 80,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "water",
+      "category": "other",
+      "localX": 144,
+      "localY": 96,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "water",
+      "category": "other",
+      "localX": 144,
+      "localY": 112,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "water",
+      "category": "other",
+      "localX": 160,
+      "localY": 80,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "water",
+      "category": "other",
+      "localX": 160,
+      "localY": 96,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "water",
+      "category": "other",
+      "localX": 160,
+      "localY": 112,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "wave1",
+      "category": "other",
+      "localX": -32,
+      "localY": 80,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave1",
+      "category": "other",
+      "localX": -16,
+      "localY": 80,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave1",
+      "category": "other",
+      "localX": 0,
+      "localY": 80,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave1",
+      "category": "other",
+      "localX": 16,
+      "localY": 80,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave1",
+      "category": "other",
+      "localX": 32,
+      "localY": 80,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave1",
+      "category": "other",
+      "localX": 48,
+      "localY": 80,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave1",
+      "category": "other",
+      "localX": 64,
+      "localY": 80,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave1",
+      "category": "other",
+      "localX": 80,
+      "localY": 80,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave1",
+      "category": "other",
+      "localX": 96,
+      "localY": 80,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave1",
+      "category": "other",
+      "localX": 112,
+      "localY": 80,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave1",
+      "category": "other",
+      "localX": 128,
+      "localY": 80,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave1",
+      "category": "other",
+      "localX": 144,
+      "localY": 80,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave1",
+      "category": "other",
+      "localX": 160,
+      "localY": 80,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave2",
+      "category": "other",
+      "localX": -32,
+      "localY": 96,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave2",
+      "category": "other",
+      "localX": -32,
+      "localY": 112,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave2",
+      "category": "other",
+      "localX": -16,
+      "localY": 96,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave2",
+      "category": "other",
+      "localX": -16,
+      "localY": 112,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave2",
+      "category": "other",
+      "localX": 0,
+      "localY": 96,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave2",
+      "category": "other",
+      "localX": 0,
+      "localY": 112,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave2",
+      "category": "other",
+      "localX": 16,
+      "localY": 96,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave2",
+      "category": "other",
+      "localX": 16,
+      "localY": 112,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave2",
+      "category": "other",
+      "localX": 32,
+      "localY": 96,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave2",
+      "category": "other",
+      "localX": 32,
+      "localY": 112,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave2",
+      "category": "other",
+      "localX": 48,
+      "localY": 96,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave2",
+      "category": "other",
+      "localX": 48,
+      "localY": 112,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave2",
+      "category": "other",
+      "localX": 64,
+      "localY": 96,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave2",
+      "category": "other",
+      "localX": 64,
+      "localY": 112,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave2",
+      "category": "other",
+      "localX": 80,
+      "localY": 96,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave2",
+      "category": "other",
+      "localX": 80,
+      "localY": 112,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave2",
+      "category": "other",
+      "localX": 96,
+      "localY": 96,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave2",
+      "category": "other",
+      "localX": 96,
+      "localY": 112,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave2",
+      "category": "other",
+      "localX": 112,
+      "localY": 96,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave2",
+      "category": "other",
+      "localX": 112,
+      "localY": 112,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave2",
+      "category": "other",
+      "localX": 128,
+      "localY": 96,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave2",
+      "category": "other",
+      "localX": 128,
+      "localY": 112,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave2",
+      "category": "other",
+      "localX": 144,
+      "localY": 96,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave2",
+      "category": "other",
+      "localX": 144,
+      "localY": 112,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave2",
+      "category": "other",
+      "localX": 160,
+      "localY": 96,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave2",
+      "category": "other",
+      "localX": 160,
+      "localY": 112,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave6",
+      "category": "other",
+      "localX": -32,
+      "localY": 128,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave6",
+      "category": "other",
+      "localX": -16,
+      "localY": 128,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave6",
+      "category": "other",
+      "localX": 0,
+      "localY": 128,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave6",
+      "category": "other",
+      "localX": 16,
+      "localY": 128,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave6",
+      "category": "other",
+      "localX": 32,
+      "localY": 128,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave6",
+      "category": "other",
+      "localX": 48,
+      "localY": 128,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave6",
+      "category": "other",
+      "localX": 64,
+      "localY": 128,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave6",
+      "category": "other",
+      "localX": 80,
+      "localY": 128,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave6",
+      "category": "other",
+      "localX": 96,
+      "localY": 128,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave6",
+      "category": "other",
+      "localX": 112,
+      "localY": 128,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave6",
+      "category": "other",
+      "localX": 128,
+      "localY": 128,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave6",
+      "category": "other",
+      "localX": 144,
+      "localY": 128,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave6",
+      "category": "other",
+      "localX": 160,
+      "localY": 128,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    }
+  ],
+  "tiles": [
+    [
+      [
+        204,
+        205,
+        223,
+        223,
+        223,
+        223,
+        223,
+        223,
+        223,
+        223
+      ],
+      [
+        223,
+        224,
+        223,
+        223,
+        223,
+        223,
+        223,
+        223,
+        223,
+        223
+      ],
+      [
+        223,
+        230,
+        505,
+        505,
+        505,
+        505,
+        505,
+        505,
+        505,
+        505
+      ],
+      [
+        505,
+        505,
+        505,
+        505,
+        505,
+        505,
+        505,
+        505,
+        505,
+        505
+      ],
+      [
+        505,
+        505,
+        505,
+        505,
+        505,
+        505,
+        505,
+        505,
+        505,
+        505
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ]
+    ],
+    [
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ]
+    ],
+    [
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ]
+    ]
+  ]
+}

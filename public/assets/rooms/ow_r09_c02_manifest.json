@@ -127,6 +127,9 @@
     }
   ],
   "groundZones": [],
+  "interactables": [],
+  "enemies": [],
+  "unportedEnemies": [],
   "objects": [
     {
       "id": "bush",

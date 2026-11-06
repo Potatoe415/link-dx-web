@@ -146,6 +146,12 @@ def build_room(room_id, name, cfg, texts):
         lines.append('    groundZones: [')
         lines += [f"      {{ kind: '{k}', x: {x}, y: {y}, w: {w}, h: {h} }}," for k, x, y, w, h in zones]
         lines.append('    ],')
+    if m.get('enemies'):
+        lines.append('    enemies: [')
+        lines += [f"      {{ kind: '{e['kind']}', x: {e['x']}, y: {e['y']} }}," for e in m['enemies']]
+        lines.append('    ],')
+    if m.get('unportedEnemies'):
+        print(f"  ! {room_id}: enemies not ported yet: {', '.join(m['unportedEnemies'])}")
     inter = build_interactables(m, cfg, texts)
     if inter:
         lines.append('    interactables: [')

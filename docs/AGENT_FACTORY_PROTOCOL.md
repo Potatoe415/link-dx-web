@@ -56,6 +56,7 @@ Toute la construction du jeu se décompose en **4 opérateurs atomiques**. Un ag
    - Ajouter `<roomId>: "<Nom français>"` dans `scripts/regions/<region>.json` (`music`, `ambience` partagés).
    - `python scripts/build_region.py scripts/regions/<region>.json` → `src/data/rooms/<region>.ts` (colliders fusionnés, `neighbors`, `bgGhibli` en *fallback* `bg_pixel` tant que `<roomId>_bg.png` n'existe pas).
    - Une région nouvelle doit être ajoutée à `REGIONS` dans `src/data/rooms/index.ts`.
+   - Ennemis : les `enemy_respawner` / ids d'ennemis sont convertis via `ENEMY_TEMPLATES` (`scripts/extract_room.py`) ; les ids non portés sont listés par `build_region.py` (« enemies not ported yet ») — les ajouter lors du `TASK_ENTITY_PORT` correspondant.
    - Panneaux (`signpost`, `sign`) et coffres (`chest`) sont générés en `interactables` ; chaque clé de texte doit avoir sa traduction française dans `scripts/regions/text_fr.json` (le script échoue sinon).
    - Les salles retouchées à la main (portes, PNJ, Ghibli) restent dans un module manuel (ex. `mabe_village.ts`) et sont retirées du JSON.
 4. **Critère de validation (`Gate A`) :** `npm run build` passe à `0` erreur + les boîtes rouges en mode `C` correspondent à `<roomId>_grid_ruler.png`.

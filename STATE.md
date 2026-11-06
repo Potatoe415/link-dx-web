@@ -2,8 +2,8 @@
 
 Replace on every update. Max 40 lines. History lives in git and `docs/decisions/`.
 
-Status: Stage 1 engine complete except `[T-1.4.2-01]` (bushes need the sword). 14 Mabe Village screens playable with 4-way scrolling, HUD, inventory, save, ground tiles, signs/chests, enemy + damage + GAME OVER, 29 GBS tracks.
-Focus: Act I gameplay — Toronbo Shores extraction `[T-2.3.1-01]`, sword pickup + slash `[T-2.3.2-01]` `[T-2.3.2-03]`, then bushes `[T-1.4.2-01]`.
+Status: Stage 1 engine complete except `[T-1.4.2-01]` (bushes need the sword). 14 Mabe Village + 14 Toronbo Shores screens playable (Octoroks spawn from the map) with 4-way scrolling, HUD, inventory, save, ground tiles, signs/chests, enemy + damage + GAME OVER, 29 GBS tracks.
+Focus: Act I gameplay — sword pickup + slash `[T-2.3.2-01]` `[T-2.3.2-03]`, then bushes `[T-1.4.2-01]`.
 Level: L1
 
 Context:
@@ -13,7 +13,7 @@ Context:
 - Relevant_Decisions: 0002, 0003, 0004, 0005
 
 Next:
-- `[T-2.3.1-01]` Extract Toronbo Shores screens into `scripts/regions/toronbo_shores.json`.
+- Port beach enemies flagged by build_region.py: `e1` sea urchin `[T-2.3.1-02]`, `e3` Leever, `e4` crab.
 - `[T-2.3.2-01]` + `[T-2.3.2-03]` Sword on the beach, `SWORD_SLASH` / spin attack hitting `EnemyManager.hitArea`.
 - `[T-1.4.2-01]` Cuttable bushes/grass (runtime objects instead of baked into `bg_pixel`).
 - `[T-2.2.1-02]` / `[T-2.2.1-03]` Ghibli paintings: needs an image generator (not available to the last agent session).

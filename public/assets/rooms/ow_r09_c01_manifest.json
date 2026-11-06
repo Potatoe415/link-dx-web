@@ -141,6 +141,9 @@
     }
   ],
   "groundZones": [],
+  "interactables": [],
+  "enemies": [],
+  "unportedEnemies": [],
   "objects": [
     {
       "id": "bird",

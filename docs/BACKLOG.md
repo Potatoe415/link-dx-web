@@ -3,7 +3,6 @@
 Current work queue (synced with the full 3-level living checklist in `docs/MASTER_PLAN.md`). Completed work lives in git history and checked `[x]` items in `docs/MASTER_PLAN.md`.
 
 ## Now (Étape 2 — Acte I : Plage Coco & Épée)
-- [ ] `[T-2.3.1-01]` Extract Toronbo Shores screens (`ow_r12_c01` .. `ow_r15_c03`) into a generated region.
 - [ ] `[T-2.3.2-01]` Sword pickup on `ow_r15_c02` (`FLAG_SWORD_OBTAINED`, sword fanfare `music_sword_get`).
 - [ ] `[T-2.3.2-03]` `SWORD_SLASH` / `SWORD_CHARGING` / `SPIN_ATTACK` wired to `EnemyManager.hitArea`.
 - [ ] `[T-1.4.2-01]` Cuttable bushes and grass (needs the sword).

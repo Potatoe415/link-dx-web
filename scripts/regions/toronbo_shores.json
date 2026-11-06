@@ -1,0 +1,22 @@
+{
+  "export": "TORONBO_SHORES_ROOMS",
+  "out": "src/data/rooms/toronbo_shores.ts",
+  "comment": "Toronbo Shores (Plage Coco): overworld rows 11..15, cols 00..03 — the village's south-west exit (c00) down to the sword beach.",
+  "ambience": "outdoor",
+  "rooms": {
+    "ow_r11_c00": "Village des Mouettes — Sortie sud-ouest",
+    "ow_r12_c00": "Plage Coco — Sentier ouest",
+    "ow_r13_c00": "Plage Coco — Falaise ouest",
+    "ow_r14_c00": "Plage Coco — Pied de la falaise",
+    "ow_r12_c01": "Plage Coco — Sentier nord-ouest",
+    "ow_r12_c02": "Plage Coco — Sentier nord",
+    "ow_r13_c01": "Plage Coco — Corniche ouest",
+    "ow_r13_c02": "Plage Coco — Corniche",
+    "ow_r14_c01": "Plage Coco — Panneau des oursins",
+    "ow_r14_c02": "Plage Coco — Palmeraie",
+    "ow_r15_c00": "Plage Coco — Rivage ouest",
+    "ow_r15_c01": "Plage Coco — Rivage",
+    "ow_r15_c02": "Plage Coco — Plage de l'Épée",
+    "ow_r15_c03": "Plage Coco — Rivage est"
+  }
+}

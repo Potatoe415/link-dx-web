@@ -345,6 +345,9 @@
       "h": 14
     }
   ],
+  "interactables": [],
+  "enemies": [],
+  "unportedEnemies": [],
   "objects": [
     {
       "id": "bush",

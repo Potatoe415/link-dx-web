@@ -111,7 +111,7 @@
 
 ## 2.3 — Chapitre 1.3 : Descente vers la Plage Coco & Obtention de l'Épée (`FLAG_SWORD_OBTAINED`)
 ### 2.3.1 — Sentier Côtier & Oursins (`ow_r12_c01` à `ow_r15_c03`)
-- [ ] **[T-2.3.1-01]** `TASK_ROOM_EXTRACT` sur les écrans de la Plage Coco (*Toronbo Shores*) : `ow_r12_c01`, `ow_r12_c02`, `ow_r13_c01`, `ow_r13_c02`, `ow_r14_c01`, `ow_r14_c02`, `ow_r15_c00`, `ow_r15_c01`, `ow_r15_c02` (écran de l'Épée), `ow_r15_c03`.
+- [x] **[T-2.3.1-01]** `TASK_ROOM_EXTRACT` sur les écrans de la Plage Coco (*Toronbo Shores*) : `ow_r12_c01`, `ow_r12_c02`, `ow_r13_c01`, `ow_r13_c02`, `ow_r14_c01`, `ow_r14_c02`, `ow_r15_c00`, `ow_r15_c01`, `ow_r15_c02` (écran de l'Épée), `ow_r15_c03`.
 - [ ] **[T-2.3.1-02]** `TASK_ENTITY_PORT(sea_urchin)` : Porter `ObjSeaUrchin.cs` (les oursins piquants qui bloquent le chemin et que Link doit **repousser avec son Bouclier levé** + son `D360-62-3E.wav`).
 - [ ] **[T-2.3.1-03]** `TASK_ENTITY_PORT(octorok)` : Porter `EnemyOctorok.cs` (marche 4 directions + tir de rocher que le Bouclier L-1 dévie avec `D360-11-0B.wav`).
 - [ ] **[T-2.3.1-04]** `TASK_ROOM_GHIBLI` sur la séquence d'écrans menant à la plage (`ow_r12_c02` $\rightarrow$ `ow_r15_c02`) avec vagues animées (`wave1`, `wave2`).

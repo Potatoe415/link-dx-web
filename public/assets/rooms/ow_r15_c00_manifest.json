@@ -1,0 +1,1996 @@
+{
+  "roomId": "ow_r15_c00",
+  "sourceMap": "overworld.map",
+  "screenCol": 0,
+  "screenRow": 15,
+  "tileOrigin": {
+    "col": 1,
+    "row": 120
+  },
+  "worldPixelOrigin": {
+    "x": 16,
+    "y": 1920
+  },
+  "logicalSize": {
+    "w": 160,
+    "h": 128
+  },
+  "displaySize": {
+    "w": 1280,
+    "h": 1024
+  },
+  "musicTrackId": 4,
+  "neighbors": {
+    "north": "ow_r14_c00",
+    "south": null,
+    "west": null,
+    "east": "ow_r15_c01"
+  },
+  "colliders": [
+    {
+      "x": 0,
+      "y": 0,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 0,
+      "y": 16,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 0,
+      "y": 32,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 0,
+      "y": 48,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 0,
+      "y": 64,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 0,
+      "y": 80,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 0,
+      "y": 96,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 0,
+      "y": 112,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 16,
+      "y": 48,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 16,
+      "y": 64,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 16,
+      "y": 80,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 16,
+      "y": 96,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 16,
+      "y": 112,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 32,
+      "y": 80,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 32,
+      "y": 96,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 32,
+      "y": 112,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 48,
+      "y": 0,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 48,
+      "y": 16,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 48,
+      "y": 32,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 48,
+      "y": 48,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 48,
+      "y": 64,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 48,
+      "y": 80,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 48,
+      "y": 96,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 48,
+      "y": 112,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 64,
+      "y": 0,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 64,
+      "y": 96,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 64,
+      "y": 112,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 80,
+      "y": 0,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 80,
+      "y": 96,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 80,
+      "y": 112,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 96,
+      "y": 96,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 96,
+      "y": 112,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 112,
+      "y": 0,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 112,
+      "y": 96,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 112,
+      "y": 112,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 128,
+      "y": 0,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 128,
+      "y": 96,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 128,
+      "y": 112,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 144,
+      "y": 0,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 144,
+      "y": 96,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 144,
+      "y": 112,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 96,
+      "y": 68,
+      "w": 15,
+      "h": 12,
+      "source": "strandplant"
+    }
+  ],
+  "groundZones": [
+    {
+      "kind": "stairs",
+      "x": 96,
+      "y": 0,
+      "w": 16,
+      "h": 12
+    },
+    {
+      "kind": "shallowWater",
+      "x": 0,
+      "y": 80,
+      "w": 16,
+      "h": 16
+    },
+    {
+      "kind": "shallowWater",
+      "x": 0,
+      "y": 96,
+      "w": 16,
+      "h": 16
+    },
+    {
+      "kind": "shallowWater",
+      "x": 0,
+      "y": 112,
+      "w": 16,
+      "h": 16
+    },
+    {
+      "kind": "shallowWater",
+      "x": 16,
+      "y": 112,
+      "w": 16,
+      "h": 16
+    },
+    {
+      "kind": "shallowWater",
+      "x": 32,
+      "y": 112,
+      "w": 16,
+      "h": 16
+    },
+    {
+      "kind": "shallowWater",
+      "x": 48,
+      "y": 112,
+      "w": 16,
+      "h": 16
+    },
+    {
+      "kind": "shallowWater",
+      "x": 64,
+      "y": 80,
+      "w": 16,
+      "h": 16
+    },
+    {
+      "kind": "shallowWater",
+      "x": 64,
+      "y": 96,
+      "w": 16,
+      "h": 16
+    },
+    {
+      "kind": "shallowWater",
+      "x": 64,
+      "y": 112,
+      "w": 16,
+      "h": 16
+    },
+    {
+      "kind": "shallowWater",
+      "x": 80,
+      "y": 80,
+      "w": 16,
+      "h": 16
+    },
+    {
+      "kind": "shallowWater",
+      "x": 80,
+      "y": 96,
+      "w": 16,
+      "h": 16
+    },
+    {
+      "kind": "shallowWater",
+      "x": 80,
+      "y": 112,
+      "w": 16,
+      "h": 16
+    },
+    {
+      "kind": "shallowWater",
+      "x": 96,
+      "y": 80,
+      "w": 16,
+      "h": 16
+    },
+    {
+      "kind": "shallowWater",
+      "x": 96,
+      "y": 96,
+      "w": 16,
+      "h": 16
+    },
+    {
+      "kind": "shallowWater",
+      "x": 96,
+      "y": 112,
+      "w": 16,
+      "h": 16
+    },
+    {
+      "kind": "shallowWater",
+      "x": 112,
+      "y": 80,
+      "w": 16,
+      "h": 16
+    },
+    {
+      "kind": "shallowWater",
+      "x": 112,
+      "y": 96,
+      "w": 16,
+      "h": 16
+    },
+    {
+      "kind": "shallowWater",
+      "x": 112,
+      "y": 112,
+      "w": 16,
+      "h": 16
+    },
+    {
+      "kind": "shallowWater",
+      "x": 128,
+      "y": 80,
+      "w": 16,
+      "h": 16
+    },
+    {
+      "kind": "shallowWater",
+      "x": 128,
+      "y": 96,
+      "w": 16,
+      "h": 16
+    },
+    {
+      "kind": "shallowWater",
+      "x": 128,
+      "y": 112,
+      "w": 16,
+      "h": 16
+    },
+    {
+      "kind": "shallowWater",
+      "x": 144,
+      "y": 80,
+      "w": 16,
+      "h": 16
+    },
+    {
+      "kind": "shallowWater",
+      "x": 144,
+      "y": 96,
+      "w": 16,
+      "h": 16
+    },
+    {
+      "kind": "shallowWater",
+      "x": 144,
+      "y": 112,
+      "w": 16,
+      "h": 16
+    }
+  ],
+  "interactables": [],
+  "enemies": [
+    {
+      "kind": "octorok",
+      "x": 40,
+      "y": 44
+    }
+  ],
+  "unportedEnemies": [
+    "e3"
+  ],
+  "objects": [
+    {
+      "id": "bush",
+      "category": "other",
+      "localX": 80,
+      "localY": -32,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "bush",
+      "category": "other",
+      "localX": 112,
+      "localY": -32,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "bush",
+      "category": "other",
+      "localX": 128,
+      "localY": -32,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "enemy_respawner",
+      "category": "other",
+      "localX": 32,
+      "localY": 32,
+      "params": [
+        "e2",
+        ""
+      ]
+    },
+    {
+      "id": "enemy_respawner",
+      "category": "other",
+      "localX": 64,
+      "localY": 64,
+      "params": [
+        "e3",
+        ""
+      ]
+    },
+    {
+      "id": "enemy_respawner",
+      "category": "other",
+      "localX": 112,
+      "localY": 64,
+      "params": [
+        "e3",
+        ""
+      ]
+    },
+    {
+      "id": "scriptOnTouch",
+      "category": "other",
+      "localX": 32,
+      "localY": 76,
+      "params": [
+        "",
+        "",
+        "check_cliff_sequence"
+      ]
+    },
+    {
+      "id": "stairs",
+      "category": "warp",
+      "localX": 96,
+      "localY": -16,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "stairs",
+      "category": "warp",
+      "localX": 96,
+      "localY": 0,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "strandplant",
+      "category": "other",
+      "localX": 96,
+      "localY": 64,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "strandshell",
+      "category": "other",
+      "localX": 112,
+      "localY": 32,
+      "params": [
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "water",
+      "category": "other",
+      "localX": 0,
+      "localY": 80,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "water",
+      "category": "other",
+      "localX": 0,
+      "localY": 96,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "water",
+      "category": "other",
+      "localX": 0,
+      "localY": 112,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "water",
+      "category": "other",
+      "localX": 16,
+      "localY": 112,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "water",
+      "category": "other",
+      "localX": 32,
+      "localY": 112,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "water",
+      "category": "other",
+      "localX": 48,
+      "localY": 112,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "water",
+      "category": "other",
+      "localX": 64,
+      "localY": 80,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "water",
+      "category": "other",
+      "localX": 64,
+      "localY": 96,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "water",
+      "category": "other",
+      "localX": 64,
+      "localY": 112,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "water",
+      "category": "other",
+      "localX": 80,
+      "localY": 80,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "water",
+      "category": "other",
+      "localX": 80,
+      "localY": 96,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "water",
+      "category": "other",
+      "localX": 80,
+      "localY": 112,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "water",
+      "category": "other",
+      "localX": 96,
+      "localY": 80,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "water",
+      "category": "other",
+      "localX": 96,
+      "localY": 96,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "water",
+      "category": "other",
+      "localX": 96,
+      "localY": 112,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "water",
+      "category": "other",
+      "localX": 112,
+      "localY": 80,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "water",
+      "category": "other",
+      "localX": 112,
+      "localY": 96,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "water",
+      "category": "other",
+      "localX": 112,
+      "localY": 112,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "water",
+      "category": "other",
+      "localX": 128,
+      "localY": 80,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "water",
+      "category": "other",
+      "localX": 128,
+      "localY": 96,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "water",
+      "category": "other",
+      "localX": 128,
+      "localY": 112,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "water",
+      "category": "other",
+      "localX": 144,
+      "localY": 80,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "water",
+      "category": "other",
+      "localX": 144,
+      "localY": 96,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "water",
+      "category": "other",
+      "localX": 144,
+      "localY": 112,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "water",
+      "category": "other",
+      "localX": 160,
+      "localY": 80,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "water",
+      "category": "other",
+      "localX": 160,
+      "localY": 96,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "water",
+      "category": "other",
+      "localX": 160,
+      "localY": 112,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "wave1",
+      "category": "other",
+      "localX": 0,
+      "localY": 80,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave1",
+      "category": "other",
+      "localX": 64,
+      "localY": 80,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave1",
+      "category": "other",
+      "localX": 80,
+      "localY": 80,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave1",
+      "category": "other",
+      "localX": 96,
+      "localY": 80,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave1",
+      "category": "other",
+      "localX": 112,
+      "localY": 80,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave1",
+      "category": "other",
+      "localX": 128,
+      "localY": 80,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave1",
+      "category": "other",
+      "localX": 144,
+      "localY": 80,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave1",
+      "category": "other",
+      "localX": 160,
+      "localY": 80,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave2",
+      "category": "other",
+      "localX": -32,
+      "localY": 64,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave2",
+      "category": "other",
+      "localX": -32,
+      "localY": 80,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave2",
+      "category": "other",
+      "localX": -16,
+      "localY": 48,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave2",
+      "category": "other",
+      "localX": -16,
+      "localY": 64,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave2",
+      "category": "other",
+      "localX": -16,
+      "localY": 80,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave2",
+      "category": "other",
+      "localX": -16,
+      "localY": 96,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave2",
+      "category": "other",
+      "localX": -16,
+      "localY": 112,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave2",
+      "category": "other",
+      "localX": 0,
+      "localY": 96,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave2",
+      "category": "other",
+      "localX": 0,
+      "localY": 112,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave2",
+      "category": "other",
+      "localX": 0,
+      "localY": 128,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave2",
+      "category": "other",
+      "localX": 16,
+      "localY": 112,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave2",
+      "category": "other",
+      "localX": 16,
+      "localY": 128,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave2",
+      "category": "other",
+      "localX": 32,
+      "localY": 112,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave2",
+      "category": "other",
+      "localX": 32,
+      "localY": 128,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave2",
+      "category": "other",
+      "localX": 48,
+      "localY": 112,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave2",
+      "category": "other",
+      "localX": 48,
+      "localY": 128,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave2",
+      "category": "other",
+      "localX": 64,
+      "localY": 96,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave2",
+      "category": "other",
+      "localX": 64,
+      "localY": 112,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave2",
+      "category": "other",
+      "localX": 64,
+      "localY": 128,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave2",
+      "category": "other",
+      "localX": 80,
+      "localY": 96,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave2",
+      "category": "other",
+      "localX": 80,
+      "localY": 112,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave2",
+      "category": "other",
+      "localX": 96,
+      "localY": 96,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave2",
+      "category": "other",
+      "localX": 96,
+      "localY": 112,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave2",
+      "category": "other",
+      "localX": 112,
+      "localY": 96,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave2",
+      "category": "other",
+      "localX": 112,
+      "localY": 112,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave2",
+      "category": "other",
+      "localX": 128,
+      "localY": 96,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave2",
+      "category": "other",
+      "localX": 128,
+      "localY": 112,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave2",
+      "category": "other",
+      "localX": 144,
+      "localY": 96,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave2",
+      "category": "other",
+      "localX": 144,
+      "localY": 112,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave2",
+      "category": "other",
+      "localX": 160,
+      "localY": 96,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave2",
+      "category": "other",
+      "localX": 160,
+      "localY": 112,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave3",
+      "category": "other",
+      "localX": -32,
+      "localY": -32,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave3",
+      "category": "other",
+      "localX": -32,
+      "localY": -16,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave3",
+      "category": "other",
+      "localX": -32,
+      "localY": 0,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave3",
+      "category": "other",
+      "localX": -32,
+      "localY": 16,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave3",
+      "category": "other",
+      "localX": -32,
+      "localY": 32,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave3",
+      "category": "other",
+      "localX": -16,
+      "localY": -32,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave3",
+      "category": "other",
+      "localX": -16,
+      "localY": -16,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave3",
+      "category": "other",
+      "localX": -16,
+      "localY": 0,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave3",
+      "category": "other",
+      "localX": -16,
+      "localY": 16,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave3",
+      "category": "other",
+      "localX": -16,
+      "localY": 32,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave4",
+      "category": "other",
+      "localX": -32,
+      "localY": 48,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave6",
+      "category": "other",
+      "localX": -32,
+      "localY": 96,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave6",
+      "category": "other",
+      "localX": -16,
+      "localY": 128,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave6",
+      "category": "other",
+      "localX": 80,
+      "localY": 128,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave6",
+      "category": "other",
+      "localX": 96,
+      "localY": 128,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave6",
+      "category": "other",
+      "localX": 112,
+      "localY": 128,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave6",
+      "category": "other",
+      "localX": 128,
+      "localY": 128,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave6",
+      "category": "other",
+      "localX": 144,
+      "localY": 128,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave6",
+      "category": "other",
+      "localX": 160,
+      "localY": 128,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    }
+  ],
+  "tiles": [
+    [
+      [
+        463,
+        357,
+        357,
+        186,
+        223,
+        223,
+        210,
+        223,
+        223,
+        223
+      ],
+      [
+        463,
+        357,
+        357,
+        186,
+        505,
+        505,
+        505,
+        505,
+        505,
+        505
+      ],
+      [
+        463,
+        357,
+        357,
+        186,
+        505,
+        505,
+        505,
+        505,
+        505,
+        505
+      ],
+      [
+        203,
+        215,
+        357,
+        186,
+        505,
+        505,
+        505,
+        505,
+        505,
+        505
+      ],
+      [
+        217,
+        463,
+        357,
+        186,
+        505,
+        505,
+        505,
+        505,
+        505,
+        505
+      ],
+      [
+        -1,
+        203,
+        204,
+        205,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        217,
+        223,
+        230,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ]
+    ],
+    [
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ]
+    ],
+    [
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ]
+    ]
+  ]
+}

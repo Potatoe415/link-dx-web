@@ -226,6 +226,9 @@
       "h": 12
     }
   ],
+  "interactables": [],
+  "enemies": [],
+  "unportedEnemies": [],
   "objects": [
     {
       "id": "butterfly",

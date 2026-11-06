@@ -229,6 +229,23 @@ def compute_interactable(obj, lx, ly):
     return None
 
 
+# Enemy spawns: `enemy_respawner` objects (param 0 = template id) and directly placed enemy ids.
+# Template id -> (enemy kind in src/data/enemies.ts, feet anchor offset from the object origin).
+ENEMY_TEMPLATES = {
+    'e2': ('octorok', (8, 12)),  # EnemyOctorok: EntityPosition = (posX + 8, posY + 12)
+}
+
+
+def compute_enemy_spawn(obj, lx, ly):
+    if not (0 <= lx < 160 and 0 <= ly < 128):
+        return None
+    tid = obj['params'][0] if obj['id'] == 'enemy_respawner' and obj['params'] else obj['id']
+    if tid not in ENEMY_TEMPLATES:
+        return None
+    kind, (ox, oy) = ENEMY_TEMPLATES[tid]
+    return {'kind': kind, 'x': lx + ox, 'y': ly + oy}
+
+
 def compute_object_colliders(obj_id, lx, ly, params, templates):
     rects = []
     if obj_id in COLLIDER_SHAPES:
@@ -315,6 +332,8 @@ def extract_room(map_name, screen_col, screen_row, out_id, out_dir, offset_px_x=
     extracted_colliders = []
     ground_zones = []
     interactables = []
+    enemy_spawns = []
+    unported_enemies = set()
     for obj in parsed['objects']:
         lx = obj['mapX'] - world_px_x
         ly = obj['mapY'] - world_px_y
@@ -328,6 +347,12 @@ def extract_room(map_name, screen_col, screen_row, out_id, out_dir, offset_px_x=
                 'params': obj['params'],
             }
             local_objects.append(entry)
+
+            spawn = compute_enemy_spawn(obj, lx, ly)
+            if spawn:
+                enemy_spawns.append(spawn)
+            elif obj['id'] == 'enemy_respawner' and obj['params'] and 0 <= lx < 160 and 0 <= ly < 128:
+                unported_enemies.add(obj['params'][0])
 
             inter = compute_interactable(obj, lx, ly)
             if inter:
@@ -436,6 +461,8 @@ def extract_room(map_name, screen_col, screen_row, out_id, out_dir, offset_px_x=
         'colliders': extracted_colliders,
         'groundZones': ground_zones,
         'interactables': interactables,
+        'enemies': enemy_spawns,
+        'unportedEnemies': sorted(unported_enemies),
         'objects': [o for o in local_objects if o['category'] != 'collider'],
         'tiles': room_tiles,
     }
