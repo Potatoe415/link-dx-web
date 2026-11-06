@@ -3,6 +3,7 @@ import { Collision } from '../core/Collision';
 import { SoundManager } from '../core/Audio';
 import { Rect } from '../data/rooms';
 import { ANIMATIONS, AnimationDef, AnimationFrame } from '../data/animations';
+import { GameState } from '../core/GameState';
 
 export type PlayerState = 'SLEEPING' | 'WAKING' | 'JUMPING_OUT' | 'IDLE' | 'WALKING' | 'ITEM_GET';
 
@@ -17,8 +18,8 @@ export class Player {
 
   public state: PlayerState = 'SLEEPING';
 
-  // Inventory & Shield state
-  public hasShield: boolean = false;
+  // Inventory lives in GameState; the player only reads it
+  private readonly game: GameState;
   public isBlocking: boolean = false;
   private itemGetTimer: number = 0;
 
@@ -43,11 +44,16 @@ export class Player {
   // Movement speed: 1.0 logical pixel per frame at 60 FPS (60.0 px/s)
   public readonly speed: number = 1.0;
 
-  constructor(startX: number = 56, startY: number = 51, initialDirection: number = 3) {
+  constructor(game: GameState, startX: number = 56, startY: number = 51, initialDirection: number = 3) {
+    this.game = game;
     this.x = startX;
     this.y = startY;
     this.direction = initialDirection;
     this.playAnimation('link_intro_sleep');
+  }
+
+  public get hasShield(): boolean {
+    return this.game.hasItem('shield');
   }
 
   public teleport(newX: number, newY: number, newDir: number): void {
@@ -60,7 +66,6 @@ export class Player {
   }
 
   public startItemGet(): void {
-    this.hasShield = true;
     this.isBlocking = false;
     this.state = 'ITEM_GET';
     this.direction = 3; // Face camera

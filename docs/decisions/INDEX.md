@@ -8,6 +8,7 @@ Template: `docs/_templates/DECISION.md`.
 |---|---|---|---|
 | 0001 | 2026-11-06 | Context architecture bootstrap v10.1 | Accepted |
 | 0002 | 2026-11-06 | Pre-rendered Studio Ghibli background + 160x128 collision grid | Accepted |
+| 0003 | 2026-11-06 | Single GameState with validated localStorage autosave | Accepted |
 
 ## When to log a decision
 Any of:

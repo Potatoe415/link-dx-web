@@ -3,6 +3,7 @@ import { Camera } from './core/Camera';
 import { Collision } from './core/Collision';
 import { DialogueSystem } from './core/Dialogue';
 import { SoundManager } from './core/Audio';
+import { GameState } from './core/GameState';
 import { ROOMS, RoomDef, Rect } from './data/rooms';
 import { Player } from './entities/Player';
 import { PropInstance, ParticleSystem } from './entities/Prop';
@@ -14,6 +15,7 @@ export class GameEngine {
   private input: Input;
   private camera: Camera;
   public sound: SoundManager;
+  public readonly game: GameState;
   private dialogue: DialogueSystem;
   private player: Player;
   private particles: ParticleSystem;
@@ -49,17 +51,28 @@ export class GameEngine {
     this.input = new Input();
     this.camera = new Camera();
     this.sound = new SoundManager();
-    this.dialogue = new DialogueSystem(this.sound);
+    this.game = new GameState();
+    this.game.load((roomId) => roomId in ROOMS);
+    this.dialogue = new DialogueSystem(this.game, this.sound);
     this.particles = new ParticleSystem();
 
     this.currentRoom = ROOMS[this.currentRoomKey];
     this.player = new Player(
+      this.game,
       this.currentRoom.spawnPoint.x,
       this.currentRoom.spawnPoint.y,
       this.currentRoom.spawnPoint.direction
     );
 
-    this.initRoom(this.currentRoomKey);
+    // A saved game resumes awake at the last door crossed; a new game starts in Marin's bed.
+    const respawn = this.game.respawn;
+    if (respawn) {
+      this.player.teleport(respawn.x, respawn.y, respawn.direction);
+      this.initRoom(respawn.room);
+    } else {
+      this.initRoom(this.currentRoomKey);
+    }
+    this.game.onChange(() => this.updateStatsUI());
 
     // Allow clicking on canvas to interact / advance dialogue
     this.canvas.addEventListener('click', () => {
@@ -124,6 +137,7 @@ export class GameEngine {
     this.camera.startTransition(() => {
       this.initRoom(targetKey);
       this.player.teleport(spawnX, spawnY, spawnDir);
+      this.game.setRespawn({ room: targetKey, x: spawnX, y: spawnY, direction: spawnDir });
     }, 320);
   }
 
@@ -388,6 +402,12 @@ export class GameEngine {
     ctx.restore();
   }
 
+  /** Debug: wipe the save and restart a new game in Marin's bed. */
+  public resetSave(): void {
+    this.game.reset();
+    window.location.reload();
+  }
+
   public getPlayerInfo(): { state: string; x: number; y: number; room: string } {
     return {
       state: this.player.state,
@@ -464,6 +484,15 @@ window.addEventListener('DOMContentLoaded', async () => {
       if (collEl) {
         collEl.textContent = engine.showColliders ? 'Visible (ON)' : 'Hidden (OFF)';
         collEl.className = engine.showColliders ? 'text-rose-400 font-bold' : 'text-slate-400';
+      }
+    });
+  }
+
+  const resetSaveBtn = document.getElementById('btn-reset-save');
+  if (resetSaveBtn) {
+    resetSaveBtn.addEventListener('click', () => {
+      if (window.confirm('Effacer la sauvegarde et recommencer une nouvelle partie ?')) {
+        engine.resetSave();
       }
     });
   }

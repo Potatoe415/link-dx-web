@@ -55,8 +55,8 @@
 
 ## 1.3 — État Global (`GameState`), Inventaire, HUD & Sauvegarde
 ### 1.3.1 — Gestionnaire de Drapeaux (`GameFlags`) & Progression
-- [ ] **[T-1.3.1-01]** Créer `src/core/GameState.ts` contenant les **26 drapeaux booléens** de `docs/la_dx_knowledge_base/00_GAME_SYSTEMS_AND_STATE_MACHINE.md` (`FLAG_SHIELD_OBTAINED` à `FLAG_NIGHTMARES_DEFEATED`), l'état des coffres ouverts par salle (`openedChests: Set<string>`), les clés de donjon et les compteurs (Rubis, Coquillages, Quarts de Coeur, Feuilles d'Or).
-- [ ] **[T-1.3.1-02]** Implémenter la sauvegarde et le chargement automatiques dans `localStorage` (`zelda_la_save_v1`) + bouton de réinitialisation de sauvegarde dans le dashboard de debug.
+- [x] **[T-1.3.1-01]** Créer `src/core/GameState.ts` contenant les **26 drapeaux booléens** de `docs/la_dx_knowledge_base/00_GAME_SYSTEMS_AND_STATE_MACHINE.md` (`FLAG_SHIELD_OBTAINED` à `FLAG_NIGHTMARES_DEFEATED`), l'état des coffres ouverts par salle (`openedChests: Set<string>`), les clés de donjon et les compteurs (Rubis, Coquillages, Quarts de Coeur, Feuilles d'Or).
+- [x] **[T-1.3.1-02]** Implémenter la sauvegarde et le chargement automatiques dans `localStorage` (`zelda_la_save_v1`) + bouton de réinitialisation de sauvegarde dans le dashboard de debug.
 
 ### 1.3.2 — Bandeau HUD Game Boy (`160x16` logique / `1280x128` HD) & Menu Inventaire
 - [ ] **[T-1.3.2-01]** Créer `src/core/HUD.ts` affichant en haut ou en bas du Canvas le bandeau classique : Slot Bouton `B`, Slot Bouton `A`, Compteur de Rubis (3 chiffres `000..999`) et Jauge de Coeurs (de `3` à `14` coeurs par quarts).

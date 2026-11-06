@@ -1,6 +1,7 @@
 import { PropInstance } from '../entities/Prop';
 import { Player } from '../entities/Player';
 import { SoundManager } from './Audio';
+import { GameState } from './GameState';
 
 export class DialogueSystem {
   private sound?: SoundManager;
@@ -18,7 +19,10 @@ export class DialogueSystem {
   private talkCounts: Map<string, number> = new Map();
   private onCloseCallback: (() => void) | null = null;
 
-  constructor(sound?: SoundManager) {
+  private readonly game: GameState;
+
+  constructor(game: GameState, sound?: SoundManager) {
+    this.game = game;
     this.sound = sound;
   }
 
@@ -122,6 +126,8 @@ export class DialogueSystem {
       isTarinGivingShield
         ? () => {
             // Trigger iconic Zelda "Item Get" pose with the Shield held overhead + original fanfare!
+            this.game.addItem('shield');
+            this.game.setFlag('FLAG_SHIELD_OBTAINED');
             player.startItemGet();
             this.sound?.playSfx('item_get', 0.85);
             this.startCustomDialogue(
