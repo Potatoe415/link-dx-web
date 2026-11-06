@@ -18,6 +18,9 @@ import sys
 ROOMS_DIR = os.path.join('public', 'assets', 'rooms')
 TEXT_FR = os.path.join('scripts', 'regions', 'text_fr.json')
 
+# Overworld zone song numbers (musicOverworld.data, read by extract_room.py) -> MusicTrack keys in src/core/Audio.ts
+OVERWORLD_MUSIC = {3: 'outdoor', 4: 'overworld', 5: 'mountain', 7: 'animal_village', 8: 'forest', 10: 'desert'}
+
 # Original chest item ids (ItemManager.cs) -> ChestContents
 CHEST_RUPEES = {'ruby5': 5, 'ruby10': 10, 'ruby20': 20, 'ruby30': 30, 'ruby50': 50, 'ruby100': 100, 'ruby200': 200}
 CHEST_ITEMS = {'sword1': 'sword', 'shield': 'shield', 'powder': 'powder', 'feather': 'feather', 'stonelifter': 'bracelet',
@@ -92,6 +95,16 @@ def merge_zones(zones):
     return sorted(out, key=lambda z: (z[2], z[1], z[0]))
 
 
+def room_music(m, cfg):
+    """Region config `music` wins; otherwise overworld screens use their musicOverworld.data zone."""
+    if cfg.get('music'):
+        return cfg['music']
+    track = OVERWORLD_MUSIC.get(m.get('musicTrackId')) if m.get('sourceMap') == 'overworld.map' else None
+    if not track:
+        sys.exit(f"{m['roomId']}: no music (set `music` in the region config or map song {m.get('musicTrackId')})")
+    return track
+
+
 def ts_string(s):
     # JSON string syntax is a valid TS string literal (escapes quotes, backslashes and newlines)
     return json.dumps(s, ensure_ascii=False)
@@ -116,7 +129,7 @@ def build_room(room_id, name, cfg, texts):
         '    height: 128,',
         f'    bgPixel: {ts_string(bg)},',
         f'    bgGhibli: {ts_string(ghibli if has_ghibli else bg)},{"" if has_ghibli else " // TEMP: pixel fallback until TASK_ROOM_GHIBLI"}',
-        f'    music: {ts_string(cfg["music"])},',
+        f'    music: {ts_string(room_music(m, cfg))},',
     ]
     if cfg.get('ambience'):
         lines.append(f'    ambience: {ts_string(cfg["ambience"])},')

@@ -22,7 +22,7 @@ If you need to export additional tracks from `_ref_repo/Data/Music/awakening.gbs
    ```powershell
    python scripts/export_gbs_audio.py
    ```
-   This compiles `_ref_repo/GbsPlayer/` with the built-in Windows .NET Framework C# compiler (`csc.exe`) and writes 44.1 kHz 16-bit PCM `.wav` files into `public/assets/audio/`.
+   This compiles `_ref_repo/GbsPlayer/` with the built-in Windows .NET Framework C# compiler (`csc.exe`) and writes 44.1 kHz 16-bit PCM `.wav` files into `public/assets/audio/`. Every track except `music_indoor`, `music_outdoor` and `music_marin_sing` is then encoded to Ogg Vorbis with `ffmpeg` (must be on `PATH`; otherwise the `.wav` is kept and `MUSIC_FILES` in `src/core/Audio.ts` must point to it).
 
 ## 4. Adding a New Room (Step-by-Step)
 See `docs/ASSET_PIPELINE.md` for the complete workflow:

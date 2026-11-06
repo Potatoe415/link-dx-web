@@ -1,3 +1,9 @@
+"""
+Compiles the GbsPlayer emulator from _ref_repo/GbsPlayer/ with the .NET Framework csc and renders
+awakening.gbs tracks to 44.1 kHz mono WAV in public/assets/audio/.
+Song numbers come from musicOverworld.data (overworld zones), ObjMusic objects in each .map
+(houses, caves, dungeons) and SetMusic(...) calls in _ref_repo/InGame (boss, owl, fanfares).
+"""
 import os
 import shutil
 import subprocess
@@ -79,9 +85,35 @@ namespace GbsPlayer
 
         public static void Main(string[] args)
         {
-            RenderTrack(28, 30, "public/assets/audio/music_indoor.wav");
-            RenderTrack(3, 36, "public/assets/audio/music_outdoor.wav");
-            RenderTrack(46, 24, "public/assets/audio/music_marin_sing.wav");
+            RenderTrack(28, 30, "public/assets/audio/music_indoor.wav"); // house interior (legacy)
+            RenderTrack(3, 36, "public/assets/audio/music_outdoor.wav"); // Mabe Village (musicOverworld 3)
+            RenderTrack(46, 24, "public/assets/audio/music_marin_sing.wav"); // Ballad of the Wind Fish (Marin)
+            RenderTrack(4, 60, "public/assets/audio/music_overworld.wav"); // Koholint overworld with sword (musicOverworld 4)
+            RenderTrack(8, 45, "public/assets/audio/music_forest.wav"); // Mysterious Forest (musicOverworld 8)
+            RenderTrack(5, 45, "public/assets/audio/music_mountain.wav"); // Tal Tal Mountains (musicOverworld 5)
+            RenderTrack(7, 40, "public/assets/audio/music_animal_village.wav"); // Animal Village (musicOverworld 7)
+            RenderTrack(10, 40, "public/assets/audio/music_desert.wav"); // Yarna Desert (musicOverworld 10)
+            RenderTrack(9, 30, "public/assets/audio/music_house.wav"); // houses: house1, house10.. (map music 9)
+            RenderTrack(6, 30, "public/assets/audio/music_shop.wav"); // shop1/shop3 (map music 6)
+            RenderTrack(1, 30, "public/assets/audio/music_minigame.wav"); // Trendy Game / photo house (map music 1)
+            RenderTrack(37, 40, "public/assets/audio/music_cave.wav"); // caves (map music 37)
+            RenderTrack(50, 30, "public/assets/audio/music_helphouse.wav"); // telephone booths (map music 50)
+            RenderTrack(19, 60, "public/assets/audio/music_dungeon1.wav"); // Tail Cave (dungeon1.map)
+            RenderTrack(20, 60, "public/assets/audio/music_dungeon2.wav"); // Bottle Grotto (dungeon2.map)
+            RenderTrack(21, 60, "public/assets/audio/music_dungeon3.wav"); // Key Cavern (dungeon3_*.map)
+            RenderTrack(22, 60, "public/assets/audio/music_dungeon4.wav"); // Angler Tunnel (dungeon4.map)
+            RenderTrack(74, 60, "public/assets/audio/music_dungeon5.wav"); // Catfish Maw (dungeon5.map)
+            RenderTrack(87, 60, "public/assets/audio/music_dungeon6.wav"); // Face Shrine (dungeon6.map)
+            RenderTrack(90, 60, "public/assets/audio/music_dungeon7.wav"); // Eagle Tower (dungeon7_*.map)
+            RenderTrack(89, 60, "public/assets/audio/music_dungeon8.wav"); // Turtle Rock (dungeon8.map)
+            RenderTrack(96, 60, "public/assets/audio/music_dungeon_color.wav"); // Color Dungeon (dungeon_color.map)
+            RenderTrack(32, 40, "public/assets/audio/music_sidescroll.wav"); // 2D side-scrolling passages (map music 32)
+            RenderTrack(79, 45, "public/assets/audio/music_boss.wav"); // mini-boss / boss fight (SetMusic 79)
+            RenderTrack(17, 45, "public/assets/audio/music_egg.wav"); // Wind Fish Egg (egg_*.map)
+            RenderTrack(33, 20, "public/assets/audio/music_owl.wav"); // Owl appearance (ObjOwl)
+            RenderTrack(14, 8, "public/assets/audio/music_sword_get.wav"); // sword fanfare (ObjLink sword1)
+            RenderTrack(27, 10, "public/assets/audio/music_game_over.wav"); // respawn after game over (ObjLink.Respawn)
+            RenderTrack(67, 120, "public/assets/audio/music_ending.wav"); // ending credits (EndingScreen)
         }
     }
 }
@@ -95,6 +127,25 @@ print(res.stdout)
 if res.returncode != 0:
     print('ERR:', res.stderr)
 else:
-    res2 = subprocess.run(['tmp_gbs/gbs2wav.exe'], capture_output=True, text=True)
+    res2 = subprocess.run([os.path.abspath(os.path.join('tmp_gbs', 'gbs2wav.exe'))], capture_output=True, text=True)
+    if res2.returncode != 0:
+        print('ERR:', res2.stderr)
     print(res2.stdout)
 shutil.rmtree('tmp_gbs', ignore_errors=True)
+
+# Compress the long tracks: the 3 legacy WAVs stay as-is, every other track becomes Ogg Vorbis
+# (~1/20 the size; supported by all evergreen browsers). Requires ffmpeg on PATH.
+KEEP_WAV = {'music_indoor', 'music_outdoor', 'music_marin_sing'}
+ffmpeg = shutil.which('ffmpeg')
+for fn in sorted(os.listdir('public/assets/audio')):
+    name, ext = os.path.splitext(fn)
+    if ext != '.wav' or not name.startswith('music_') or name in KEEP_WAV:
+        continue
+    src = os.path.join('public/assets/audio', fn)
+    if not ffmpeg:
+        print('ffmpeg not found: leaving', src, 'uncompressed')
+        continue
+    dst = os.path.join('public/assets/audio', name + '.ogg')
+    subprocess.run([ffmpeg, '-y', '-loglevel', 'error', '-i', src, '-c:a', 'libvorbis', '-q:a', '3', dst], check=True)
+    os.remove(src)
+    print('Encoded', dst)

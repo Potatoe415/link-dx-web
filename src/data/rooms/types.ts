@@ -62,7 +62,8 @@ export type ChestContents =
 export type InteractableDef = SignDef | ChestDef;
 
 /** Music track key understood by SoundManager.playMusic. */
-export type RoomMusic = 'indoor' | 'outdoor';
+import type { MusicTrack } from '../../core/Audio';
+export type RoomMusic = MusicTrack;
 /** Ambient particle style (ParticleSystem). */
 export type RoomAmbience = 'indoor' | 'outdoor' | 'none';
 

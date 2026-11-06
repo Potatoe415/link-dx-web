@@ -49,7 +49,7 @@
 ### 1.2.2 — Moteur Audio Original (`.gbs` & `.wav`)
 - [x] **[T-1.2.2-01]** Créer `scripts/export_gbs_audio.py` compilant l'émulateur C# `_ref_repo/GbsPlayer/` pour exporter les pistes de `_ref_repo/Data/Music/awakening.gbs` en `.wav` 44.1 kHz.
 - [x] **[T-1.2.2-02]** Créer `src/core/Audio.ts` (`SoundManager`) avec lecture des musiques `.gbs`, atténuation automatique (*ducking*) lors des fanfares, clonage des bruitages `.wav` et touche Mute `M`.
-- [ ] **[T-1.2.2-03]** Étendre `scripts/export_gbs_audio.py` pour exporter l'ensemble des pistes musicales majeures de `awakening.gbs` (Plage/Overworld avec Épée, Forêt Enchantée, Boutique, Mini-Jeux, Cavernes, Donjons 1 à 8, Combat de Boss, Oeuf Sacré, Générique).
+- [x] **[T-1.2.2-03]** Étendre `scripts/export_gbs_audio.py` pour exporter l'ensemble des pistes musicales majeures de `awakening.gbs` (Plage/Overworld avec Épée, Forêt Enchantée, Boutique, Mini-Jeux, Cavernes, Donjons 1 à 8, Combat de Boss, Oeuf Sacré, Générique).
 
 ---
 

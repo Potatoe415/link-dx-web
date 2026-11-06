@@ -24,7 +24,53 @@ export type SfxName =
   | 'heart'
   | 'low_health';
 
-export type MusicTrack = 'indoor' | 'outdoor' | 'marin_sing';
+/**
+ * Music tracks rendered from awakening.gbs by scripts/export_gbs_audio.py (song numbers in that script).
+ * Elements are created lazily on first play so startup only fetches what is heard.
+ */
+export const MUSIC_FILES = {
+  indoor: '/assets/audio/music_indoor.wav',
+  outdoor: '/assets/audio/music_outdoor.wav',
+  marin_sing: '/assets/audio/music_marin_sing.wav',
+  overworld: '/assets/audio/music_overworld.ogg',
+  forest: '/assets/audio/music_forest.ogg',
+  mountain: '/assets/audio/music_mountain.ogg',
+  animal_village: '/assets/audio/music_animal_village.ogg',
+  desert: '/assets/audio/music_desert.ogg',
+  house: '/assets/audio/music_house.ogg',
+  shop: '/assets/audio/music_shop.ogg',
+  minigame: '/assets/audio/music_minigame.ogg',
+  cave: '/assets/audio/music_cave.ogg',
+  helphouse: '/assets/audio/music_helphouse.ogg',
+  dungeon1: '/assets/audio/music_dungeon1.ogg',
+  dungeon2: '/assets/audio/music_dungeon2.ogg',
+  dungeon3: '/assets/audio/music_dungeon3.ogg',
+  dungeon4: '/assets/audio/music_dungeon4.ogg',
+  dungeon5: '/assets/audio/music_dungeon5.ogg',
+  dungeon6: '/assets/audio/music_dungeon6.ogg',
+  dungeon7: '/assets/audio/music_dungeon7.ogg',
+  dungeon8: '/assets/audio/music_dungeon8.ogg',
+  dungeon_color: '/assets/audio/music_dungeon_color.ogg',
+  sidescroll: '/assets/audio/music_sidescroll.ogg',
+  boss: '/assets/audio/music_boss.ogg',
+  egg: '/assets/audio/music_egg.ogg',
+  owl: '/assets/audio/music_owl.ogg',
+  sword_get: '/assets/audio/music_sword_get.ogg',
+  game_over: '/assets/audio/music_game_over.ogg',
+  ending: '/assets/audio/music_ending.ogg'
+} as const;
+
+export type MusicTrack = keyof typeof MUSIC_FILES;
+
+/** Overworld zone music from `_ref_repo/Data/musicOverworld.data` (song number -> track). */
+export const OVERWORLD_MUSIC: Record<number, MusicTrack> = {
+  3: 'outdoor', // Mabe Village
+  4: 'overworld',
+  5: 'mountain',
+  7: 'animal_village',
+  8: 'forest',
+  10: 'desert'
+};
 
 export class SoundManager {
   private sfxBuffers: Map<SfxName, HTMLAudioElement> = new Map();
@@ -78,19 +124,18 @@ export class SoundManager {
       this.sfxBuffers.set(key, audio);
     }
 
-    const musicFiles: Record<MusicTrack, string> = {
-      indoor: '/assets/audio/music_indoor.wav',
-      outdoor: '/assets/audio/music_outdoor.wav',
-      marin_sing: '/assets/audio/music_marin_sing.wav'
-    };
+  }
 
-    for (const [key, url] of Object.entries(musicFiles) as [MusicTrack, string][]) {
-      const audio = new Audio(url);
+  private getMusicElement(track: MusicTrack): HTMLAudioElement {
+    let audio = this.musicElements.get(track);
+    if (!audio) {
+      audio = new Audio(MUSIC_FILES[track]);
       audio.preload = 'auto';
       audio.loop = true;
       audio.volume = this.musicVolume;
-      this.musicElements.set(key, audio);
+      this.musicElements.set(track, audio);
     }
+    return audio;
   }
 
   private setupUnlockListeners(): void {
@@ -181,8 +226,8 @@ export class SoundManager {
       return;
     }
 
-    const nextAudio = this.musicElements.get(this.desiredMusic);
-    if (nextAudio) {
+    const nextAudio = this.getMusicElement(this.desiredMusic);
+    {
       if (this.currentMusic !== this.desiredMusic) {
         nextAudio.currentTime = 0;
       }

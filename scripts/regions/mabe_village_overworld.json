@@ -1,8 +1,7 @@
 {
   "export": "MABE_VILLAGE_OVERWORLD_ROOMS",
   "out": "src/data/rooms/mabe_village_overworld.ts",
-  "comment": "Mabe Village outdoor screens (overworld rows 08..11, cols 00..03). ow_r10_c02 is hand-tuned in mabe_village.ts.",
-  "music": "outdoor",
+  "comment": "Mabe Village outdoor screens (overworld rows 08..11, cols 00..03) + the Mysterious Forest signpost screen. ow_r10_c02 is hand-tuned in mabe_village.ts. Music comes from musicOverworld.data per screen.",
   "ambience": "outdoor",
   "rooms": {
     "ow_r09_c00": "Village des Mouettes — Sentier vers la Forêt",

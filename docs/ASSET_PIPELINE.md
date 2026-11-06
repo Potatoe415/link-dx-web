@@ -55,4 +55,4 @@ Pour permettre à Link de passer derrière le haut des toits et la cime des arbr
 ## 5. Pipeline Audio (`public/assets/audio/`)
 
 - **Bruitages (`.wav`) :** Copiés directement depuis `_ref_repo/Content/SoundEffects/D3*.wav`.
-- **Musiques (`.gbs` $\rightarrow$ `.wav`) :** Exportées depuis `_ref_repo/Data/Music/awakening.gbs` via `python scripts/export_gbs_audio.py` qui compile l'émulateur C# `_ref_repo/GbsPlayer/` pour produire les pistes authentiques à 44.1 kHz.
+- **Musiques (`.gbs` $\rightarrow$ `.wav`) :** Exportées depuis `_ref_repo/Data/Music/awakening.gbs` via `python scripts/export_gbs_audio.py` qui compile l'émulateur C# `_ref_repo/GbsPlayer/` pour produire les pistes authentiques à 44.1 kHz. Les 3 pistes historiques restent en `.wav` ; les 26 autres (zones, donjons 1-8, boss, hibou, fanfares, générique) sont encodées en Ogg Vorbis via `ffmpeg` (~19 Mo au total au lieu de 112 Mo). La table `MUSIC_FILES` de `src/core/Audio.ts` et `OVERWORLD_MUSIC` de `scripts/build_region.py` font le lien avec les numéros de piste `.gbs`.
