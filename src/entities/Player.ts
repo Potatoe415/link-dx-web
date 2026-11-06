@@ -5,6 +5,7 @@ import { GroundKind, GroundZone, Rect } from '../data/rooms';
 import { ANIMATIONS, AnimationDef, AnimationFrame } from '../data/animations';
 import { renderEquippedShield, renderItemGetOverhead, ShieldPose } from './PlayerShieldRender';
 import { Knockback, blockingDirectionFor } from './Damage';
+import { Sword } from './Sword';
 import { GameState } from '../core/GameState';
 import {
   DROWN_HIDDEN_MS,
@@ -78,6 +79,9 @@ export class Player {
 
   // Damage: invulnerability blink + knockback (Damage.ts)
   public readonly knockback = new Knockback();
+  public readonly sword = new Sword();
+  /** Item shown overhead during ITEM_GET (shield by default, sword on the beach). */
+  public itemGetSprite: 'shield' | 'sword' = 'shield';
   private dyingTimer: number = 0;
 
   constructor(game: GameState, startX: number = 56, startY: number = 51, initialDirection: number = 3) {
@@ -104,7 +108,9 @@ export class Player {
     this.updateIdleAnimation();
   }
 
-  public startItemGet(): void {
+  public startItemGet(sprite: 'shield' | 'sword' = 'shield'): void {
+    this.itemGetSprite = sprite;
+    this.sword.cancel();
     this.isBlocking = false;
     this.state = 'ITEM_GET';
     this.direction = 3; // Face camera
@@ -196,7 +202,7 @@ export class Player {
         this.x = pushed.x;
         this.y = pushed.y;
         if (Math.hypot(this.knockback.vx, this.knockback.vy) < 1) {
-          this.updateMovement(input, colliders, sound, GROUND_SPEED[this.ground ?? 'hole']);
+          this.updateMovement(input, colliders, sound, GROUND_SPEED[this.ground ?? 'hole'], dtMs);
         }
         this.updateGround(dtMs, groundZones, sound);
         break;
@@ -322,9 +328,48 @@ export class Player {
     this.updateIdleAnimation();
   }
 
-  private updateMovement(input: Input, colliders: Rect[], sound?: SoundManager, groundSpeed: number = 1): void {
+  /** Which button (A / B) holds an item; Shift / X always raise the shield when it is owned. */
+  private buttonHeld(input: Input, item: 'shield' | 'sword'): boolean {
+    return (this.game.equippedA === item && input.isButtonAHeld()) || (this.game.equippedB === item && input.isButtonBHeld());
+  }
+
+  private buttonPressed(input: Input, item: 'shield' | 'sword'): boolean {
+    return (this.game.equippedA === item && input.wasButtonAJustPressed()) || (this.game.equippedB === item && input.wasButtonBJustPressed());
+  }
+
+  /** Sword slash / hold / spin; returns true while the attack locks Link's movement. */
+  private updateSword(dtMs: number, input: Input, sound?: SoundManager): boolean {
+    if (!this.game.hasItem('sword') || this.state === 'SWIMMING') {
+      this.sword.cancel();
+      return false;
+    }
+    if (!this.sword.active && this.buttonPressed(input, 'sword')) {
+      this.sword.start(this.direction);
+      this.isBlocking = false;
+      const n = 1 + Math.floor(Math.random() * 4);
+      sound?.playSfx(`sword_slash${n}` as 'sword_slash1', 0.7);
+    }
+    const event = this.sword.update(dtMs, this.buttonHeld(input, 'sword'));
+    if (event === 'charged') sound?.playSfx('sword_charged', 0.7);
+    if (event === 'spin') sound?.playSfx('sword_spin', 0.75);
+    // Slash and spin root Link in place; holding the charged sword lets him walk without turning
+    return this.sword.phase === 'slash' || this.sword.phase === 'spin';
+  }
+
+  private updateMovement(
+    input: Input,
+    colliders: Rect[],
+    sound?: SoundManager,
+    groundSpeed: number = 1,
+    dtMs: number = 1000 / 60
+  ): void {
+    if (this.updateSword(dtMs, input, sound)) {
+      this.state = 'IDLE';
+      return;
+    }
     const wasBlocking = this.isBlocking;
-    this.isBlocking = this.hasShield && this.state !== 'SWIMMING' && input.isShieldHeld();
+    const shieldHeld = input.isShieldHeld() || this.buttonHeld(input, 'shield');
+    this.isBlocking = this.hasShield && this.state !== 'SWIMMING' && !this.sword.active && shieldHeld;
     if (!wasBlocking && this.isBlocking) {
       sound?.playSfx('shield', 0.65);
     }
@@ -333,7 +378,7 @@ export class Player {
     if (move.isMoving) {
       this.state = 'WALKING';
       // When holding the shield up, Link locks his facing direction (strafe) unless not blocking
-      if (move.direction !== -1 && !this.isBlocking) {
+      if (move.direction !== -1 && !this.isBlocking && !this.sword.active) {
         this.direction = move.direction;
       }
 
@@ -433,7 +478,7 @@ export class Player {
   /**
    * Render Link and his soft contact shadow
    */
-  public render(ctx: CanvasRenderingContext2D, spritesheet: HTMLImageElement): void {
+  public render(ctx: CanvasRenderingContext2D, spritesheet: HTMLImageElement, swordSheet?: HTMLImageElement): void {
     const frame = this.getCurrentFrame();
     if (!frame || !this.isVisible) return;
 
@@ -470,8 +515,13 @@ export class Player {
     const renderW = frame.renderW ?? frame.w;
     const renderH = frame.renderH ?? frame.h;
 
+    // Sword pointing up is drawn behind Link (ObjLink draws the weapon before the body when facing Up)
+    const swordBehind = this.sword.active && this.sword.behindLink;
+    if (swordBehind) this.sword.render(ctx, swordSheet, this.x, this.y, this.z);
+
     // If facing UP (direction === 1) and carrying shield, draw shield behind Link's body
-    if (this.hasShield && this.state !== 'ITEM_GET' && drawShadow && this.direction === 1) {
+    const showShield = this.hasShield && this.state !== 'ITEM_GET' && drawShadow && this.sword.phase !== 'spin';
+    if (showShield && this.direction === 1) {
       renderEquippedShield(ctx, this.pose());
     }
 
@@ -488,9 +538,10 @@ export class Player {
     );
 
     // If facing Left/Right/Down and carrying shield, draw shield in front of Link
-    if (this.hasShield && this.state !== 'ITEM_GET' && drawShadow && this.direction !== 1) {
+    if (showShield && this.direction !== 1) {
       renderEquippedShield(ctx, this.pose());
     }
+    if (this.sword.active && !swordBehind) this.sword.render(ctx, swordSheet, this.x, this.y, this.z);
 
     // If in ITEM_GET celebration pose, draw radiant golden rays + Shield held overhead
     if (this.state === 'ITEM_GET') {
@@ -509,7 +560,8 @@ export class Player {
       state: this.state,
       isBlocking: this.isBlocking,
       animFrameIndex: this.animFrameIndex,
-      itemGetTimer: this.itemGetTimer
+      itemGetTimer: this.itemGetTimer,
+      itemGetSprite: this.itemGetSprite
     };
   }
 

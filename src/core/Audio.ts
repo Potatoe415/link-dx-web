@@ -22,7 +22,14 @@ export type SfxName =
   | 'enemy_die'
   | 'rupee'
   | 'heart'
-  | 'low_health';
+  | 'low_health'
+  | 'sword_slash1'
+  | 'sword_slash2'
+  | 'sword_slash3'
+  | 'sword_slash4'
+  | 'sword_charged'
+  | 'sword_spin'
+  | 'bush_cut';
 
 /**
  * Music tracks rendered from awakening.gbs by scripts/export_gbs_audio.py (song numbers in that script).
@@ -115,7 +122,14 @@ export class SoundManager {
       enemy_die: '/assets/audio/sfx_enemy_die.wav', // D378-19-13 (AiDamageState death)
       rupee: '/assets/audio/sfx_rupee.wav', // D370-05-05
       heart: '/assets/audio/sfx_heart.wav', // D370-06-06
-      low_health: '/assets/audio/sfx_low_health.wav' // D370-04-04 (HD remake leaves the warning empty)
+      low_health: '/assets/audio/sfx_low_health.wav', // D370-04-04 (HD remake leaves the warning empty)
+      sword_slash1: '/assets/audio/sfx_sword_slash1.wav', // D378-02-02 (UseSword picks one of 4 at random)
+      sword_slash2: '/assets/audio/sfx_sword_slash2.wav', // D378-20-14
+      sword_slash3: '/assets/audio/sfx_sword_slash3.wav', // D378-21-15
+      sword_slash4: '/assets/audio/sfx_sword_slash4.wav', // D378-24-18
+      sword_charged: '/assets/audio/sfx_sword_charged.wav', // D360-04-04
+      sword_spin: '/assets/audio/sfx_sword_spin.wav', // D378-03-03
+      bush_cut: '/assets/audio/sfx_bush_cut.wav' // D378-05-05
     };
 
     for (const [key, url] of Object.entries(sfxFiles) as [SfxName, string][]) {
@@ -175,6 +189,21 @@ export class SoundManager {
     if (name === 'item_get' || name === 'treasure') {
       this.duckMusic(2800);
     }
+  }
+
+  /**
+   * Plays a one-shot jingle track (sword fanfare, owl...) and resumes `thenTrack` when it ends,
+   * like SetMusic(nr, 2) on the higher-priority channel in GameManager.
+   */
+  public playJingle(track: MusicTrack, thenTrack: MusicTrack): void {
+    this.playMusic(track);
+    const audio = this.getMusicElement(track);
+    audio.loop = false;
+    audio.onended = () => {
+      audio.onended = null;
+      audio.loop = true;
+      if (this.desiredMusic === track) this.playMusic(thenTrack);
+    };
   }
 
   /** Silences music until the next playMusic (GAME OVER). */

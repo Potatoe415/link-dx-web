@@ -89,6 +89,15 @@ export class Input {
     );
   }
 
+  /** Held state of the physical A / B buttons (sword charge, shield). */
+  public isButtonAHeld(): boolean {
+    return this.isDown('Space') || this.isDown(' ') || this.isDown('KeyJ') || this.isDown('j');
+  }
+
+  public isButtonBHeld(): boolean {
+    return this.isShieldHeld() || this.isDown('KeyK') || this.isDown('k');
+  }
+
   /** One-shot 4-way direction (menu cursor): 0 Left, 1 Up, 2 Right, 3 Down, -1 none. */
   public getDirectionJustPressed(): number {
     if (this.wasJustPressed('ArrowLeft') || this.wasJustPressed('KeyA') || this.wasJustPressed('KeyQ')) return 0;

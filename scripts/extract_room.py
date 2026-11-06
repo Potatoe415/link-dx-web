@@ -212,7 +212,8 @@ def compute_ground_zone(obj_id, lx, ly):
 # Params follow GameObjectTemplates.cs: sign = [signText, spriteId, rect, direction], chest = [item, spawn, saveKey, spriteType].
 SIGN_SPRITES = {'signpost': 'signpost_0', 'signpostWoods': 'signpost_1', 'sign': None}
 SIGN_DIRECTION = {'signpost': 1, 'signpostWoods': 1, 'sign': None}
-RUNTIME_OBJECTS = set(SIGN_SPRITES) | {'chest'}  # drawn + collided by src/entities/Interactables.ts
+GROUND_ITEMS = {'sword1': 'sword'}  # ObjItem params: [?, saveKey, itemId, ...]
+RUNTIME_OBJECTS = set(SIGN_SPRITES) | {'chest', 'item'}  # drawn + collided by src/entities/Interactables.ts
 
 
 def compute_interactable(obj, lx, ly):
@@ -223,6 +224,8 @@ def compute_interactable(obj, lx, ly):
         return {'kind': 'sign', 'id': f"{obj['id']}_{lx}_{ly}", 'x': lx, 'y': ly,
                 'textKey': params[0] if params else '', 'sprite': SIGN_SPRITES[obj['id']],
                 'requiredDirection': SIGN_DIRECTION[obj['id']]}
+    if obj['id'] == 'item' and len(params) > 2 and params[2] in GROUND_ITEMS:
+        return {'kind': 'item', 'id': params[1] or f'item_{lx}_{ly}', 'x': lx, 'y': ly, 'item': GROUND_ITEMS[params[2]]}
     if obj['id'] == 'chest':
         return {'kind': 'chest', 'id': (params[2] if len(params) > 2 and params[2] else f'chest_{lx}_{ly}'),
                 'x': lx, 'y': ly, 'item': params[0] if params else ''}

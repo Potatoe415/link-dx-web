@@ -55,6 +55,8 @@ def build_interactables(m, cfg, texts):
             if it.get('requiredDirection') is not None:
                 extra += f", requiredDirection: {it['requiredDirection']}"
             out.append(f"      {{ kind: 'sign', id: {ts_string(it['id'])}, x: {it['x']}, y: {it['y']}, pages: [{pages}]{extra} }},")
+        elif it['kind'] == 'item':
+            out.append(f"      {{ kind: 'item', id: {ts_string(it['id'])}, x: {it['x']}, y: {it['y']}, item: '{it['item']}' }},")
         else:
             contents = chest_contents(it.get('item') or '', cfg.get('dungeon', ''))
             if contents is None:

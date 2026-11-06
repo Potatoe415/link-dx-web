@@ -10,6 +10,7 @@ export interface ShieldPose {
   isBlocking: boolean;
   animFrameIndex: number;
   itemGetTimer: number;
+  itemGetSprite?: 'shield' | 'sword';
 }
 
 export function renderEquippedShield(ctx: CanvasRenderingContext2D, p: ShieldPose): void {
@@ -78,7 +79,8 @@ export function renderItemGetOverhead(ctx: CanvasRenderingContext2D, p: ShieldPo
   ctx.fill();
 
   // Draw the shield large and clear overhead
-  drawCocolintShield(ctx, cx, cy, 1.35, false);
+  if (p.itemGetSprite === 'sword') drawRaisedSword(ctx, cx, cy);
+  else drawCocolintShield(ctx, cx, cy, 1.35, false);
 
   ctx.restore();
 }
@@ -153,4 +155,37 @@ function shieldPath(ctx: CanvasRenderingContext2D, ox: number, oy: number, w: nu
   ctx.quadraticCurveTo(ox + w * 0.85, oy + h * 0.7, ox, oy + h);
   ctx.quadraticCurveTo(ox - w * 0.85, oy + h * 0.7, ox - w, oy + h * 0.1);
   ctx.closePath();
+}
+
+/** Sword held overhead in the ITEM_GET pose: hand-painted blade matching the shield style. */
+function drawRaisedSword(ctx: CanvasRenderingContext2D, cx: number, cy: number): void {
+  ctx.save();
+  ctx.translate(cx, cy);
+  // Blade
+  const blade = ctx.createLinearGradient(-1, 0, 1, 0);
+  blade.addColorStop(0, '#e2e8f0');
+  blade.addColorStop(0.5, '#ffffff');
+  blade.addColorStop(1, '#94a3b8');
+  ctx.fillStyle = blade;
+  ctx.beginPath();
+  ctx.moveTo(0, -9);
+  ctx.lineTo(1.3, -7.5);
+  ctx.lineTo(1.3, 3);
+  ctx.lineTo(-1.3, 3);
+  ctx.lineTo(-1.3, -7.5);
+  ctx.closePath();
+  ctx.fill();
+  ctx.strokeStyle = '#334155';
+  ctx.lineWidth = 0.35;
+  ctx.stroke();
+  // Guard + grip + pommel
+  ctx.fillStyle = '#1d4ed8';
+  ctx.fillRect(-3.4, 3, 6.8, 1.4);
+  ctx.fillStyle = '#78350f';
+  ctx.fillRect(-0.9, 4.4, 1.8, 3);
+  ctx.fillStyle = '#fbbf24';
+  ctx.beginPath();
+  ctx.arc(0, 8.2, 1, 0, Math.PI * 2);
+  ctx.fill();
+  ctx.restore();
 }

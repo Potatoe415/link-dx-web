@@ -471,7 +471,15 @@
       "h": 16
     }
   ],
-  "interactables": [],
+  "interactables": [
+    {
+      "kind": "item",
+      "id": "ow_sword_1",
+      "x": 80,
+      "y": 80,
+      "item": "sword"
+    }
+  ],
   "enemies": [],
   "unportedEnemies": [
     "e1"

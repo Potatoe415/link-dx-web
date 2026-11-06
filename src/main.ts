@@ -222,7 +222,14 @@ export class GameEngine {
     if (this.input.wasInteractJustPressed() && this.tryAction()) return;
 
     this.player.update(dtMs, this.input, allColliders, this.sound, this.currentRoom.groundZones);
+    const swordHit = this.player.sword.hit(this.player.x, this.player.y);
+    if (swordHit) this.enemies.hitArea(swordHit.area, swordHit.damage, this.player.x, this.player.y);
     this.enemies.update(dtMs, allColliders, this.player);
+    const picked = this.interactables.checkPickups(this.player);
+    if (picked?.item === 'sword') {
+      this.giveSword();
+      return;
+    }
     if (this.game.healthQuarters <= 0) {
       this.startGameOver();
       return;
@@ -247,6 +254,21 @@ export class GameEngine {
     }
     const canAct = this.player.state === 'IDLE' || this.player.state === 'WALKING';
     return canAct && this.interactables.tryInteract(this.player);
+  }
+
+  /** Beach sword (ObjItem sword1): fanfare, ITEM_GET pose, FLAG_SWORD_OBTAINED, auto-equipped. */
+  private giveSword(): void {
+    this.game.addItem('sword');
+    this.game.setFlag('FLAG_SWORD_OBTAINED');
+    if (this.game.equippedA !== 'sword' && this.game.equippedB !== 'sword') this.game.equip('A', 'sword');
+    this.player.startItemGet('sword');
+    this.sound.playJingle('sword_get', this.currentRoom.music);
+    this.dialogue.startCustomDialogue(
+      '★ Objet Obtenu ★',
+      ["Vous avez retrouvé votre Épée ! Elle doit bien être à vous : votre nom est gravé dessus !",
+        'Appuyez sur [Espace] ou [J] pour frapper. Maintenez la touche puis relâchez-la pour une Attaque Tournoyante !'],
+      () => this.player.finishItemGet()
+    );
   }
 
   /** ObjLink.OnDeath: stop music, death jingle, spin, then the GAME OVER screen. */
@@ -298,7 +320,8 @@ export class GameEngine {
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     ctx.scale(scale, scale);
 
-    const playerRenderable = { y: this.player.y, render: () => this.player.render(ctx, spritesheet) };
+    const swordSheet = this.images.get('/assets/ui/link0.png');
+    const playerRenderable = { y: this.player.y, render: () => this.player.render(ctx, spritesheet, swordSheet) };
 
     if (this.scroller.pending) {
       const next = ROOMS[this.scroller.pending.nextKey];

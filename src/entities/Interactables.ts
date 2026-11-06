@@ -1,4 +1,4 @@
-import { ChestDef, InteractableDef, Rect, SignDef } from '../data/rooms';
+import { ChestDef, GroundItemDef, InteractableDef, Rect, SignDef } from '../data/rooms';
 import { GameState, ITEM_IDS, ItemId } from '../core/GameState';
 import { SoundManager } from '../core/Audio';
 import { DialogueSystem } from '../core/Dialogue';
@@ -20,12 +20,14 @@ const CHEST_RISE_MS = 250; // ObjChest.MoveTime: item rises out of the chest
 
 /** Logical-space collider of each interactable (walls for Link). */
 export function interactableCollider(def: InteractableDef): Rect | null {
+  if (def.kind === 'item') return null;
   if (def.kind === 'chest') return { x: def.x, y: def.y + 3, w: 16, h: 11 };
   return def.sprite ? { x: def.x, y: def.y + 4, w: 16, h: 12 } : null;
 }
 
 /** Box Link's facing probe must touch to interact. */
 function interactBox(def: InteractableDef): Rect {
+  if (def.kind === 'item') return { x: def.x + 3, y: def.y + 2, w: 10, h: 14 };
   if (def.kind === 'chest') return { x: def.x + 4, y: def.y + 3, w: 8, h: 13 };
   return def.sprite ? { x: def.x, y: def.y + 4, w: 16, h: 12 } : { x: def.x, y: def.y, w: 16, h: 16 };
 }
@@ -86,9 +88,26 @@ export class InteractableSystem {
       const b = interactBox(def);
       if (px < b.x || px >= b.x + b.w || py < b.y || py >= b.y + b.h) continue;
       if (def.kind === 'sign') return this.read(def, player);
-      return this.open(def, player);
+      if (def.kind === 'chest') return this.open(def, player);
     }
     return false;
+  }
+
+  /**
+   * Ground items are picked up by walking onto them (ObjItem). Returns the item granted this frame so
+   * the engine can run the ITEM_GET pose + fanfare.
+   */
+  public checkPickups(player: Player): GroundItemDef | null {
+    const feet = { x: player.x - 4, y: player.y - 8, w: 8, h: 8 };
+    for (const def of this.defs) {
+      if (def.kind !== 'item' || this.game.isChestOpened(this.roomId, def.id)) continue;
+      const b = interactBox(def);
+      if (feet.x < b.x + b.w && feet.x + feet.w > b.x && feet.y < b.y + b.h && feet.y + feet.h > b.y) {
+        this.game.markChestOpened(this.roomId, def.id); // shared "collected" set keyed by room + id
+        return def;
+      }
+    }
+    return null;
   }
 
   private read(sign: SignDef, player: Player): boolean {
@@ -138,6 +157,14 @@ export class InteractableSystem {
     if (!img) return [];
     const out: { y: number; render: () => void }[] = [];
     for (const def of this.defs) {
+      if (def.kind === 'item') {
+        if (this.game.isChestOpened(this.roomId, def.id)) continue;
+        const s = ITEM_SPRITES.sword;
+        const items = this.images.get(UI_SHEETS.items);
+        // The beach sword lies in the sand, tip down (sword1 sprite, items.atlas)
+        out.push({ y: def.y + 14, render: () => items && ctx.drawImage(items, s.x, s.y, s.w, s.h, def.x + 4, def.y, s.w, s.h) });
+        continue;
+      }
       if (def.kind === 'sign') {
         const sprite = def.sprite;
         if (!sprite) continue;

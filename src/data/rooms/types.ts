@@ -59,7 +59,16 @@ export type ChestContents =
   | { type: 'key'; dungeon: string }
   | { type: 'heartPiece' };
 
-export type InteractableDef = SignDef | ChestDef;
+/** Item lying on the ground (ObjItem), picked up on touch; `saveKey` keeps it collected. */
+export interface GroundItemDef {
+  kind: 'item';
+  id: string;
+  x: number; // map object origin (16x16 cell top-left)
+  y: number;
+  item: 'sword'; // extend as more ground items are ported
+}
+
+export type InteractableDef = SignDef | ChestDef | GroundItemDef;
 
 /** Music track key understood by SoundManager.playMusic. */
 import type { MusicTrack } from '../../core/Audio';

@@ -421,6 +421,9 @@ export const TORONBO_SHORES_ROOMS: Record<string, RoomDef> = {
     groundZones: [
       { kind: 'shallowWater', x: 32, y: 80, w: 128, h: 48 },
     ],
+    interactables: [
+      { kind: 'item', id: "ow_sword_1", x: 80, y: 80, item: 'sword' },
+    ],
     props: []
   },
 

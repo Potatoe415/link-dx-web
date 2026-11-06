@@ -117,9 +117,9 @@
 - [ ] **[T-2.3.1-04]** `TASK_ROOM_GHIBLI` sur la séquence d'écrans menant à la plage (`ow_r12_c02` $\rightarrow$ `ow_r15_c02`) avec vagues animées (`wave1`, `wave2`).
 
 ### 2.3.2 — Ramassage de l'Épée, Hibou & Attaque à l'Épée (`SWORD_SLASH`)
-- [ ] **[T-2.3.2-01]** `TASK_ENTITY_PORT(sword_beach)` : Porter `ObjSwordSpawner.cs` sur `ow_r15_c02`. Quand Link touche l'épée échouée dans le sable : joue la fanfare de l'Épée (Piste #14 de `awakening.gbs`), active `FLAG_SWORD_OBTAINED`, affiche la pose `ITEM_GET` de l'Épée.
+- [x] **[T-2.3.2-01]** `TASK_ENTITY_PORT(sword_beach)` : Porter `ObjSwordSpawner.cs` sur `ow_r15_c02`. Quand Link touche l'épée échouée dans le sable : joue la fanfare de l'Épée (Piste #14 de `awakening.gbs`), active `FLAG_SWORD_OBTAINED`, affiche la pose `ITEM_GET` de l'Épée.
 - [ ] **[T-2.3.2-02]** `TASK_ENTITY_PORT(owl)` : Porter `ObjOwl.cs` (arrivée en vol du Hibou sur `ow_r15_c02` juste après le ramassage de l'Épée, dialogue français indiquant la Forêt Enchantée et la Cave Flagello, puis envol).
-- [ ] **[T-2.3.2-03]** Implémenter l'état `SWORD_SLASH` et `SWORD_CHARGING` / `SPIN_ATTACK` dans `src/entities/Player.ts` :
+- [x] **[T-2.3.2-03]** Implémenter l'état `SWORD_SLASH` et `SWORD_CHARGING` / `SPIN_ATTACK` dans `src/entities/Player.ts` :
   - Coup d'épée en arc 180° (`D378-02-02.wav`),
   - Maintien de la touche d'épée (`Space`/`J`) -> charge (`D360-04-04.wav`) -> Attaque Tournoyante 360° (`D378-03-03.wav`),
   - Découpe des buissons, herbes et élimination des Octoroks et Oursins.
