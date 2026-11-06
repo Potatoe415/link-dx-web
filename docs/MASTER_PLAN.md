@@ -34,7 +34,7 @@
 - [x] **[T-1.1.2-02]** Implémenter le glissement mural indépendant sur les axes X et Y (`moveWithSlide`) + logique de dégagement anti-blocage (`getOverlapArea`).
 - [x] **[T-1.1.2-03]** Implémenter la vue de débogage des collisions (`showColliders` sur touche `C`) : murs en rouge, PNJ en violet, warps en cyan, Link en vert.
 - [x] **[T-1.1.2-04]** Implémenter les zones de téléportation (`WarpTrigger`) avec `requiredDirection` et fondu au noir `Camera.ts` (`320 ms`).
-- [ ] **[T-1.1.2-05]** Ajouter dans `Camera.ts` et `main.ts` la transition par **scrolling directionnel continu** (`160 px` horizontal ou `128 px` vertical en `350 ms`) lorsque Link franchit le bord `North`, `South`, `East` ou `West` d'un écran d'Overworld ou de Donjon vers son voisin (`neighbors.north/south/east/west`).
+- [x] **[T-1.1.2-05]** Ajouter dans `Camera.ts` et `main.ts` la transition par **scrolling directionnel continu** (`160 px` horizontal ou `128 px` vertical en `350 ms`) lorsque Link franchit le bord `North`, `South`, `East` ou `West` d'un écran d'Overworld ou de Donjon vers son voisin (`neighbors.north/south/east/west`).
 - [ ] **[T-1.1.2-06]** Gérer les types de tuiles spéciales au sol (`FieldStates` depuis `_ref_repo/InGame/Map/MapStates.cs`) : herbes hautes (ralentissement léger + masque bas des jambes), eau peu profonde (éclaboussures), eau profonde (`SWIMMING` ou noyade), trous (`FALLING_PIT`), escaliers (`stairs` ralentissement `0.5x`).
 
 ---
@@ -94,7 +94,7 @@
 
 ## 2.2 — Chapitre 1.2 : Le Village des Mouettes Complet (Grille `r08..r11, c00..c03`)
 ### 2.2.1 — Écrans Extérieurs du Village des Mouettes (`overworld.map`)
-- [ ] **[T-2.2.1-01]** `TASK_ROOM_EXTRACT` sur les 11 autres écrans du Village des Mouettes :
+- [x] **[T-2.2.1-01]** `TASK_ROOM_EXTRACT` sur les 11 autres écrans du Village des Mouettes :
   - `ow_r08_c01` (Puits & haut du village), `ow_r08_c02` (Maison de Mme Miaou & Toutou), `ow_r08_c03` (Boutique d'outils)
   - `ow_r09_c01` (Maison des quadruplés), `ow_r09_c02` (Place centrale & girouette nord), `ow_r09_c03` (Étang de pêche)
   - `ow_r10_c00` (Entrée ouest), `ow_r10_c01` (Enfants jouant à la balle), `ow_r10_c03` (Jeu de hasard *Trendy Game*)

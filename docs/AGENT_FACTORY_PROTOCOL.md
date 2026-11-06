@@ -51,13 +51,12 @@ Toute la construction du jeu se décompose en **4 opérateurs atomiques**. Un ag
    python scripts/extract_room.py --overworld-row <RR> --overworld-col <CC> --out-id <roomId>
    ```
    *(ou `--map <file.map> --room-row <RR> --room-col <CC> --out-id <roomId>` pour un intérieur/donjon).*
-2. **Lire le fichier généré `public/assets/rooms/<roomId>_manifest.json` :**
-   - Copier le tableau `colliders` (généré automatiquement depuis `c1..c13`, `fence*`, `tree*`, `pot_1`, etc. dans `GameObjectTemplates.cs`).
-   - Copier `neighbors` (`north`, `south`, `east`, `west`) et les `warp` (`door`, `stairs`).
-   - Copier `musicTrackId`. Si la piste `.gbs` n'est pas encore exportée dans `public/assets/audio/`, l'ajouter dans `scripts/export_gbs_audio.py` et l'exécuter.
-3. **Ajouter l'entrée dans `src/data/rooms/<region>.ts` :**
-   - `bgPixel: '/assets/rooms/<roomId>_bg_pixel.png'`
-   - `bgGhibli: '/assets/rooms/<roomId>_bg_pixel.png'` *(fallback temporaire tant que l'Opérateur B n'a pas été lancé sur cet écran).*
+2. **Vérifier `public/assets/rooms/<roomId>_grid_ruler.png`** : le décor (arbres, buissons, barrières, panneaux) est composé et les `colliders` sont calculés automatiquement depuis `GameObjectTemplates.cs` (`scripts/ref_templates.py`). Le manifeste contient aussi `neighbors`, les `warp` (`door`, `stairs`) et `musicTrackId`.
+3. **Générer le module TypeScript de la région** (jamais d'édition manuelle du fichier généré) :
+   - Ajouter `<roomId>: "<Nom français>"` dans `scripts/regions/<region>.json` (`music`, `ambience` partagés).
+   - `python scripts/build_region.py scripts/regions/<region>.json` → `src/data/rooms/<region>.ts` (colliders fusionnés, `neighbors`, `bgGhibli` en *fallback* `bg_pixel` tant que `<roomId>_bg.png` n'existe pas).
+   - Une région nouvelle doit être ajoutée à `REGIONS` dans `src/data/rooms/index.ts`.
+   - Les salles retouchées à la main (portes, PNJ, Ghibli) restent dans un module manuel (ex. `mabe_village.ts`) et sont retirées du JSON.
 4. **Critère de validation (`Gate A`) :** `npm run build` passe à `0` erreur + les boîtes rouges en mode `C` correspondent à `<roomId>_grid_ruler.png`.
 
 ---

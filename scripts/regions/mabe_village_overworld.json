@@ -1,0 +1,21 @@
+{
+  "export": "MABE_VILLAGE_OVERWORLD_ROOMS",
+  "out": "src/data/rooms/mabe_village_overworld.ts",
+  "comment": "Mabe Village outdoor screens (overworld rows 08..11, cols 00..03). ow_r10_c02 is hand-tuned in mabe_village.ts.",
+  "music": "outdoor",
+  "ambience": "outdoor",
+  "rooms": {
+    "ow_r08_c01": "Village des Mouettes — Puits",
+    "ow_r08_c02": "Village des Mouettes — Maison de Mme Miaou",
+    "ow_r08_c03": "Village des Mouettes — Boutique",
+    "ow_r09_c01": "Village des Mouettes — Maison des quadruplés",
+    "ow_r09_c02": "Village des Mouettes — Place centrale",
+    "ow_r09_c03": "Village des Mouettes — Champ est",
+    "ow_r10_c00": "Village des Mouettes — Entrée ouest",
+    "ow_r10_c01": "Village des Mouettes — Maison de Marine (ouest)",
+    "ow_r10_c03": "Village des Mouettes — Champ de culture",
+    "ow_r11_c01": "Village des Mouettes — Bibliothèque",
+    "ow_r11_c02": "Village des Mouettes — Cabine téléphonique",
+    "ow_r11_c03": "Village des Mouettes — Jeu de hasard"
+  }
+}

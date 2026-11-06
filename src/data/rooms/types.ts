@@ -26,6 +26,19 @@ export interface RoomProp {
   dialogues?: string[][]; // Array of conversations (each conversation is an array of pages)
 }
 
+/** Music track key understood by SoundManager.playMusic. */
+export type RoomMusic = 'indoor' | 'outdoor';
+/** Ambient particle style (ParticleSystem). */
+export type RoomAmbience = 'indoor' | 'outdoor' | 'none';
+
+/** Rooms reached by walking off each screen edge (continuous scroll transition). */
+export interface RoomNeighbors {
+  north?: string;
+  south?: string;
+  east?: string;
+  west?: string;
+}
+
 export interface RoomDef {
   id: string;
   name: string;
@@ -35,6 +48,10 @@ export interface RoomDef {
   bgGhibli: string;
   fgPixel?: string;
   fgGhibli?: string;
+  music: RoomMusic;
+  ambience: RoomAmbience;
+  // Edges without a registered neighbor act as walls.
+  neighbors?: RoomNeighbors;
   spawnPoint: { x: number; y: number; direction: number };
   warpTriggers: WarpTrigger[];
   colliders: Rect[];

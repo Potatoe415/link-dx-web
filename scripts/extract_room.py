@@ -7,6 +7,9 @@ to mathematically extract any 10x8 (160x128) screen into:
   2. `<out_id>_grid_ruler.png` (1280x1024 visual coordinate ruler with 160x128 labels)
   3. `<out_id>_manifest.json`  (exact tile matrix, music track ID, and local 160x128 objects/doors/colliders)
 
+Object sprites and colliders come from `_ref_repo/InGame/GameObjects/GameObjectTemplates.cs` (see ref_templates.py).
+Turn manifests into TypeScript RoomDefs with `scripts/build_region.py`.
+
 Usage examples:
   # Extract Marin's house outdoor screen (Overworld Row 10, Col 2):
   python scripts/extract_room.py --overworld-row 10 --overworld-col 2 --out-id ow_r10_c02
@@ -23,42 +26,12 @@ import json
 import os
 from PIL import Image, ImageDraw
 
+from ref_templates import load_object_templates, load_sprite_atlases, LAYER_BOTTOM, LAYER_PLAYER
+
 REF_DIR = '_ref_repo'
 MAPS_DIR = os.path.join(REF_DIR, 'Data', 'Maps')
 TILESETS_DIR = os.path.join(MAPS_DIR, 'Tilesets')
-OBJECTS_ATLAS = os.path.join(REF_DIR, 'Data', 'Map Objects', 'objects.atlas')
-OBJECTS_PNG = os.path.join(REF_DIR, 'Data', 'Map Objects', 'objects.png')
 MUSIC_OW_DATA = os.path.join(REF_DIR, 'Data', 'musicOverworld.data')
-
-
-def load_objects_atlas():
-    atlas = {}
-    if not os.path.exists(OBJECTS_ATLAS):
-        return atlas
-    with open(OBJECTS_ATLAS, encoding='utf-8', errors='ignore') as f:
-        for line in f:
-            line = line.strip()
-            if not line or line.startswith('//') or ':' not in line:
-                continue
-            name, rest = line.split(':', 1)
-            parts = [p.strip() for p in rest.split(';')]
-            if len(parts) >= 1 and ',' in parts[0]:
-                coords = [int(v) for v in parts[0].split(',') if v.strip().lstrip('-').isdigit()]
-                if len(coords) >= 4:
-                    ox, oy = 0, 0
-                    if len(parts) >= 2 and ',' in parts[1]:
-                        orig = [int(v) for v in parts[1].split(',') if v.strip().lstrip('-').isdigit()]
-                        if len(orig) >= 2:
-                            ox, oy = orig[0], orig[1]
-                    atlas[name.strip()] = {
-                        'x': coords[0],
-                        'y': coords[1],
-                        'w': coords[2],
-                        'h': coords[3],
-                        'originX': ox,
-                        'originY': oy,
-                    }
-    return atlas
 
 
 def parse_map_file(map_path):
@@ -201,22 +174,27 @@ FENCE_BITMASKS = {
 }
 
 
-def compute_object_colliders(obj_id, lx, ly, params):
+def fence_posts(obj_id, params):
+    """ObjFence.cs: bit 3 (0x08) = top-left post, bit 2 = top-right, bit 1 = bottom-left, bit 0 = bottom-right.
+    Yields each post's anchor offset (4 + col*8, 5 + row*8) relative to the object position."""
+    placement = int(params[0]) if (len(params) >= 1 and params[0].isdigit()) else FENCE_BITMASKS[obj_id]
+    for i in range(4):
+        if placement & (0x08 >> i):
+            yield 4 + (i % 2) * 8, 5 + (i // 2) * 8
+
+
+def compute_object_colliders(obj_id, lx, ly, params, templates):
     rects = []
     if obj_id in COLLIDER_SHAPES:
         for ox, oy, w, h in COLLIDER_SHAPES[obj_id]:
             rects.append({'x': lx + ox, 'y': ly + oy, 'w': w, 'h': h, 'source': obj_id})
     elif obj_id in FENCE_BITMASKS:
-        placement = int(params[0]) if (len(params) >= 1 and params[0].isdigit()) else FENCE_BITMASKS[obj_id]
-        for bit in range(4):
-            if (placement & (1 << bit)) != 0:
-                rects.append({
-                    'x': lx + (bit % 2) * 8,
-                    'y': ly + (bit // 2) * 8,
-                    'w': 8,
-                    'h': 8,
-                    'source': obj_id,
-                })
+        # Each post is an ObjSprite with collision Rectangle(-3, -5, 6, 6) around its anchor
+        for ax, ay in fence_posts(obj_id, params):
+            rects.append({'x': lx + ax - 3, 'y': ly + ay - 5, 'w': 6, 'h': 6, 'source': obj_id})
+    elif obj_id in templates and templates[obj_id]['collider']:
+        cx, cy, cw, ch = templates[obj_id]['collider']
+        rects.append({'x': lx + cx, 'y': ly + cy, 'w': cw, 'h': ch, 'source': obj_id})
     return rects
 
 
@@ -258,9 +236,11 @@ def extract_room(map_name, screen_col, screen_row, out_id, out_dir, offset_px_x=
     ts_cols = tileset_img.width // 16
 
     room_native = Image.new('RGBA', (160, 128), (0, 0, 0, 255))
+    top_layer_img = Image.new('RGBA', (160, 128), (0, 0, 0, 0)) if parsed['depth'] > 1 else None
     room_tiles = []
 
     for z in range(parsed['depth']):
+        target = top_layer_img if (top_layer_img is not None and z == parsed['depth'] - 1) else room_native
         layer_slice = []
         for ry in range(8):
             row_indices = []
@@ -275,13 +255,15 @@ def extract_room(map_name, screen_col, screen_row, out_id, out_dir, offset_px_x=
                     sx = (t_idx % ts_cols) * 16
                     sy = (t_idx // ts_cols) * 16
                     tile_crop = tileset_img.crop((sx, sy, sx + 16, sy + 16))
-                    room_native.alpha_composite(tile_crop, (rx * 16, ry * 16))
+                    target.alpha_composite(tile_crop, (rx * 16, ry * 16))
             layer_slice.append(row_indices)
         room_tiles.append(layer_slice)
 
     # Filter objects inside or overlapping this 160x128 screen
-    atlas = load_objects_atlas()
-    objects_img = Image.open(OBJECTS_PNG).convert('RGBA') if os.path.exists(OBJECTS_PNG) else None
+    sprites = load_sprite_atlases()
+    templates = load_object_templates(sprites)
+    sheets = {}
+    draws = []  # (layer, sortY, spriteId, x, y)
 
     local_objects = []
     extracted_colliders = []
@@ -299,7 +281,7 @@ def extract_room(map_name, screen_col, screen_row, out_id, out_dir, offset_px_x=
             }
             local_objects.append(entry)
 
-            for r in compute_object_colliders(obj['id'], lx, ly, obj['params']):
+            for r in compute_object_colliders(obj['id'], lx, ly, obj['params'], templates):
                 # Clip collider to [0..160, 0..128] screen bounds
                 cx0 = max(0, r['x'])
                 cy0 = max(0, r['y'])
@@ -314,28 +296,38 @@ def extract_room(map_name, screen_col, screen_row, out_id, out_dir, offset_px_x=
                         'source': r['source'],
                     })
 
-            # Composite static decor onto the pixel-art background reference
-            if objects_img and category == 'static_decor':
-                if obj['id'] in FENCE_BITMASKS:
-                    placement = int(obj['params'][0]) if (len(obj['params']) >= 1 and obj['params'][0].isdigit()) else FENCE_BITMASKS[obj['id']]
-                    f_entry = atlas.get('fence')
-                    if f_entry:
-                        for bit in range(4):
-                            if (placement & (1 << bit)) != 0:
-                                fx = f_entry['x'] + bit * 8
-                                fy = f_entry['y']
-                                f_crop = objects_img.crop((fx, fy, fx + 8, fy + 16))
-                                dest_x = lx + (bit % 2) * 8
-                                dest_y = ly + (bit // 2) * 8
-                                if -16 <= dest_x < 160 and -16 <= dest_y < 128:
-                                    room_native.alpha_composite(f_crop, (max(0, dest_x), max(0, dest_y)))
-                elif obj['id'] in atlas:
-                    a = atlas[obj['id']]
-                    crop = objects_img.crop((a['x'], a['y'], a['x'] + a['w'], a['y'] + a['h']))
-                    dx = lx
-                    dy = ly
-                    if 0 <= dx < 160 and 0 <= dy < 128:
-                        room_native.alpha_composite(crop, (dx, dy))
+            # Queue the object's static sprite for compositing (same maths as the C# constructors)
+            if obj['id'] in FENCE_BITMASKS and 'fence' in sprites:
+                for ax, ay in fence_posts(obj['id'], obj['params']):
+                    f = sprites['fence']
+                    draws.append((LAYER_PLAYER, ly + ay, 'fence', lx + ax - f['ox'], ly + ay - f['oy']))
+            elif obj['id'] in templates:
+                t = templates[obj['id']]
+                sprite_id = obj['params'][0] if (t['cls'] == 'ObjSprite' and obj['params'] and obj['params'][0] in sprites) else t['sprite']
+                dx, dy = t['draw']
+                draws.append((t['layer'], ly + dy + sprites[sprite_id]['h'], sprite_id, lx + dx, ly + dy))
+
+    # Composite in the original draw order: bottom-layer objects (grass, flowers, water) under the
+    # top tile layer, then player-level objects (trees, bushes, fences) Y-sorted, then top objects.
+    def paste_sprite(sprite_id, x, y):
+        sp = sprites[sprite_id]
+        if sp['png'] not in sheets:
+            sheets[sp['png']] = Image.open(sp['png']).convert('RGBA')
+        crop = sheets[sp['png']].crop((sp['x'], sp['y'], sp['x'] + sp['w'], sp['y'] + sp['h']))
+        # Clip to the screen: alpha_composite rejects negative destinations
+        sx0, sy0 = max(0, -x), max(0, -y)
+        if sx0 >= sp['w'] or sy0 >= sp['h'] or x >= 160 or y >= 128:
+            return
+        room_native.alpha_composite(crop.crop((sx0, sy0, sp['w'], sp['h'])), (x + sx0, y + sy0))
+
+    for layer, _sy, sid, x, y in sorted(draws, key=lambda d: (d[0], d[1])):
+        if layer <= LAYER_BOTTOM:
+            paste_sprite(sid, x, y)
+    if top_layer_img is not None:
+        room_native.alpha_composite(top_layer_img)
+    for layer, _sy, sid, x, y in sorted(draws, key=lambda d: (d[0], d[1])):
+        if layer > LAYER_BOTTOM:
+            paste_sprite(sid, x, y)
 
     # 1. Save 1280x1024 Nearest Neighbor Pixel-Art Reference
     bg_pixel = room_native.resize((1280, 1024), Image.Resampling.NEAREST)
@@ -393,40 +385,11 @@ def extract_room(map_name, screen_col, screen_row, out_id, out_dir, offset_px_x=
     with open(manifest_path, 'w', encoding='utf-8') as f:
         json.dump(manifest, f, indent=2)
 
-    # 4. Save ready-to-import TypeScript RoomDef stub
-    colliders_ts = ',\n    '.join(
-        f"{{ x: {c['x']}, y: {c['y']}, w: {c['w']}, h: {c['h']} }} // {c['source']}"
-        for c in extracted_colliders
-    )
-    ts_lines = [
-        f"// Auto-generated by scripts/extract_room.py from {map_name} ({screen_col}, {screen_row})",
-        "import { RoomDef } from './types';",
-        "",
-        f"export const {out_id.upper()}_ROOM: RoomDef = {{",
-        f"  id: '{out_id}',",
-        f"  name: '{out_id}',",
-        "  width: 160,",
-        "  height: 128,",
-        f"  bgPixel: '/assets/rooms/{out_id}_bg_pixel.png',",
-        f"  bgGhibli: '/assets/rooms/{out_id}_bg_pixel.png', // Replace with /assets/rooms/{out_id}_bg.png after Ghibli pass",
-        "  spawnPoint: { x: 80, y: 64, direction: 3 },",
-        "  warpTriggers: [],",
-        "  colliders: [",
-        f"    {colliders_ts}" if colliders_ts else "",
-        "  ],",
-        "  props: [],",
-        "};",
-        "",
-    ]
-    ts_path = os.path.join(out_dir, f'{out_id}_room.ts')
-    with open(ts_path, 'w', encoding='utf-8') as f:
-        f.write('\n'.join(ts_lines))
-
     print(f'[OK] Extracted {out_id}:')
     print(f'  -> Pixel BG   : {bg_pixel_path}')
     print(f'  -> Grid Ruler : {ruler_path}')
     print(f'  -> Manifest   : {manifest_path} ({len(extracted_colliders)} colliders, {len(manifest["objects"])} entities/props)')
-    print(f'  -> TS RoomDef : {ts_path}')
+    print('  -> Wire it  : python scripts/build_region.py (see docs/AGENT_FACTORY_PROTOCOL.md)')
 
 
 def main():

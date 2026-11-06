@@ -1,0 +1,1022 @@
+{
+  "roomId": "ow_r10_c01",
+  "sourceMap": "overworld.map",
+  "screenCol": 1,
+  "screenRow": 10,
+  "tileOrigin": {
+    "col": 11,
+    "row": 80
+  },
+  "worldPixelOrigin": {
+    "x": 176,
+    "y": 1280
+  },
+  "logicalSize": {
+    "w": 160,
+    "h": 128
+  },
+  "displaySize": {
+    "w": 1280,
+    "h": 1024
+  },
+  "musicTrackId": 3,
+  "neighbors": {
+    "north": "ow_r09_c01",
+    "south": "ow_r11_c01",
+    "west": "ow_r10_c00",
+    "east": "ow_r10_c02"
+  },
+  "colliders": [
+    {
+      "x": 32,
+      "y": 20,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 32,
+      "y": 32,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 32,
+      "y": 48,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 48,
+      "y": 20,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 48,
+      "y": 32,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 64,
+      "y": 20,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 64,
+      "y": 32,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 64,
+      "y": 48,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 80,
+      "y": 32,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 96,
+      "y": 56,
+      "w": 16,
+      "h": 8,
+      "source": "c2"
+    },
+    {
+      "x": 80,
+      "y": 48,
+      "w": 16,
+      "h": 8,
+      "source": "c5"
+    },
+    {
+      "x": 72,
+      "y": 72,
+      "w": 8,
+      "h": 8,
+      "source": "c8"
+    },
+    {
+      "x": 73,
+      "y": 72,
+      "w": 6,
+      "h": 6,
+      "source": "fenceBR"
+    },
+    {
+      "x": 97,
+      "y": 56,
+      "w": 6,
+      "h": 6,
+      "source": "fenceD"
+    },
+    {
+      "x": 105,
+      "y": 56,
+      "w": 6,
+      "h": 6,
+      "source": "fenceD"
+    },
+    {
+      "x": 0,
+      "y": 116,
+      "w": 16,
+      "h": 12,
+      "source": "tree0"
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "w": 32,
+      "h": 16,
+      "source": "tree0"
+    },
+    {
+      "x": 32,
+      "y": 0,
+      "w": 32,
+      "h": 16,
+      "source": "tree0"
+    },
+    {
+      "x": 112,
+      "y": 0,
+      "w": 32,
+      "h": 16,
+      "source": "tree0"
+    },
+    {
+      "x": 144,
+      "y": 0,
+      "w": 16,
+      "h": 16,
+      "source": "tree0"
+    }
+  ],
+  "objects": [
+    {
+      "id": "bird",
+      "category": "animated_prop",
+      "localX": 48,
+      "localY": 128,
+      "params": []
+    },
+    {
+      "id": "BowWow",
+      "category": "other",
+      "localX": 68,
+      "localY": 68,
+      "params": [
+        "pole"
+      ]
+    },
+    {
+      "id": "bush",
+      "category": "other",
+      "localX": -32,
+      "localY": 48,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "butterfly",
+      "category": "other",
+      "localX": 48,
+      "localY": 32,
+      "params": []
+    },
+    {
+      "id": "butterfly",
+      "category": "other",
+      "localX": 128,
+      "localY": 80,
+      "params": []
+    },
+    {
+      "id": "dogo",
+      "category": "other",
+      "localX": 112,
+      "localY": 16,
+      "params": []
+    },
+    {
+      "id": "door",
+      "category": "warp",
+      "localX": 48,
+      "localY": 48,
+      "params": [
+        "",
+        "",
+        "h3m",
+        "house3m.map",
+        "h3m",
+        "3",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "door",
+      "category": "warp",
+      "localX": 80,
+      "localY": 48,
+      "params": [
+        "15",
+        "",
+        "h3n",
+        "house3n.map",
+        "h3n",
+        "3",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "enemyWall",
+      "category": "other",
+      "localX": 48,
+      "localY": 48,
+      "params": [
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "enemyWall",
+      "category": "other",
+      "localX": 80,
+      "localY": 48,
+      "params": [
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "fenceBR",
+      "category": "static_decor",
+      "localX": 64,
+      "localY": 64,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "fenceD",
+      "category": "static_decor",
+      "localX": 96,
+      "localY": 48,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "flower",
+      "category": "animated_prop",
+      "localX": -16,
+      "localY": 64,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "flower",
+      "category": "animated_prop",
+      "localX": 32,
+      "localY": 80,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "flower",
+      "category": "animated_prop",
+      "localX": 112,
+      "localY": 32,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "flower",
+      "category": "animated_prop",
+      "localX": 112,
+      "localY": 128,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "flower",
+      "category": "animated_prop",
+      "localX": 128,
+      "localY": 96,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gras",
+      "category": "static_decor",
+      "localX": 48,
+      "localY": 80,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gras",
+      "category": "static_decor",
+      "localX": 64,
+      "localY": 0,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gras",
+      "category": "static_decor",
+      "localX": 64,
+      "localY": 80,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gras",
+      "category": "static_decor",
+      "localX": 80,
+      "localY": 0,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gras",
+      "category": "static_decor",
+      "localX": 80,
+      "localY": 16,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gras",
+      "category": "static_decor",
+      "localX": 80,
+      "localY": 64,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gras",
+      "category": "static_decor",
+      "localX": 80,
+      "localY": 80,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gras",
+      "category": "static_decor",
+      "localX": 96,
+      "localY": 0,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gras",
+      "category": "static_decor",
+      "localX": 96,
+      "localY": 64,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gras",
+      "category": "static_decor",
+      "localX": 96,
+      "localY": 80,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gras",
+      "category": "static_decor",
+      "localX": 112,
+      "localY": 48,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gras",
+      "category": "static_decor",
+      "localX": 112,
+      "localY": 64,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gras",
+      "category": "static_decor",
+      "localX": 112,
+      "localY": 80,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gras",
+      "category": "static_decor",
+      "localX": 128,
+      "localY": 64,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "objectSpawner",
+      "category": "other",
+      "localX": 40,
+      "localY": 64,
+      "params": [
+        "final_show",
+        "1",
+        "bobWowSmall",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "objectSpawner",
+      "category": "other",
+      "localX": 80,
+      "localY": 64,
+      "params": [
+        "final_show",
+        "1",
+        "bobWowSmall",
+        "bowWow3",
+        ""
+      ]
+    },
+    {
+      "id": "pushDialog",
+      "category": "other",
+      "localX": 72,
+      "localY": 72,
+      "params": [
+        "start_BowWow_Seq",
+        "8",
+        "8"
+      ]
+    },
+    {
+      "id": "roof02",
+      "category": "other",
+      "localX": 32,
+      "localY": 16,
+      "params": [
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "tree0",
+      "category": "static_decor",
+      "localX": -32,
+      "localY": -16,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "tree0",
+      "category": "static_decor",
+      "localX": -16,
+      "localY": -32,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "tree0",
+      "category": "static_decor",
+      "localX": -16,
+      "localY": 112,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "tree0",
+      "category": "static_decor",
+      "localX": 0,
+      "localY": -16,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "tree0",
+      "category": "static_decor",
+      "localX": 32,
+      "localY": -16,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "tree0",
+      "category": "static_decor",
+      "localX": 112,
+      "localY": -16,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "tree0",
+      "category": "static_decor",
+      "localX": 144,
+      "localY": -16,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    }
+  ],
+  "tiles": [
+    [
+      [
+        615,
+        615,
+        615,
+        615,
+        500,
+        500,
+        500,
+        615,
+        615,
+        615
+      ],
+      [
+        356,
+        356,
+        615,
+        615,
+        615,
+        500,
+        452,
+        412,
+        412,
+        412
+      ],
+      [
+        353,
+        356,
+        140,
+        141,
+        142,
+        615,
+        372,
+        418,
+        452,
+        452
+      ],
+      [
+        453,
+        356,
+        177,
+        320,
+        174,
+        321,
+        615,
+        500,
+        452,
+        452
+      ],
+      [
+        453,
+        356,
+        429,
+        473,
+        135,
+        500,
+        500,
+        500,
+        500,
+        452
+      ],
+      [
+        413,
+        392,
+        418,
+        500,
+        500,
+        500,
+        500,
+        500,
+        452,
+        452
+      ],
+      [
+        356,
+        356,
+        372,
+        413,
+        413,
+        413,
+        413,
+        413,
+        418,
+        413
+      ],
+      [
+        615,
+        356,
+        356,
+        356,
+        356,
+        356,
+        356,
+        356,
+        356,
+        356
+      ]
+    ],
+    [
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        256,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ]
+    ],
+    [
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ]
+    ]
+  ]
+}

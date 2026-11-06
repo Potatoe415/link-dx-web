@@ -1,6 +1,6 @@
 import { RoomDef } from './types';
 
-// Marin's house interior + the screen in front of it (overworld r10 c02).
+// Hand-tuned rooms matched to their Ghibli paintings: Marin's house interior + the screen in front of it.
 export const MABE_VILLAGE_ROOMS: Record<string, RoomDef> = {
   indoor: {
     id: 'indoor',
@@ -9,11 +9,13 @@ export const MABE_VILLAGE_ROOMS: Record<string, RoomDef> = {
     height: 128,
     bgPixel: '/assets/indoor_bg_pixel.png',
     bgGhibli: '/assets/indoor_bg.png',
+    music: 'indoor',
+    ambience: 'indoor',
     spawnPoint: { x: 60.5, y: 48, direction: 3 }, // Exact anchor of the right bed in indoor_bg.png
     warpTriggers: [
       {
         triggerBox: { x: 70, y: 116, w: 20, h: 12 },
-        targetRoom: 'outdoor',
+        targetRoom: 'ow_r10_c02',
         targetX: 85.5,
         targetY: 88,
         targetDirection: 3, // Link exits facing Down onto the dirt path
@@ -94,15 +96,18 @@ export const MABE_VILLAGE_ROOMS: Record<string, RoomDef> = {
     ]
   },
 
-  outdoor: {
-    id: 'outdoor',
-    name: 'Mabe Village (Outdoor 10x8)',
+  ow_r10_c02: {
+    id: 'ow_r10_c02',
+    name: 'Village des Mouettes — Maison de Marine',
     width: 160,
     height: 128,
     bgPixel: '/assets/outdoor_bg_pixel.png',
     bgGhibli: '/assets/outdoor_bg.png',
     fgPixel: '/assets/outdoor_fg_pixel.png',
     fgGhibli: '/assets/outdoor_fg.png',
+    music: 'outdoor',
+    ambience: 'outdoor',
+    neighbors: { north: 'ow_r09_c02', south: 'ow_r11_c02', west: 'ow_r10_c01', east: 'ow_r10_c03' },
     spawnPoint: { x: 85.5, y: 88, direction: 3 },
     warpTriggers: [
       {
@@ -116,11 +121,8 @@ export const MABE_VILLAGE_ROOMS: Record<string, RoomDef> = {
       }
     ],
     colliders: [
-      // 4 Invisible outer bounds locking Link inside the 160x128 screen
-      { x: 0, y: 0, w: 6, h: 128 },      // Left screen border
-      { x: 154, y: 0, w: 6, h: 128 },    // Right screen border
-      { x: 0, y: 0, w: 160, h: 10 },     // Top screen border
-      { x: 0, y: 122, w: 160, h: 6 },    // Bottom screen border
+      // Screen edges scroll to the neighbors; only the tree trunk poking in from ow_r09_c01 blocks the corner
+      { x: 0, y: 0, w: 16, h: 12 },      // tree0 at (-16, -16) from overworld.map
 
       // Cottage facade & roof (x: 62..109, y: 48..80, leaving doorway at x: 80..91 open)
       { x: 62, y: 48, w: 18, h: 32 },    // Left cottage wall

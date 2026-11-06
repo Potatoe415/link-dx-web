@@ -1,6 +1,6 @@
 {
   "roomId": "indoor_marin",
-  "sourceMap": "house2.map",
+  "sourceMap": "house1.map",
   "screenCol": 0,
   "screenRow": 0,
   "tileOrigin": {
@@ -85,6 +85,13 @@
     },
     {
       "x": 32,
+      "y": 0,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 32,
       "y": 112,
       "w": 16,
       "h": 16,
@@ -92,7 +99,35 @@
     },
     {
       "x": 48,
+      "y": 0,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 48,
       "y": 112,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 64,
+      "y": 0,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 80,
+      "y": 0,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 96,
+      "y": 0,
       "w": 16,
       "h": 16,
       "source": "c1"
@@ -182,43 +217,8 @@
       "source": "c4"
     },
     {
-      "x": 32,
-      "y": 14,
-      "w": 16,
-      "h": 8,
-      "source": "c5"
-    },
-    {
-      "x": 48,
-      "y": 14,
-      "w": 16,
-      "h": 8,
-      "source": "c5"
-    },
-    {
-      "x": 64,
-      "y": 14,
-      "w": 16,
-      "h": 8,
-      "source": "c5"
-    },
-    {
-      "x": 80,
-      "y": 14,
-      "w": 16,
-      "h": 8,
-      "source": "c5"
-    },
-    {
-      "x": 96,
-      "y": 14,
-      "w": 16,
-      "h": 8,
-      "source": "c5"
-    },
-    {
       "x": 112,
-      "y": 14,
+      "y": 16,
       "w": 16,
       "h": 8,
       "source": "c5"
@@ -232,56 +232,35 @@
     },
     {
       "x": 16,
-      "y": 64,
+      "y": 48,
       "w": 16,
       "h": 16,
       "source": "lowCollider16"
     },
     {
-      "x": 16,
+      "x": 48,
+      "y": 32,
+      "w": 16,
+      "h": 16,
+      "source": "lowCollider16"
+    },
+    {
+      "x": 48,
+      "y": 48,
+      "w": 16,
+      "h": 16,
+      "source": "lowCollider16"
+    },
+    {
+      "x": 112,
       "y": 80,
       "w": 16,
       "h": 16,
       "source": "lowCollider16"
     },
     {
-      "x": 16,
-      "y": 96,
-      "w": 16,
-      "h": 16,
-      "source": "lowCollider16"
-    },
-    {
-      "x": 32,
-      "y": 32,
-      "w": 16,
-      "h": 16,
-      "source": "lowCollider16"
-    },
-    {
-      "x": 96,
-      "y": 32,
-      "w": 16,
-      "h": 16,
-      "source": "lowCollider16"
-    },
-    {
-      "x": 96,
-      "y": 48,
-      "w": 16,
-      "h": 16,
-      "source": "lowCollider16"
-    },
-    {
-      "x": 112,
-      "y": 32,
-      "w": 16,
-      "h": 16,
-      "source": "lowCollider16"
-    },
-    {
-      "x": 112,
-      "y": 48,
+      "x": 128,
+      "y": 16,
       "w": 16,
       "h": 16,
       "source": "lowCollider16"
@@ -292,27 +271,44 @@
       "w": 16,
       "h": 16,
       "source": "lowCollider16"
+    },
+    {
+      "x": 128,
+      "y": 64,
+      "w": 16,
+      "h": 16,
+      "source": "lowCollider16"
+    },
+    {
+      "x": 128,
+      "y": 80,
+      "w": 16,
+      "h": 16,
+      "source": "lowCollider16"
+    },
+    {
+      "x": 128,
+      "y": 96,
+      "w": 16,
+      "h": 16,
+      "source": "lowCollider16"
+    },
+    {
+      "x": 17,
+      "y": 98,
+      "w": 14,
+      "h": 11,
+      "source": "pot2"
+    },
+    {
+      "x": 32,
+      "y": 98,
+      "w": 14,
+      "h": 11,
+      "source": "pot2"
     }
   ],
   "objects": [
-    {
-      "id": "BowWow",
-      "category": "other",
-      "localX": -24,
-      "localY": 72,
-      "params": [
-        ""
-      ]
-    },
-    {
-      "id": "dialogBox",
-      "category": "other",
-      "localX": 168,
-      "localY": 0,
-      "params": [
-        "houseMusic"
-      ]
-    },
     {
       "id": "door",
       "category": "warp",
@@ -321,9 +317,9 @@
       "params": [
         "",
         "",
-        "h2",
+        "h1",
         "overworld.map",
-        "h2",
+        "h1",
         "1",
         "",
         ""
@@ -344,60 +340,143 @@
       ]
     },
     {
-      "id": "houseBlacker",
+      "id": "objectSpawner",
       "category": "other",
-      "localX": -24,
-      "localY": 24,
+      "localX": 16,
+      "localY": 36,
       "params": [
-        "",
-        "",
+        "tarin_state",
+        "5",
+        "personNew",
+        ".tarin.tarin.sleep",
+        ""
+      ]
+    },
+    {
+      "id": "objectSpawner",
+      "category": "other",
+      "localX": 16,
+      "localY": 36,
+      "params": [
+        "tarin_state",
+        "2",
+        "personNew",
+        ".tarin.tarin.sleep",
+        ""
+      ]
+    },
+    {
+      "id": "objectSpawner",
+      "category": "other",
+      "localX": 20,
+      "localY": 28,
+      "params": [
+        "tarin_state",
+        "2",
+        "tarinZZZ",
         "",
         ""
       ]
     },
     {
-      "id": "music",
+      "id": "objectSpawner",
       "category": "other",
-      "localX": -24,
-      "localY": 0,
+      "localX": 20,
+      "localY": 28,
       "params": [
-        "50"
+        "tarin_state",
+        "5",
+        "tarinZZZ",
+        "",
+        ""
       ]
     },
     {
-      "id": "person",
+      "id": "objectSpawner",
       "category": "other",
-      "localX": 64,
+      "localX": 72,
       "localY": 40,
       "params": [
-        "npc04",
+        "maria_state",
         "",
+        "maria",
         "",
         ""
       ]
     },
     {
-      "id": "pot2",
+      "id": "objectSpawner",
+      "category": "other",
+      "localX": 72,
+      "localY": 120,
+      "params": [
+        "tarin",
+        "0",
+        "pushDialog",
+        "npc02_leave",
+        ""
+      ]
+    },
+    {
+      "id": "objectSpawner",
       "category": "other",
       "localX": 112,
-      "localY": 80,
+      "localY": 64,
       "params": [
+        "tarin_state",
         "",
-        "",
-        "",
-        "",
-        "",
+        "personNew",
+        ".tarin.tarin.",
         ""
       ]
     },
     {
-      "id": "pot2",
+      "id": "objectSpawner",
       "category": "other",
       "localX": 112,
-      "localY": 96,
+      "localY": 64,
+      "params": [
+        "tarin_state",
+        "3",
+        "personNew",
+        ".tarin.tarin.",
+        ""
+      ]
+    },
+    {
+      "id": "objectSpawner",
+      "category": "other",
+      "localX": 112,
+      "localY": 76,
+      "params": [
+        "tarin_state",
+        "3",
+        "banana",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "objectSpawner",
+      "category": "other",
+      "localX": 114,
+      "localY": 75,
+      "params": [
+        "maria_state",
+        "2",
+        "personNew",
+        ".marin_letter.marin_letter.idle.0$4$14$14",
+        ""
+      ]
+    },
+    {
+      "id": "pot2",
+      "category": "other",
+      "localX": 16,
+      "localY": 95,
       "params": [
         "",
-        "",
+        "heart",
         "",
         "",
         "",
@@ -407,101 +486,15 @@
     {
       "id": "pot2",
       "category": "other",
-      "localX": 128,
-      "localY": 80,
+      "localX": 31,
+      "localY": 95,
       "params": [
         "",
-        "",
+        "heart",
         "",
         "",
         "",
         ""
-      ]
-    },
-    {
-      "id": "pot2",
-      "category": "other",
-      "localX": 128,
-      "localY": 96,
-      "params": [
-        "",
-        "",
-        "",
-        "",
-        "",
-        ""
-      ]
-    },
-    {
-      "id": "sign",
-      "category": "other",
-      "localX": 32,
-      "localY": 8,
-      "params": [
-        "npc_house_chest",
-        "",
-        "",
-        "1"
-      ]
-    },
-    {
-      "id": "sign",
-      "category": "other",
-      "localX": 32,
-      "localY": 32,
-      "params": [
-        "ulrira_telephone",
-        "",
-        "",
-        ""
-      ]
-    },
-    {
-      "id": "sign",
-      "category": "other",
-      "localX": 48,
-      "localY": 8,
-      "params": [
-        "npc_house_chest",
-        "",
-        "",
-        "1"
-      ]
-    },
-    {
-      "id": "sign",
-      "category": "other",
-      "localX": 64,
-      "localY": 8,
-      "params": [
-        "npc_house_chest",
-        "",
-        "",
-        "1"
-      ]
-    },
-    {
-      "id": "sign",
-      "category": "other",
-      "localX": 80,
-      "localY": 8,
-      "params": [
-        "npc_house_chest",
-        "",
-        "",
-        "1"
-      ]
-    },
-    {
-      "id": "sign",
-      "category": "other",
-      "localX": 96,
-      "localY": 8,
-      "params": [
-        "npc_house_chest",
-        "",
-        "",
-        "1"
       ]
     },
     {
@@ -510,7 +503,7 @@
       "localX": 112,
       "localY": 8,
       "params": [
-        "npc_house_chest",
+        "tarin_chest",
         "",
         "",
         "1"
@@ -522,37 +515,73 @@
       [
         19,
         47,
-        100,
-        100,
-        100,
-        100,
-        100,
+        47,
+        47,
+        47,
+        47,
+        47,
         100,
         47,
         21
       ],
       [
         45,
+        53,
+        53,
+        53,
+        53,
+        53,
         51,
-        95,
         81,
-        81,
-        81,
-        81,
-        81,
+        49,
+        46
+      ],
+      [
+        45,
+        101,
+        53,
+        101,
+        53,
+        53,
+        51,
+        51,
+        49,
+        46
+      ],
+      [
+        45,
+        102,
+        53,
+        102,
+        53,
+        53,
+        51,
+        51,
         51,
         46
       ],
       [
         45,
+        53,
+        53,
+        53,
+        53,
+        53,
+        51,
+        51,
+        97,
+        46
+      ],
+      [
+        45,
+        51,
+        51,
+        51,
+        51,
+        51,
+        51,
         90,
-        82,
-        51,
-        51,
-        51,
-        61,
-        61,
-        91,
+        89,
         46
       ],
       [
@@ -562,45 +591,9 @@
         51,
         51,
         51,
-        29,
-        29,
         51,
-        46
-      ],
-      [
-        45,
+        51,
         97,
-        51,
-        51,
-        51,
-        51,
-        51,
-        51,
-        51,
-        46
-      ],
-      [
-        45,
-        91,
-        51,
-        69,
-        69,
-        69,
-        69,
-        51,
-        51,
-        46
-      ],
-      [
-        45,
-        97,
-        51,
-        69,
-        69,
-        69,
-        69,
-        51,
-        51,
         46
       ],
       [

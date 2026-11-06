@@ -1,0 +1,1951 @@
+{
+  "roomId": "ow_r10_c03",
+  "sourceMap": "overworld.map",
+  "screenCol": 3,
+  "screenRow": 10,
+  "tileOrigin": {
+    "col": 31,
+    "row": 80
+  },
+  "worldPixelOrigin": {
+    "x": 496,
+    "y": 1280
+  },
+  "logicalSize": {
+    "w": 160,
+    "h": 128
+  },
+  "displaySize": {
+    "w": 1280,
+    "h": 1024
+  },
+  "musicTrackId": 3,
+  "neighbors": {
+    "north": "ow_r09_c03",
+    "south": "ow_r11_c03",
+    "west": "ow_r10_c02",
+    "east": "ow_r10_c04"
+  },
+  "colliders": [
+    {
+      "x": 32,
+      "y": 33,
+      "w": 16,
+      "h": 14,
+      "source": "bush"
+    },
+    {
+      "x": 32,
+      "y": 49,
+      "w": 16,
+      "h": 14,
+      "source": "bush"
+    },
+    {
+      "x": 32,
+      "y": 65,
+      "w": 16,
+      "h": 14,
+      "source": "bush"
+    },
+    {
+      "x": 32,
+      "y": 81,
+      "w": 16,
+      "h": 14,
+      "source": "bush"
+    },
+    {
+      "x": 32,
+      "y": 97,
+      "w": 16,
+      "h": 14,
+      "source": "bush"
+    },
+    {
+      "x": 48,
+      "y": 33,
+      "w": 16,
+      "h": 14,
+      "source": "bush"
+    },
+    {
+      "x": 48,
+      "y": 49,
+      "w": 16,
+      "h": 14,
+      "source": "bush"
+    },
+    {
+      "x": 48,
+      "y": 65,
+      "w": 16,
+      "h": 14,
+      "source": "bush"
+    },
+    {
+      "x": 48,
+      "y": 81,
+      "w": 16,
+      "h": 14,
+      "source": "bush"
+    },
+    {
+      "x": 48,
+      "y": 97,
+      "w": 16,
+      "h": 14,
+      "source": "bush"
+    },
+    {
+      "x": 64,
+      "y": 33,
+      "w": 16,
+      "h": 14,
+      "source": "bush"
+    },
+    {
+      "x": 64,
+      "y": 49,
+      "w": 16,
+      "h": 14,
+      "source": "bush"
+    },
+    {
+      "x": 64,
+      "y": 65,
+      "w": 16,
+      "h": 14,
+      "source": "bush"
+    },
+    {
+      "x": 64,
+      "y": 81,
+      "w": 16,
+      "h": 14,
+      "source": "bush"
+    },
+    {
+      "x": 64,
+      "y": 97,
+      "w": 16,
+      "h": 14,
+      "source": "bush"
+    },
+    {
+      "x": 80,
+      "y": 33,
+      "w": 16,
+      "h": 14,
+      "source": "bush"
+    },
+    {
+      "x": 80,
+      "y": 49,
+      "w": 16,
+      "h": 14,
+      "source": "bush"
+    },
+    {
+      "x": 80,
+      "y": 65,
+      "w": 16,
+      "h": 14,
+      "source": "bush"
+    },
+    {
+      "x": 80,
+      "y": 81,
+      "w": 16,
+      "h": 14,
+      "source": "bush"
+    },
+    {
+      "x": 80,
+      "y": 97,
+      "w": 16,
+      "h": 14,
+      "source": "bush"
+    },
+    {
+      "x": 96,
+      "y": 33,
+      "w": 16,
+      "h": 14,
+      "source": "bush"
+    },
+    {
+      "x": 96,
+      "y": 49,
+      "w": 16,
+      "h": 14,
+      "source": "bush"
+    },
+    {
+      "x": 96,
+      "y": 65,
+      "w": 16,
+      "h": 14,
+      "source": "bush"
+    },
+    {
+      "x": 96,
+      "y": 81,
+      "w": 16,
+      "h": 14,
+      "source": "bush"
+    },
+    {
+      "x": 96,
+      "y": 97,
+      "w": 16,
+      "h": 14,
+      "source": "bush"
+    },
+    {
+      "x": 112,
+      "y": 33,
+      "w": 16,
+      "h": 14,
+      "source": "bush"
+    },
+    {
+      "x": 112,
+      "y": 49,
+      "w": 16,
+      "h": 14,
+      "source": "bush"
+    },
+    {
+      "x": 112,
+      "y": 65,
+      "w": 16,
+      "h": 14,
+      "source": "bush"
+    },
+    {
+      "x": 112,
+      "y": 81,
+      "w": 16,
+      "h": 14,
+      "source": "bush"
+    },
+    {
+      "x": 112,
+      "y": 97,
+      "w": 16,
+      "h": 14,
+      "source": "bush"
+    },
+    {
+      "x": 144,
+      "y": 0,
+      "w": 16,
+      "h": 16,
+      "source": "tree0"
+    },
+    {
+      "x": 144,
+      "y": 20,
+      "w": 16,
+      "h": 28,
+      "source": "tree0"
+    },
+    {
+      "x": 144,
+      "y": 52,
+      "w": 16,
+      "h": 28,
+      "source": "tree0"
+    },
+    {
+      "x": 144,
+      "y": 84,
+      "w": 16,
+      "h": 28,
+      "source": "tree0"
+    },
+    {
+      "x": 144,
+      "y": 116,
+      "w": 16,
+      "h": 12,
+      "source": "tree0"
+    }
+  ],
+  "objects": [
+    {
+      "id": "bush",
+      "category": "other",
+      "localX": 32,
+      "localY": 32,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "bush",
+      "category": "other",
+      "localX": 32,
+      "localY": 48,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "bush",
+      "category": "other",
+      "localX": 32,
+      "localY": 64,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "bush",
+      "category": "other",
+      "localX": 32,
+      "localY": 80,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "bush",
+      "category": "other",
+      "localX": 32,
+      "localY": 96,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "bush",
+      "category": "other",
+      "localX": 48,
+      "localY": 32,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "bush",
+      "category": "other",
+      "localX": 48,
+      "localY": 48,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "bush",
+      "category": "other",
+      "localX": 48,
+      "localY": 64,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "bush",
+      "category": "other",
+      "localX": 48,
+      "localY": 80,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "bush",
+      "category": "other",
+      "localX": 48,
+      "localY": 96,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "bush",
+      "category": "other",
+      "localX": 64,
+      "localY": 32,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "bush",
+      "category": "other",
+      "localX": 64,
+      "localY": 48,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "bush",
+      "category": "other",
+      "localX": 64,
+      "localY": 64,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "bush",
+      "category": "other",
+      "localX": 64,
+      "localY": 80,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "bush",
+      "category": "other",
+      "localX": 64,
+      "localY": 96,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "bush",
+      "category": "other",
+      "localX": 80,
+      "localY": 32,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "bush",
+      "category": "other",
+      "localX": 80,
+      "localY": 48,
+      "params": [
+        "item:j.shell_1.shell..true",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "bush",
+      "category": "other",
+      "localX": 80,
+      "localY": 64,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "bush",
+      "category": "other",
+      "localX": 80,
+      "localY": 80,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "bush",
+      "category": "other",
+      "localX": 80,
+      "localY": 96,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "bush",
+      "category": "other",
+      "localX": 96,
+      "localY": 32,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "bush",
+      "category": "other",
+      "localX": 96,
+      "localY": 48,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "bush",
+      "category": "other",
+      "localX": 96,
+      "localY": 64,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "bush",
+      "category": "other",
+      "localX": 96,
+      "localY": 80,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "bush",
+      "category": "other",
+      "localX": 96,
+      "localY": 96,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "bush",
+      "category": "other",
+      "localX": 112,
+      "localY": 32,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "bush",
+      "category": "other",
+      "localX": 112,
+      "localY": 48,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "bush",
+      "category": "other",
+      "localX": 112,
+      "localY": 64,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "bush",
+      "category": "other",
+      "localX": 112,
+      "localY": 80,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "bush",
+      "category": "other",
+      "localX": 112,
+      "localY": 96,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "butterfly",
+      "category": "other",
+      "localX": 32,
+      "localY": 48,
+      "params": []
+    },
+    {
+      "id": "butterfly",
+      "category": "other",
+      "localX": 48,
+      "localY": 16,
+      "params": []
+    },
+    {
+      "id": "butterfly",
+      "category": "other",
+      "localX": 112,
+      "localY": 80,
+      "params": []
+    },
+    {
+      "id": "fenceBL",
+      "category": "static_decor",
+      "localX": -28,
+      "localY": 61,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "fenceL",
+      "category": "static_decor",
+      "localX": -28,
+      "localY": 21,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "fenceL",
+      "category": "static_decor",
+      "localX": -28,
+      "localY": 77,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "gras",
+      "category": "static_decor",
+      "localX": -16,
+      "localY": 32,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gras",
+      "category": "static_decor",
+      "localX": -16,
+      "localY": 48,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gras",
+      "category": "static_decor",
+      "localX": 0,
+      "localY": 0,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gras",
+      "category": "static_decor",
+      "localX": 0,
+      "localY": 16,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gras",
+      "category": "static_decor",
+      "localX": 0,
+      "localY": 32,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gras",
+      "category": "static_decor",
+      "localX": 0,
+      "localY": 48,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gras",
+      "category": "static_decor",
+      "localX": 0,
+      "localY": 64,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gras",
+      "category": "static_decor",
+      "localX": 0,
+      "localY": 80,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gras",
+      "category": "static_decor",
+      "localX": 0,
+      "localY": 96,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gras",
+      "category": "static_decor",
+      "localX": 0,
+      "localY": 112,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gras",
+      "category": "static_decor",
+      "localX": 0,
+      "localY": 128,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gras",
+      "category": "static_decor",
+      "localX": 16,
+      "localY": 0,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gras",
+      "category": "static_decor",
+      "localX": 16,
+      "localY": 16,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gras",
+      "category": "static_decor",
+      "localX": 16,
+      "localY": 32,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gras",
+      "category": "static_decor",
+      "localX": 16,
+      "localY": 48,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gras",
+      "category": "static_decor",
+      "localX": 16,
+      "localY": 64,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gras",
+      "category": "static_decor",
+      "localX": 16,
+      "localY": 80,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gras",
+      "category": "static_decor",
+      "localX": 16,
+      "localY": 96,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gras",
+      "category": "static_decor",
+      "localX": 16,
+      "localY": 112,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gras",
+      "category": "static_decor",
+      "localX": 16,
+      "localY": 128,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gras",
+      "category": "static_decor",
+      "localX": 32,
+      "localY": 0,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gras",
+      "category": "static_decor",
+      "localX": 32,
+      "localY": 16,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gras",
+      "category": "static_decor",
+      "localX": 32,
+      "localY": 112,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gras",
+      "category": "static_decor",
+      "localX": 32,
+      "localY": 128,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gras",
+      "category": "static_decor",
+      "localX": 48,
+      "localY": 0,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gras",
+      "category": "static_decor",
+      "localX": 48,
+      "localY": 16,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gras",
+      "category": "static_decor",
+      "localX": 48,
+      "localY": 112,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gras",
+      "category": "static_decor",
+      "localX": 48,
+      "localY": 128,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gras",
+      "category": "static_decor",
+      "localX": 64,
+      "localY": 0,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gras",
+      "category": "static_decor",
+      "localX": 64,
+      "localY": 16,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gras",
+      "category": "static_decor",
+      "localX": 64,
+      "localY": 112,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gras",
+      "category": "static_decor",
+      "localX": 64,
+      "localY": 128,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gras",
+      "category": "static_decor",
+      "localX": 80,
+      "localY": 0,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gras",
+      "category": "static_decor",
+      "localX": 80,
+      "localY": 16,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gras",
+      "category": "static_decor",
+      "localX": 80,
+      "localY": 112,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gras",
+      "category": "static_decor",
+      "localX": 80,
+      "localY": 128,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gras",
+      "category": "static_decor",
+      "localX": 96,
+      "localY": 0,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gras",
+      "category": "static_decor",
+      "localX": 96,
+      "localY": 16,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gras",
+      "category": "static_decor",
+      "localX": 96,
+      "localY": 112,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gras",
+      "category": "static_decor",
+      "localX": 96,
+      "localY": 128,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gras",
+      "category": "static_decor",
+      "localX": 112,
+      "localY": 0,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gras",
+      "category": "static_decor",
+      "localX": 112,
+      "localY": 16,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gras",
+      "category": "static_decor",
+      "localX": 112,
+      "localY": 112,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gras",
+      "category": "static_decor",
+      "localX": 112,
+      "localY": 128,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gras",
+      "category": "static_decor",
+      "localX": 128,
+      "localY": 0,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gras",
+      "category": "static_decor",
+      "localX": 128,
+      "localY": 16,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gras",
+      "category": "static_decor",
+      "localX": 128,
+      "localY": 32,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gras",
+      "category": "static_decor",
+      "localX": 128,
+      "localY": 48,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gras",
+      "category": "static_decor",
+      "localX": 128,
+      "localY": 64,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gras",
+      "category": "static_decor",
+      "localX": 128,
+      "localY": 80,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gras",
+      "category": "static_decor",
+      "localX": 128,
+      "localY": 96,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gras",
+      "category": "static_decor",
+      "localX": 128,
+      "localY": 112,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gras",
+      "category": "static_decor",
+      "localX": 128,
+      "localY": 128,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "tree0",
+      "category": "static_decor",
+      "localX": 144,
+      "localY": -16,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "tree0",
+      "category": "static_decor",
+      "localX": 144,
+      "localY": 16,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "tree0",
+      "category": "static_decor",
+      "localX": 144,
+      "localY": 48,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "tree0",
+      "category": "static_decor",
+      "localX": 144,
+      "localY": 80,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "tree0",
+      "category": "static_decor",
+      "localX": 144,
+      "localY": 112,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "tree0",
+      "category": "static_decor",
+      "localX": 160,
+      "localY": -32,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    }
+  ],
+  "tiles": [
+    [
+      [
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        615
+      ],
+      [
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        615
+      ],
+      [
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        615
+      ],
+      [
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        615
+      ],
+      [
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        615
+      ],
+      [
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        615
+      ],
+      [
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        615
+      ],
+      [
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        615
+      ]
+    ],
+    [
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ]
+    ],
+    [
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ]
+    ]
+  ]
+}

@@ -1,0 +1,951 @@
+{
+  "roomId": "ow_r09_c02",
+  "sourceMap": "overworld.map",
+  "screenCol": 2,
+  "screenRow": 9,
+  "tileOrigin": {
+    "col": 21,
+    "row": 72
+  },
+  "worldPixelOrigin": {
+    "x": 336,
+    "y": 1152
+  },
+  "logicalSize": {
+    "w": 160,
+    "h": 128
+  },
+  "displaySize": {
+    "w": 1280,
+    "h": 1024
+  },
+  "musicTrackId": 3,
+  "neighbors": {
+    "north": "ow_r08_c02",
+    "south": "ow_r10_c02",
+    "west": "ow_r09_c01",
+    "east": "ow_r09_c03"
+  },
+  "colliders": [
+    {
+      "x": 32,
+      "y": 0,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 48,
+      "y": 0,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 64,
+      "y": 0,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 80,
+      "y": 0,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 96,
+      "y": 0,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 112,
+      "y": 0,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 144,
+      "y": 0,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 128,
+      "y": 0,
+      "w": 16,
+      "h": 8,
+      "source": "lowerLevelCollider"
+    },
+    {
+      "x": 128,
+      "y": 0,
+      "w": 16,
+      "h": 16,
+      "source": "lowerLevelCollider"
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "w": 16,
+      "h": 16,
+      "source": "tree0"
+    },
+    {
+      "x": 0,
+      "y": 20,
+      "w": 16,
+      "h": 28,
+      "source": "tree0"
+    },
+    {
+      "x": 0,
+      "y": 52,
+      "w": 16,
+      "h": 28,
+      "source": "tree0"
+    },
+    {
+      "x": 0,
+      "y": 84,
+      "w": 16,
+      "h": 28,
+      "source": "tree0"
+    },
+    {
+      "x": 0,
+      "y": 116,
+      "w": 16,
+      "h": 12,
+      "source": "tree0"
+    }
+  ],
+  "objects": [
+    {
+      "id": "bush",
+      "category": "other",
+      "localX": 48,
+      "localY": -32,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "bush",
+      "category": "other",
+      "localX": 64,
+      "localY": -32,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "bush",
+      "category": "other",
+      "localX": 80,
+      "localY": -32,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "bush",
+      "category": "other",
+      "localX": 96,
+      "localY": -32,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "butterfly",
+      "category": "other",
+      "localX": 16,
+      "localY": 16,
+      "params": []
+    },
+    {
+      "id": "butterfly",
+      "category": "other",
+      "localX": 48,
+      "localY": 32,
+      "params": []
+    },
+    {
+      "id": "butterfly",
+      "category": "other",
+      "localX": 112,
+      "localY": 16,
+      "params": []
+    },
+    {
+      "id": "dogo",
+      "category": "other",
+      "localX": 48,
+      "localY": 96,
+      "params": []
+    },
+    {
+      "id": "door",
+      "category": "warp",
+      "localX": 80,
+      "localY": 64,
+      "params": [
+        "",
+        "",
+        "cave_rooster",
+        "cave rooster.map",
+        "cave_rooster",
+        "3",
+        "1",
+        ""
+      ]
+    },
+    {
+      "id": "flower",
+      "category": "animated_prop",
+      "localX": 48,
+      "localY": 48,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "flower",
+      "category": "animated_prop",
+      "localX": 48,
+      "localY": 64,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "flower",
+      "category": "animated_prop",
+      "localX": 48,
+      "localY": 80,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "flower",
+      "category": "animated_prop",
+      "localX": 64,
+      "localY": 32,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "flower",
+      "category": "animated_prop",
+      "localX": 64,
+      "localY": 96,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "flower",
+      "category": "animated_prop",
+      "localX": 80,
+      "localY": 32,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "flower",
+      "category": "animated_prop",
+      "localX": 80,
+      "localY": 96,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "flower",
+      "category": "animated_prop",
+      "localX": 96,
+      "localY": 32,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "flower",
+      "category": "animated_prop",
+      "localX": 96,
+      "localY": 96,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "flower",
+      "category": "animated_prop",
+      "localX": 112,
+      "localY": 48,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "flower",
+      "category": "animated_prop",
+      "localX": 112,
+      "localY": 64,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "flower",
+      "category": "animated_prop",
+      "localX": 112,
+      "localY": 80,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "flower",
+      "category": "animated_prop",
+      "localX": 128,
+      "localY": -32,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gras",
+      "category": "static_decor",
+      "localX": 160,
+      "localY": 128,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "jump",
+      "category": "other",
+      "localX": 128,
+      "localY": -8,
+      "params": [
+        "",
+        "26",
+        "",
+        "8",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "objectSpawner",
+      "category": "other",
+      "localX": 32,
+      "localY": 64,
+      "params": [
+        "maria_state",
+        "1",
+        "maria",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "objectSpawner",
+      "category": "other",
+      "localX": 32,
+      "localY": 64,
+      "params": [
+        "maria_state",
+        "6",
+        "maria",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "objectSpawner",
+      "category": "other",
+      "localX": 80,
+      "localY": 64,
+      "params": [
+        "ow_weather_bird",
+        "1",
+        "stairsCastle",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "personNew",
+      "category": "other",
+      "localX": 112,
+      "localY": 80,
+      "params": [
+        "spawned_npc_boy_2",
+        "npc_green_boy",
+        "npc_boy_2",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "scriptOnTouch",
+      "category": "other",
+      "localX": 72,
+      "localY": 64,
+      "params": [
+        "32",
+        "24",
+        "start_weather_bird_seq"
+      ]
+    },
+    {
+      "id": "tree0",
+      "category": "static_decor",
+      "localX": -32,
+      "localY": -32,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "tree0",
+      "category": "static_decor",
+      "localX": -32,
+      "localY": 0,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "tree0",
+      "category": "static_decor",
+      "localX": -16,
+      "localY": -16,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "tree0",
+      "category": "static_decor",
+      "localX": -16,
+      "localY": 16,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "tree0",
+      "category": "static_decor",
+      "localX": -16,
+      "localY": 48,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "tree0",
+      "category": "static_decor",
+      "localX": -16,
+      "localY": 80,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "tree0",
+      "category": "static_decor",
+      "localX": -16,
+      "localY": 112,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "upperLevel",
+      "category": "other",
+      "localX": 112,
+      "localY": -32,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "upperLevel",
+      "category": "other",
+      "localX": 128,
+      "localY": -32,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "upperLevel",
+      "category": "other",
+      "localX": 128,
+      "localY": -16,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "upperLevel",
+      "category": "other",
+      "localX": 144,
+      "localY": -32,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "weatherBird",
+      "category": "other",
+      "localX": 80,
+      "localY": 47,
+      "params": [
+        "ow_weather_bird"
+      ]
+    }
+  ],
+  "tiles": [
+    [
+      [
+        615,
+        432,
+        217,
+        223,
+        223,
+        223,
+        223,
+        223,
+        223,
+        223
+      ],
+      [
+        615,
+        393,
+        485,
+        485,
+        485,
+        485,
+        485,
+        485,
+        485,
+        432
+      ],
+      [
+        615,
+        393,
+        485,
+        485,
+        418,
+        418,
+        418,
+        485,
+        485,
+        432
+      ],
+      [
+        615,
+        393,
+        485,
+        418,
+        485,
+        485,
+        485,
+        418,
+        485,
+        432
+      ],
+      [
+        615,
+        393,
+        485,
+        418,
+        485,
+        615,
+        485,
+        418,
+        485,
+        432
+      ],
+      [
+        615,
+        393,
+        485,
+        418,
+        485,
+        485,
+        485,
+        418,
+        485,
+        372
+      ],
+      [
+        615,
+        393,
+        485,
+        485,
+        418,
+        418,
+        418,
+        485,
+        485,
+        356
+      ],
+      [
+        615,
+        393,
+        485,
+        485,
+        485,
+        485,
+        485,
+        485,
+        485,
+        352
+      ]
+    ],
+    [
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ]
+    ],
+    [
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ]
+    ]
+  ]
+}

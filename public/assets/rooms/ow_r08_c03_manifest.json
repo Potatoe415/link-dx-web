@@ -1,0 +1,1016 @@
+{
+  "roomId": "ow_r08_c03",
+  "sourceMap": "overworld.map",
+  "screenCol": 3,
+  "screenRow": 8,
+  "tileOrigin": {
+    "col": 31,
+    "row": 64
+  },
+  "worldPixelOrigin": {
+    "x": 496,
+    "y": 1024
+  },
+  "logicalSize": {
+    "w": 160,
+    "h": 128
+  },
+  "displaySize": {
+    "w": 1280,
+    "h": 1024
+  },
+  "musicTrackId": 3,
+  "neighbors": {
+    "north": "ow_r07_c03",
+    "south": "ow_r09_c03",
+    "west": "ow_r08_c02",
+    "east": "ow_r08_c04"
+  },
+  "colliders": [
+    {
+      "x": 0,
+      "y": 112,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 16,
+      "y": 32,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 16,
+      "y": 48,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 32,
+      "y": 32,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 32,
+      "y": 112,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 48,
+      "y": 32,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 48,
+      "y": 48,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 48,
+      "y": 112,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 64,
+      "y": 96,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 64,
+      "y": 112,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 80,
+      "y": 96,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 17,
+      "y": 67,
+      "w": 15,
+      "h": 11,
+      "source": "stone"
+    },
+    {
+      "x": 33,
+      "y": 83,
+      "w": 15,
+      "h": 11,
+      "source": "stone"
+    },
+    {
+      "x": 49,
+      "y": 67,
+      "w": 15,
+      "h": 11,
+      "source": "stone"
+    },
+    {
+      "x": 0,
+      "y": 4,
+      "w": 32,
+      "h": 28,
+      "source": "tree0"
+    },
+    {
+      "x": 32,
+      "y": 4,
+      "w": 32,
+      "h": 28,
+      "source": "tree0"
+    },
+    {
+      "x": 64,
+      "y": 4,
+      "w": 32,
+      "h": 28,
+      "source": "tree0"
+    },
+    {
+      "x": 96,
+      "y": 4,
+      "w": 32,
+      "h": 28,
+      "source": "tree0"
+    },
+    {
+      "x": 128,
+      "y": 4,
+      "w": 32,
+      "h": 28,
+      "source": "tree0"
+    },
+    {
+      "x": 144,
+      "y": 68,
+      "w": 16,
+      "h": 28,
+      "source": "tree0"
+    },
+    {
+      "x": 144,
+      "y": 100,
+      "w": 16,
+      "h": 28,
+      "source": "tree0"
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "w": 16,
+      "h": 15,
+      "source": "treeWoods2"
+    },
+    {
+      "x": 16,
+      "y": 0,
+      "w": 32,
+      "h": 15,
+      "source": "treeWoods2"
+    },
+    {
+      "x": 48,
+      "y": 0,
+      "w": 32,
+      "h": 15,
+      "source": "treeWoods2"
+    },
+    {
+      "x": 80,
+      "y": 0,
+      "w": 32,
+      "h": 15,
+      "source": "treeWoods2"
+    },
+    {
+      "x": 112,
+      "y": 0,
+      "w": 32,
+      "h": 15,
+      "source": "treeWoods2"
+    },
+    {
+      "x": 144,
+      "y": 0,
+      "w": 16,
+      "h": 15,
+      "source": "treeWoods2"
+    }
+  ],
+  "objects": [
+    {
+      "id": "butterfly",
+      "category": "other",
+      "localX": 32,
+      "localY": 32,
+      "params": []
+    },
+    {
+      "id": "butterfly",
+      "category": "other",
+      "localX": 96,
+      "localY": 80,
+      "params": []
+    },
+    {
+      "id": "door",
+      "category": "warp",
+      "localX": 32,
+      "localY": 48,
+      "params": [
+        "",
+        "",
+        "dreamShrine01",
+        "dreamShrine01.map",
+        "dreamShrine01",
+        "3",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "enemyWall",
+      "category": "other",
+      "localX": 32,
+      "localY": 48,
+      "params": [
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "flower",
+      "category": "animated_prop",
+      "localX": -32,
+      "localY": 96,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "flower",
+      "category": "animated_prop",
+      "localX": 0,
+      "localY": 64,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "flower",
+      "category": "animated_prop",
+      "localX": 64,
+      "localY": 80,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "flower",
+      "category": "animated_prop",
+      "localX": 96,
+      "localY": 32,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "flower",
+      "category": "animated_prop",
+      "localX": 112,
+      "localY": 96,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "jump",
+      "category": "other",
+      "localX": -32,
+      "localY": 120,
+      "params": [
+        "",
+        "26",
+        "",
+        "8",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "personNew",
+      "category": "other",
+      "localX": 80,
+      "localY": 32,
+      "params": [
+        "",
+        "npc_green_boy",
+        "npc_boy_1",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "stairs",
+      "category": "warp",
+      "localX": 16,
+      "localY": 112,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "stairs",
+      "category": "warp",
+      "localX": 16,
+      "localY": 128,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "stone",
+      "category": "other",
+      "localX": 16,
+      "localY": 64,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "stone",
+      "category": "other",
+      "localX": 32,
+      "localY": 80,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "stone",
+      "category": "other",
+      "localX": 48,
+      "localY": 64,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "tree0",
+      "category": "static_decor",
+      "localX": -32,
+      "localY": 0,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "tree0",
+      "category": "static_decor",
+      "localX": 0,
+      "localY": 0,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "tree0",
+      "category": "static_decor",
+      "localX": 32,
+      "localY": 0,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "tree0",
+      "category": "static_decor",
+      "localX": 64,
+      "localY": 0,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "tree0",
+      "category": "static_decor",
+      "localX": 96,
+      "localY": 0,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "tree0",
+      "category": "static_decor",
+      "localX": 128,
+      "localY": 0,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "tree0",
+      "category": "static_decor",
+      "localX": 144,
+      "localY": 64,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "tree0",
+      "category": "static_decor",
+      "localX": 144,
+      "localY": 96,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "tree0",
+      "category": "static_decor",
+      "localX": 144,
+      "localY": 128,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "tree0",
+      "category": "static_decor",
+      "localX": 160,
+      "localY": 0,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "treeWoods2",
+      "category": "static_decor",
+      "localX": -16,
+      "localY": -16,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "treeWoods2",
+      "category": "static_decor",
+      "localX": 16,
+      "localY": -16,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "treeWoods2",
+      "category": "static_decor",
+      "localX": 48,
+      "localY": -16,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "treeWoods2",
+      "category": "static_decor",
+      "localX": 80,
+      "localY": -16,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "treeWoods2",
+      "category": "static_decor",
+      "localX": 112,
+      "localY": -16,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "treeWoods2",
+      "category": "static_decor",
+      "localX": 144,
+      "localY": -16,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "upperLevel",
+      "category": "other",
+      "localX": -32,
+      "localY": 80,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "upperLevel",
+      "category": "other",
+      "localX": -32,
+      "localY": 96,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "upperLevel",
+      "category": "other",
+      "localX": -32,
+      "localY": 112,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "upperLevel",
+      "category": "other",
+      "localX": -16,
+      "localY": 32,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "upperLevel",
+      "category": "other",
+      "localX": -16,
+      "localY": 48,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "upperLevel",
+      "category": "other",
+      "localX": -16,
+      "localY": 64,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "upperLevel",
+      "category": "other",
+      "localX": -16,
+      "localY": 80,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "upperLevel",
+      "category": "other",
+      "localX": -16,
+      "localY": 96,
+      "params": [
+        ""
+      ]
+    }
+  ],
+  "tiles": [
+    [
+      [
+        467,
+        467,
+        467,
+        467,
+        467,
+        467,
+        467,
+        467,
+        467,
+        467
+      ],
+      [
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500
+      ],
+      [
+        353,
+        504,
+        504,
+        504,
+        352,
+        412,
+        418,
+        412,
+        412,
+        412
+      ],
+      [
+        453,
+        503,
+        321,
+        503,
+        432,
+        452,
+        452,
+        452,
+        452,
+        413
+      ],
+      [
+        418,
+        500,
+        500,
+        500,
+        432,
+        452,
+        452,
+        452,
+        453,
+        500
+      ],
+      [
+        356,
+        356,
+        500,
+        352,
+        418,
+        452,
+        452,
+        452,
+        453,
+        500
+      ],
+      [
+        353,
+        356,
+        352,
+        373,
+        214,
+        462,
+        432,
+        418,
+        453,
+        500
+      ],
+      [
+        421,
+        210,
+        422,
+        204,
+        205,
+        352,
+        452,
+        452,
+        453,
+        500
+      ]
+    ],
+    [
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ]
+    ],
+    [
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ]
+    ]
+  ]
+}

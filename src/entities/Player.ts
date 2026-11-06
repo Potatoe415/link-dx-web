@@ -196,6 +196,15 @@ export class Player {
     }
   }
 
+  /** Keeps Link's walk cycle running while the engine moves him (screen scroll transitions). */
+  public animateWalk(dtMs: number, direction: number): void {
+    this.direction = direction;
+    this.state = 'WALKING';
+    this.isBlocking = false;
+    this.updateWalkAnimation();
+    this.updateAnimation(dtMs);
+  }
+
   public syncIdleDirection(): void {
     this.updateIdleAnimation();
   }

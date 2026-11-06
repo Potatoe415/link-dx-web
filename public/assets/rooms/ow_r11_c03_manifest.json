@@ -1,0 +1,1472 @@
+{
+  "roomId": "ow_r11_c03",
+  "sourceMap": "overworld.map",
+  "screenCol": 3,
+  "screenRow": 11,
+  "tileOrigin": {
+    "col": 31,
+    "row": 88
+  },
+  "worldPixelOrigin": {
+    "x": 496,
+    "y": 1408
+  },
+  "logicalSize": {
+    "w": 160,
+    "h": 128
+  },
+  "displaySize": {
+    "w": 1280,
+    "h": 1024
+  },
+  "musicTrackId": 3,
+  "neighbors": {
+    "north": "ow_r10_c03",
+    "south": "ow_r12_c03",
+    "west": "ow_r11_c02",
+    "east": "ow_r11_c04"
+  },
+  "colliders": [
+    {
+      "x": 48,
+      "y": 33,
+      "w": 16,
+      "h": 14,
+      "source": "bush"
+    },
+    {
+      "x": 48,
+      "y": 49,
+      "w": 16,
+      "h": 14,
+      "source": "bush"
+    },
+    {
+      "x": 48,
+      "y": 65,
+      "w": 16,
+      "h": 14,
+      "source": "bush"
+    },
+    {
+      "x": 48,
+      "y": 81,
+      "w": 16,
+      "h": 14,
+      "source": "bush"
+    },
+    {
+      "x": 64,
+      "y": 17,
+      "w": 16,
+      "h": 14,
+      "source": "bush"
+    },
+    {
+      "x": 64,
+      "y": 97,
+      "w": 16,
+      "h": 14,
+      "source": "bush"
+    },
+    {
+      "x": 80,
+      "y": 17,
+      "w": 16,
+      "h": 14,
+      "source": "bush"
+    },
+    {
+      "x": 80,
+      "y": 97,
+      "w": 16,
+      "h": 14,
+      "source": "bush"
+    },
+    {
+      "x": 96,
+      "y": 17,
+      "w": 16,
+      "h": 14,
+      "source": "bush"
+    },
+    {
+      "x": 112,
+      "y": 33,
+      "w": 16,
+      "h": 14,
+      "source": "bush"
+    },
+    {
+      "x": 112,
+      "y": 49,
+      "w": 16,
+      "h": 14,
+      "source": "bush"
+    },
+    {
+      "x": 112,
+      "y": 65,
+      "w": 16,
+      "h": 14,
+      "source": "bush"
+    },
+    {
+      "x": 112,
+      "y": 81,
+      "w": 16,
+      "h": 14,
+      "source": "bush"
+    },
+    {
+      "x": 64,
+      "y": 36,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 64,
+      "y": 48,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 64,
+      "y": 64,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 80,
+      "y": 36,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 80,
+      "y": 48,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 96,
+      "y": 36,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 96,
+      "y": 48,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 96,
+      "y": 64,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 128,
+      "y": 16,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 128,
+      "y": 32,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 128,
+      "y": 48,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 128,
+      "y": 64,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 128,
+      "y": 80,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 128,
+      "y": 96,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 128,
+      "y": 112,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 144,
+      "y": 16,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 144,
+      "y": 112,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 0,
+      "y": 116,
+      "w": 16,
+      "h": 12,
+      "source": "tree0"
+    },
+    {
+      "x": 16,
+      "y": 116,
+      "w": 32,
+      "h": 12,
+      "source": "tree0"
+    },
+    {
+      "x": 48,
+      "y": 116,
+      "w": 32,
+      "h": 12,
+      "source": "tree0"
+    },
+    {
+      "x": 80,
+      "y": 116,
+      "w": 32,
+      "h": 12,
+      "source": "tree0"
+    },
+    {
+      "x": 96,
+      "y": 100,
+      "w": 32,
+      "h": 28,
+      "source": "tree0"
+    },
+    {
+      "x": 144,
+      "y": 0,
+      "w": 16,
+      "h": 16,
+      "source": "tree0"
+    }
+  ],
+  "objects": [
+    {
+      "id": "bush",
+      "category": "other",
+      "localX": 32,
+      "localY": -32,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "bush",
+      "category": "other",
+      "localX": 48,
+      "localY": -32,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "bush",
+      "category": "other",
+      "localX": 48,
+      "localY": 32,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "bush",
+      "category": "other",
+      "localX": 48,
+      "localY": 48,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "bush",
+      "category": "other",
+      "localX": 48,
+      "localY": 64,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "bush",
+      "category": "other",
+      "localX": 48,
+      "localY": 80,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "bush",
+      "category": "other",
+      "localX": 64,
+      "localY": -32,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "bush",
+      "category": "other",
+      "localX": 64,
+      "localY": 16,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "bush",
+      "category": "other",
+      "localX": 64,
+      "localY": 96,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "bush",
+      "category": "other",
+      "localX": 80,
+      "localY": -32,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "bush",
+      "category": "other",
+      "localX": 80,
+      "localY": 16,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "bush",
+      "category": "other",
+      "localX": 80,
+      "localY": 96,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "bush",
+      "category": "other",
+      "localX": 96,
+      "localY": -32,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "bush",
+      "category": "other",
+      "localX": 96,
+      "localY": 16,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "bush",
+      "category": "other",
+      "localX": 112,
+      "localY": -32,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "bush",
+      "category": "other",
+      "localX": 112,
+      "localY": 32,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "bush",
+      "category": "other",
+      "localX": 112,
+      "localY": 48,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "bush",
+      "category": "other",
+      "localX": 112,
+      "localY": 64,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "bush",
+      "category": "other",
+      "localX": 112,
+      "localY": 80,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "butterfly",
+      "category": "other",
+      "localX": 48,
+      "localY": 48,
+      "params": []
+    },
+    {
+      "id": "butterfly",
+      "category": "other",
+      "localX": 96,
+      "localY": 32,
+      "params": []
+    },
+    {
+      "id": "butterfly",
+      "category": "other",
+      "localX": 112,
+      "localY": 64,
+      "params": []
+    },
+    {
+      "id": "dogo",
+      "category": "other",
+      "localX": 32,
+      "localY": 32,
+      "params": []
+    },
+    {
+      "id": "door",
+      "category": "warp",
+      "localX": 80,
+      "localY": 64,
+      "params": [
+        "",
+        "",
+        "s2",
+        "shop2.map",
+        "s2",
+        "3",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "enemyWall",
+      "category": "other",
+      "localX": 80,
+      "localY": 64,
+      "params": [
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "flower",
+      "category": "animated_prop",
+      "localX": 16,
+      "localY": 64,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gras",
+      "category": "static_decor",
+      "localX": 0,
+      "localY": -32,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gras",
+      "category": "static_decor",
+      "localX": 0,
+      "localY": -16,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gras",
+      "category": "static_decor",
+      "localX": 0,
+      "localY": 0,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gras",
+      "category": "static_decor",
+      "localX": 16,
+      "localY": -32,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gras",
+      "category": "static_decor",
+      "localX": 16,
+      "localY": -16,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gras",
+      "category": "static_decor",
+      "localX": 16,
+      "localY": 0,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gras",
+      "category": "static_decor",
+      "localX": 32,
+      "localY": -16,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gras",
+      "category": "static_decor",
+      "localX": 32,
+      "localY": 0,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gras",
+      "category": "static_decor",
+      "localX": 48,
+      "localY": -16,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gras",
+      "category": "static_decor",
+      "localX": 48,
+      "localY": 0,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gras",
+      "category": "static_decor",
+      "localX": 64,
+      "localY": -16,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gras",
+      "category": "static_decor",
+      "localX": 64,
+      "localY": 0,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gras",
+      "category": "static_decor",
+      "localX": 80,
+      "localY": -16,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gras",
+      "category": "static_decor",
+      "localX": 80,
+      "localY": 0,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gras",
+      "category": "static_decor",
+      "localX": 96,
+      "localY": -16,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gras",
+      "category": "static_decor",
+      "localX": 96,
+      "localY": 0,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gras",
+      "category": "static_decor",
+      "localX": 112,
+      "localY": -16,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gras",
+      "category": "static_decor",
+      "localX": 112,
+      "localY": 0,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gras",
+      "category": "static_decor",
+      "localX": 128,
+      "localY": -32,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gras",
+      "category": "static_decor",
+      "localX": 128,
+      "localY": -16,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gras",
+      "category": "static_decor",
+      "localX": 128,
+      "localY": 0,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "personNew",
+      "category": "other",
+      "localX": 32,
+      "localY": 80,
+      "params": [
+        "",
+        "npc_green_boy",
+        "npc_boy_0",
+        "stand_3",
+        ""
+      ]
+    },
+    {
+      "id": "roof03",
+      "category": "other",
+      "localX": 64,
+      "localY": 32,
+      "params": [
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "tree0",
+      "category": "static_decor",
+      "localX": -16,
+      "localY": 112,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "tree0",
+      "category": "static_decor",
+      "localX": 16,
+      "localY": 112,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "tree0",
+      "category": "static_decor",
+      "localX": 48,
+      "localY": 112,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "tree0",
+      "category": "static_decor",
+      "localX": 80,
+      "localY": 112,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "tree0",
+      "category": "static_decor",
+      "localX": 96,
+      "localY": 96,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "tree0",
+      "category": "static_decor",
+      "localX": 96,
+      "localY": 128,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "tree0",
+      "category": "static_decor",
+      "localX": 128,
+      "localY": 128,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "tree0",
+      "category": "static_decor",
+      "localX": 144,
+      "localY": -16,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "tree0",
+      "category": "static_decor",
+      "localX": 160,
+      "localY": 128,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "water1",
+      "category": "other",
+      "localX": 144,
+      "localY": 32,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "water1",
+      "category": "other",
+      "localX": 144,
+      "localY": 48,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "water1",
+      "category": "other",
+      "localX": 144,
+      "localY": 64,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "water1",
+      "category": "other",
+      "localX": 144,
+      "localY": 80,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "water1",
+      "category": "other",
+      "localX": 144,
+      "localY": 96,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    }
+  ],
+  "tiles": [
+    [
+      [
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        615
+      ],
+      [
+        452,
+        452,
+        452,
+        373,
+        500,
+        500,
+        500,
+        372,
+        214,
+        204
+      ],
+      [
+        452,
+        452,
+        453,
+        500,
+        615,
+        615,
+        615,
+        500,
+        186,
+        266
+      ],
+      [
+        452,
+        452,
+        453,
+        500,
+        115,
+        116,
+        117,
+        500,
+        186,
+        266
+      ],
+      [
+        452,
+        416,
+        453,
+        500,
+        175,
+        187,
+        175,
+        500,
+        186,
+        266
+      ],
+      [
+        452,
+        452,
+        433,
+        500,
+        500,
+        500,
+        500,
+        500,
+        186,
+        266
+      ],
+      [
+        413,
+        413,
+        413,
+        353,
+        500,
+        500,
+        615,
+        615,
+        186,
+        266
+      ],
+      [
+        615,
+        615,
+        615,
+        615,
+        615,
+        615,
+        615,
+        615,
+        495,
+        318
+      ]
+    ],
+    [
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ]
+    ],
+    [
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ]
+    ]
+  ]
+}

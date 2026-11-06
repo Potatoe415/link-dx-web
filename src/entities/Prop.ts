@@ -1,4 +1,4 @@
-import { RoomProp } from '../data/rooms';
+import { RoomProp, RoomAmbience } from '../data/rooms';
 import { ANIMATIONS, AnimationFrame } from '../data/animations';
 
 export class PropInstance {
@@ -86,8 +86,14 @@ export class ParticleSystem {
   private particles: Particle[] = [];
   private spawnTimer: number = 0;
 
-  public update(dtMs: number, roomType: 'indoor' | 'outdoor'): void {
+  public clear(): void {
+    this.particles = [];
+    this.spawnTimer = 0;
+  }
+
+  public update(dtMs: number, roomType: RoomAmbience): void {
     this.spawnTimer += dtMs;
+    if (roomType === 'none') this.spawnTimer = 0;
 
     // Spawn rate
     const spawnInterval = roomType === 'indoor' ? 120 : 80;
