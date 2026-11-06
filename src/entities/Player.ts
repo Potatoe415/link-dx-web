@@ -4,6 +4,7 @@ import { SoundManager } from '../core/Audio';
 import { GroundKind, GroundZone, Rect } from '../data/rooms';
 import { ANIMATIONS, AnimationDef, AnimationFrame } from '../data/animations';
 import { renderEquippedShield, renderItemGetOverhead, ShieldPose } from './PlayerShieldRender';
+import { Knockback, blockingDirectionFor } from './Damage';
 import { GameState } from '../core/GameState';
 import {
   DROWN_HIDDEN_MS,
@@ -27,7 +28,8 @@ export type PlayerState =
   | 'ITEM_GET'
   | 'SWIMMING'
   | 'DROWNING'
-  | 'FALLING_PIT';
+  | 'FALLING_PIT'
+  | 'DYING';
 
 export class Player {
   // Logical position (in 160x128 space, feet anchor)
@@ -74,6 +76,10 @@ export class Player {
   private safeX: number = 56;
   private safeY: number = 51;
 
+  // Damage: invulnerability blink + knockback (Damage.ts)
+  public readonly knockback = new Knockback();
+  private dyingTimer: number = 0;
+
   constructor(game: GameState, startX: number = 56, startY: number = 51, initialDirection: number = 3) {
     this.game = game;
     this.x = startX;
@@ -115,7 +121,46 @@ export class Player {
 
   /** Hidden while drowned (between sinking and respawn), like the original. */
   public get isVisible(): boolean {
+    if (this.state !== 'DYING' && this.knockback.blinkHidden) return false;
     return !(this.state === 'DROWNING' && this.hazardTimer >= DROWN_SINK_MS);
+  }
+
+  /** Can enemies and hazards hurt Link right now? */
+  public get isVulnerable(): boolean {
+    return (
+      !this.knockback.active &&
+      (this.state === 'IDLE' || this.state === 'WALKING' || this.state === 'SWIMMING')
+    );
+  }
+
+  /**
+   * ObjLink.HitPlayer: returns 'blocked' when the raised shield faces the attack, 'hit' when damage
+   * was applied (caller plays sounds / checks for game over), or 'ignored' while invulnerable.
+   */
+  public takeHit(quarters: number, dirX: number, dirY: number, blockable: boolean): 'hit' | 'blocked' | 'ignored' {
+    if (!this.isVulnerable) return 'ignored';
+    if (blockable && this.isBlocking && this.direction === blockingDirectionFor(dirX, dirY)) return 'blocked';
+    this.game.changeHealth(-quarters);
+    this.knockback.start(dirX, dirY);
+    return 'hit';
+  }
+
+  /** ObjLink.OnDeath: freeze, spin through the 4 directions, then GAME OVER (engine). */
+  public startDying(): void {
+    this.state = 'DYING';
+    this.dyingTimer = 0;
+    this.isBlocking = false;
+    this.knockback.reset();
+    this.updateIdleAnimation();
+  }
+
+  /** Respawn after GAME OVER with the refill from ObjLink.Respawn (3/5/7/10 hearts). */
+  public respawnAfterGameOver(x: number, y: number, direction: number): void {
+    const max = this.game.maxHearts;
+    const hearts = max >= 14 ? 10 : max >= 10 ? 7 : max >= 6 ? 5 : 3;
+    this.game.changeHealth(hearts * 4 - this.game.healthQuarters);
+    this.knockback.invulnerableMs = 0;
+    this.teleport(x, y, direction);
   }
 
   public update(
@@ -145,9 +190,23 @@ export class Player {
 
       case 'IDLE':
       case 'WALKING':
-      case 'SWIMMING':
-        this.updateMovement(input, colliders, sound, GROUND_SPEED[this.ground ?? 'hole']);
+      case 'SWIMMING': {
+        // Knockback overrides walking until it decays (moveMultiplier = 1 - |hitVelocity| in ObjLink)
+        const pushed = this.knockback.step(dtMs, this.x, this.y, colliders);
+        this.x = pushed.x;
+        this.y = pushed.y;
+        if (Math.hypot(this.knockback.vx, this.knockback.vy) < 1) {
+          this.updateMovement(input, colliders, sound, GROUND_SPEED[this.ground ?? 'hole']);
+        }
         this.updateGround(dtMs, groundZones, sound);
+        break;
+      }
+
+      case 'DYING':
+        // Spin: Left -> Up -> Right -> Down every 100 ms (dirToFrame in ObjLink.OnDeath)
+        this.dyingTimer += dtMs;
+        this.direction = [3, 0, 1, 2][Math.floor(this.dyingTimer / 100) % 4];
+        this.updateIdleAnimation();
         break;
 
       case 'DROWNING':

@@ -15,7 +15,14 @@ export type SfxName =
   | 'drown'
   | 'fall'
   | 'chest_open'
-  | 'treasure';
+  | 'treasure'
+  | 'link_hurt'
+  | 'link_die'
+  | 'enemy_hit'
+  | 'enemy_die'
+  | 'rupee'
+  | 'heart'
+  | 'low_health';
 
 export type MusicTrack = 'indoor' | 'outdoor' | 'marin_sing';
 
@@ -27,6 +34,7 @@ export class SoundManager {
   private desiredMusic: MusicTrack = 'indoor';
   private unlocked: boolean = false;
   public muted: boolean = false;
+  private stopped: boolean = false;
 
   private musicVolume: number = 0.42;
   private duckTimer: number = 0;
@@ -54,7 +62,14 @@ export class SoundManager {
       drown: '/assets/audio/sfx_drown.wav', // D370-03-03
       fall: '/assets/audio/sfx_fall.wav', // D370-12-0C (falling into a hole)
       chest_open: '/assets/audio/sfx_chest_open.wav', // D378-04-04
-      treasure: '/assets/audio/sfx_treasure.wav' // D360-01-01 (rupee treasure jingle, ducks music)
+      treasure: '/assets/audio/sfx_treasure.wav', // D360-01-01 (rupee treasure jingle, ducks music)
+      link_hurt: '/assets/audio/sfx_link_hurt.wav', // D370-03-03 (ObjLink.HitPlayer)
+      link_die: '/assets/audio/sfx_link_die.wav', // D370-08-08 (ObjLink.OnDeath)
+      enemy_hit: '/assets/audio/sfx_enemy_hit.wav', // D360-03-03 (AiDamageState hit)
+      enemy_die: '/assets/audio/sfx_enemy_die.wav', // D378-19-13 (AiDamageState death)
+      rupee: '/assets/audio/sfx_rupee.wav', // D370-05-05
+      heart: '/assets/audio/sfx_heart.wav', // D370-06-06
+      low_health: '/assets/audio/sfx_low_health.wav' // D370-04-04 (HD remake leaves the warning empty)
     };
 
     for (const [key, url] of Object.entries(sfxFiles) as [SfxName, string][]) {
@@ -117,7 +132,17 @@ export class SoundManager {
     }
   }
 
+  /** Silences music until the next playMusic (GAME OVER). */
+  public stopMusic(): void {
+    this.stopped = true;
+    this.syncMusicPlayback();
+  }
+
   public playMusic(track: MusicTrack): void {
+    if (this.stopped) {
+      this.stopped = false;
+      this.currentMusic = null; // force restart
+    }
     this.desiredMusic = track;
     if (this.currentMusic === track) return;
     this.syncMusicPlayback();
@@ -146,12 +171,12 @@ export class SoundManager {
 
   private syncMusicPlayback(): void {
     for (const [track, audio] of this.musicElements.entries()) {
-      if (track !== this.desiredMusic || this.muted || !this.unlocked) {
+      if (track !== this.desiredMusic || this.muted || !this.unlocked || this.stopped) {
         audio.pause();
       }
     }
 
-    if (this.muted || !this.unlocked) {
+    if (this.muted || !this.unlocked || this.stopped) {
       this.currentMusic = null;
       return;
     }

@@ -14,6 +14,8 @@ import { ROOMS, RoomDef, Rect } from './data/rooms';
 import { Player } from './entities/Player';
 import { PropInstance, ParticleSystem } from './entities/Prop';
 import { InteractableSystem } from './entities/Interactables';
+import { EnemyManager } from './entities/EnemyManager';
+import { GameOverScreen } from './core/GameOver';
 
 export class GameEngine {
   private ctx: CanvasRenderingContext2D;
@@ -34,6 +36,8 @@ export class GameEngine {
   private hud: HUD;
   private inventory: InventoryMenu;
   private interactables: InteractableSystem;
+  private enemies: EnemyManager;
+  private gameOver: GameOverScreen;
 
   // Render mode: true = Pre-rendered Ghibli HD, false = Original Pixel-Art Whitebox
   public useGhibliMode = true;
@@ -57,6 +61,8 @@ export class GameEngine {
     this.hud = new HUD(this.game, this.images);
     this.inventory = new InventoryMenu(this.game, this.images, this.sound);
     this.interactables = new InteractableSystem(this.game, this.images, this.sound, this.dialogue);
+    this.enemies = new EnemyManager(this.game, this.images, this.sound);
+    this.gameOver = new GameOverScreen(this.images);
     this.scroller = new ScreenScroll(this.camera, (key, props, x, y) => {
       this.initRoom(key, props);
       this.player.x = x;
@@ -105,6 +111,7 @@ export class GameEngine {
     this.currentRoom = ROOMS[roomKey];
     this.props = props ?? this.currentRoom.props.map((p) => new PropInstance(p));
     this.interactables?.setRoom(roomKey, this.currentRoom.interactables);
+    this.enemies?.setRoom(this.currentRoom.enemies);
     if (previous && previous.ambience !== this.currentRoom.ambience) this.particles.clear();
     this.sound.playMusic(this.currentRoom.music);
     for (const key of Object.values(this.currentRoom.neighbors ?? {})) {
@@ -164,60 +171,101 @@ export class GameEngine {
     if (this.camera.isTransitioning()) return;
 
     this.hud.update(dtMs);
+    if (this.updateOverlays(dtMs)) return;
+    this.updateWorld(dtMs);
+  }
 
-    // Inventory sub-menu pauses the world (not available while sleeping or mid-dialogue)
+  /** Game over, inventory and dialogue pause the world. Returns true when one of them is active. */
+  private updateOverlays(dtMs: number): boolean {
+    if (this.player.state === 'DYING') {
+      this.player.update(dtMs, this.input, [], this.sound);
+      if (this.gameOver.update(dtMs, this.input)) this.continueAfterGameOver();
+      return true;
+    }
+
+    // Inventory sub-menu (not available while sleeping or mid-dialogue)
     const canOpenMenu = !this.dialogue.isOpen() && (this.player.state === 'IDLE' || this.player.state === 'WALKING');
     if (this.input.wasMenuJustPressed() && (this.inventory.isOpen() || canOpenMenu)) {
       this.inventory.toggle();
-      return;
+      return true;
     }
     if (this.inventory.isOpen()) {
       this.inventory.update(this.input);
-      return;
+      return true;
     }
 
-    // Update animated Props & Particles even during dialogue
+    // Animated props & particles keep running during dialogue
     for (const prop of this.props) prop.update(dtMs);
     this.particles.update(dtMs, this.currentRoom.ambience);
 
-    // If a dialogue box is open, Space / Enter / E advances or closes the dialogue
     if (this.dialogue.isOpen()) {
       if (this.player.state === 'ITEM_GET') this.player.update(dtMs, this.input, [], this.sound);
       if (this.input.wasInteractJustPressed()) {
         this.dialogue.onInteractPressed();
         this.refreshStats();
       }
-      return;
+      return true;
     }
 
     this.interactables.update(dtMs);
-    if (this.interactables.isBusy()) return;
+    return this.interactables.isBusy();
+  }
 
+  /** Link, enemies, interactions and room exits for one fixed step. */
+  private updateWorld(dtMs: number): void {
     // Solid obstacles: room static colliders + prop collisions + signposts / chests
     const allColliders: Rect[] = [...this.currentRoom.colliders, ...this.interactables.colliders()];
     for (const prop of this.props) {
       if (prop.data.collision) allColliders.push(prop.data.collision);
     }
 
-    const nearbyNPC = this.dialogue.findNearbyNPC(this.player, this.props);
-    if (nearbyNPC && this.input.wasInteractJustPressed()) {
-      this.dialogue.startDialogue(nearbyNPC, this.player);
-      this.refreshStats();
-      return;
-    }
-    const canAct = this.player.state === 'IDLE' || this.player.state === 'WALKING';
-    if (canAct && this.input.wasInteractJustPressed() && this.interactables.tryInteract(this.player)) return;
+    if (this.input.wasInteractJustPressed() && this.tryAction()) return;
 
     this.player.update(dtMs, this.input, allColliders, this.sound, this.currentRoom.groundZones);
+    this.enemies.update(dtMs, allColliders, this.player);
+    if (this.game.healthQuarters <= 0) {
+      this.startGameOver();
+      return;
+    }
 
     const canLeave = this.player.state === 'IDLE' || this.player.state === 'WALKING' || this.player.state === 'SWIMMING';
-    if (canLeave) {
-      if (this.scroller.checkEdges(this.currentRoom, this.player)) {
-        void this.roomRenderer.prefetch(ROOMS[this.scroller.pending!.nextKey]);
-        return;
-      }
-      this.checkWarps();
+    if (!canLeave) return;
+    if (this.scroller.checkEdges(this.currentRoom, this.player)) {
+      void this.roomRenderer.prefetch(ROOMS[this.scroller.pending!.nextKey]);
+      return;
     }
+    this.checkWarps();
+  }
+
+  /** Action key: talk to the nearest NPC, else read / open what Link faces. */
+  private tryAction(): boolean {
+    const nearbyNPC = this.dialogue.findNearbyNPC(this.player, this.props);
+    if (nearbyNPC) {
+      this.dialogue.startDialogue(nearbyNPC, this.player);
+      this.refreshStats();
+      return true;
+    }
+    const canAct = this.player.state === 'IDLE' || this.player.state === 'WALKING';
+    return canAct && this.interactables.tryInteract(this.player);
+  }
+
+  /** ObjLink.OnDeath: stop music, death jingle, spin, then the GAME OVER screen. */
+  private startGameOver(): void {
+    this.sound.stopMusic();
+    this.sound.playSfx('link_die', 0.8);
+    this.player.startDying();
+    this.gameOver.start();
+  }
+
+  /** GameOverPage "Continue": respawn at the last door crossed (or the room spawn) with refilled hearts. */
+  private continueAfterGameOver(): void {
+    const r = this.game.respawn;
+    const room = r?.room ?? this.currentRoomKey;
+    const spawn = r ?? { ...ROOMS[room].spawnPoint };
+    this.camera.startTransition(() => {
+      this.initRoom(room);
+      this.player.respawnAfterGameOver(spawn.x, spawn.y, spawn.direction);
+    }, 320);
   }
 
   private checkWarps(): void {
@@ -260,15 +308,24 @@ export class GameEngine {
       ctx.imageSmoothingEnabled = this.useGhibliMode;
       playerRenderable.render(); // Link travels with the scroll, drawn over both screens
     } else {
+      const dying = this.gameOver.isActive();
       this.roomRenderer.renderRoom(ctx, room, this.props, spritesheet, this.useGhibliMode, 0, 0, [
-        playerRenderable,
-        ...this.interactables.renderables(ctx)
+        ...(dying ? [] : [playerRenderable]),
+        ...this.interactables.renderables(ctx),
+        ...this.enemies.renderables(ctx)
       ]);
+      if (dying) {
+        // Dim the world, keep Link on top (GameOverSystem.DrawPlayerOnTopPercentage)
+        this.gameOver.renderDim(ctx, room.width, room.height);
+        ctx.imageSmoothingEnabled = this.useGhibliMode;
+        playerRenderable.render();
+      }
       this.particles.render(ctx);
       if (this.showColliders) renderCollidersDebug(ctx, room, this.props, this.player.x, this.player.y);
     }
     // HUD over the room; hidden during the wake-up cutscene like the original intro
-    if (this.player.state !== 'SLEEPING' && this.player.state !== 'WAKING') this.hud.render(ctx, room.width, room.height);
+    const hideHud = this.player.state === 'SLEEPING' || this.player.state === 'WAKING' || this.gameOver.isActive();
+    if (!hideHud) this.hud.render(ctx, room.width, room.height);
     ctx.restore();
 
     // NPC proximity indicator & dialogue box (1280x1024 screen space)
@@ -278,6 +335,7 @@ export class GameEngine {
     }
     this.dialogue.renderDialogueBox(ctx, canvas.width, canvas.height);
     this.inventory.render(ctx, canvas.width, canvas.height);
+    this.gameOver.renderBanner(ctx, canvas.width, canvas.height);
     this.camera.renderFade(ctx, canvas.width, canvas.height);
   }
 

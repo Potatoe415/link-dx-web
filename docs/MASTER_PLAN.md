@@ -66,8 +66,8 @@
 
 ## 1.4 — Système d'Entités, Combat, Dégâts & Objets Ramassables
 ### 1.4.1 — Architecture Générique des Entités & Ennemis (`src/entities/`)
-- [ ] **[T-1.4.1-01]** Créer la classe de base `src/entities/Enemy.ts` gérant : points de vie (`hp`), boîte de collision (`hitbox`), états d'IA (`IDLE`, `WANDER`, `CHASE`, `STUNNED`, `KNOCKBACK`, `DYING`), clignotement d'invulnérabilité après coup (`D360-07-07.wav`), explosion de mort (`D378-04-04.wav`) et largage aléatoire de butin (`Coeur`, `Rubis 1`, `Rubis 5`).
-- [ ] **[T-1.4.1-02]** Implémenter la prise de dégâts sur Link (`Player.takeDamage`) : recul (*knockback*), clignotement, son de blessure (`D370-03-03.wav`), bip d'alerte à 1 coeur restant, et séquence de `GAME OVER` avec réapparition à la dernière porte franchie.
+- [x] **[T-1.4.1-01]** Créer la classe de base `src/entities/Enemy.ts` gérant : points de vie (`hp`), boîte de collision (`hitbox`), états d'IA (`IDLE`, `WANDER`, `CHASE`, `STUNNED`, `KNOCKBACK`, `DYING`), clignotement d'invulnérabilité après coup (`D360-07-07.wav`), explosion de mort (`D378-04-04.wav`) et largage aléatoire de butin (`Coeur`, `Rubis 1`, `Rubis 5`).
+- [x] **[T-1.4.1-02]** Implémenter la prise de dégâts sur Link (`Player.takeDamage`) : recul (*knockback*), clignotement, son de blessure (`D370-03-03.wav`), bip d'alerte à 1 coeur restant, et séquence de `GAME OVER` avec réapparition à la dernière porte franchie.
 
 ### 1.4.2 — Objets Interactifs du Monde (Buissons, Pierres, Pots, Coffres, Pancartes)
 - [ ] **[T-1.4.2-01]** Implémenter les **Buissons & Herbes coupables** (`bush_0`, `gras` depuis `ObjBush.cs`) : coupés d'un coup d'épée (animation de feuilles éparpillées + son `D378-05-05.wav`), révélant parfois un rubis, un coeur ou un passage secret.

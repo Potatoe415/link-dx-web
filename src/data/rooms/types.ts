@@ -92,5 +92,7 @@ export interface RoomDef {
   colliders: Rect[];
   groundZones?: GroundZone[];
   interactables?: InteractableDef[];
+  // Enemies spawned each time the room is entered (feet anchor, logical px); kinds in src/data/enemies.ts
+  enemies?: { kind: string; x: number; y: number }[];
   props: RoomProp[];
 }
