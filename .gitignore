@@ -32,10 +32,9 @@ out/
 .next/
 coverage/
 
-# Temporary & external reference repo
+# Temporary directories
 tmp/
 temp/
 tmp-*/
 extracted/
 .cache/
-_ref_repo/
