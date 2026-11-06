@@ -1,0 +1,1338 @@
+{
+  "roomId": "ow_r10_c02",
+  "sourceMap": "overworld.map",
+  "screenCol": 2,
+  "screenRow": 10,
+  "tileOrigin": {
+    "col": 21,
+    "row": 80
+  },
+  "worldPixelOrigin": {
+    "x": 336,
+    "y": 1280
+  },
+  "logicalSize": {
+    "w": 160,
+    "h": 128
+  },
+  "displaySize": {
+    "w": 1280,
+    "h": 1024
+  },
+  "musicTrackId": 3,
+  "neighbors": {
+    "north": "ow_r09_c02",
+    "south": "ow_r11_c02",
+    "west": "ow_r10_c01",
+    "east": "ow_r10_c03"
+  },
+  "colliders": [
+    {
+      "x": 64,
+      "y": 48,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 64,
+      "y": 64,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 80,
+      "y": 48,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 96,
+      "y": 48,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 96,
+      "y": 64,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 76,
+      "y": 93,
+      "w": 8,
+      "h": 8,
+      "source": "fenceBL"
+    },
+    {
+      "x": 140,
+      "y": 61,
+      "w": 8,
+      "h": 8,
+      "source": "fenceBL"
+    },
+    {
+      "x": 36,
+      "y": 93,
+      "w": 8,
+      "h": 8,
+      "source": "fenceDL"
+    },
+    {
+      "x": 44,
+      "y": 93,
+      "w": 8,
+      "h": 8,
+      "source": "fenceDL"
+    },
+    {
+      "x": 44,
+      "y": 101,
+      "w": 8,
+      "h": 8,
+      "source": "fenceDL"
+    },
+    {
+      "x": 124,
+      "y": 93,
+      "w": 8,
+      "h": 8,
+      "source": "fenceDR"
+    },
+    {
+      "x": 132,
+      "y": 93,
+      "w": 8,
+      "h": 8,
+      "source": "fenceDR"
+    },
+    {
+      "x": 124,
+      "y": 101,
+      "w": 8,
+      "h": 8,
+      "source": "fenceDR"
+    },
+    {
+      "x": 44,
+      "y": 37,
+      "w": 8,
+      "h": 8,
+      "source": "fenceL"
+    },
+    {
+      "x": 44,
+      "y": 45,
+      "w": 8,
+      "h": 8,
+      "source": "fenceL"
+    },
+    {
+      "x": 44,
+      "y": 53,
+      "w": 8,
+      "h": 8,
+      "source": "fenceL"
+    },
+    {
+      "x": 44,
+      "y": 61,
+      "w": 8,
+      "h": 8,
+      "source": "fenceL"
+    },
+    {
+      "x": 44,
+      "y": 69,
+      "w": 8,
+      "h": 8,
+      "source": "fenceL"
+    },
+    {
+      "x": 44,
+      "y": 77,
+      "w": 8,
+      "h": 8,
+      "source": "fenceL"
+    },
+    {
+      "x": 44,
+      "y": 85,
+      "w": 8,
+      "h": 8,
+      "source": "fenceL"
+    },
+    {
+      "x": 44,
+      "y": 93,
+      "w": 8,
+      "h": 8,
+      "source": "fenceL"
+    },
+    {
+      "x": 140,
+      "y": 21,
+      "w": 8,
+      "h": 8,
+      "source": "fenceL"
+    },
+    {
+      "x": 140,
+      "y": 29,
+      "w": 8,
+      "h": 8,
+      "source": "fenceL"
+    },
+    {
+      "x": 140,
+      "y": 77,
+      "w": 8,
+      "h": 8,
+      "source": "fenceL"
+    },
+    {
+      "x": 140,
+      "y": 85,
+      "w": 8,
+      "h": 8,
+      "source": "fenceL"
+    },
+    {
+      "x": 52,
+      "y": 29,
+      "w": 8,
+      "h": 8,
+      "source": "fenceU"
+    },
+    {
+      "x": 60,
+      "y": 29,
+      "w": 8,
+      "h": 8,
+      "source": "fenceU"
+    },
+    {
+      "x": 52,
+      "y": 109,
+      "w": 8,
+      "h": 8,
+      "source": "fenceU"
+    },
+    {
+      "x": 60,
+      "y": 109,
+      "w": 8,
+      "h": 8,
+      "source": "fenceU"
+    },
+    {
+      "x": 68,
+      "y": 29,
+      "w": 8,
+      "h": 8,
+      "source": "fenceU"
+    },
+    {
+      "x": 76,
+      "y": 29,
+      "w": 8,
+      "h": 8,
+      "source": "fenceU"
+    },
+    {
+      "x": 84,
+      "y": 29,
+      "w": 8,
+      "h": 8,
+      "source": "fenceU"
+    },
+    {
+      "x": 92,
+      "y": 29,
+      "w": 8,
+      "h": 8,
+      "source": "fenceU"
+    },
+    {
+      "x": 100,
+      "y": 29,
+      "w": 8,
+      "h": 8,
+      "source": "fenceU"
+    },
+    {
+      "x": 108,
+      "y": 29,
+      "w": 8,
+      "h": 8,
+      "source": "fenceU"
+    },
+    {
+      "x": 100,
+      "y": 109,
+      "w": 8,
+      "h": 8,
+      "source": "fenceU"
+    },
+    {
+      "x": 108,
+      "y": 109,
+      "w": 8,
+      "h": 8,
+      "source": "fenceU"
+    },
+    {
+      "x": 116,
+      "y": 29,
+      "w": 8,
+      "h": 8,
+      "source": "fenceU"
+    },
+    {
+      "x": 124,
+      "y": 29,
+      "w": 8,
+      "h": 8,
+      "source": "fenceU"
+    },
+    {
+      "x": 116,
+      "y": 109,
+      "w": 8,
+      "h": 8,
+      "source": "fenceU"
+    },
+    {
+      "x": 124,
+      "y": 109,
+      "w": 8,
+      "h": 8,
+      "source": "fenceU"
+    },
+    {
+      "x": 44,
+      "y": 21,
+      "w": 8,
+      "h": 8,
+      "source": "fenceUL"
+    },
+    {
+      "x": 36,
+      "y": 29,
+      "w": 8,
+      "h": 8,
+      "source": "fenceUL"
+    },
+    {
+      "x": 44,
+      "y": 29,
+      "w": 8,
+      "h": 8,
+      "source": "fenceUL"
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "w": 16,
+      "h": 16,
+      "source": "tree0"
+    },
+    {
+      "x": 112,
+      "y": 36,
+      "w": 32,
+      "h": 28,
+      "source": "tree0"
+    }
+  ],
+  "objects": [
+    {
+      "id": "bird",
+      "category": "animated_prop",
+      "localX": 48,
+      "localY": 80,
+      "params": []
+    },
+    {
+      "id": "butterfly",
+      "category": "other",
+      "localX": -32,
+      "localY": 80,
+      "params": []
+    },
+    {
+      "id": "dogo",
+      "category": "other",
+      "localX": 48,
+      "localY": -32,
+      "params": []
+    },
+    {
+      "id": "door",
+      "category": "warp",
+      "localX": 80,
+      "localY": 64,
+      "params": [
+        "",
+        "",
+        "h1",
+        "house1.map",
+        "h1",
+        "3",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "enemyWall",
+      "category": "other",
+      "localX": 80,
+      "localY": 64,
+      "params": [
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "fenceBL",
+      "category": "static_decor",
+      "localX": 68,
+      "localY": 93,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "fenceBL",
+      "category": "static_decor",
+      "localX": 132,
+      "localY": 61,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "fenceDL",
+      "category": "static_decor",
+      "localX": 36,
+      "localY": 93,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "fenceDR",
+      "category": "static_decor",
+      "localX": 124,
+      "localY": 93,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "fenceL",
+      "category": "static_decor",
+      "localX": 36,
+      "localY": 37,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "fenceL",
+      "category": "static_decor",
+      "localX": 36,
+      "localY": 53,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "fenceL",
+      "category": "static_decor",
+      "localX": 36,
+      "localY": 69,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "fenceL",
+      "category": "static_decor",
+      "localX": 36,
+      "localY": 85,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "fenceL",
+      "category": "static_decor",
+      "localX": 132,
+      "localY": 21,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "fenceL",
+      "category": "static_decor",
+      "localX": 132,
+      "localY": 77,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "fenceU",
+      "category": "static_decor",
+      "localX": 52,
+      "localY": 21,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "fenceU",
+      "category": "static_decor",
+      "localX": 52,
+      "localY": 101,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "fenceU",
+      "category": "static_decor",
+      "localX": 68,
+      "localY": 21,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "fenceU",
+      "category": "static_decor",
+      "localX": 84,
+      "localY": 21,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "fenceU",
+      "category": "static_decor",
+      "localX": 100,
+      "localY": 21,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "fenceU",
+      "category": "static_decor",
+      "localX": 100,
+      "localY": 101,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "fenceU",
+      "category": "static_decor",
+      "localX": 116,
+      "localY": 21,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "fenceU",
+      "category": "static_decor",
+      "localX": 116,
+      "localY": 101,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "fenceUL",
+      "category": "static_decor",
+      "localX": 36,
+      "localY": 21,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "flower",
+      "category": "animated_prop",
+      "localX": -32,
+      "localY": 96,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "flower",
+      "category": "animated_prop",
+      "localX": 16,
+      "localY": 48,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "flower",
+      "category": "animated_prop",
+      "localX": 64,
+      "localY": -32,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "flower",
+      "category": "animated_prop",
+      "localX": 80,
+      "localY": -32,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "flower",
+      "category": "animated_prop",
+      "localX": 96,
+      "localY": -32,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "flower",
+      "category": "animated_prop",
+      "localX": 112,
+      "localY": 128,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gras",
+      "category": "static_decor",
+      "localX": -32,
+      "localY": 64,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gras",
+      "category": "static_decor",
+      "localX": 48,
+      "localY": 32,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gras",
+      "category": "static_decor",
+      "localX": 48,
+      "localY": 80,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gras",
+      "category": "static_decor",
+      "localX": 64,
+      "localY": 80,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gras",
+      "category": "static_decor",
+      "localX": 96,
+      "localY": 80,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gras",
+      "category": "static_decor",
+      "localX": 112,
+      "localY": 80,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gras",
+      "category": "static_decor",
+      "localX": 144,
+      "localY": 32,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gras",
+      "category": "static_decor",
+      "localX": 144,
+      "localY": 48,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gras",
+      "category": "static_decor",
+      "localX": 160,
+      "localY": 0,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gras",
+      "category": "static_decor",
+      "localX": 160,
+      "localY": 16,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gras",
+      "category": "static_decor",
+      "localX": 160,
+      "localY": 32,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gras",
+      "category": "static_decor",
+      "localX": 160,
+      "localY": 48,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gras",
+      "category": "static_decor",
+      "localX": 160,
+      "localY": 64,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gras",
+      "category": "static_decor",
+      "localX": 160,
+      "localY": 80,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gras",
+      "category": "static_decor",
+      "localX": 160,
+      "localY": 96,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gras",
+      "category": "static_decor",
+      "localX": 160,
+      "localY": 112,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gras",
+      "category": "static_decor",
+      "localX": 160,
+      "localY": 128,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gras1",
+      "category": "static_decor",
+      "localX": 112,
+      "localY": 64,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gras2",
+      "category": "static_decor",
+      "localX": 48,
+      "localY": 48,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gras2",
+      "category": "static_decor",
+      "localX": 48,
+      "localY": 64,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gras3",
+      "category": "static_decor",
+      "localX": 64,
+      "localY": 32,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gras3",
+      "category": "static_decor",
+      "localX": 80,
+      "localY": 32,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gras3",
+      "category": "static_decor",
+      "localX": 96,
+      "localY": 32,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "shellHitSpawner",
+      "category": "other",
+      "localX": 112,
+      "localY": 32,
+      "params": [
+        "",
+        "fairy"
+      ]
+    },
+    {
+      "id": "tree0",
+      "category": "static_decor",
+      "localX": -16,
+      "localY": -16,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "tree0",
+      "category": "static_decor",
+      "localX": 112,
+      "localY": 32,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    }
+  ],
+  "tiles": [
+    [
+      [
+        615,
+        432,
+        392,
+        392,
+        392,
+        392,
+        392,
+        392,
+        392,
+        452
+      ],
+      [
+        412,
+        453,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        432
+      ],
+      [
+        452,
+        453,
+        500,
+        500,
+        500,
+        500,
+        500,
+        615,
+        615,
+        500
+      ],
+      [
+        452,
+        417,
+        500,
+        500,
+        615,
+        615,
+        615,
+        615,
+        615,
+        500
+      ],
+      [
+        452,
+        453,
+        500,
+        500,
+        175,
+        187,
+        175,
+        500,
+        500,
+        432
+      ],
+      [
+        452,
+        453,
+        500,
+        500,
+        500,
+        356,
+        500,
+        500,
+        500,
+        432
+      ],
+      [
+        413,
+        373,
+        500,
+        500,
+        500,
+        356,
+        500,
+        500,
+        500,
+        432
+      ],
+      [
+        356,
+        356,
+        356,
+        356,
+        356,
+        356,
+        352,
+        412,
+        412,
+        452
+      ]
+    ],
+    [
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        501,
+        501,
+        501,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ]
+    ],
+    [
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ]
+    ]
+  ]
+}

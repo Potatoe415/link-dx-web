@@ -1,0 +1,452 @@
+#!/usr/bin/env python3
+"""
+Deterministic Room Extractor for Zelda: Link's Awakening Ghibli Web.
+Reads `_ref_repo/Data/Maps/*.map`, tilesets, `objects.atlas`, and `musicOverworld.data`
+to mathematically extract any 10x8 (160x128) screen into:
+  1. `<out_id>_bg_pixel.png`   (1280x1024 Nearest-Neighbor 8x reference background)
+  2. `<out_id>_grid_ruler.png` (1280x1024 visual coordinate ruler with 160x128 labels)
+  3. `<out_id>_manifest.json`  (exact tile matrix, music track ID, and local 160x128 objects/doors/colliders)
+
+Usage examples:
+  # Extract Marin's house outdoor screen (Overworld Row 10, Col 2):
+  python scripts/extract_room.py --overworld-row 10 --overworld-col 2 --out-id ow_r10_c02
+
+  # Extract the screen south of Marin's house (Overworld Row 11, Col 2):
+  python scripts/extract_room.py --overworld-row 11 --overworld-col 2 --out-id ow_r11_c02
+
+  # Extract an indoor or dungeon room:
+  python scripts/extract_room.py --map house1.map --room-row 0 --room-col 0 --out-id indoor_marin
+"""
+
+import argparse
+import json
+import os
+from PIL import Image, ImageDraw
+
+REF_DIR = '_ref_repo'
+MAPS_DIR = os.path.join(REF_DIR, 'Data', 'Maps')
+TILESETS_DIR = os.path.join(MAPS_DIR, 'Tilesets')
+OBJECTS_ATLAS = os.path.join(REF_DIR, 'Data', 'Map Objects', 'objects.atlas')
+OBJECTS_PNG = os.path.join(REF_DIR, 'Data', 'Map Objects', 'objects.png')
+MUSIC_OW_DATA = os.path.join(REF_DIR, 'Data', 'musicOverworld.data')
+
+
+def load_objects_atlas():
+    atlas = {}
+    if not os.path.exists(OBJECTS_ATLAS):
+        return atlas
+    with open(OBJECTS_ATLAS, encoding='utf-8', errors='ignore') as f:
+        for line in f:
+            line = line.strip()
+            if not line or line.startswith('//') or ':' not in line:
+                continue
+            name, rest = line.split(':', 1)
+            parts = [p.strip() for p in rest.split(';')]
+            if len(parts) >= 1 and ',' in parts[0]:
+                coords = [int(v) for v in parts[0].split(',') if v.strip().lstrip('-').isdigit()]
+                if len(coords) >= 4:
+                    ox, oy = 0, 0
+                    if len(parts) >= 2 and ',' in parts[1]:
+                        orig = [int(v) for v in parts[1].split(',') if v.strip().lstrip('-').isdigit()]
+                        if len(orig) >= 2:
+                            ox, oy = orig[0], orig[1]
+                    atlas[name.strip()] = {
+                        'x': coords[0],
+                        'y': coords[1],
+                        'w': coords[2],
+                        'h': coords[3],
+                        'originX': ox,
+                        'originY': oy,
+                    }
+    return atlas
+
+
+def parse_map_file(map_path):
+    with open(map_path, encoding='utf-8', errors='ignore') as f:
+        lines = [l.rstrip('\r\n') for l in f]
+
+    idx = 0
+    version = int(lines[idx]); idx += 1
+    offset_x, offset_y = 0, 0
+    if version > 2:
+        offset_x = int(lines[idx]); idx += 1
+        offset_y = int(lines[idx]); idx += 1
+
+    tileset_name = lines[idx].strip(); idx += 1
+    width = int(lines[idx]); idx += 1
+    height = int(lines[idx]); idx += 1
+    depth = int(lines[idx]); idx += 1
+
+    layers = []
+    for _z in range(depth):
+        layer = []
+        for _y in range(height):
+            row_str = lines[idx]; idx += 1
+            parts = row_str.split(',')
+            row = [int(p) if p.strip().lstrip('-').isdigit() else -1 for p in parts[:width]]
+            layer.append(row)
+        layers.append(layer)
+
+    obj_type_count = int(lines[idx]); idx += 1
+    obj_types = []
+    for _ in range(obj_type_count):
+        obj_types.append(lines[idx].strip()); idx += 1
+
+    obj_instance_count = int(lines[idx]); idx += 1
+    objects = []
+    for _ in range(obj_instance_count):
+        if idx >= len(lines):
+            break
+        raw = lines[idx]; idx += 1
+        parts = raw.split(';')
+        if len(parts) >= 3 and parts[0].isdigit():
+            t_idx = int(parts[0])
+            obj_id = obj_types[t_idx] if t_idx < len(obj_types) else f'unknown_{t_idx}'
+            px = int(float(parts[1]))
+            py = int(float(parts[2]))
+            objects.append({
+                'id': obj_id,
+                'mapX': px,
+                'mapY': py,
+                'params': parts[3:],
+            })
+
+    return {
+        'version': version,
+        'offsetX': offset_x,
+        'offsetY': offset_y,
+        'tileset': tileset_name,
+        'width': width,
+        'height': height,
+        'depth': depth,
+        'layers': layers,
+        'objects': objects,
+    }
+
+
+def get_overworld_music(tile_col, tile_row):
+    if not os.path.exists(MUSIC_OW_DATA):
+        return 3
+    with open(MUSIC_OW_DATA, encoding='utf-8', errors='ignore') as f:
+        lines = [l.strip() for l in f if l.strip()]
+    grid_lines = lines[2:]
+    if 0 <= tile_row < len(grid_lines):
+        cols = grid_lines[tile_row].split(';')
+        if 0 <= tile_col < len(cols) and cols[tile_col].lstrip('-').isdigit():
+            return int(cols[tile_col])
+    return 3
+
+
+COLLIDER_SHAPES = {
+    'c1': [(0, 0, 16, 16)],
+    'c1PushIgnore': [(0, 0, 16, 16)],
+    'lowCollider16': [(0, 0, 16, 16)],
+    'lowerLevelCollider': [(0, 0, 16, 16)],
+    'colliderLevel1': [(0, 0, 16, 16)],
+    'c2': [(0, 8, 16, 8)],
+    'lowCollider0': [(0, 8, 16, 8)],
+    'lowerLevelCollider1': [(0, 8, 16, 8)],
+    'c3': [(0, 0, 8, 16)],
+    'lowCollider2': [(0, 0, 8, 16)],
+    'lowerLevelCollider2': [(0, 0, 8, 16)],
+    'c4': [(8, 0, 8, 16)],
+    'lowCollider3': [(8, 0, 8, 16)],
+    'c5': [(0, 0, 16, 8)],
+    'lowCollider1': [(0, 0, 16, 8)],
+    'c6': [(8, 0, 8, 8)],
+    'c7': [(0, 8, 8, 8)],
+    'c8': [(8, 8, 8, 8)],
+    'c13': [(0, 0, 8, 8)],
+    'c9': [(0, 0, 16, 8), (0, 8, 8, 8)],
+    'colliderL0': [(0, 0, 16, 8), (0, 8, 8, 8)],
+    'c10': [(0, 0, 16, 8), (8, 8, 8, 8)],
+    'colliderL1': [(0, 0, 16, 8), (8, 8, 8, 8)],
+    'c11': [(0, 0, 8, 8), (0, 8, 16, 8)],
+    'colliderL2': [(0, 0, 8, 8), (0, 8, 16, 8)],
+    'c12': [(8, 0, 8, 8), (0, 8, 16, 8)],
+    'colliderL3': [(8, 0, 8, 8), (0, 8, 16, 8)],
+    'tree0': [(0, 4, 32, 28)],
+    'tree1': [(0, 4, 32, 28)],
+    'tree2': [(0, 4, 32, 28)],
+    'tree3': [(0, 4, 32, 28)],
+    'tree4': [(0, 4, 32, 28)],
+    'tree5': [(0, 4, 32, 28)],
+    'treeWoods': [(0, 4, 32, 28)],
+    'treeWoods2': [(0, 4, 32, 27)],
+    'tree9': [(0, 4, 32, 28)],
+    'stree': [(0, 16, 16, 16)],
+    'phonehouse': [(0, 4, 48, 12)],
+    'seashell_house': [(0, 4, 48, 12)],
+    'strandplant': [(0, 4, 15, 12)],
+    'pot_1': [(1, 2, 14, 13)],
+    'stone_1': [(1, 2, 14, 13)],
+    'signpost': [(1, 2, 14, 13)],
+}
+
+
+FENCE_BITMASKS = {
+    'fence': 15,
+    'fenceUL': 14,
+    'fenceU': 12,
+    'fenceUR': 13,
+    'fenceL': 10,
+    'fenceR': 5,
+    'fenceDL': 11,
+    'fenceD': 3,
+    'fenceDR': 7,
+    'fenceTR': 4,
+    'fenceTL': 8,
+    'fenceBR': 1,
+    'fenceBL': 2,
+}
+
+
+def compute_object_colliders(obj_id, lx, ly, params):
+    rects = []
+    if obj_id in COLLIDER_SHAPES:
+        for ox, oy, w, h in COLLIDER_SHAPES[obj_id]:
+            rects.append({'x': lx + ox, 'y': ly + oy, 'w': w, 'h': h, 'source': obj_id})
+    elif obj_id in FENCE_BITMASKS:
+        placement = int(params[0]) if (len(params) >= 1 and params[0].isdigit()) else FENCE_BITMASKS[obj_id]
+        for bit in range(4):
+            if (placement & (1 << bit)) != 0:
+                rects.append({
+                    'x': lx + (bit % 2) * 8,
+                    'y': ly + (bit // 2) * 8,
+                    'w': 8,
+                    'h': 8,
+                    'source': obj_id,
+                })
+    return rects
+
+
+def classify_object(obj_id):
+    if obj_id in COLLIDER_SHAPES and (obj_id.startswith('c') or 'Collider' in obj_id or 'collider' in obj_id):
+        return 'collider'
+    if 'door' in obj_id or 'stairs' in obj_id or 'entry' in obj_id:
+        return 'warp'
+    if obj_id in ('weather_bird', 'bird', 'flower', 'flower_1', 'flower_2', 'flower2', 'flower3', 'flowerforest', 'flowerforest2'):
+        return 'animated_prop'
+    if obj_id.startswith('npc') or obj_id in ('maria', 'tarin', 'owl', 'bowwow', 'shopkeeper', 'trendy'):
+        return 'npc'
+    if obj_id.startswith('e_') or obj_id.startswith('e1') or obj_id.startswith('e2') or 'moblin' in obj_id or 'octorok' in obj_id or 'urchin' in obj_id:
+        return 'enemy'
+    if obj_id in FENCE_BITMASKS or obj_id in ('tree0', 'tree1', 'tree2', 'tree3', 'tree4', 'tree5', 'treeWoods', 'treeWoods2', 'stree', 'phonehouse', 'seashell_house', 'stone_1', 'pot_1', 'signpost', 'bush_0', 'grass', 'gras', 'gras1', 'gras2', 'gras3'):
+        return 'static_decor'
+    return 'other'
+
+
+def extract_room(map_name, screen_col, screen_row, out_id, out_dir, offset_px_x=None, offset_px_y=None):
+    os.makedirs(out_dir, exist_ok=True)
+    map_path = os.path.join(MAPS_DIR, map_name)
+    parsed = parse_map_file(map_path)
+
+    is_overworld = map_name.lower() == 'overworld.map'
+    if offset_px_x is not None and offset_px_y is not None:
+        world_px_x = offset_px_x
+        world_px_y = offset_px_y
+        tile_col_start = world_px_x // 16
+        tile_row_start = world_px_y // 16
+    else:
+        tile_col_start = screen_col * 10 + parsed['offsetX']
+        tile_row_start = screen_row * 8 + parsed['offsetY']
+        world_px_x = tile_col_start * 16
+        world_px_y = tile_row_start * 16
+
+    tileset_path = os.path.join(TILESETS_DIR, parsed['tileset'])
+    tileset_img = Image.open(tileset_path).convert('RGBA')
+    ts_cols = tileset_img.width // 16
+
+    room_native = Image.new('RGBA', (160, 128), (0, 0, 0, 255))
+    room_tiles = []
+
+    for z in range(parsed['depth']):
+        layer_slice = []
+        for ry in range(8):
+            row_indices = []
+            ty = tile_row_start + ry
+            for rx in range(10):
+                tx = tile_col_start + rx
+                t_idx = -1
+                if 0 <= ty < parsed['height'] and 0 <= tx < parsed['width']:
+                    t_idx = parsed['layers'][z][ty][tx]
+                row_indices.append(t_idx)
+                if t_idx >= 0:
+                    sx = (t_idx % ts_cols) * 16
+                    sy = (t_idx // ts_cols) * 16
+                    tile_crop = tileset_img.crop((sx, sy, sx + 16, sy + 16))
+                    room_native.alpha_composite(tile_crop, (rx * 16, ry * 16))
+            layer_slice.append(row_indices)
+        room_tiles.append(layer_slice)
+
+    # Filter objects inside or overlapping this 160x128 screen
+    atlas = load_objects_atlas()
+    objects_img = Image.open(OBJECTS_PNG).convert('RGBA') if os.path.exists(OBJECTS_PNG) else None
+
+    local_objects = []
+    extracted_colliders = []
+    for obj in parsed['objects']:
+        lx = obj['mapX'] - world_px_x
+        ly = obj['mapY'] - world_px_y
+        if -32 <= lx < 176 and -32 <= ly < 144:
+            category = classify_object(obj['id'])
+            entry = {
+                'id': obj['id'],
+                'category': category,
+                'localX': lx,
+                'localY': ly,
+                'params': obj['params'],
+            }
+            local_objects.append(entry)
+
+            for r in compute_object_colliders(obj['id'], lx, ly, obj['params']):
+                # Clip collider to [0..160, 0..128] screen bounds
+                cx0 = max(0, r['x'])
+                cy0 = max(0, r['y'])
+                cx1 = min(160, r['x'] + r['w'])
+                cy1 = min(128, r['y'] + r['h'])
+                if cx1 > cx0 and cy1 > cy0:
+                    extracted_colliders.append({
+                        'x': cx0,
+                        'y': cy0,
+                        'w': cx1 - cx0,
+                        'h': cy1 - cy0,
+                        'source': r['source'],
+                    })
+
+            # Composite static decor onto the pixel-art background reference
+            if objects_img and category == 'static_decor':
+                if obj['id'] in FENCE_BITMASKS:
+                    placement = int(obj['params'][0]) if (len(obj['params']) >= 1 and obj['params'][0].isdigit()) else FENCE_BITMASKS[obj['id']]
+                    f_entry = atlas.get('fence')
+                    if f_entry:
+                        for bit in range(4):
+                            if (placement & (1 << bit)) != 0:
+                                fx = f_entry['x'] + bit * 8
+                                fy = f_entry['y']
+                                f_crop = objects_img.crop((fx, fy, fx + 8, fy + 16))
+                                dest_x = lx + (bit % 2) * 8
+                                dest_y = ly + (bit // 2) * 8
+                                if -16 <= dest_x < 160 and -16 <= dest_y < 128:
+                                    room_native.alpha_composite(f_crop, (max(0, dest_x), max(0, dest_y)))
+                elif obj['id'] in atlas:
+                    a = atlas[obj['id']]
+                    crop = objects_img.crop((a['x'], a['y'], a['x'] + a['w'], a['y'] + a['h']))
+                    dx = lx
+                    dy = ly
+                    if 0 <= dx < 160 and 0 <= dy < 128:
+                        room_native.alpha_composite(crop, (dx, dy))
+
+    # 1. Save 1280x1024 Nearest Neighbor Pixel-Art Reference
+    bg_pixel = room_native.resize((1280, 1024), Image.Resampling.NEAREST)
+    bg_pixel_path = os.path.join(out_dir, f'{out_id}_bg_pixel.png')
+    bg_pixel.save(bg_pixel_path)
+
+    # 2. Save 1280x1024 Coordinate Grid Ruler Overlay + Collider Boxes
+    ruler = bg_pixel.copy()
+    overlay = Image.new('RGBA', (1280, 1024), (0, 0, 0, 0))
+    odraw = ImageDraw.Draw(overlay)
+    for c in extracted_colliders:
+        rx0, ry0 = c['x'] * 8, c['y'] * 8
+        rx1, ry1 = (c['x'] + c['w']) * 8, (c['y'] + c['h']) * 8
+        odraw.rectangle([rx0, ry0, rx1, ry1], fill=(239, 68, 68, 95), outline=(239, 68, 68, 230), width=2)
+    ruler = Image.alpha_composite(ruler, overlay)
+
+    draw = ImageDraw.Draw(ruler)
+    for x in range(0, 161, 16):
+        sx = x * 8
+        draw.line([(sx, 0), (sx, 1024)], fill=(0, 255, 255, 160), width=2)
+        if x < 160:
+            draw.text((sx + 4, 4), f'x={x}', fill=(255, 255, 0, 255))
+    for y in range(0, 129, 16):
+        sy = y * 8
+        draw.line([(0, sy), (1280, sy)], fill=(0, 255, 255, 160), width=2)
+        if y < 128:
+            draw.text((4, sy + 4), f'y={y}', fill=(255, 255, 0, 255))
+
+    ruler_path = os.path.join(out_dir, f'{out_id}_grid_ruler.png')
+    ruler.save(ruler_path)
+
+    # 3. Save deterministic JSON manifest
+    music_track = get_overworld_music(tile_col_start + 5, tile_row_start + 4) if is_overworld else parsed['version']
+    manifest = {
+        'roomId': out_id,
+        'sourceMap': map_name,
+        'screenCol': screen_col,
+        'screenRow': screen_row,
+        'tileOrigin': {'col': tile_col_start, 'row': tile_row_start},
+        'worldPixelOrigin': {'x': world_px_x, 'y': world_px_y},
+        'logicalSize': {'w': 160, 'h': 128},
+        'displaySize': {'w': 1280, 'h': 1024},
+        'musicTrackId': music_track,
+        'neighbors': {
+            'north': f'ow_r{screen_row - 1:02d}_c{screen_col:02d}' if is_overworld and screen_row > 0 else None,
+            'south': f'ow_r{screen_row + 1:02d}_c{screen_col:02d}' if is_overworld and screen_row < 15 else None,
+            'west': f'ow_r{screen_row:02d}_c{screen_col - 1:02d}' if is_overworld and screen_col > 0 else None,
+            'east': f'ow_r{screen_row:02d}_c{screen_col + 1:02d}' if is_overworld and screen_col < 15 else None,
+        },
+        'colliders': extracted_colliders,
+        'objects': [o for o in local_objects if o['category'] != 'collider'],
+        'tiles': room_tiles,
+    }
+    manifest_path = os.path.join(out_dir, f'{out_id}_manifest.json')
+    with open(manifest_path, 'w', encoding='utf-8') as f:
+        json.dump(manifest, f, indent=2)
+
+    # 4. Save ready-to-import TypeScript RoomDef stub
+    colliders_ts = ',\n    '.join(
+        f"{{ x: {c['x']}, y: {c['y']}, w: {c['w']}, h: {c['h']} }} // {c['source']}"
+        for c in extracted_colliders
+    )
+    ts_lines = [
+        f"// Auto-generated by scripts/extract_room.py from {map_name} ({screen_col}, {screen_row})",
+        "import { RoomDef } from '../../src/data/rooms';",
+        "",
+        f"export const {out_id.upper()}_ROOM: RoomDef = {{",
+        f"  id: '{out_id}',",
+        f"  name: '{out_id}',",
+        "  width: 160,",
+        "  height: 128,",
+        f"  bgPixel: '/assets/rooms/{out_id}_bg_pixel.png',",
+        f"  bgGhibli: '/assets/rooms/{out_id}_bg_pixel.png', // Replace with /assets/rooms/{out_id}_bg.png after Ghibli pass",
+        "  spawnPoint: { x: 80, y: 64, direction: 3 },",
+        "  warpTriggers: [],",
+        "  colliders: [",
+        f"    {colliders_ts}" if colliders_ts else "",
+        "  ],",
+        "  props: [],",
+        "};",
+        "",
+    ]
+    ts_path = os.path.join(out_dir, f'{out_id}_room.ts')
+    with open(ts_path, 'w', encoding='utf-8') as f:
+        f.write('\n'.join(ts_lines))
+
+    print(f'[OK] Extracted {out_id}:')
+    print(f'  -> Pixel BG   : {bg_pixel_path}')
+    print(f'  -> Grid Ruler : {ruler_path}')
+    print(f'  -> Manifest   : {manifest_path} ({len(extracted_colliders)} colliders, {len(manifest["objects"])} entities/props)')
+    print(f'  -> TS RoomDef : {ts_path}')
+
+
+def main():
+    parser = argparse.ArgumentParser(description='Deterministic Room Extractor')
+    parser.add_argument('--map', '--map-file', dest='map', default='overworld.map', help='Map filename in _ref_repo/Data/Maps/')
+    parser.add_argument('--overworld-col', type=int, default=None, help='Overworld screen column (0..15)')
+    parser.add_argument('--overworld-row', type=int, default=None, help='Overworld screen row (0..15)')
+    parser.add_argument('--room-col', type=int, default=0, help='Indoor/Dungeon room column (10-tile grid)')
+    parser.add_argument('--room-row', type=int, default=0, help='Indoor/Dungeon room row (8-tile grid)')
+    parser.add_argument('--offset-x', type=int, default=None, help='Explicit world pixel X offset override')
+    parser.add_argument('--offset-y', type=int, default=None, help='Explicit world pixel Y offset override')
+    parser.add_argument('--out-id', required=True, help='Output room identifier (e.g. ow_r10_c02 or indoor_marin)')
+    parser.add_argument('--out-dir', default='public/assets/rooms', help='Output directory')
+    args = parser.parse_args()
+
+    if args.overworld_col is not None and args.overworld_row is not None:
+        extract_room('overworld.map', args.overworld_col, args.overworld_row, args.out_id, args.out_dir, args.offset_x, args.offset_y)
+    else:
+        extract_room(args.map, args.room_col, args.room_row, args.out_id, args.out_dir, args.offset_x, args.offset_y)
+
+
+if __name__ == '__main__':
+    main()
