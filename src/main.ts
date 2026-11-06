@@ -1,5 +1,5 @@
 import { Input } from './core/Input';
-import { Camera, ScrollDirection } from './core/Camera';
+import { Camera } from './core/Camera';
 import { Collision } from './core/Collision';
 import { DialogueSystem } from './core/Dialogue';
 import { SoundManager } from './core/Audio';
@@ -7,23 +7,12 @@ import { GameState } from './core/GameState';
 import { ImageCache } from './core/Images';
 import { RoomRenderer } from './core/RoomRenderer';
 import { renderCollidersDebug, updateStatsUI } from './core/DebugOverlay';
-import { ROOMS, RoomDef, Rect, RoomNeighbors } from './data/rooms';
+import { HUD } from './core/HUD';
+import { InventoryMenu } from './core/Inventory';
+import { ScreenScroll } from './core/ScreenScroll';
+import { ROOMS, RoomDef, Rect } from './data/rooms';
 import { Player } from './entities/Player';
 import { PropInstance, ParticleSystem } from './entities/Prop';
-
-const NEIGHBOR_KEYS: Record<ScrollDirection, keyof RoomNeighbors> = { 0: 'west', 1: 'north', 2: 'east', 3: 'south' };
-const SCROLL_DURATION_MS = 350;
-const SCROLL_PUSH_PX = 8; // Link walks this far into the new screen during the scroll, like on Game Boy
-
-interface PendingScroll {
-  direction: ScrollDirection;
-  nextKey: string;
-  nextProps: PropInstance[];
-  fromX: number;
-  fromY: number;
-  toX: number;
-  toY: number;
-}
 
 export class GameEngine {
   private ctx: CanvasRenderingContext2D;
@@ -40,7 +29,9 @@ export class GameEngine {
   private currentRoomKey = 'indoor';
   private currentRoom: RoomDef;
   private props: PropInstance[] = [];
-  private scroll: PendingScroll | null = null;
+  private scroller: ScreenScroll;
+  private hud: HUD;
+  private inventory: InventoryMenu;
 
   // Render mode: true = Pre-rendered Ghibli HD, false = Original Pixel-Art Whitebox
   public useGhibliMode = true;
@@ -61,6 +52,13 @@ export class GameEngine {
 
     this.game.load((roomId) => roomId in ROOMS);
     this.dialogue = new DialogueSystem(this.game, this.sound);
+    this.hud = new HUD(this.game, this.images);
+    this.inventory = new InventoryMenu(this.game, this.images, this.sound);
+    this.scroller = new ScreenScroll(this.camera, (key, props, x, y) => {
+      this.initRoom(key, props);
+      this.player.x = x;
+      this.player.y = y;
+    });
 
     this.currentRoom = ROOMS[this.currentRoomKey];
     const spawn = this.currentRoom.spawnPoint;
@@ -89,7 +87,11 @@ export class GameEngine {
   }
 
   public async init(): Promise<void> {
-    await Promise.all([this.images.load('/assets/spritesheet.png'), this.roomRenderer.prefetch(this.currentRoom)]);
+    await Promise.all([
+      this.images.load('/assets/spritesheet.png'),
+      this.roomRenderer.prefetch(this.currentRoom),
+      this.hud.preload()
+    ]);
     this.lastTime = performance.now();
     requestAnimationFrame((t) => this.gameLoop(t));
   }
@@ -115,79 +117,6 @@ export class GameEngine {
       this.player.teleport(spawnX, spawnY, spawnDir);
       this.game.setRespawn({ room: targetKey, x: spawnX, y: spawnY, direction: spawnDir });
     }, 320);
-  }
-
-  /**
-   * Screen edges: walking past an edge scrolls to the registered neighbor; edges without one act as walls.
-   * Link's 8x8 feet box must stay within [0, 160] x [0, 128].
-   */
-  private checkScreenEdges(): void {
-    const { width, height } = this.currentRoom;
-    const p = this.player;
-    let direction: ScrollDirection | null = null;
-    if (p.x < 4) direction = 0;
-    else if (p.x > width - 4) direction = 2;
-    else if (p.y < 8) direction = 1;
-    else if (p.y > height) direction = 3;
-    if (direction === null) return;
-
-    const nextKey = this.currentRoom.neighbors?.[NEIGHBOR_KEYS[direction]];
-    if (!nextKey || !ROOMS[nextKey]) {
-      p.x = Math.max(4, Math.min(width - 4, p.x));
-      p.y = Math.max(8, Math.min(height, p.y));
-      return;
-    }
-    this.startScroll(direction, nextKey);
-  }
-
-  private startScroll(direction: ScrollDirection, nextKey: string): void {
-    const next = ROOMS[nextKey];
-    const p = this.player;
-    // World-continuous position in the next room, pushed a few pixels inward
-    let toX = Math.max(4, Math.min(next.width - 4, p.x));
-    let toY = Math.max(8, Math.min(next.height, p.y));
-    if (direction === 0) toX = p.x + next.width - SCROLL_PUSH_PX;
-    if (direction === 2) toX = p.x - this.currentRoom.width + SCROLL_PUSH_PX;
-    if (direction === 1) toY = p.y + next.height - SCROLL_PUSH_PX;
-    if (direction === 3) toY = p.y - this.currentRoom.height + SCROLL_PUSH_PX;
-
-    this.scroll = {
-      direction,
-      nextKey,
-      nextProps: next.props.map((pr) => new PropInstance(pr)),
-      fromX: p.x,
-      fromY: p.y,
-      toX,
-      toY
-    };
-    void this.roomRenderer.prefetch(next);
-    this.camera.startScroll(direction, () => this.finishScroll(), SCROLL_DURATION_MS);
-  }
-
-  private finishScroll(): void {
-    const s = this.scroll;
-    if (!s) return;
-    this.scroll = null;
-    this.initRoom(s.nextKey, s.nextProps);
-    this.player.x = s.toX;
-    this.player.y = s.toY;
-  }
-
-  /**
-   * During a scroll Link is drawn over both screens in current-room coordinates: he moves from his
-   * exit point to where his entry point will appear once the next room has slid fully into view.
-   */
-  private updateScroll(dtMs: number): void {
-    const s = this.scroll;
-    if (!s) return;
-    const t = this.camera.getScrollProgress();
-    const room = this.currentRoom;
-    const endX = s.direction === 0 ? s.toX - room.width : s.direction === 2 ? s.toX + room.width : s.toX;
-    const endY = s.direction === 1 ? s.toY - room.height : s.direction === 3 ? s.toY + room.height : s.toY;
-    const off = this.camera.getScrollOffsets(room.width, room.height);
-    this.player.x = s.fromX + (endX - s.fromX) * t + off.current.x;
-    this.player.y = s.fromY + (endY - s.fromY) * t + off.current.y;
-    this.player.animateWalk(dtMs, s.direction);
   }
 
   private gameLoop(currentTime: number): void {
@@ -224,11 +153,24 @@ export class GameEngine {
     this.dialogue.update(dtMs);
 
     if (this.camera.isScrolling()) {
-      this.updateScroll(dtMs);
+      this.scroller.update(dtMs, this.currentRoom, this.player);
       return;
     }
     // If screen is fading during warp, pause player input
     if (this.camera.isTransitioning()) return;
+
+    this.hud.update(dtMs);
+
+    // Inventory sub-menu pauses the world (not available while sleeping or mid-dialogue)
+    const canOpenMenu = !this.dialogue.isOpen() && (this.player.state === 'IDLE' || this.player.state === 'WALKING');
+    if (this.input.wasMenuJustPressed() && (this.inventory.isOpen() || canOpenMenu)) {
+      this.inventory.toggle();
+      return;
+    }
+    if (this.inventory.isOpen()) {
+      this.inventory.update(this.input);
+      return;
+    }
 
     // Update animated Props & Particles even during dialogue
     for (const prop of this.props) prop.update(dtMs);
@@ -260,8 +202,10 @@ export class GameEngine {
     this.player.update(dtMs, this.input, allColliders, this.sound);
 
     if (this.player.state === 'IDLE' || this.player.state === 'WALKING') {
-      this.checkScreenEdges();
-      if (this.camera.isScrolling()) return;
+      if (this.scroller.checkEdges(this.currentRoom, this.player)) {
+        void this.roomRenderer.prefetch(ROOMS[this.scroller.pending!.nextKey]);
+        return;
+      }
       this.checkWarps();
     }
   }
@@ -298,11 +242,11 @@ export class GameEngine {
 
     const playerRenderable = { y: this.player.y, render: () => this.player.render(ctx, spritesheet) };
 
-    if (this.scroll) {
-      const next = ROOMS[this.scroll.nextKey];
+    if (this.scroller.pending) {
+      const next = ROOMS[this.scroller.pending.nextKey];
       const off = this.camera.getScrollOffsets(room.width, room.height);
       this.roomRenderer.renderRoom(ctx, room, this.props, spritesheet, this.useGhibliMode, off.current.x, off.current.y);
-      this.roomRenderer.renderRoom(ctx, next, this.scroll.nextProps, spritesheet, this.useGhibliMode, off.next.x, off.next.y);
+      this.roomRenderer.renderRoom(ctx, next, this.scroller.pending.nextProps, spritesheet, this.useGhibliMode, off.next.x, off.next.y);
       ctx.imageSmoothingEnabled = this.useGhibliMode;
       playerRenderable.render(); // Link travels with the scroll, drawn over both screens
     } else {
@@ -310,14 +254,17 @@ export class GameEngine {
       this.particles.render(ctx);
       if (this.showColliders) renderCollidersDebug(ctx, room, this.props, this.player.x, this.player.y);
     }
+    // HUD over the room; hidden during the wake-up cutscene like the original intro
+    if (this.player.state !== 'SLEEPING' && this.player.state !== 'WAKING') this.hud.render(ctx, room.width, room.height);
     ctx.restore();
 
     // NPC proximity indicator & dialogue box (1280x1024 screen space)
-    if (!this.scroll) {
+    if (!this.scroller.pending) {
       const nearbyNPC = this.dialogue.findNearbyNPC(this.player, this.props);
       this.dialogue.renderProximityIndicator(ctx, nearbyNPC, scale);
     }
     this.dialogue.renderDialogueBox(ctx, canvas.width, canvas.height);
+    this.inventory.render(ctx, canvas.width, canvas.height);
     this.camera.renderFade(ctx, canvas.width, canvas.height);
   }
 

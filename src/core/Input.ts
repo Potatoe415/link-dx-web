@@ -17,7 +17,7 @@ export class Input {
 
       // Prevent scrolling on arrow keys & space
       if (
-        ['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'Space'].includes(code) ||
+        ['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'Space', 'Tab'].includes(code) ||
         ['arrowup', 'arrowdown', 'arrowleft', 'arrowright', ' '].includes(key)
       ) {
         e.preventDefault();
@@ -65,6 +65,37 @@ export class Input {
       this.wasJustPressed('KeyF') ||
       this.wasJustPressed('f')
     );
+  }
+
+  /** Inventory sub-menu toggle (Tab / I). */
+  public wasMenuJustPressed(): boolean {
+    return this.wasJustPressed('Tab') || this.wasJustPressed('KeyI') || this.wasJustPressed('i');
+  }
+
+  /** Item button A (Space / J): in the inventory, assigns the highlighted item to A. */
+  public wasButtonAJustPressed(): boolean {
+    return this.wasJustPressed('Space') || this.wasJustPressed(' ') || this.wasJustPressed('KeyJ') || this.wasJustPressed('j');
+  }
+
+  /** Item button B (Shift / X / K): in the inventory, assigns the highlighted item to B. */
+  public wasButtonBJustPressed(): boolean {
+    return (
+      this.wasJustPressed('ShiftLeft') ||
+      this.wasJustPressed('ShiftRight') ||
+      this.wasJustPressed('KeyX') ||
+      this.wasJustPressed('x') ||
+      this.wasJustPressed('KeyK') ||
+      this.wasJustPressed('k')
+    );
+  }
+
+  /** One-shot 4-way direction (menu cursor): 0 Left, 1 Up, 2 Right, 3 Down, -1 none. */
+  public getDirectionJustPressed(): number {
+    if (this.wasJustPressed('ArrowLeft') || this.wasJustPressed('KeyA') || this.wasJustPressed('KeyQ')) return 0;
+    if (this.wasJustPressed('ArrowUp') || this.wasJustPressed('KeyW') || this.wasJustPressed('KeyZ')) return 1;
+    if (this.wasJustPressed('ArrowRight') || this.wasJustPressed('KeyD')) return 2;
+    if (this.wasJustPressed('ArrowDown') || this.wasJustPressed('KeyS')) return 3;
+    return -1;
   }
 
   public isShieldHeld(): boolean {

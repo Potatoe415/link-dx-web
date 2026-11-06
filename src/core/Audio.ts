@@ -7,7 +7,10 @@ export type SfxName =
   | 'door'
   | 'shield'
   | 'tap'
-  | 'cursor';
+  | 'cursor'
+  | 'menu_open'
+  | 'menu_close'
+  | 'menu_select';
 
 export type MusicTrack = 'indoor' | 'outdoor' | 'marin_sing';
 
@@ -38,7 +41,10 @@ export class SoundManager {
       door: '/assets/audio/sfx_door.wav',
       shield: '/assets/audio/sfx_shield.wav',
       tap: '/assets/audio/sfx_tap.wav',
-      cursor: '/assets/audio/sfx_cursor.wav'
+      cursor: '/assets/audio/sfx_cursor.wav',
+      menu_open: '/assets/audio/sfx_menu_open.wav', // D360-17-11
+      menu_close: '/assets/audio/sfx_menu_close.wav', // D360-18-12
+      menu_select: '/assets/audio/sfx_menu_select.wav' // D360-19-13
     };
 
     for (const [key, url] of Object.entries(sfxFiles) as [SfxName, string][]) {

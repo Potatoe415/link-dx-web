@@ -59,8 +59,8 @@
 - [x] **[T-1.3.1-02]** Implémenter la sauvegarde et le chargement automatiques dans `localStorage` (`zelda_la_save_v1`) + bouton de réinitialisation de sauvegarde dans le dashboard de debug.
 
 ### 1.3.2 — Bandeau HUD Game Boy (`160x16` logique / `1280x128` HD) & Menu Inventaire
-- [ ] **[T-1.3.2-01]** Créer `src/core/HUD.ts` affichant en haut ou en bas du Canvas le bandeau classique : Slot Bouton `B`, Slot Bouton `A`, Compteur de Rubis (3 chiffres `000..999`) et Jauge de Coeurs (de `3` à `14` coeurs par quarts).
-- [ ] **[T-1.3.2-02]** Créer l'écran de sous-menu d'inventaire (touche `Tab` ou `I`, son `D360-10-0A.wav`) permettant d'assigner n'importe quel objet possédé (`Bouclier`, `Épée`, `Poudre`, `Plume`, `Bracelet`, `Bombes`, `Arc`, `Grappin`, `Ocarina`, `Bâton de Feu`, `Boomerang`) aux boutons `A` (`Space`/`J`) et `B` (`Shift`/`X`/`K`), et de visualiser les 8 Instruments des Sirènes.
+- [x] **[T-1.3.2-01]** Créer `src/core/HUD.ts` affichant en haut ou en bas du Canvas le bandeau classique : Slot Bouton `B`, Slot Bouton `A`, Compteur de Rubis (3 chiffres `000..999`) et Jauge de Coeurs (de `3` à `14` coeurs par quarts).
+- [x] **[T-1.3.2-02]** Créer l'écran de sous-menu d'inventaire (touche `Tab` ou `I`, son `D360-10-0A.wav`) permettant d'assigner n'importe quel objet possédé (`Bouclier`, `Épée`, `Poudre`, `Plume`, `Bracelet`, `Bombes`, `Arc`, `Grappin`, `Ocarina`, `Bâton de Feu`, `Boomerang`) aux boutons `A` (`Space`/`J`) et `B` (`Shift`/`X`/`K`), et de visualiser les 8 Instruments des Sirènes.
 
 ---
 
