@@ -24,7 +24,8 @@ export class RoomRenderer {
     useGhibli: boolean,
     offsetX: number,
     offsetY: number,
-    entities: Renderable[] = []
+    entities: Renderable[] = [],
+    renderGroundLayer?: () => void
   ): void {
     ctx.save();
     ctx.translate(offsetX, offsetY);
@@ -43,7 +44,8 @@ export class RoomRenderer {
       ctx.fillRect(0, 0, room.width, room.height);
     }
 
-    // 2a. Ground props (zIndex < 10: flowers, ground decor)
+    // 2a. Runtime ground layer (tall grass), then ground props (zIndex < 10: flowers, ground decor)
+    renderGroundLayer?.();
     for (const prop of props) {
       if ((prop.data.zIndex ?? 10) < 10) prop.render(ctx, spritesheet);
     }

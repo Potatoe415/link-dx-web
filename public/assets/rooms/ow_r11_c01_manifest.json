@@ -224,52 +224,47 @@
       "source": "tree0"
     }
   ],
-  "groundZones": [
-    {
-      "kind": "grass",
-      "x": 96,
-      "y": 48,
-      "w": 16,
-      "h": 16
-    },
-    {
-      "kind": "grass",
-      "x": 96,
-      "y": 64,
-      "w": 16,
-      "h": 16
-    },
-    {
-      "kind": "grass",
-      "x": 96,
-      "y": 80,
-      "w": 16,
-      "h": 16
-    },
-    {
-      "kind": "grass",
-      "x": 32,
-      "y": 48,
-      "w": 16,
-      "h": 16
-    },
-    {
-      "kind": "grass",
-      "x": 32,
-      "y": 64,
-      "w": 16,
-      "h": 16
-    },
-    {
-      "kind": "grass",
-      "x": 32,
-      "y": 80,
-      "w": 16,
-      "h": 16
-    }
-  ],
+  "groundZones": [],
   "interactables": [],
   "enemies": [],
+  "cuttables": [
+    {
+      "kind": "grass",
+      "x": 96,
+      "y": 48,
+      "sprite": "grass_0_1"
+    },
+    {
+      "kind": "grass",
+      "x": 96,
+      "y": 64,
+      "sprite": "grass_0_1"
+    },
+    {
+      "kind": "grass",
+      "x": 96,
+      "y": 80,
+      "sprite": "grass_0_1"
+    },
+    {
+      "kind": "grass",
+      "x": 32,
+      "y": 48,
+      "sprite": "grass_0_2"
+    },
+    {
+      "kind": "grass",
+      "x": 32,
+      "y": 64,
+      "sprite": "grass_0_2"
+    },
+    {
+      "kind": "grass",
+      "x": 32,
+      "y": 80,
+      "sprite": "grass_0_2"
+    }
+  ],
   "unportedEnemies": [],
   "objects": [
     {

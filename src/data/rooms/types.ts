@@ -70,6 +70,14 @@ export interface GroundItemDef {
 
 export type InteractableDef = SignDef | ChestDef | GroundItemDef;
 
+/** Cuttable bush (solid) or tall grass (walkable) from ObjBush; regrows when the room is re-entered. */
+export interface CuttableDef {
+  kind: 'bush' | 'grass';
+  x: number; // map object origin (16x16 cell top-left)
+  y: number;
+  sprite: string; // objects.atlas sprite id
+}
+
 /** Music track key understood by SoundManager.playMusic. */
 import type { MusicTrack } from '../../core/Audio';
 export type RoomMusic = MusicTrack;
@@ -102,6 +110,7 @@ export interface RoomDef {
   colliders: Rect[];
   groundZones?: GroundZone[];
   interactables?: InteractableDef[];
+  cuttables?: CuttableDef[];
   // Enemies spawned each time the room is entered (feet anchor, logical px); kinds in src/data/enemies.ts
   enemies?: { kind: string; x: number; y: number }[];
   props: RoomProp[];

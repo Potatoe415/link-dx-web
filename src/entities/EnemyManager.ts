@@ -91,6 +91,11 @@ export class EnemyManager {
     return hits;
   }
 
+  /** Spawns a rupee / heart pickup (bushes, chests later). */
+  public addPickup(kind: 'rupee' | 'heart', x: number, y: number): void {
+    this.pickups.push({ kind, x, y, ageMs: 0 });
+  }
+
   private dropLoot(e: Enemy): void {
     const loot = rollLoot();
     if (loot) this.pickups.push({ kind: loot, x: e.x, y: e.y - 4, ageMs: 0 });

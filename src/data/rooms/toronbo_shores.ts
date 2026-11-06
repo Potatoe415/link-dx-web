@@ -25,12 +25,14 @@ export const TORONBO_SHORES_ROOMS: Record<string, RoomDef> = {
       { x: 64, y: 32, w: 16, h: 16 },
       { x: 16, y: 48, w: 16, h: 80 },
       { x: 144, y: 52, w: 16, h: 28 },
-      { x: 128, y: 65, w: 16, h: 14 },
-      { x: 128, y: 81, w: 16, h: 14 },
       { x: 144, y: 84, w: 16, h: 28 },
       { x: 128, y: 100, w: 32, h: 28 },
       { x: 32, y: 116, w: 32, h: 12 },
       { x: 112, y: 116, w: 48, h: 12 },
+    ],
+    cuttables: [
+      { kind: 'bush', x: 128, y: 64, sprite: 'bush_0' },
+      { kind: 'bush', x: 128, y: 80, sprite: 'bush_0' },
     ],
     props: []
   },
@@ -125,13 +127,16 @@ export const TORONBO_SHORES_ROOMS: Record<string, RoomDef> = {
       { x: 64, y: 52, w: 64, h: 28 },
       { x: 144, y: 52, w: 16, h: 28 },
       { x: 144, y: 84, w: 16, h: 28 },
-      { x: 80, y: 97, w: 16, h: 14 },
-      { x: 112, y: 97, w: 32, h: 14 },
       { x: 48, y: 112, w: 48, h: 16 },
       { x: 112, y: 112, w: 48, h: 16 },
     ],
     groundZones: [
       { kind: 'stairs', x: 96, y: 112, w: 16, h: 12 },
+    ],
+    cuttables: [
+      { kind: 'bush', x: 80, y: 96, sprite: 'bush_0' },
+      { kind: 'bush', x: 112, y: 96, sprite: 'bush_0' },
+      { kind: 'bush', x: 128, y: 96, sprite: 'bush_0' },
     ],
     enemies: [
       { kind: 'octorok', x: 40, y: 76 },
@@ -155,9 +160,7 @@ export const TORONBO_SHORES_ROOMS: Record<string, RoomDef> = {
     colliders: [
       { x: 0, y: 0, w: 160, h: 16 },
       { x: 0, y: 32, w: 64, h: 16 },
-      { x: 96, y: 33, w: 32, h: 14 },
       { x: 144, y: 52, w: 16, h: 28 },
-      { x: 32, y: 65, w: 48, h: 14 },
       { x: 96, y: 80, w: 32, h: 16 },
       { x: 144, y: 84, w: 16, h: 28 },
       { x: 0, y: 96, w: 16, h: 16 },
@@ -166,6 +169,13 @@ export const TORONBO_SHORES_ROOMS: Record<string, RoomDef> = {
     ],
     groundZones: [
       { kind: 'hole', x: 81, y: 65, w: 14, h: 14 },
+    ],
+    cuttables: [
+      { kind: 'bush', x: 32, y: 64, sprite: 'bush_0' },
+      { kind: 'bush', x: 48, y: 64, sprite: 'bush_0' },
+      { kind: 'bush', x: 64, y: 64, sprite: 'bush_0' },
+      { kind: 'bush', x: 96, y: 32, sprite: 'bush_0' },
+      { kind: 'bush', x: 112, y: 32, sprite: 'bush_0' },
     ],
     enemies: [
       { kind: 'octorok', x: 56, y: 60 },
@@ -232,12 +242,17 @@ export const TORONBO_SHORES_ROOMS: Record<string, RoomDef> = {
       { x: 0, y: 48, w: 112, h: 16 },
       { x: 144, y: 52, w: 16, h: 28 },
       { x: 0, y: 64, w: 48, h: 16 },
-      { x: 96, y: 81, w: 48, h: 14 },
       { x: 144, y: 84, w: 16, h: 28 },
-      { x: 32, y: 97, w: 32, h: 14 },
       { x: 0, y: 112, w: 80, h: 16 },
       { x: 96, y: 112, w: 64, h: 16 },
       { x: 80, y: 120, w: 16, h: 8 },
+    ],
+    cuttables: [
+      { kind: 'bush', x: 32, y: 96, sprite: 'bush_0' },
+      { kind: 'bush', x: 48, y: 96, sprite: 'bush_0' },
+      { kind: 'bush', x: 96, y: 80, sprite: 'bush_0' },
+      { kind: 'bush', x: 112, y: 80, sprite: 'bush_0' },
+      { kind: 'bush', x: 128, y: 80, sprite: 'bush_0' },
     ],
     enemies: [
       { kind: 'octorok', x: 56, y: 76 },
@@ -289,16 +304,21 @@ export const TORONBO_SHORES_ROOMS: Record<string, RoomDef> = {
     colliders: [
       { x: 0, y: 0, w: 160, h: 16 },
       { x: 80, y: 0, w: 16, h: 8 },
-      { x: 80, y: 17, w: 48, h: 14 },
       { x: 128, y: 20, w: 32, h: 28 },
       { x: 0, y: 52, w: 16, h: 28 },
       { x: 48, y: 64, w: 48, h: 16 },
       { x: 128, y: 64, w: 32, h: 16 },
       { x: 48, y: 80, w: 16, h: 32 },
       { x: 0, y: 84, w: 16, h: 28 },
-      { x: 16, y: 97, w: 32, h: 14 },
       { x: 0, y: 112, w: 64, h: 16 },
       { x: 128, y: 112, w: 32, h: 16 },
+    ],
+    cuttables: [
+      { kind: 'bush', x: 16, y: 96, sprite: 'bush_0' },
+      { kind: 'bush', x: 32, y: 96, sprite: 'bush_0' },
+      { kind: 'bush', x: 80, y: 16, sprite: 'bush_0' },
+      { kind: 'bush', x: 96, y: 16, sprite: 'bush_0' },
+      { kind: 'bush', x: 112, y: 16, sprite: 'bush_0' },
     ],
     interactables: [
       { kind: 'sign', id: "signpost_32_12", x: 32, y: 12, pages: ["Attention aux oursins !\nNe les touchez pas à mains nues !"], sprite: 'signpost_0', requiredDirection: 1 },

@@ -129,6 +129,7 @@
   "groundZones": [],
   "interactables": [],
   "enemies": [],
+  "cuttables": [],
   "unportedEnemies": [],
   "objects": [
     {

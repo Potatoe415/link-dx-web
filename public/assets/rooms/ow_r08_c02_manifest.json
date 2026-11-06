@@ -29,69 +29,6 @@
   "colliders": [
     {
       "x": 16,
-      "y": 33,
-      "w": 16,
-      "h": 14,
-      "source": "bush"
-    },
-    {
-      "x": 16,
-      "y": 49,
-      "w": 16,
-      "h": 14,
-      "source": "bush"
-    },
-    {
-      "x": 16,
-      "y": 65,
-      "w": 16,
-      "h": 14,
-      "source": "bush"
-    },
-    {
-      "x": 32,
-      "y": 65,
-      "w": 16,
-      "h": 14,
-      "source": "bush"
-    },
-    {
-      "x": 48,
-      "y": 81,
-      "w": 16,
-      "h": 14,
-      "source": "bush"
-    },
-    {
-      "x": 48,
-      "y": 97,
-      "w": 16,
-      "h": 14,
-      "source": "bush"
-    },
-    {
-      "x": 64,
-      "y": 97,
-      "w": 16,
-      "h": 14,
-      "source": "bush"
-    },
-    {
-      "x": 80,
-      "y": 97,
-      "w": 16,
-      "h": 14,
-      "source": "bush"
-    },
-    {
-      "x": 96,
-      "y": 97,
-      "w": 16,
-      "h": 14,
-      "source": "bush"
-    },
-    {
-      "x": 16,
       "y": 80,
       "w": 16,
       "h": 16,
@@ -367,6 +304,62 @@
   "groundZones": [],
   "interactables": [],
   "enemies": [],
+  "cuttables": [
+    {
+      "kind": "bush",
+      "x": 16,
+      "y": 32,
+      "sprite": "bush_0"
+    },
+    {
+      "kind": "bush",
+      "x": 16,
+      "y": 48,
+      "sprite": "bush_0"
+    },
+    {
+      "kind": "bush",
+      "x": 16,
+      "y": 64,
+      "sprite": "bush_0"
+    },
+    {
+      "kind": "bush",
+      "x": 32,
+      "y": 64,
+      "sprite": "bush_0"
+    },
+    {
+      "kind": "bush",
+      "x": 48,
+      "y": 80,
+      "sprite": "bush_0"
+    },
+    {
+      "kind": "bush",
+      "x": 48,
+      "y": 96,
+      "sprite": "bush_0"
+    },
+    {
+      "kind": "bush",
+      "x": 64,
+      "y": 96,
+      "sprite": "bush_0"
+    },
+    {
+      "kind": "bush",
+      "x": 80,
+      "y": 96,
+      "sprite": "bush_0"
+    },
+    {
+      "kind": "bush",
+      "x": 96,
+      "y": 96,
+      "sprite": "bush_0"
+    }
+  ],
   "unportedEnemies": [],
   "objects": [
     {

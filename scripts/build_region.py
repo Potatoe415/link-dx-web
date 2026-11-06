@@ -148,6 +148,10 @@ def build_room(room_id, name, cfg, texts):
         lines.append('    groundZones: [')
         lines += [f"      {{ kind: '{k}', x: {x}, y: {y}, w: {w}, h: {h} }}," for k, x, y, w, h in zones]
         lines.append('    ],')
+    if m.get('cuttables'):
+        lines.append('    cuttables: [')
+        lines += [f"      {{ kind: '{c['kind']}', x: {c['x']}, y: {c['y']}, sprite: '{c['sprite']}' }}," for c in m['cuttables']]
+        lines.append('    ],')
     if m.get('enemies'):
         lines.append('    enemies: [')
         lines += [f"      {{ kind: '{e['kind']}', x: {e['x']}, y: {e['y']} }}," for e in m['enemies']]

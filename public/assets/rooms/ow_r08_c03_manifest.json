@@ -228,6 +228,7 @@
   ],
   "interactables": [],
   "enemies": [],
+  "cuttables": [],
   "unportedEnemies": [],
   "objects": [
     {

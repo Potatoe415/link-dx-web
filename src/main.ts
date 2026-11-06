@@ -15,6 +15,7 @@ import { Player } from './entities/Player';
 import { PropInstance, ParticleSystem } from './entities/Prop';
 import { InteractableSystem } from './entities/Interactables';
 import { EnemyManager } from './entities/EnemyManager';
+import { BushSystem } from './entities/Bushes';
 import { GameOverScreen } from './core/GameOver';
 
 export class GameEngine {
@@ -37,6 +38,7 @@ export class GameEngine {
   private inventory: InventoryMenu;
   private interactables: InteractableSystem;
   private enemies: EnemyManager;
+  private bushes: BushSystem;
   private gameOver: GameOverScreen;
 
   // Render mode: true = Pre-rendered Ghibli HD, false = Original Pixel-Art Whitebox
@@ -62,6 +64,7 @@ export class GameEngine {
     this.inventory = new InventoryMenu(this.game, this.images, this.sound);
     this.interactables = new InteractableSystem(this.game, this.images, this.sound, this.dialogue);
     this.enemies = new EnemyManager(this.game, this.images, this.sound);
+    this.bushes = new BushSystem(this.images, this.sound);
     this.gameOver = new GameOverScreen(this.images);
     this.scroller = new ScreenScroll(this.camera, (key, props, x, y) => {
       this.initRoom(key, props);
@@ -112,6 +115,7 @@ export class GameEngine {
     this.props = props ?? this.currentRoom.props.map((p) => new PropInstance(p));
     this.interactables?.setRoom(roomKey, this.currentRoom.interactables);
     this.enemies?.setRoom(this.currentRoom.enemies);
+    this.bushes?.setRoom(this.currentRoom.cuttables);
     if (previous && previous.ambience !== this.currentRoom.ambience) this.particles.clear();
     this.sound.playMusic(this.currentRoom.music);
     for (const key of Object.values(this.currentRoom.neighbors ?? {})) {
@@ -214,16 +218,25 @@ export class GameEngine {
   /** Link, enemies, interactions and room exits for one fixed step. */
   private updateWorld(dtMs: number): void {
     // Solid obstacles: room static colliders + prop collisions + signposts / chests
-    const allColliders: Rect[] = [...this.currentRoom.colliders, ...this.interactables.colliders()];
+    const allColliders: Rect[] = [
+      ...this.currentRoom.colliders,
+      ...this.interactables.colliders(),
+      ...this.bushes.colliders()
+    ];
     for (const prop of this.props) {
       if (prop.data.collision) allColliders.push(prop.data.collision);
     }
 
     if (this.input.wasInteractJustPressed() && this.tryAction()) return;
 
-    this.player.update(dtMs, this.input, allColliders, this.sound, this.currentRoom.groundZones);
+    const ground = [...(this.currentRoom.groundZones ?? []), ...this.bushes.grassZones()];
+    this.player.update(dtMs, this.input, allColliders, this.sound, ground);
     const swordHit = this.player.sword.hit(this.player.x, this.player.y);
-    if (swordHit) this.enemies.hitArea(swordHit.area, swordHit.damage, this.player.x, this.player.y);
+    if (swordHit) {
+      this.enemies.hitArea(swordHit.area, swordHit.damage, this.player.x, this.player.y);
+      for (const d of this.bushes.cut(swordHit.area).drops) this.enemies.addPickup(d.kind, d.x, d.y);
+    }
+    this.bushes.update(dtMs);
     this.enemies.update(dtMs, allColliders, this.player);
     const picked = this.interactables.checkPickups(this.player);
     if (picked?.item === 'sword') {
@@ -335,8 +348,9 @@ export class GameEngine {
       this.roomRenderer.renderRoom(ctx, room, this.props, spritesheet, this.useGhibliMode, 0, 0, [
         ...(dying ? [] : [playerRenderable]),
         ...this.interactables.renderables(ctx),
-        ...this.enemies.renderables(ctx)
-      ]);
+        ...this.enemies.renderables(ctx),
+        ...this.bushes.renderables(ctx)
+      ], () => this.bushes.renderGround(ctx));
       if (dying) {
         // Dim the world, keep Link on top (GameOverSystem.DrawPlayerOnTopPercentage)
         this.gameOver.renderDim(ctx, room.width, room.height);

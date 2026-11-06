@@ -481,6 +481,7 @@
     }
   ],
   "enemies": [],
+  "cuttables": [],
   "unportedEnemies": [
     "e1"
   ],

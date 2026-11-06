@@ -28,97 +28,6 @@
   },
   "colliders": [
     {
-      "x": 48,
-      "y": 33,
-      "w": 16,
-      "h": 14,
-      "source": "bush"
-    },
-    {
-      "x": 48,
-      "y": 49,
-      "w": 16,
-      "h": 14,
-      "source": "bush"
-    },
-    {
-      "x": 48,
-      "y": 65,
-      "w": 16,
-      "h": 14,
-      "source": "bush"
-    },
-    {
-      "x": 48,
-      "y": 81,
-      "w": 16,
-      "h": 14,
-      "source": "bush"
-    },
-    {
-      "x": 64,
-      "y": 17,
-      "w": 16,
-      "h": 14,
-      "source": "bush"
-    },
-    {
-      "x": 64,
-      "y": 97,
-      "w": 16,
-      "h": 14,
-      "source": "bush"
-    },
-    {
-      "x": 80,
-      "y": 17,
-      "w": 16,
-      "h": 14,
-      "source": "bush"
-    },
-    {
-      "x": 80,
-      "y": 97,
-      "w": 16,
-      "h": 14,
-      "source": "bush"
-    },
-    {
-      "x": 96,
-      "y": 17,
-      "w": 16,
-      "h": 14,
-      "source": "bush"
-    },
-    {
-      "x": 112,
-      "y": 33,
-      "w": 16,
-      "h": 14,
-      "source": "bush"
-    },
-    {
-      "x": 112,
-      "y": 49,
-      "w": 16,
-      "h": 14,
-      "source": "bush"
-    },
-    {
-      "x": 112,
-      "y": 65,
-      "w": 16,
-      "h": 14,
-      "source": "bush"
-    },
-    {
-      "x": 112,
-      "y": 81,
-      "w": 16,
-      "h": 14,
-      "source": "bush"
-    },
-    {
       "x": 64,
       "y": 36,
       "w": 16,
@@ -280,73 +189,143 @@
       "source": "tree0"
     }
   ],
-  "groundZones": [
+  "groundZones": [],
+  "interactables": [],
+  "enemies": [],
+  "cuttables": [
+    {
+      "kind": "bush",
+      "x": 48,
+      "y": 32,
+      "sprite": "bush_0"
+    },
+    {
+      "kind": "bush",
+      "x": 48,
+      "y": 48,
+      "sprite": "bush_0"
+    },
+    {
+      "kind": "bush",
+      "x": 48,
+      "y": 64,
+      "sprite": "bush_0"
+    },
+    {
+      "kind": "bush",
+      "x": 48,
+      "y": 80,
+      "sprite": "bush_0"
+    },
+    {
+      "kind": "bush",
+      "x": 64,
+      "y": 16,
+      "sprite": "bush_0"
+    },
+    {
+      "kind": "bush",
+      "x": 64,
+      "y": 96,
+      "sprite": "bush_0"
+    },
+    {
+      "kind": "bush",
+      "x": 80,
+      "y": 16,
+      "sprite": "bush_0"
+    },
+    {
+      "kind": "bush",
+      "x": 80,
+      "y": 96,
+      "sprite": "bush_0"
+    },
+    {
+      "kind": "bush",
+      "x": 96,
+      "y": 16,
+      "sprite": "bush_0"
+    },
+    {
+      "kind": "bush",
+      "x": 112,
+      "y": 32,
+      "sprite": "bush_0"
+    },
+    {
+      "kind": "bush",
+      "x": 112,
+      "y": 48,
+      "sprite": "bush_0"
+    },
+    {
+      "kind": "bush",
+      "x": 112,
+      "y": 64,
+      "sprite": "bush_0"
+    },
+    {
+      "kind": "bush",
+      "x": 112,
+      "y": 80,
+      "sprite": "bush_0"
+    },
     {
       "kind": "grass",
       "x": 0,
       "y": 0,
-      "w": 16,
-      "h": 16
+      "sprite": "grass_0"
     },
     {
       "kind": "grass",
       "x": 16,
       "y": 0,
-      "w": 16,
-      "h": 16
+      "sprite": "grass_0"
     },
     {
       "kind": "grass",
       "x": 32,
       "y": 0,
-      "w": 16,
-      "h": 16
+      "sprite": "grass_0"
     },
     {
       "kind": "grass",
       "x": 48,
       "y": 0,
-      "w": 16,
-      "h": 16
+      "sprite": "grass_0"
     },
     {
       "kind": "grass",
       "x": 64,
       "y": 0,
-      "w": 16,
-      "h": 16
+      "sprite": "grass_0"
     },
     {
       "kind": "grass",
       "x": 80,
       "y": 0,
-      "w": 16,
-      "h": 16
+      "sprite": "grass_0"
     },
     {
       "kind": "grass",
       "x": 96,
       "y": 0,
-      "w": 16,
-      "h": 16
+      "sprite": "grass_0"
     },
     {
       "kind": "grass",
       "x": 112,
       "y": 0,
-      "w": 16,
-      "h": 16
+      "sprite": "grass_0"
     },
     {
       "kind": "grass",
       "x": 128,
       "y": 0,
-      "w": 16,
-      "h": 16
+      "sprite": "grass_0"
     }
   ],
-  "interactables": [],
-  "enemies": [],
   "unportedEnemies": [],
   "objects": [
     {

@@ -217,24 +217,23 @@
       "source": "treeWoods"
     }
   ],
-  "groundZones": [
+  "groundZones": [],
+  "interactables": [],
+  "enemies": [],
+  "cuttables": [
     {
       "kind": "grass",
       "x": 96,
       "y": 48,
-      "w": 16,
-      "h": 16
+      "sprite": "grass_0"
     },
     {
       "kind": "grass",
       "x": 112,
       "y": 48,
-      "w": 16,
-      "h": 16
+      "sprite": "grass_0"
     }
   ],
-  "interactables": [],
-  "enemies": [],
   "unportedEnemies": [],
   "objects": [
     {

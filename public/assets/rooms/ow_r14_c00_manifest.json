@@ -28,27 +28,6 @@
   },
   "colliders": [
     {
-      "x": 80,
-      "y": 97,
-      "w": 16,
-      "h": 14,
-      "source": "bush"
-    },
-    {
-      "x": 112,
-      "y": 97,
-      "w": 16,
-      "h": 14,
-      "source": "bush"
-    },
-    {
-      "x": 128,
-      "y": 97,
-      "w": 16,
-      "h": 14,
-      "source": "bush"
-    },
-    {
       "x": 0,
       "y": 0,
       "w": 16,
@@ -244,6 +223,26 @@
       "kind": "octorok",
       "x": 72,
       "y": 28
+    }
+  ],
+  "cuttables": [
+    {
+      "kind": "bush",
+      "x": 80,
+      "y": 96,
+      "sprite": "bush_0"
+    },
+    {
+      "kind": "bush",
+      "x": 112,
+      "y": 96,
+      "sprite": "bush_0"
+    },
+    {
+      "kind": "bush",
+      "x": 128,
+      "y": 96,
+      "sprite": "bush_0"
     }
   ],
   "unportedEnemies": [],

@@ -183,9 +183,8 @@ def fence_posts(obj_id, params):
 
 
 # Ground zones (MapStates.FieldStates + ObjSlow/ObjHole), one entry per object -> logical rect.
-# grass: ObjBush with setGrassField (Map.SetFieldState(tile, Grass)); water/waterDeep: AddFieldState(tile);
+# water/waterDeep: AddFieldState(tile); grass is emitted as `cuttables` (ObjBush with setGrassField);
 # stairs: ObjSlow ObjectCollisionComponent Rectangle(x, y, 16, 12); hole: ObjHole CBox(x + 1, y + 1, 14, 14).
-GRASS_IDS = {'gras', 'gras0', 'gras1', 'gras2', 'gras3', 'grasForest', 'grasSwamp'}
 GROUND_ZONES = {
     'water': ('shallowWater', (0, 0, 16, 16)),
     'waterDeep': ('deepWater', (0, 0, 16, 16)),
@@ -195,9 +194,7 @@ GROUND_ZONES = {
 
 
 def compute_ground_zone(obj_id, lx, ly):
-    if obj_id in GRASS_IDS:
-        kind, (ox, oy, w, h) = 'grass', (0, 0, 16, 16)
-    elif obj_id in GROUND_ZONES:
+    if obj_id in GROUND_ZONES:  # grass comes from runtime cuttables (src/entities/Bushes.ts)
         kind, (ox, oy, w, h) = GROUND_ZONES[obj_id]
     else:
         return None
@@ -212,8 +209,12 @@ def compute_ground_zone(obj_id, lx, ly):
 # Params follow GameObjectTemplates.cs: sign = [signText, spriteId, rect, direction], chest = [item, spawn, saveKey, spriteType].
 SIGN_SPRITES = {'signpost': 'signpost_0', 'signpostWoods': 'signpost_1', 'sign': None}
 SIGN_DIRECTION = {'signpost': 1, 'signpostWoods': 1, 'sign': None}
-GROUND_ITEMS = {'sword1': 'sword'}  # ObjItem params: [?, saveKey, itemId, ...]
-RUNTIME_OBJECTS = set(SIGN_SPRITES) | {'chest', 'item'}  # drawn + collided by src/entities/Interactables.ts
+GROUND_ITEMS = {'sword1': 'sword'}
+# Cuttable ObjBush objects (template id -> (kind, spriteId)); drawn + cut at runtime (src/entities/Bushes.ts)
+CUTTABLE = {'bush': ('bush', 'bush_0'), 'bushForest': ('bush', 'bush_1'),
+            'gras': ('grass', 'grass_0'), 'gras0': ('grass', 'grass_0_0'), 'gras1': ('grass', 'grass_0_1'),
+            'gras2': ('grass', 'grass_0_2'), 'gras3': ('grass', 'grass_0_3')}  # ObjItem params: [?, saveKey, itemId, ...]
+RUNTIME_OBJECTS = set(SIGN_SPRITES) | {'chest', 'item'} | set(CUTTABLE)  # drawn + collided by src/entities/Interactables.ts
 
 
 def compute_interactable(obj, lx, ly):
@@ -336,6 +337,7 @@ def extract_room(map_name, screen_col, screen_row, out_id, out_dir, offset_px_x=
     ground_zones = []
     interactables = []
     enemy_spawns = []
+    cuttables = []
     unported_enemies = set()
     for obj in parsed['objects']:
         lx = obj['mapX'] - world_px_x
@@ -350,6 +352,10 @@ def extract_room(map_name, screen_col, screen_row, out_id, out_dir, offset_px_x=
                 'params': obj['params'],
             }
             local_objects.append(entry)
+
+            if obj['id'] in CUTTABLE and 0 <= lx < 160 and 0 <= ly < 128:
+                kind, sprite_id = CUTTABLE[obj['id']]
+                cuttables.append({'kind': kind, 'x': lx, 'y': ly, 'sprite': sprite_id})
 
             spawn = compute_enemy_spawn(obj, lx, ly)
             if spawn:
@@ -385,7 +391,7 @@ def extract_room(map_name, screen_col, screen_row, out_id, out_dir, offset_px_x=
                 for ax, ay in fence_posts(obj['id'], obj['params']):
                     f = sprites['fence']
                     draws.append((LAYER_PLAYER, ly + ay, 'fence', lx + ax - f['ox'], ly + ay - f['oy']))
-            elif obj['id'] in templates and not inter:  # signposts/chests are drawn at runtime
+            elif obj['id'] in templates and not inter and obj['id'] not in CUTTABLE:  # runtime objects
                 t = templates[obj['id']]
                 sprite_id = obj['params'][0] if (t['cls'] == 'ObjSprite' and obj['params'] and obj['params'][0] in sprites) else t['sprite']
                 dx, dy = t['draw']
@@ -465,6 +471,7 @@ def extract_room(map_name, screen_col, screen_row, out_id, out_dir, offset_px_x=
         'groundZones': ground_zones,
         'interactables': interactables,
         'enemies': enemy_spawns,
+        'cuttables': cuttables,
         'unportedEnemies': sorted(unported_enemies),
         'objects': [o for o in local_objects if o['category'] != 'collider'],
         'tiles': room_tiles,
