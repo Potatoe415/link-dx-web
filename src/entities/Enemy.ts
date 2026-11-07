@@ -1,5 +1,8 @@
 import { Collision } from '../core/Collision';
+import { SfxName } from '../core/Audio';
 import { Rect } from '../data/rooms';
+import { drawFrame } from './AnimPlayer';
+import { ProjectileKind } from './Projectile';
 
 /**
  * Generic enemy base, ported from `_ref_repo/InGame/GameObjects/Base/Components/AI/AiDamageState.cs`
@@ -26,13 +29,15 @@ export type EnemyState =
  *  - static: EnemySeaUrchin (never moves on its own, solid, pushed by the raised shield)
  *  - leever: EnemyLeever (surfaces on a random free cell, chases Link 2-3 s, burrows, waits 1-2 s)
  *  - crab: EnemyCrab (fast sideways 1.0 px/f for 1-1.5 s, slow up/down 0.33 px/f for 0.25-0.75 s)
+ *  - custom: a subclass in `src/entities/enemies/` overrides `think` (EnemyConfig.ai picks the class)
  */
-export type EnemyBehavior = 'wander' | 'static' | 'leever' | 'crab';
+export type EnemyBehavior = 'wander' | 'static' | 'leever' | 'crab' | 'custom';
 
 type Frame = { x: number; y: number; w: number; h: number; flip?: boolean };
 
+export const ENEMIES_SHEET = '/assets/ui/enemies.png'; // copied from `_ref_repo/Data/Map Objects/enemies.png`
+
 export interface EnemySprite {
-  sheet: string; // public URL
   frames: Record<number, Frame[]>; // per direction (direction 3 is the fallback for 1-direction enemies)
   anims?: Partial<Record<'spawn' | 'leave', Frame[]>>; // one-shot 200 ms/frame animations (Leever)
   frameMs: number;
@@ -54,16 +59,19 @@ export interface EnemyConfig {
   behavior?: EnemyBehavior; // default 'wander'
   solid?: boolean; // blocks Link (sea urchin BodyCollisionComponent)
   shot?: { range: number; speed: number; offsets: Record<number, [number, number]> }; // EnemyOctorok rock
-  sprite: EnemySprite;
+  sprite?: EnemySprite; // hand-written frames (enemies ported before the .ani exporter)
+  ai?: EnemyAi; // behavior 'custom': subclass to instantiate
+  animator?: { id: string; offsetX: number; offsetY: number }; // ENEMY_ANIMATORS key + AnimationComponent offset
 }
 
-/** Projectile requested by an enemy this frame, consumed by EnemyManager. */
-export interface ShotRequest {
-  x: number;
-  y: number;
-  vx: number;
-  vy: number;
-}
+export type EnemyAi = 'moblin' | 'moblinSword' | 'redZol' | 'gel' | 'greenZol' | 'keese' | 'buzzBlob';
+
+/** Side effects requested by an enemy this frame, consumed by EnemyManager. */
+export type EnemyEvent =
+  | { type: 'shot'; projectile: ProjectileKind; x: number; y: number; vx: number; vy: number }
+  | { type: 'spawn'; kind: string; x: number; y: number; vz: number }
+  | { type: 'shock'; ms: number; damage: number } // EnemyBuzzBlob.StartShock -> ObjLink.ShockPlayer
+  | { type: 'sfx'; name: SfxName };
 
 /** Room info the Leever needs to pick a surfacing cell. */
 export interface EnemyWorld {
@@ -82,6 +90,8 @@ const LEEVER_TRIGGER = 50; // spawnRectangle: EntitySize (-50, -58, 100, 100) ar
 const LEEVER_MIN_PLAYER_DIST = 24;
 
 export type LootDrop = 'rupee' | 'heart' | null;
+// repelled: the blow clashed with a weapon (Link is pushed back); absorbed: no damage, no repel (Buzz Blob)
+export type EnemyHitResult = 'hit' | 'killed' | 'ignored' | 'repelled' | 'absorbed';
 
 /** AiDamageState loot table: 33% rupee, 7% heart, else nothing. */
 export function rollLoot(random: () => number = Math.random): LootDrop {
@@ -101,17 +111,19 @@ export class Enemy {
   public direction: number;
   public hp: number;
   public dead = false; // removed by the engine once the death puffs end
-  public pendingShot: ShotRequest | null = null;
-  private stateTimer = 0;
+  public lootless = false; // no loot roll on death (Red Zol splitting into Gels)
+  public z = 0; // height above the ground (BodyComponent z), drawn upwards
+  public events: EnemyEvent[] = []; // shots / spawns / shocks for EnemyManager, drained every frame
+  protected stateTimer = 0;
   private stateDuration = 0;
-  private hitCooldown = 0;
-  private vx = 0;
-  private vy = 0;
+  protected hitCooldown = 0;
+  protected vx = 0;
+  protected vy = 0;
   private crabVx = 0;
   private crabVy = 0;
   private animTimer = 0;
-  private targetX = 0;
-  private targetY = 0;
+  protected targetX = 0;
+  protected targetY = 0;
   private readonly homeX: number;
   private readonly homeY: number;
 
@@ -119,7 +131,7 @@ export class Enemy {
     public readonly config: EnemyConfig,
     public x: number,
     public y: number,
-    private readonly random: () => number = Math.random
+    protected readonly random: () => number = Math.random
   ) {
     this.hp = config.hp;
     this.homeX = x;
@@ -138,6 +150,8 @@ export class Enemy {
       case 'crab':
         this.startCrabWalk();
         break;
+      case 'custom':
+        break; // subclasses start their own AI
       default:
         this.enter(random() < 0.5 ? 'IDLE' : 'WANDER');
     }
@@ -147,12 +161,17 @@ export class Enemy {
     return this.config.behavior ?? 'wander';
   }
 
-  private box(r: Rect): Rect {
+  protected box(r: Rect): Rect {
     return { x: this.x + r.x, y: this.y + r.y, w: r.w, h: r.h };
   }
 
   public get damageBox(): Rect {
     return this.box(this.config.damageBox);
+  }
+
+  /** Every box that hurts Link on contact (the sword Moblin adds its blade). */
+  public damageBoxes(): Rect[] {
+    return [this.damageBox];
   }
 
   public get hittableBox(): Rect {
@@ -164,7 +183,7 @@ export class Enemy {
   }
 
   /** Underground Leevers are invisible, harmless and cannot be hit. */
-  private get surfaced(): boolean {
+  protected get surfaced(): boolean {
     return this.state !== 'HIDDEN' && this.state !== 'WAITING';
   }
 
@@ -181,6 +200,11 @@ export class Enemy {
     if (this.state === 'SPAWNING') return this.stateTimer >= ONE_SHOT_FRAME_MS;
     if (this.state === 'LEAVING') return this.stateTimer < ONE_SHOT_FRAME_MS * 2;
     return true;
+  }
+
+  /** Draw order key (Y-sort); a Gel holding Link draws on top. */
+  public get sortY(): number {
+    return this.y;
   }
 
   public get isSolid(): boolean {
@@ -205,7 +229,7 @@ export class Enemy {
     if (Math.hypot(dx, dy) >= shot.range || directionOf(dx, dy) !== this.direction) return;
     const [ox, oy] = shot.offsets[this.direction];
     const [vx, vy] = DIR_VEC[this.direction];
-    this.pendingShot = { x: this.x + ox, y: this.y + oy, vx: vx * shot.speed, vy: vy * shot.speed };
+    this.events.push({ type: 'shot', projectile: 'rock', x: this.x + ox, y: this.y + oy, vx: vx * shot.speed, vy: vy * shot.speed });
   }
 
   /** State to go back to after a knockback / stun. */
@@ -218,7 +242,8 @@ export class Enemy {
         this.startCrabWalk();
         return;
       case 'static':
-        this.state = 'IDLE';
+      case 'custom':
+        this.state = 'IDLE'; // custom AIs keep their own sub-state
         return;
       default:
         this.enter('IDLE');
@@ -271,6 +296,10 @@ export class Enemy {
     }
 
     if (this.behavior === 'static') return;
+    if (this.behavior === 'custom') {
+      this.think(dtMs, colliders, world);
+      return;
+    }
     if (this.behavior === 'leever') {
       this.updateLeever(colliders, world);
       return;
@@ -303,6 +332,9 @@ export class Enemy {
     }
     if (this.stateTimer >= this.stateDuration) this.enter(this.state === 'IDLE' ? 'WANDER' : 'IDLE');
   }
+
+  /** Per-frame AI of `custom` enemies (src/entities/enemies/), run while not knocked back / stunned / dying. */
+  protected think(_dtMs: number, _colliders: Rect[], _world?: EnemyWorld): void {}
 
   private updateLeever(colliders: Rect[], world?: EnemyWorld): void {
     switch (this.state) {
@@ -362,7 +394,7 @@ export class Enemy {
   }
 
   /** Moves the body with wall sliding inside the 160x128 screen. Returns false if fully blocked. */
-  private moveBy(dx: number, dy: number, colliders: Rect[]): boolean {
+  protected moveBy(dx: number, dy: number, colliders: Rect[]): boolean {
     const b = this.config.body;
     let moved = false;
     const tryAxis = (nx: number, ny: number) => {
@@ -379,23 +411,43 @@ export class Enemy {
     return moved;
   }
 
+  /** Sword swing over `area` from (fromX, fromY): hits the hittable box. 'repelled' = clashed with a weapon. */
+  public hitBy(area: Rect, damage: number, fromX: number, fromY: number): EnemyHitResult {
+    if (!Collision.intersects(area, this.hittableBox)) return 'ignored';
+    return this.takeHit(damage, this.x - fromX, this.y - fromY);
+  }
+
   /** Sword / item hit coming along (dirX, dirY). */
-  public takeHit(damage: number, dirX: number, dirY: number): 'hit' | 'killed' | 'ignored' {
+  public takeHit(damage: number, dirX: number, dirY: number): EnemyHitResult {
     if (!this.isHittable || this.hitCooldown > 0) return 'ignored';
     this.hp -= damage;
     this.hitCooldown = HIT_COOLDOWN_MS;
     if (this.hp <= 0) {
       this.state = 'DYING';
       this.stateTimer = 0;
+      this.onDeath();
       return 'killed';
     }
-    const len = Math.hypot(dirX, dirY) || 1;
-    this.vx = (dirX / len) * HIT_PUSH * 0.5;
-    this.vy = (dirY / len) * HIT_PUSH * 0.5;
-    this.state = 'KNOCKBACK';
-    this.stateTimer = 0;
+    this.knockBack(dirX, dirY, HIT_PUSH * 0.5);
     return 'hit';
   }
+
+  /** Pushed along (dirX, dirY) at `speed`, decaying with the body drag, then back to the AI. */
+  public knockBack(dirX: number, dirY: number, speed: number): void {
+    const len = Math.hypot(dirX, dirY) || 1;
+    this.vx = (dirX / len) * speed;
+    this.vy = (dirY / len) * speed;
+    this.state = 'KNOCKBACK';
+    this.stateTimer = 0;
+  }
+
+  /** Bounced off Link's raised shield (moving away from him along dirX, dirY). */
+  public shieldBounce(dirX: number, dirY: number): void {
+    this.takeHit(0, dirX, dirY);
+  }
+
+  /** AiDamageState.OnDeath hook (Red Zol splits into Gels). */
+  protected onDeath(): void {}
 
   /** Stun (e.g. boomerang / hookshot later): frozen for `ms`. */
   public stun(ms: number): void {
@@ -405,8 +457,7 @@ export class Enemy {
     this.stateDuration = ms;
   }
 
-  private currentFrame(): Frame | undefined {
-    const s = this.config.sprite;
+  private currentFrame(s: EnemySprite): Frame | undefined {
     if (this.state === 'SPAWNING' || this.state === 'LEAVING') {
       const anim = s.anims?.[this.state === 'SPAWNING' ? 'spawn' : 'leave'];
       if (anim) return anim[Math.min(anim.length - 1, Math.floor(this.stateTimer / ONE_SHOT_FRAME_MS))];
@@ -417,29 +468,30 @@ export class Enemy {
     return frames[animated ? Math.floor(this.animTimer / s.frameMs) % frames.length : 0];
   }
 
+  /** Hidden this frame: underground, or the off phase of the AiDamageState blink. */
+  protected get hiddenThisFrame(): boolean {
+    // the HD remake swaps to a white shader; we skip every other 66 ms window
+    return !this.surfaced || (this.hitCooldown > 0 && Math.floor(this.hitCooldown / BLINK_MS) % 2 === 1);
+  }
+
   public render(ctx: CanvasRenderingContext2D, sheet: HTMLImageElement | undefined): void {
     if (this.state === 'DYING') {
       this.renderDeathPuff(ctx);
       return;
     }
-    // AiDamageState blink: the HD remake swaps to a white shader; we skip every other 66 ms window
-    if (this.hitCooldown > 0 && Math.floor(this.hitCooldown / BLINK_MS) % 2 === 1) return;
-    if (!sheet || !this.surfaced) return;
-    const f = this.currentFrame();
-    if (!f) return;
+    if (!sheet || this.hiddenThisFrame) return;
     const s = this.config.sprite;
-    const dx = Math.round(this.x - s.originX);
-    const dy = Math.round(this.y - s.originY);
-    ctx.save();
-    if (f.flip) {
-      ctx.translate(dx + f.w, dy);
-      ctx.scale(-1, 1);
-      ctx.drawImage(sheet, f.x, f.y, f.w, f.h, 0, 0, f.w, f.h);
-    } else {
-      ctx.drawImage(sheet, f.x, f.y, f.w, f.h, dx, dy, f.w, f.h);
+    if (!s) {
+      this.renderBody(ctx, sheet);
+      return;
     }
-    ctx.restore();
+    const f = this.currentFrame(s);
+    if (!f) return;
+    drawFrame(ctx, sheet, { ...f, ms: 0, dx: 0, dy: 0, flip: !!f.flip }, Math.round(this.x - s.originX), Math.round(this.y - s.originY));
   }
+
+  /** Animator-driven enemies (src/entities/enemies/) draw themselves. */
+  protected renderBody(_ctx: CanvasRenderingContext2D, _sheet: HTMLImageElement): void {}
 
   private renderDeathPuff(ctx: CanvasRenderingContext2D): void {
     const t = Math.min(1, this.stateTimer / DEATH_MS);

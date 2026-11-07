@@ -200,6 +200,9 @@ export const MABE_VILLAGE_INTERIOR_ROOMS: Record<string, RoomDef> = {
       { x: 88, y: 88, w: 24, h: 16 },
       { x: 72, y: 104, w: 16, h: 16 },
     ],
+    enemyWalls: [
+      { x: 72, y: 88, w: 16, h: 16 },
+    ],
     props: []
   },
 

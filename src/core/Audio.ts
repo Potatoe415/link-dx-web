@@ -33,6 +33,10 @@ export type SfxName =
   | 'shot_break'
   | 'urchin_push'
   | 'owl_fly'
+  | 'spear_throw'
+  | 'zol_jump'
+  | 'shock'
+  | 'stone_push'
   | 'bowwow_yip';
 
 /**
@@ -137,6 +141,10 @@ export class SoundManager {
       shot_break: '/assets/audio/sfx_shot_break.wav', // D360-07-07 (EnemyOctorokShot despawn)
       urchin_push: '/assets/audio/sfx_urchin_push.wav', // D360-62-3E (EnemySeaUrchin pushed by the shield)
       owl_fly: '/assets/audio/sfx_owl_fly.wav', // D378-45-2D (ObjOwl gliding in)
+      spear_throw: '/assets/audio/sfx_spear_throw.wav', // D378-10-0A (EnemySpear.Init)
+      zol_jump: '/assets/audio/sfx_zol_jump.wav', // D360-36-24 (EnemyGreenZol hop)
+      shock: '/assets/audio/sfx_shock.wav', // D378-28-1C (EnemyBuzzBlob.StartShock)
+      stone_push: '/assets/audio/sfx_stone_push.wav', // D378-17-11 (ObjMoveStone.ToMoving)
       bowwow_yip: '/assets/audio/sfx_bowwow_yip.wav' // D370-24-18 (ObjBowWowSmall / ObjBowWow bark)
     };
 

@@ -291,11 +291,17 @@
   ],
   "interactables": [],
   "doors": [],
-  "enemies": [],
-  "cuttables": [],
-  "unportedEnemies": [
-    "e17"
+  "enemies": [
+    {
+      "kind": "buzzBlob",
+      "x": 120,
+      "y": 64
+    }
   ],
+  "cuttables": [],
+  "enemyWalls": [],
+  "moveStones": [],
+  "unportedEnemies": [],
   "objects": [
     {
       "id": "e18",

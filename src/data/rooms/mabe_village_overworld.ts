@@ -129,6 +129,10 @@ export const MABE_VILLAGE_OVERWORLD_ROOMS: Record<string, RoomDef> = {
       { kind: 'bush', x: 80, y: 96, sprite: 'bush_0' },
       { kind: 'bush', x: 96, y: 96, sprite: 'bush_0' },
     ],
+    enemyWalls: [
+      { x: 80, y: 64, w: 16, h: 16 },
+      { x: 112, y: 64, w: 16, h: 16 },
+    ],
     props: []
   },
 
@@ -161,6 +165,9 @@ export const MABE_VILLAGE_OVERWORLD_ROOMS: Record<string, RoomDef> = {
     ],
     groundZones: [
       { kind: 'stairs', x: 16, y: 112, w: 16, h: 12 },
+    ],
+    enemyWalls: [
+      { x: 32, y: 48, w: 16, h: 16 },
     ],
     props: []
   },
@@ -259,6 +266,9 @@ export const MABE_VILLAGE_OVERWORLD_ROOMS: Record<string, RoomDef> = {
       { kind: 'bush', x: 96, y: 48, sprite: 'bush_0' },
       { kind: 'bush', x: 96, y: 64, sprite: 'bush_0' },
       { kind: 'bush', x: 96, y: 80, sprite: 'bush_0' },
+    ],
+    enemyWalls: [
+      { x: 64, y: 80, w: 16, h: 16 },
     ],
     props: []
   },
@@ -359,6 +369,10 @@ export const MABE_VILLAGE_OVERWORLD_ROOMS: Record<string, RoomDef> = {
       { kind: 'grass', x: 112, y: 64, sprite: 'grass_0' },
       { kind: 'grass', x: 112, y: 80, sprite: 'grass_0' },
       { kind: 'grass', x: 128, y: 64, sprite: 'grass_0' },
+    ],
+    enemyWalls: [
+      { x: 48, y: 48, w: 16, h: 16 },
+      { x: 80, y: 48, w: 16, h: 16 },
     ],
     props: []
   },
@@ -495,6 +509,9 @@ export const MABE_VILLAGE_OVERWORLD_ROOMS: Record<string, RoomDef> = {
       { kind: 'grass', x: 32, y: 64, sprite: 'grass_0_2' },
       { kind: 'grass', x: 32, y: 80, sprite: 'grass_0_2' },
     ],
+    enemyWalls: [
+      { x: 64, y: 80, w: 16, h: 16 },
+    ],
     props: []
   },
 
@@ -518,6 +535,9 @@ export const MABE_VILLAGE_OVERWORLD_ROOMS: Record<string, RoomDef> = {
       { x: 64, y: 64, w: 16, h: 16 },
       { x: 96, y: 64, w: 16, h: 16 },
       { x: 0, y: 116, w: 160, h: 12 },
+    ],
+    enemyWalls: [
+      { x: 80, y: 64, w: 16, h: 16 },
     ],
     props: []
   },
@@ -571,6 +591,9 @@ export const MABE_VILLAGE_OVERWORLD_ROOMS: Record<string, RoomDef> = {
       { kind: 'grass', x: 96, y: 0, sprite: 'grass_0' },
       { kind: 'grass', x: 112, y: 0, sprite: 'grass_0' },
       { kind: 'grass', x: 128, y: 0, sprite: 'grass_0' },
+    ],
+    enemyWalls: [
+      { x: 80, y: 64, w: 16, h: 16 },
     ],
     props: []
   }

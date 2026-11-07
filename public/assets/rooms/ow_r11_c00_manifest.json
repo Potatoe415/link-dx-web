@@ -205,6 +205,15 @@
       "sprite": "bush_0"
     }
   ],
+  "enemyWalls": [
+    {
+      "x": 48,
+      "y": 32,
+      "w": 16,
+      "h": 16
+    }
+  ],
+  "moveStones": [],
   "unportedEnemies": [],
   "objects": [
     {

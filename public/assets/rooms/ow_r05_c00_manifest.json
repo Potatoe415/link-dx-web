@@ -274,6 +274,15 @@
       "sprite": "bush_1"
     }
   ],
+  "enemyWalls": [
+    {
+      "x": 128,
+      "y": 32,
+      "w": 16,
+      "h": 16
+    }
+  ],
+  "moveStones": [],
   "unportedEnemies": [],
   "objects": [
     {

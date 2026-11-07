@@ -143,8 +143,21 @@
   "groundZones": [],
   "interactables": [],
   "doors": [],
-  "enemies": [],
+  "enemies": [
+    {
+      "kind": "greenZol",
+      "x": 56,
+      "y": 61
+    },
+    {
+      "kind": "greenZol",
+      "x": 72,
+      "y": 77
+    }
+  ],
   "cuttables": [],
+  "enemyWalls": [],
+  "moveStones": [],
   "unportedEnemies": [],
   "objects": [
     {

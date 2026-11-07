@@ -5,7 +5,7 @@ import { MABE_VILLAGE_INTERIOR_ROOMS } from './mabe_village_interiors';
 import { TORONBO_SHORES_ROOMS } from './toronbo_shores';
 import { MYSTERIOUS_FOREST_ROOMS } from './mysterious_forest';
 
-export type { Rect, WarpTrigger, RoomProp, RoomDef, RoomNeighbors, RoomMusic, RoomAmbience, GroundKind, GroundZone, SignDef, ChestDef, ChestContents, QuestKey, InteractableDef, GroundItemDef, CuttableDef } from './types';
+export type { Rect, WarpTrigger, RoomProp, RoomDef, RoomNeighbors, RoomMusic, RoomAmbience, GroundKind, GroundZone, SignDef, ChestDef, ChestContents, QuestKey, InteractableDef, GroundItemDef, CuttableDef, MoveStoneDef } from './types';
 
 // One module per region (mabe_village, toronbo_shores, mysterious_forest, dungeon1, ...).
 // Region modules must not share room ids; collisions are reported at startup.

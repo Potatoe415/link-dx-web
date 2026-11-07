@@ -288,12 +288,34 @@
       "mode": 0
     }
   ],
-  "enemies": [],
-  "cuttables": [],
-  "unportedEnemies": [
-    "e15",
-    "e5"
+  "enemies": [
+    {
+      "kind": "redZol",
+      "x": 72,
+      "y": 93
+    },
+    {
+      "kind": "redZol",
+      "x": 88,
+      "y": 77
+    },
+    {
+      "kind": "moblin",
+      "x": 120,
+      "y": 80
+    }
   ],
+  "cuttables": [],
+  "enemyWalls": [
+    {
+      "x": 48,
+      "y": 48,
+      "w": 16,
+      "h": 16
+    }
+  ],
+  "moveStones": [],
+  "unportedEnemies": [],
   "objects": [
     {
       "id": "door",

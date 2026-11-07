@@ -1,7 +1,5 @@
 import { EnemyConfig } from '../entities/Enemy';
 
-const ENEMIES_SHEET = '/assets/ui/enemies.png'; // copied from `_ref_repo/Data/Map Objects/enemies.png`
-
 /**
  * Enemy definitions. Numbers come from the C# classes in `_ref_repo/InGame/GameObjects/Enemies/`
  * (BodyComponent / DamageFieldComponent / HittableComponent boxes, walk speed, AI timers) and their
@@ -23,7 +21,6 @@ export const ENEMIES: Record<string, EnemyConfig> = {
     idleMs: [250, 500],
     shot: { range: 80, speed: 2, offsets: { 0: [-8, -1], 1: [0, -6], 2: [8, -1], 3: [0, 11] } },
     sprite: {
-      sheet: ENEMIES_SHEET,
       frameMs: 200,
       originX: 8,
       originY: 15,
@@ -50,7 +47,6 @@ export const ENEMIES: Record<string, EnemyConfig> = {
     behavior: 'static',
     solid: true,
     sprite: {
-      sheet: ENEMIES_SHEET,
       frameMs: 250,
       originX: 8,
       originY: 16,
@@ -78,7 +74,6 @@ export const ENEMIES: Record<string, EnemyConfig> = {
     idleMs: [0, 0],
     behavior: 'leever',
     sprite: {
-      sheet: ENEMIES_SHEET,
       frameMs: 116,
       originX: 8,
       originY: 16,
@@ -116,7 +111,6 @@ export const ENEMIES: Record<string, EnemyConfig> = {
     idleMs: [0, 0],
     behavior: 'crab',
     sprite: {
-      sheet: ENEMIES_SHEET,
       frameMs: 133,
       originX: 8,
       originY: 16,
@@ -127,6 +121,120 @@ export const ENEMIES: Record<string, EnemyConfig> = {
         ]
       }
     }
+  },
+
+  // ---- Animator-driven enemies (src/entities/enemies/, frames in src/data/enemyAnimations.ts) ----
+
+  // EnemyMoblin.cs: 2 lives, walks 0.5 px/f, throws spears (EnemySpear)
+  moblin: {
+    kind: 'moblin',
+    hp: 2,
+    speed: 0.5,
+    contactDamage: 2,
+    body: { x: -6, y: -10, w: 12, h: 10 },
+    damageBox: { x: -8, y: -12, w: 16, h: 12 },
+    hittableBox: { x: -7, y: -15, w: 14, h: 15 },
+    wanderMs: [0, 0],
+    idleMs: [0, 0],
+    behavior: 'custom',
+    ai: 'moblin',
+    animator: { id: 'moblin', offsetX: -8, offsetY: -16 }
+  },
+
+  // EnemyMoblinSword.cs + EnemyMoblinSwordSword.cs: 2 lives, charges Link, parrying blade
+  moblinSword: {
+    kind: 'moblinSword',
+    hp: 2,
+    speed: 0.5,
+    contactDamage: 2,
+    body: { x: -6, y: -10, w: 12, h: 10 },
+    damageBox: { x: -8, y: -12, w: 16, h: 12 },
+    hittableBox: { x: -7, y: -15, w: 14, h: 15 },
+    wanderMs: [0, 0],
+    idleMs: [0, 0],
+    behavior: 'custom',
+    ai: 'moblinSword',
+    animator: { id: 'moblin_sword', offsetX: -8, offsetY: -16 }
+  },
+
+  // EnemyRedZol.cs: 1 life, splits into two Gels on a 1-damage hit
+  redZol: {
+    kind: 'redZol',
+    hp: 1,
+    speed: 0.4,
+    contactDamage: 2,
+    body: { x: -6, y: -10, w: 12, h: 10 },
+    damageBox: { x: -6, y: -11, w: 12, h: 11 },
+    hittableBox: { x: -6, y: -11, w: 12, h: 11 },
+    wanderMs: [0, 0],
+    idleMs: [0, 0],
+    behavior: 'custom',
+    ai: 'redZol',
+    animator: { id: 'red_zol', offsetX: -6, offsetY: -16 }
+  },
+
+  // EnemyGel.cs: 1 life, harmless, sticks to Link
+  gel: {
+    kind: 'gel',
+    hp: 1,
+    speed: 0.5,
+    contactDamage: 0,
+    body: { x: -4, y: -7, w: 7, h: 7 },
+    damageBox: { x: 0, y: 0, w: 0, h: 0 },
+    hittableBox: { x: -4, y: -7, w: 7, h: 7 },
+    wanderMs: [0, 0],
+    idleMs: [0, 0],
+    behavior: 'custom',
+    ai: 'gel',
+    animator: { id: 'gel', offsetX: -4, offsetY: -7 }
+  },
+
+  // EnemyGreenZol.cs: 1 life, pops out of the floor near Link
+  greenZol: {
+    kind: 'greenZol',
+    hp: 1,
+    speed: 0.75,
+    contactDamage: 2,
+    body: { x: -6, y: -10, w: 12, h: 10 },
+    damageBox: { x: -6, y: -11, w: 12, h: 11 },
+    hittableBox: { x: -6, y: -11, w: 12, h: 11 },
+    wanderMs: [0, 0],
+    idleMs: [0, 0],
+    behavior: 'custom',
+    ai: 'greenZol',
+    animator: { id: 'green_zol', offsetX: -6, offsetY: -16 }
+  },
+
+  // EnemyKeese.cs: 1 life, flies over walls; boxes are 20 px above the feet anchor (flying height)
+  keese: {
+    kind: 'keese',
+    hp: 1,
+    speed: 0.75,
+    contactDamage: 2,
+    body: { x: -6, y: -20, w: 12, h: 8 },
+    damageBox: { x: -5, y: -20, w: 10, h: 8 },
+    hittableBox: { x: -6, y: -20, w: 12, h: 8 },
+    wanderMs: [0, 0],
+    idleMs: [0, 0],
+    behavior: 'custom',
+    ai: 'keese',
+    animator: { id: 'keese', offsetX: -8, offsetY: -21 }
+  },
+
+  // EnemyBuzzBlob.cs: 4 lives, immune to the sword (shocks Link instead)
+  buzzBlob: {
+    kind: 'buzzBlob',
+    hp: 4,
+    speed: 0.33,
+    contactDamage: 2,
+    body: { x: -4, y: -10, w: 8, h: 10 },
+    damageBox: { x: -5, y: -12, w: 10, h: 12 },
+    hittableBox: { x: -6, y: -14, w: 12, h: 14 },
+    wanderMs: [0, 0],
+    idleMs: [0, 0],
+    behavior: 'custom',
+    ai: 'buzzBlob',
+    animator: { id: 'buzzblob', offsetX: -6, offsetY: -16 }
   }
 };
 
@@ -136,5 +244,11 @@ export const MAP_ENEMY_IDS: Record<string, string> = {
   e1: 'urchin',
   e2: 'octorok',
   e3: 'leever',
-  e4: 'crab'
+  e4: 'crab',
+  e5: 'moblin',
+  moblinSword: 'moblinSword',
+  e9: 'greenZol',
+  e10: 'keese',
+  e15: 'redZol',
+  e17: 'buzzBlob'
 };

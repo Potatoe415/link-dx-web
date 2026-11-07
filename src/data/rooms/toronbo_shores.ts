@@ -36,6 +36,9 @@ export const TORONBO_SHORES_ROOMS: Record<string, RoomDef> = {
       { kind: 'bush', x: 128, y: 64, sprite: 'bush_0' },
       { kind: 'bush', x: 128, y: 80, sprite: 'bush_0' },
     ],
+    enemyWalls: [
+      { x: 48, y: 32, w: 16, h: 16 },
+    ],
     props: []
   },
 

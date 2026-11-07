@@ -419,6 +419,15 @@
   ],
   "enemies": [],
   "cuttables": [],
+  "enemyWalls": [
+    {
+      "x": 72,
+      "y": 112,
+      "w": 16,
+      "h": 16
+    }
+  ],
+  "moveStones": [],
   "unportedEnemies": [],
   "objects": [
     {

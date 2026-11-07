@@ -253,12 +253,22 @@
       "mode": 1
     }
   ],
-  "enemies": [],
-  "cuttables": [],
-  "unportedEnemies": [
-    "e5",
-    "moblinSword"
+  "enemies": [
+    {
+      "kind": "moblinSword",
+      "x": 40,
+      "y": 80
+    },
+    {
+      "kind": "moblin",
+      "x": 88,
+      "y": 80
+    }
   ],
+  "cuttables": [],
+  "enemyWalls": [],
+  "moveStones": [],
+  "unportedEnemies": [],
   "objects": [
     {
       "id": "door",

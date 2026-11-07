@@ -1,7 +1,8 @@
 import { Collision } from '../core/Collision';
 import { Rect } from '../data/rooms';
 import { NpcDef } from '../data/npcs';
-import { NPC_ANIMATORS, NpcAnimation, NpcAnimator } from '../data/npcAnimations';
+import { NPC_ANIMATORS } from '../data/npcAnimations';
+import { AnimPlayer } from './AnimPlayer';
 import { directionOf } from './Enemy';
 
 const LOOK_RANGE = 32; // ObjPerson / ObjPersonNew `_lookRange`
@@ -16,62 +17,6 @@ const rand = (min: number, max: number) => min + Math.random() * (max - min);
 function lookDirection(dx: number, dy: number): number {
   const deg = ((Math.atan2(dy, dx) + Math.PI * 1.25) * 180) / Math.PI;
   return Math.floor((((deg % 360) + 360) % 360) / 90);
-}
-
-/** Plays one NpcAnimator (Animator.cs subset: looping, `next` chaining, hold last frame). */
-class AnimPlayer {
-  public current = '';
-  private frame = 0;
-  private timer = 0;
-
-  constructor(private readonly animator: NpcAnimator) {
-    this.play(animator.first);
-  }
-
-  public has(id: string): boolean {
-    return id in this.animator.anims;
-  }
-
-  public play(id: string): void {
-    if (!this.has(id) || id === this.current) return;
-    this.current = id;
-    this.frame = 0;
-    this.timer = 0;
-  }
-
-  public update(dtMs: number): void {
-    const anim = this.anim();
-    this.timer += dtMs;
-    while (this.timer >= anim.frames[this.frame].ms) {
-      this.timer -= anim.frames[this.frame].ms;
-      if (this.frame + 1 < anim.frames.length) this.frame++;
-      else if (anim.loop) this.frame = 0;
-      else {
-        if (anim.next) this.play(anim.next);
-        else this.timer = 0;
-        return;
-      }
-    }
-  }
-
-  public draw(ctx: CanvasRenderingContext2D, sheet: HTMLImageElement, x: number, y: number): void {
-    const f = this.anim().frames[this.frame];
-    const dx = Math.round(x + f.dx);
-    const dy = Math.round(y + f.dy);
-    if (f.flip) {
-      ctx.save();
-      ctx.translate(dx + f.w, dy);
-      ctx.scale(-1, 1);
-      ctx.drawImage(sheet, f.x, f.y, f.w, f.h, 0, 0, f.w, f.h);
-      ctx.restore();
-    } else {
-      ctx.drawImage(sheet, f.x, f.y, f.w, f.h, dx, dy, f.w, f.h);
-    }
-  }
-
-  private anim(): NpcAnimation {
-    return this.animator.anims[this.current];
-  }
 }
 
 /**

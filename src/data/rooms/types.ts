@@ -82,6 +82,14 @@ export interface CuttableDef {
   sprite: string; // objects.atlas sprite id
 }
 
+/** Push block (ObjMoveStone): solid 16x16 cell Link can slide one tile at a time. */
+export interface MoveStoneDef {
+  x: number; // map object origin (16x16 cell top-left)
+  y: number;
+  sprite: string; // objects.atlas sprite id (movestone_0..3)
+  directions: number; // allowed push directions bitmask (bit 0 left, 1 up, 2 right, 3 down); -1 = any
+}
+
 /** Music track key understood by SoundManager.playMusic. */
 import type { MusicTrack } from '../../core/Audio';
 export type RoomMusic = MusicTrack;
@@ -117,5 +125,9 @@ export interface RoomDef {
   cuttables?: CuttableDef[];
   // Enemies spawned each time the room is entered (feet anchor, logical px); kinds in src/data/enemies.ts
   enemies?: { kind: string; x: number; y: number }[];
+  // Walls that only enemies respect (ObjCollider NPCWall, `enemyWall`)
+  enemyWalls?: Rect[];
+  // Push blocks (ObjMoveStone), reset when the room is re-entered
+  moveStones?: MoveStoneDef[];
   props: RoomProp[];
 }

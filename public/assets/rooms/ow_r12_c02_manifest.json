@@ -183,6 +183,8 @@
     }
   ],
   "cuttables": [],
+  "enemyWalls": [],
+  "moveStones": [],
   "unportedEnemies": [],
   "objects": [
     {

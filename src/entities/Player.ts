@@ -79,6 +79,10 @@ export class Player {
 
   // Damage: invulnerability blink + knockback (Damage.ts)
   public readonly knockback = new Knockback();
+  // Enemy effects set by the engine each frame: Gel grab (ObjLink.SlowDown(0.5) + DisableItems)
+  public slowedByGel = false;
+  // Buzz Blob shock (ObjLink.ShockPlayer): frozen, animation paused for `shockMs`
+  public shockMs = 0;
   public readonly sword = new Sword();
   /** Item shown overhead during ITEM_GET (shield by default, sword on the beach). */
   public itemGetSprite: 'shield' | 'sword' = 'shield';
@@ -135,6 +139,7 @@ export class Player {
   public get isVulnerable(): boolean {
     return (
       !this.knockback.active &&
+      this.shockMs <= 0 &&
       (this.state === 'IDLE' || this.state === 'WALKING' || this.state === 'SWIMMING')
     );
   }
@@ -149,6 +154,32 @@ export class Player {
     this.game.changeHealth(-quarters);
     this.knockback.start(dirX, dirY);
     return 'hit';
+  }
+
+  /**
+   * ObjLink.ShockPlayer: Buzz Blob electrocution — damage without knockback, frozen for `ms`.
+   * Returns false while Link cannot be hurt.
+   */
+  public shock(ms: number, quarters: number): boolean {
+    const free = this.state === 'IDLE' || this.state === 'WALKING' || this.state === 'SWIMMING';
+    if (!free || this.shockMs > 0) return false;
+    this.sword.cancel();
+    this.isBlocking = false;
+    this.state = 'IDLE';
+    this.updateIdleAnimation();
+    this.game.changeHealth(-quarters); // InflictDamage: no knockback, no invulnerability
+    this.shockMs = ms;
+    return true;
+  }
+
+  public get isShocked(): boolean {
+    return this.shockMs > 0;
+  }
+
+  /** ObjLink.RepelPlayer: the sword clashed with a weapon; pushed back along (vx, vy) px/frame, no blink. */
+  public repel(vx: number, vy: number): void {
+    this.knockback.vx += vx;
+    this.knockback.vy += vy;
   }
 
   /** ObjLink.OnDeath: freeze, spin through the 4 directions, then GAME OVER (engine). */
@@ -197,12 +228,18 @@ export class Player {
       case 'IDLE':
       case 'WALKING':
       case 'SWIMMING': {
+        if (this.shockMs > 0) {
+          this.shockMs = Math.max(0, this.shockMs - dtMs);
+          this.knockback.step(dtMs, this.x, this.y, []); // invulnerability keeps ticking, no push
+          return; // UseShockEffect: no movement, animation frozen
+        }
         // Knockback overrides walking until it decays (moveMultiplier = 1 - |hitVelocity| in ObjLink)
         const pushed = this.knockback.step(dtMs, this.x, this.y, colliders);
         this.x = pushed.x;
         this.y = pushed.y;
         if (Math.hypot(this.knockback.vx, this.knockback.vy) < 1) {
-          this.updateMovement(input, colliders, sound, GROUND_SPEED[this.ground ?? 'hole'], dtMs);
+          const slow = this.slowedByGel ? 0.5 : 1;
+          this.updateMovement(input, colliders, sound, GROUND_SPEED[this.ground ?? 'hole'] * slow, dtMs);
         }
         this.updateGround(dtMs, groundZones, sound);
         break;
@@ -339,7 +376,7 @@ export class Player {
 
   /** Sword slash / hold / spin; returns true while the attack locks Link's movement. */
   private updateSword(dtMs: number, input: Input, sound?: SoundManager): boolean {
-    if (!this.game.hasItem('sword') || this.state === 'SWIMMING') {
+    if (!this.game.hasItem('sword') || this.state === 'SWIMMING' || this.slowedByGel) {
       this.sword.cancel();
       return false;
     }
@@ -368,7 +405,7 @@ export class Player {
       return;
     }
     const wasBlocking = this.isBlocking;
-    const shieldHeld = input.isShieldHeld() || this.buttonHeld(input, 'shield');
+    const shieldHeld = !this.slowedByGel && (input.isShieldHeld() || this.buttonHeld(input, 'shield'));
     this.isBlocking = this.hasShield && this.state !== 'SWIMMING' && !this.sword.active && shieldHeld;
     if (!wasBlocking && this.isBlocking) {
       sound?.playSfx('shield', 0.65);

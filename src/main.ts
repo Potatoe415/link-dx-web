@@ -16,6 +16,8 @@ import { PropInstance, ParticleSystem } from './entities/Prop';
 import { InteractableSystem } from './entities/Interactables';
 import { EnemyManager } from './entities/EnemyManager';
 import { BushSystem } from './entities/Bushes';
+import { MoveStoneSystem } from './entities/MoveStone';
+import { ShockEffect } from './core/ShockEffect';
 import { Owl } from './entities/Owl';
 import { OWLS } from './data/owls';
 import { GameOverScreen } from './core/GameOver';
@@ -42,6 +44,8 @@ export class GameEngine {
   private interactables: InteractableSystem;
   private enemies: EnemyManager;
   private bushes: BushSystem;
+  private stones: MoveStoneSystem;
+  private readonly shock = new ShockEffect();
   private npcs: NpcSystem;
   private owl: Owl | null = null;
   private gameOver: GameOverScreen;
@@ -70,6 +74,7 @@ export class GameEngine {
     this.interactables = new InteractableSystem(this.game, this.images, this.sound, this.dialogue);
     this.enemies = new EnemyManager(this.game, this.images, this.sound);
     this.bushes = new BushSystem(this.images, this.sound);
+    this.stones = new MoveStoneSystem(this.images, this.sound);
     this.npcs = new NpcSystem(this.game, this.images, this.sound, this.dialogue);
     this.gameOver = new GameOverScreen(this.images);
     this.scroller = new ScreenScroll(this.camera, (key, props, x, y) => {
@@ -123,6 +128,8 @@ export class GameEngine {
     this.interactables?.setRoom(roomKey, this.currentRoom.interactables);
     this.enemies?.setRoom(this.currentRoom.enemies);
     this.bushes?.setRoom(this.currentRoom.cuttables);
+    this.stones?.setRoom(this.currentRoom.moveStones);
+    this.shock.start(0);
     this.npcs?.setRoom(roomKey);
     this.setupOwl();
     if (previous && previous.ambience !== this.currentRoom.ambience) this.particles.clear();
@@ -231,6 +238,7 @@ export class GameEngine {
       ...this.currentRoom.colliders,
       ...this.interactables.colliders(),
       ...this.bushes.colliders(),
+      ...this.stones.colliders(),
       ...this.npcs.colliders()
     ];
     for (const prop of this.props) {
@@ -243,15 +251,19 @@ export class GameEngine {
     const ground = [...(this.currentRoom.groundZones ?? []), ...this.bushes.grassZones()];
     // Sea urchins block Link but not the other enemies' movement checks
     const playerColliders = [...allColliders, ...this.enemies.solidColliders()];
+    this.player.slowedByGel = this.enemies.linkGrabbed;
     this.player.update(dtMs, this.input, playerColliders, this.sound, ground);
+    this.updateStonePush(dtMs);
     const swordHit = this.player.sword.hit(this.player.x, this.player.y);
     if (swordHit) {
-      this.enemies.hitArea(swordHit.area, swordHit.damage, this.player.x, this.player.y);
+      const { repel } = this.enemies.hitArea(swordHit.area, swordHit.damage, this.player.x, this.player.y);
+      if (repel) this.player.repel(repel[0], repel[1]);
       for (const d of this.bushes.cut(swordHit.area).drops) this.enemies.addPickup(d.kind, d.x, d.y);
     }
     this.bushes.update(dtMs);
     this.npcs.update(dtMs, this.player, [...this.currentRoom.colliders, ...this.interactables.colliders(), ...this.bushes.colliders()]);
-    this.enemies.update(dtMs, allColliders, this.player, ground);
+    this.enemies.update(dtMs, allColliders, this.player, ground, this.currentRoom.enemyWalls);
+    this.applyShock(dtMs);
     const picked = this.interactables.checkPickups(this.player);
     if (picked?.item === 'sword') {
       this.giveSword();
@@ -279,6 +291,24 @@ export class GameEngine {
       return;
     }
     this.checkWarps();
+  }
+
+  /** Push blocks: Link walking into one for 450 ms slides it if the next cell is free of walls and enemies. */
+  private updateStonePush(dtMs: number): void {
+    const walking = this.player.state === 'WALKING' && this.input.getMovement().isMoving && !this.player.isBlocking;
+    const feet = Collision.getPlayerCollisionBox(this.player.x, this.player.y);
+    const walls = [...this.currentRoom.colliders, ...this.interactables.colliders(), ...this.bushes.colliders(), ...this.npcs.colliders()];
+    for (const e of this.enemies.enemies) walls.push(e.bodyBox);
+    this.stones.update(dtMs, feet, walking ? this.player.direction : -1, walls);
+  }
+
+  /** Buzz Blob shock (ObjLink.ShockPlayer): damage, freeze, palette swap and screen shake. */
+  private applyShock(dtMs: number): void {
+    this.shock.update(dtMs);
+    const pending = this.enemies.pendingShock;
+    if (!pending) return;
+    this.enemies.pendingShock = null;
+    if (this.player.shock(pending.ms, pending.damage)) this.shock.start(pending.ms);
   }
 
   /** Action key: talk to the nearest NPC, else read / open what Link faces. */
@@ -395,6 +425,7 @@ export class GameEngine {
     ctx.fillStyle = '#000';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     ctx.scale(scale, scale);
+    ctx.translate(Math.round(this.shock.shakeX), 0);
 
     const swordSheet = this.images.get('/assets/ui/link0.png');
     const playerRenderable = { y: this.player.y, render: () => this.player.render(ctx, spritesheet, swordSheet) };
@@ -415,7 +446,10 @@ export class GameEngine {
         ...this.bushes.renderables(ctx),
         ...this.npcs.renderables(ctx),
         ...this.owlRenderables(ctx)
-      ], () => this.bushes.renderGround(ctx));
+      ], () => {
+        this.bushes.renderGround(ctx);
+        this.stones.renderGround(ctx);
+      });
       if (dying) {
         // Dim the world, keep Link on top (GameOverSystem.DrawPlayerOnTopPercentage)
         this.gameOver.renderDim(ctx, room.width, room.height);
@@ -423,8 +457,11 @@ export class GameEngine {
         playerRenderable.render();
       }
       this.particles.render(ctx);
-      if (this.showColliders) renderCollidersDebug(ctx, room, this.props, this.player.x, this.player.y);
+      if (this.showColliders) renderCollidersDebug(ctx, room, this.props, this.player.x, this.player.y, this.stones.colliders());
     }
+    // ShockEffect.fx runs on the world render target only: the HUD keeps its colours and does not shake
+    if (this.shock.active) this.shock.apply(ctx, canvas.width, canvas.height);
+    ctx.translate(-Math.round(this.shock.shakeX), 0);
     // HUD over the room; hidden during the wake-up cutscene like the original intro
     const hideHud = this.player.state === 'SLEEPING' || this.player.state === 'WAKING' || this.gameOver.isActive();
     if (!hideHud) this.hud.render(ctx, room.width, room.height);

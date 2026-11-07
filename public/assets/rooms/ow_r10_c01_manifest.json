@@ -281,6 +281,21 @@
       "sprite": "grass_0"
     }
   ],
+  "enemyWalls": [
+    {
+      "x": 48,
+      "y": 48,
+      "w": 16,
+      "h": 16
+    },
+    {
+      "x": 80,
+      "y": 48,
+      "w": 16,
+      "h": 16
+    }
+  ],
+  "moveStones": [],
   "unportedEnemies": [],
   "objects": [
     {

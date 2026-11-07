@@ -4,8 +4,10 @@ import { GameState } from '../core/GameState';
 import { ImageCache } from '../core/Images';
 import { GroundZone, Rect } from '../data/rooms';
 import { ENEMIES } from '../data/enemies';
-import { Enemy, EnemyWorld, LootDrop, directionOf, rollLoot } from './Enemy';
-import { OctorokShot } from './OctorokShot';
+import { ENEMIES_SHEET, Enemy, EnemyEvent, EnemyWorld, LootDrop, directionOf, rollLoot } from './Enemy';
+import { Gel, createEnemy } from './enemies';
+import { AnimatedEnemy } from './enemies/AnimatedEnemy';
+import { Projectile } from './Projectile';
 import { Player } from './Player';
 import { LOW_HEALTH_BEEP_MS, LOW_HEALTH_QUARTERS } from './Damage';
 import { groundAt } from './Ground';
@@ -26,8 +28,8 @@ interface Pickup {
 const PICKUP_LIFETIME_MS = 8000; // dropped items blink then vanish (ObjItem)
 const PICKUP_BOX = 8;
 const ITEMS_SHEET = '/assets/ui/items.png';
-const ENEMIES_SHEET = '/assets/ui/enemies.png';
-const SHOT_DAMAGE = 2; // EnemyOctorokShot DamageFieldComponent
+const SHOT_DAMAGE = 2; // EnemyOctorokShot / EnemySpear DamageFieldComponent
+const REPEL_SPEED = 1; // ObjLink.RepelPlayer multiplier when the sword clashes with a weapon
 const URCHIN_PUSH_SFX_MS = 75; // EnemySeaUrchin._soundCounter
 const DIR_VEC: Record<number, [number, number]> = { 0: [-1, 0], 1: [0, -1], 2: [1, 0], 3: [0, 1] };
 
@@ -37,7 +39,11 @@ const DIR_VEC: Record<number, [number, number]> = { 0: [-1, 0], 1: [0, -1], 2: [
  */
 export class EnemyManager {
   public enemies: Enemy[] = [];
-  public shots: OctorokShot[] = [];
+  public shots: Projectile[] = [];
+  /** Link stuck under a Gel this frame (EnemyGel.UpdateGrabbing: half speed, no items). */
+  public linkGrabbed = false;
+  /** Pending ObjLink.ShockPlayer from a Buzz Blob, consumed by the engine. */
+  public pendingShock: { ms: number; damage: number } | null = null;
   private pickups: Pickup[] = [];
   private beepTimer = 0;
   private pushSfxTimer = 0;
@@ -51,11 +57,13 @@ export class EnemyManager {
   public setRoom(spawns: EnemySpawn[] | undefined): void {
     this.enemies = (spawns ?? []).flatMap((s) => {
       const cfg = ENEMIES[s.kind];
-      return cfg ? [new Enemy(cfg, s.x, s.y)] : [];
+      return cfg ? [createEnemy(cfg, s.x, s.y)] : [];
     });
     this.pickups = [];
     this.shots = [];
-    for (const e of this.enemies) void this.images.load(e.config.sprite.sheet);
+    this.linkGrabbed = false;
+    this.pendingShock = null;
+    if (this.enemies.length) void this.images.load(ENEMIES_SHEET);
   }
 
   /** Bodies of solid enemies (sea urchins) that block Link. */
@@ -63,34 +71,35 @@ export class EnemyManager {
     return this.enemies.filter((e) => e.isSolid).map((e) => e.bodyBox);
   }
 
-  /** Returns true when Link just took damage. */
-  public update(dtMs: number, colliders: Rect[], player: Player, zones?: GroundZone[]): boolean {
+  /**
+   * Returns true when Link just took damage. `enemyWalls` (NPCWall colliders) only block enemies;
+   * projectiles fly over them.
+   */
+  public update(dtMs: number, colliders: Rect[], player: Player, zones?: GroundZone[], enemyWalls: Rect[] = []): boolean {
     const world: EnemyWorld = {
       isWater: (x, y) => {
         const g = groundAt(zones, x, y);
         return g === 'shallowWater' || g === 'deepWater';
       }
     };
+    const enemyColliders = enemyWalls.length ? [...colliders, ...enemyWalls] : colliders;
+    const spawned: Enemy[] = [];
     for (const e of this.enemies) {
-      e.update(dtMs, colliders, player.x, player.y, world);
-      if (e.pendingShot) {
-        const r = e.pendingShot;
-        e.pendingShot = null;
-        const shot = OctorokShot.spawn(r.x, r.y, r.vx, r.vy, colliders);
-        if (shot) this.shots.push(shot);
-      }
+      e.update(dtMs, enemyColliders, player.x, player.y, world);
+      for (const ev of e.events.splice(0)) this.handleEvent(ev, colliders, spawned);
     }
 
     for (const e of this.enemies) {
-      if (e.dead) this.dropLoot(e);
+      if (e.dead && !e.lootless) this.dropLoot(e);
     }
-    this.enemies = this.enemies.filter((e) => !e.dead);
+    this.enemies = [...this.enemies.filter((e) => !e.dead), ...spawned];
+    this.linkGrabbed = this.enemies.some((e) => e instanceof Gel && e.holdsLink);
 
     let hurt = false;
     const feet = Collision.getPlayerCollisionBox(player.x, player.y);
     this.pushSfxTimer = Math.max(0, this.pushSfxTimer - dtMs);
     for (const e of this.enemies) {
-      if (!e.isHarmful || !Collision.intersects(feet, e.damageBox)) continue;
+      if (!e.isHarmful || !e.damageBoxes().some((b) => Collision.intersects(feet, b))) continue;
       // EnemySeaUrchin.OnPush: the raised shield facing the urchin pushes it instead of getting hurt
       if (e.isSolid && player.isBlocking && directionOf(e.x - player.x, e.y - player.y) === player.direction) {
         const [dx, dy] = DIR_VEC[player.direction];
@@ -107,7 +116,7 @@ export class EnemyManager {
         hurt = true;
       } else if (result === 'blocked') {
         this.sound.playSfx('shield', 0.6);
-        e.takeHit(0, e.x - player.x, e.y - player.y); // bounce off the shield
+        e.shieldBounce(e.x - player.x, e.y - player.y);
       }
     }
 
@@ -117,7 +126,34 @@ export class EnemyManager {
     return hurt;
   }
 
-  /** Rocks: walls, Link (blockable by the shield) and their fade-out. Returns true if Link got hurt. */
+  private handleEvent(ev: EnemyEvent, colliders: Rect[], spawned: Enemy[]): void {
+    switch (ev.type) {
+      case 'shot': {
+        const shot = Projectile.spawn(ev.projectile, ev.x, ev.y, ev.vx, ev.vy, colliders);
+        if (!shot) return;
+        this.shots.push(shot);
+        if (ev.projectile === 'spear') this.sound.playSfx('spear_throw', 0.6);
+        return;
+      }
+      case 'spawn': {
+        const cfg = ENEMIES[ev.kind];
+        if (!cfg) return;
+        const child = createEnemy(cfg, ev.x, ev.y);
+        if (child instanceof AnimatedEnemy) child.launch(ev.vz);
+        spawned.push(child);
+        return;
+      }
+      case 'shock':
+        this.pendingShock = { ms: ev.ms, damage: ev.damage };
+        this.sound.playSfx('shock', 0.75);
+        return;
+      case 'sfx':
+        this.sound.playSfx(ev.name, 0.5);
+        return;
+    }
+  }
+
+  /** Rocks and spears: walls, Link (blockable by the shield) and their fade-out. Returns true if Link got hurt. */
   private updateShots(dtMs: number, colliders: Rect[], player: Player): boolean {
     let hurt = false;
     const feet = Collision.getPlayerCollisionBox(player.x, player.y);
@@ -141,9 +177,13 @@ export class EnemyManager {
     return hurt;
   }
 
-  /** Hit every enemy whose hittable box overlaps `area` (sword arcs, items). */
-  public hitArea(area: Rect, damage: number, fromX: number, fromY: number): number {
+  /**
+   * Hit every enemy whose hittable box overlaps `area` (sword arcs, items). Returns the number of
+   * hits and, when the blow clashed with a weapon (sword Moblin), the push to apply to Link.
+   */
+  public hitArea(area: Rect, damage: number, fromX: number, fromY: number): { hits: number; repel: [number, number] | null } {
     let hits = 0;
+    let repel: [number, number] | null = null;
     for (const shot of this.shots) {
       if (shot.despawning || !Collision.intersects(area, shot.body)) continue;
       // EnemyOctorokShot.OnHit: knocked away along the hit direction
@@ -156,13 +196,16 @@ export class EnemyManager {
       }
     }
     for (const e of this.enemies) {
-      if (!Collision.intersects(area, e.hittableBox)) continue;
-      const r = e.takeHit(damage, e.x - fromX, e.y - fromY);
+      const r = e.hitBy(area, damage, fromX, fromY);
       if (r === 'ignored') continue;
       hits++;
-      this.sound.playSfx(r === 'killed' ? 'enemy_die' : 'enemy_hit', 0.7);
+      if (r === 'repelled') {
+        this.sound.playSfx('shot_break', 0.6); // SwordPoke D360-07-07
+        const len = Math.hypot(e.x - fromX, e.y - fromY) || 1;
+        repel = [((fromX - e.x) / len) * REPEL_SPEED, ((fromY - e.y) / len) * REPEL_SPEED];
+      } else if (r !== 'absorbed') this.sound.playSfx(r === 'killed' ? 'enemy_die' : 'enemy_hit', 0.7);
     }
-    return hits;
+    return { hits, repel };
   }
 
   /** Spawns a rupee / heart pickup (bushes, chests later). */
@@ -208,11 +251,11 @@ export class EnemyManager {
   }
 
   public renderables(ctx: CanvasRenderingContext2D): { y: number; render: () => void }[] {
-    const out = this.enemies.map((e) => ({
-      y: e.y,
-      render: () => e.render(ctx, this.images.get(e.config.sprite.sheet))
-    }));
     const enemySheet = this.images.get(ENEMIES_SHEET);
+    const out = this.enemies.map((e) => ({
+      y: e.sortY,
+      render: () => e.render(ctx, enemySheet)
+    }));
     for (const shot of this.shots) out.push({ y: shot.y, render: () => shot.render(ctx, enemySheet) });
     const items = this.images.get(ITEMS_SHEET);
     for (const p of this.pickups) {

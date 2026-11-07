@@ -270,11 +270,24 @@
       "mode": 0
     }
   ],
-  "enemies": [],
-  "cuttables": [],
-  "unportedEnemies": [
-    "e5"
+  "enemies": [
+    {
+      "kind": "moblin",
+      "x": 88,
+      "y": 112
+    }
   ],
+  "cuttables": [],
+  "enemyWalls": [
+    {
+      "x": 112,
+      "y": 48,
+      "w": 16,
+      "h": 16
+    }
+  ],
+  "moveStones": [],
+  "unportedEnemies": [],
   "objects": [
     {
       "id": "door",

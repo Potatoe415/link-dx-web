@@ -98,7 +98,8 @@ Toute la construction du jeu se décompose en **4 opérateurs atomiques**. Un ag
    - Renseigner `w`, `h`, `originX`, `originY`, et calculer obligatoirement :
      $$\text{renderW} = \text{round}\left(\text{targetH} \times \frac{w}{h}, 1\right), \qquad \text{renderH} = \text{targetH}$$
      dans `src/data/animations.ts` pour interdire tout écrasement d'aspect ratio.
-   - PNJ : ajouter l'animateur `.ani` à `ANIMATORS` dans `scripts/export_npc_animations.py` puis `python scripts/export_npc_animations.py` (→ `src/data/npcAnimations.ts`, jamais édité à la main) ; déclarer le PNJ (position du manifeste, `behavior`, boîte du constructeur C#, dialogues français) dans `src/data/npcs.ts`.
+   - PNJ : ajouter l'animateur `.ani` à `NPC_ANIMATORS` dans `scripts/export_animations.py` puis `python scripts/export_animations.py` (→ `src/data/npcAnimations.ts`, jamais édité à la main) ; déclarer le PNJ (position du manifeste, `behavior`, boîte du constructeur C#, dialogues français) dans `src/data/npcs.ts`.
+   - Ennemis : ajouter l'animateur à `ENEMY_ANIMATORS` dans `scripts/export_animations.py` (→ `src/data/enemyAnimations.ts`, rectangles de collision par frame inclus) ; config dans `src/data/enemies.ts` (`behavior: 'custom'`, `ai`, `animator` + offset de l'`AnimationComponent`) ; IA dans une sous-classe de `AnimatedEnemy` (`src/entities/enemies/`) enregistrée dans `src/entities/enemies/index.ts` ; id de template dans `ENEMY_TEMPLATES` (`scripts/extract_room.py`, ancre = `EntityPosition` du constructeur C#) puis ré-extraction des écrans + `build_region.py`.
 4. **Critère de validation (`Gate C`) :** `npm run build` passe à `0` erreur.
 
 ---

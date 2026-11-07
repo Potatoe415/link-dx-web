@@ -247,6 +247,8 @@
       "sprite": "grass_0"
     }
   ],
+  "enemyWalls": [],
+  "moveStones": [],
   "unportedEnemies": [],
   "objects": [
     {

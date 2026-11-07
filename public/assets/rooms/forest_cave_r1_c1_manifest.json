@@ -233,8 +233,44 @@
       "mode": 0
     }
   ],
-  "enemies": [],
+  "enemies": [
+    {
+      "kind": "keese",
+      "x": 40,
+      "y": 56
+    },
+    {
+      "kind": "keese",
+      "x": 40,
+      "y": 104
+    },
+    {
+      "kind": "keese",
+      "x": 88,
+      "y": 56
+    },
+    {
+      "kind": "keese",
+      "x": 104,
+      "y": 56
+    }
+  ],
   "cuttables": [],
+  "enemyWalls": [],
+  "moveStones": [
+    {
+      "x": 64,
+      "y": 64,
+      "sprite": "movestone_1",
+      "directions": 5
+    },
+    {
+      "x": 80,
+      "y": 80,
+      "sprite": "movestone_1",
+      "directions": 1
+    }
+  ],
   "unportedEnemies": [],
   "objects": [
     {

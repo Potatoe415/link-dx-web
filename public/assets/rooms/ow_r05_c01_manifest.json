@@ -299,6 +299,8 @@
       "sprite": "bush_1"
     }
   ],
+  "enemyWalls": [],
+  "moveStones": [],
   "unportedEnemies": [],
   "objects": [
     {

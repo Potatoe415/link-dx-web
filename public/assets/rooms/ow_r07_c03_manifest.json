@@ -298,7 +298,18 @@
   ],
   "interactables": [],
   "doors": [],
-  "enemies": [],
+  "enemies": [
+    {
+      "kind": "moblin",
+      "x": 72,
+      "y": 48
+    },
+    {
+      "kind": "moblin",
+      "x": 88,
+      "y": 64
+    }
+  ],
   "cuttables": [
     {
       "kind": "bush",
@@ -307,9 +318,34 @@
       "sprite": "bush_1"
     }
   ],
-  "unportedEnemies": [
-    "e5"
+  "enemyWalls": [
+    {
+      "x": 48,
+      "y": 0,
+      "w": 16,
+      "h": 16
+    },
+    {
+      "x": 64,
+      "y": 0,
+      "w": 16,
+      "h": 16
+    },
+    {
+      "x": 80,
+      "y": 0,
+      "w": 16,
+      "h": 16
+    },
+    {
+      "x": 96,
+      "y": 0,
+      "w": 16,
+      "h": 16
+    }
   ],
+  "moveStones": [],
+  "unportedEnemies": [],
   "objects": [
     {
       "id": "bushForest",

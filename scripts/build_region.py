@@ -229,6 +229,15 @@ def build_room(room_id, name, cfg, texts, door_index):
         lines.append('    enemies: [')
         lines += [f"      {{ kind: '{e['kind']}', x: {e['x']}, y: {e['y']} }}," for e in m['enemies']]
         lines.append('    ],')
+    if m.get('enemyWalls'):
+        lines.append('    enemyWalls: [')
+        lines += [f'      {{ x: {x}, y: {y}, w: {w}, h: {h} }},' for x, y, w, h in merge_rects(m['enemyWalls'])]
+        lines.append('    ],')
+    if m.get('moveStones'):
+        lines.append('    moveStones: [')
+        lines += [f"      {{ x: {st['x']}, y: {st['y']}, sprite: '{st['sprite']}', directions: {st['directions']} }},"
+                  for st in m['moveStones']]
+        lines.append('    ],')
     if m.get('unportedEnemies'):
         print(f"  ! {room_id}: enemies not ported yet: {', '.join(m['unportedEnemies'])}")
     inter = build_interactables(m, cfg, texts)

@@ -213,11 +213,22 @@
   "groundZones": [],
   "interactables": [],
   "doors": [],
-  "enemies": [],
-  "cuttables": [],
-  "unportedEnemies": [
-    "e5"
+  "enemies": [
+    {
+      "kind": "moblin",
+      "x": 88,
+      "y": 64
+    },
+    {
+      "kind": "moblin",
+      "x": 88,
+      "y": 96
+    }
   ],
+  "cuttables": [],
+  "enemyWalls": [],
+  "moveStones": [],
+  "unportedEnemies": [],
   "objects": [
     {
       "id": "enemy_respawner",

@@ -1,14 +1,18 @@
-import { RoomDef } from '../data/rooms';
+import { Rect, RoomDef } from '../data/rooms';
 import { PropInstance } from '../entities/Prop';
 import { Collision } from './Collision';
 
-/** AABB debug view (key C): red = static walls, violet = NPC colliders, cyan = warps, green = Link's feet; ground zones underneath. */
+/**
+ * AABB debug view (key C): red = static walls and push blocks, orange dashed = enemy-only walls,
+ * violet = NPC colliders, cyan = warps, green = Link's feet; ground zones underneath.
+ */
 export function renderCollidersDebug(
   ctx: CanvasRenderingContext2D,
   room: RoomDef,
   props: PropInstance[],
   playerX: number,
-  playerY: number
+  playerY: number,
+  dynamicWalls: Rect[] = []
 ): void {
   ctx.save();
   ctx.lineWidth = 0.5;
@@ -33,7 +37,10 @@ export function renderCollidersDebug(
   for (const [kind, [fill, stroke]] of Object.entries(zoneColors)) {
     drawBoxes(fill, stroke, (room.groundZones ?? []).filter((z) => z.kind === kind));
   }
-  drawBoxes('rgba(239, 68, 68, 0.45)', '#ef4444', room.colliders);
+  drawBoxes('rgba(239, 68, 68, 0.45)', '#ef4444', [...room.colliders, ...dynamicWalls]);
+  ctx.setLineDash([1, 1]);
+  drawBoxes('rgba(249, 115, 22, 0.15)', '#f97316', room.enemyWalls ?? []);
+  ctx.setLineDash([]);
   drawBoxes(
     'rgba(168, 85, 247, 0.45)',
     '#a855f7',

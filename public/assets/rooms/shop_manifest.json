@@ -230,6 +230,8 @@
   ],
   "enemies": [],
   "cuttables": [],
+  "enemyWalls": [],
+  "moveStones": [],
   "unportedEnemies": [],
   "objects": [
     {

@@ -311,7 +311,18 @@
   "groundZones": [],
   "interactables": [],
   "doors": [],
-  "enemies": [],
+  "enemies": [
+    {
+      "kind": "moblin",
+      "x": 40,
+      "y": 80
+    },
+    {
+      "kind": "moblin",
+      "x": 104,
+      "y": 80
+    }
+  ],
   "cuttables": [
     {
       "kind": "bush",
@@ -356,9 +367,9 @@
       "sprite": "bush_1"
     }
   ],
-  "unportedEnemies": [
-    "e5"
-  ],
+  "enemyWalls": [],
+  "moveStones": [],
+  "unportedEnemies": [],
   "objects": [
     {
       "id": "bushForest",

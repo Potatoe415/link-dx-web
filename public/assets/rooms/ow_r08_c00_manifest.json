@@ -187,6 +187,8 @@
   "doors": [],
   "enemies": [],
   "cuttables": [],
+  "enemyWalls": [],
+  "moveStones": [],
   "unportedEnemies": [],
   "objects": [
     {

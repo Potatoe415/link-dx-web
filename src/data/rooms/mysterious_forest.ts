@@ -37,6 +37,10 @@ export const MYSTERIOUS_FOREST_ROOMS: Record<string, RoomDef> = {
       { kind: 'bush', x: 64, y: 80, sprite: 'bush_1' },
       { kind: 'bush', x: 80, y: 80, sprite: 'bush_1' },
     ],
+    enemies: [
+      { kind: 'moblin', x: 72, y: 48 },
+      { kind: 'moblin', x: 104, y: 96 },
+    ],
     props: []
   },
 
@@ -73,6 +77,9 @@ export const MYSTERIOUS_FOREST_ROOMS: Record<string, RoomDef> = {
       { kind: 'bush', x: 48, y: 48, sprite: 'bush_1' },
       { kind: 'bush', x: 64, y: 64, sprite: 'bush_1' },
       { kind: 'bush', x: 80, y: 48, sprite: 'bush_1' },
+    ],
+    enemyWalls: [
+      { x: 48, y: 112, w: 64, h: 16 },
     ],
     interactables: [
       { kind: 'chest', id: "dkey1Collected", x: 64, y: 48, contents: { type: 'questKey', key: 'tail' } },
@@ -115,6 +122,14 @@ export const MYSTERIOUS_FOREST_ROOMS: Record<string, RoomDef> = {
       { x: 0, y: 116, w: 16, h: 12 },
       { x: 112, y: 116, w: 48, h: 12 },
     ],
+    enemies: [
+      { kind: 'redZol', x: 72, y: 93 },
+      { kind: 'redZol', x: 88, y: 77 },
+      { kind: 'moblin', x: 120, y: 80 },
+    ],
+    enemyWalls: [
+      { x: 48, y: 48, w: 16, h: 16 },
+    ],
     props: []
   },
 
@@ -144,6 +159,10 @@ export const MYSTERIOUS_FOREST_ROOMS: Record<string, RoomDef> = {
       { x: 0, y: 84, w: 16, h: 27 },
       { x: 32, y: 96, w: 96, h: 16 },
       { x: 0, y: 116, w: 160, h: 12 },
+    ],
+    enemies: [
+      { kind: 'moblin', x: 56, y: 64 },
+      { kind: 'moblin', x: 88, y: 96 },
     ],
     props: []
   },
@@ -176,6 +195,9 @@ export const MYSTERIOUS_FOREST_ROOMS: Record<string, RoomDef> = {
       { kind: 'bush', x: 48, y: 32, sprite: 'bush_1' },
       { kind: 'bush', x: 48, y: 48, sprite: 'bush_1' },
       { kind: 'bush', x: 48, y: 64, sprite: 'bush_1' },
+    ],
+    enemyWalls: [
+      { x: 128, y: 32, w: 16, h: 16 },
     ],
     props: []
   },
@@ -248,6 +270,10 @@ export const MYSTERIOUS_FOREST_ROOMS: Record<string, RoomDef> = {
       { x: 80, y: 112, w: 80, h: 16 },
       { x: 0, y: 116, w: 16, h: 12 },
     ],
+    enemies: [
+      { kind: 'moblinSword', x: 40, y: 80 },
+      { kind: 'moblin', x: 88, y: 80 },
+    ],
     props: []
   },
 
@@ -312,6 +338,10 @@ export const MYSTERIOUS_FOREST_ROOMS: Record<string, RoomDef> = {
       { x: 128, y: 96, w: 32, h: 16 },
       { x: 16, y: 116, w: 32, h: 12 },
     ],
+    enemies: [
+      { kind: 'moblin', x: 88, y: 64 },
+      { kind: 'moblin', x: 88, y: 96 },
+    ],
     props: []
   },
 
@@ -346,6 +376,13 @@ export const MYSTERIOUS_FOREST_ROOMS: Record<string, RoomDef> = {
     cuttables: [
       { kind: 'bush', x: 96, y: 48, sprite: 'bush_1' },
     ],
+    enemies: [
+      { kind: 'moblin', x: 56, y: 48 },
+      { kind: 'moblin', x: 72, y: 64 },
+    ],
+    enemyWalls: [
+      { x: 48, y: 0, w: 64, h: 16 },
+    ],
     props: []
   },
 
@@ -377,6 +414,12 @@ export const MYSTERIOUS_FOREST_ROOMS: Record<string, RoomDef> = {
       { x: 16, y: 112, w: 16, h: 16 },
       { x: 48, y: 112, w: 112, h: 16 },
       { x: 0, y: 116, w: 16, h: 12 },
+    ],
+    enemies: [
+      { kind: 'moblin', x: 88, y: 112 },
+    ],
+    enemyWalls: [
+      { x: 112, y: 48, w: 16, h: 16 },
     ],
     interactables: [
       { kind: 'sign', id: "signpostWoods_88_60", x: 88, y: 60, pages: ["Attention aux sols fissurés ! Une personne lourde ne devrait pas s'y tenir !"], sprite: 'signpost_1', requiredDirection: 1 },
@@ -421,6 +464,9 @@ export const MYSTERIOUS_FOREST_ROOMS: Record<string, RoomDef> = {
       { kind: 'bush', x: 80, y: 48, sprite: 'bush_1' },
       { kind: 'bush', x: 80, y: 64, sprite: 'bush_1' },
     ],
+    enemies: [
+      { kind: 'moblin', x: 120, y: 64 },
+    ],
     props: []
   },
 
@@ -451,6 +497,10 @@ export const MYSTERIOUS_FOREST_ROOMS: Record<string, RoomDef> = {
       { x: 144, y: 100, w: 16, h: 28 },
       { x: 0, y: 116, w: 64, h: 12 },
       { x: 128, y: 116, w: 32, h: 12 },
+    ],
+    enemies: [
+      { kind: 'moblin', x: 104, y: 64 },
+      { kind: 'moblin', x: 120, y: 48 },
     ],
     props: []
   },
@@ -486,6 +536,11 @@ export const MYSTERIOUS_FOREST_ROOMS: Record<string, RoomDef> = {
       { x: 128, y: 100, w: 32, h: 28 },
       { x: 0, y: 116, w: 128, h: 12 },
       { x: 144, y: 116, w: 16, h: 12 },
+    ],
+    enemies: [
+      { kind: 'moblin', x: 40, y: 48 },
+      { kind: 'redZol', x: 40, y: 77 },
+      { kind: 'redZol', x: 104, y: 109 },
     ],
     props: []
   },
@@ -529,6 +584,10 @@ export const MYSTERIOUS_FOREST_ROOMS: Record<string, RoomDef> = {
       { kind: 'bush', x: 112, y: 64, sprite: 'bush_1' },
       { kind: 'bush', x: 112, y: 80, sprite: 'bush_1' },
     ],
+    enemies: [
+      { kind: 'moblin', x: 40, y: 80 },
+      { kind: 'moblin', x: 104, y: 80 },
+    ],
     props: []
   },
 
@@ -567,6 +626,13 @@ export const MYSTERIOUS_FOREST_ROOMS: Record<string, RoomDef> = {
     ],
     cuttables: [
       { kind: 'bush', x: 64, y: 48, sprite: 'bush_1' },
+    ],
+    enemies: [
+      { kind: 'moblin', x: 72, y: 48 },
+      { kind: 'moblin', x: 88, y: 64 },
+    ],
+    enemyWalls: [
+      { x: 48, y: 0, w: 64, h: 16 },
     ],
     props: []
   },
@@ -638,6 +704,9 @@ export const MYSTERIOUS_FOREST_ROOMS: Record<string, RoomDef> = {
     groundZones: [
       { kind: 'deepWater', x: 32, y: 48, w: 48, h: 32 },
       { kind: 'deepWater', x: 48, y: 80, w: 32, h: 16 },
+    ],
+    enemies: [
+      { kind: 'buzzBlob', x: 120, y: 64 },
     ],
     props: []
   },
@@ -765,6 +834,9 @@ export const MYSTERIOUS_FOREST_ROOMS: Record<string, RoomDef> = {
       { x: 16, y: 112, w: 56, h: 16 },
       { x: 88, y: 112, w: 56, h: 16 },
     ],
+    enemyWalls: [
+      { x: 72, y: 112, w: 16, h: 16 },
+    ],
     interactables: [
       { kind: 'sign', id: "sign_32_8", x: 32, y: 8, pages: ["Link fouille la commode.\nOh ! C'est une bien jolie commode !"], requiredDirection: 1 },
     ],
@@ -797,6 +869,24 @@ export const MYSTERIOUS_FOREST_ROOMS: Record<string, RoomDef> = {
       { x: 32, y: 112, w: 40, h: 16 },
       { x: 88, y: 112, w: 40, h: 16 },
     ],
+    moveStones: [
+      { x: 16, y: 16, sprite: 'movestone_1', directions: -1 },
+      { x: 16, y: 64, sprite: 'movestone_1', directions: -1 },
+      { x: 32, y: 80, sprite: 'movestone_1', directions: -1 },
+      { x: 32, y: 96, sprite: 'movestone_1', directions: -1 },
+      { x: 48, y: 32, sprite: 'movestone_1', directions: 0 },
+      { x: 48, y: 64, sprite: 'movestone_1', directions: -1 },
+      { x: 48, y: 80, sprite: 'movestone_1', directions: -1 },
+      { x: 64, y: 16, sprite: 'movestone_1', directions: 0 },
+      { x: 64, y: 64, sprite: 'movestone_1', directions: -1 },
+      { x: 80, y: 48, sprite: 'movestone_1', directions: -1 },
+      { x: 96, y: 32, sprite: 'movestone_1', directions: -1 },
+      { x: 96, y: 64, sprite: 'movestone_1', directions: -1 },
+      { x: 112, y: 32, sprite: 'movestone_1', directions: -1 },
+      { x: 112, y: 48, sprite: 'movestone_1', directions: -1 },
+      { x: 112, y: 80, sprite: 'movestone_1', directions: -1 },
+      { x: 128, y: 64, sprite: 'movestone_1', directions: -1 },
+    ],
     interactables: [
       { kind: 'item', id: "cave1_heartMeter", x: 48, y: 48, item: 'heartPiece' },
     ],
@@ -821,6 +911,10 @@ export const MYSTERIOUS_FOREST_ROOMS: Record<string, RoomDef> = {
       { x: 80, y: 48, w: 16, h: 80 },
       { x: 0, y: 64, w: 48, h: 16 },
       { x: 48, y: 80, w: 16, h: 48 },
+    ],
+    enemies: [
+      { kind: 'greenZol', x: 56, y: 61 },
+      { kind: 'greenZol', x: 72, y: 77 },
     ],
     props: []
   },
@@ -848,6 +942,16 @@ export const MYSTERIOUS_FOREST_ROOMS: Record<string, RoomDef> = {
       { x: 96, y: 96, w: 48, h: 16 },
       { x: 16, y: 112, w: 56, h: 16 },
       { x: 88, y: 112, w: 24, h: 16 },
+    ],
+    enemies: [
+      { kind: 'keese', x: 40, y: 56 },
+      { kind: 'keese', x: 40, y: 104 },
+      { kind: 'keese', x: 88, y: 56 },
+      { kind: 'keese', x: 104, y: 56 },
+    ],
+    moveStones: [
+      { x: 64, y: 64, sprite: 'movestone_1', directions: 5 },
+      { x: 80, y: 80, sprite: 'movestone_1', directions: 1 },
     ],
     interactables: [
       { kind: 'chest', id: "cave1chest", x: 64, y: 48, contents: { type: 'rupees', amount: 50 } },

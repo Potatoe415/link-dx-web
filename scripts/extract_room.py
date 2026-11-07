@@ -251,7 +251,28 @@ ENEMY_TEMPLATES = {
     'e2': ('octorok', (8, 12)),  # EnemyOctorok: EntityPosition = (posX + 8, posY + 12)
     'e3': ('leever', (8, 16)),  # EnemyLeever
     'e4': ('crab', (8, 16)),  # EnemyCrab
+    'e5': ('moblin', (8, 16)),  # EnemyMoblin
+    'moblinSword': ('moblinSword', (8, 16)),  # EnemyMoblinSword
+    'e9': ('greenZol', (8, 13)),  # EnemyGreenZol: (posX + 8, posY + 13)
+    'e10': ('keese', (8, 24)),  # EnemyKeese: (posX + 8, posY + 24), boxes 20 px up (flying)
+    'e15': ('redZol', (8, 13)),  # EnemyRedZol: (posX + 8, posY + 13)
+    'e17': ('buzzBlob', (8, 16)),  # EnemyBuzzBlob
 }
+
+# Walls only enemies respect: ObjCollider(NPCWall) `enemyWall` Rectangle(0, 0, 16, 16)
+ENEMY_WALLS = {'enemyWall': (0, 0, 16, 16)}
+
+# Push blocks: ObjMoveStone templates (id -> spriteId); param 0 overrides the direction mask (default 15)
+MOVE_STONES = {'moveStone': 'movestone_0', 'moveStoneCave': 'movestone_1', 'moveStoneFrogHouse': 'movestone_2',
+               'moveStoneD3': 'movestone_3'}
+
+
+def compute_move_stone(obj, lx, ly):
+    if obj['id'] not in MOVE_STONES or not (0 <= lx < 160 and 0 <= ly < 128):
+        return None
+    p = obj['params']
+    mask = int(p[0]) if p and p[0].lstrip('-').isdigit() else 15
+    return {'x': lx, 'y': ly, 'sprite': MOVE_STONES[obj['id']], 'directions': -1 if mask == 15 else mask}
 
 
 def compute_enemy_spawn(obj, lx, ly):
@@ -389,6 +410,8 @@ def extract_room(map_name, screen_col, screen_row, out_id, out_dir, offset_px_x=
     doors = []
     enemy_spawns = []
     cuttables = []
+    enemy_walls = []
+    move_stones = []
     unported_enemies = set()
     for obj in parsed['objects']:
         lx = obj['mapX'] - world_px_x
@@ -407,6 +430,13 @@ def extract_room(map_name, screen_col, screen_row, out_id, out_dir, offset_px_x=
             if obj['id'] in CUTTABLE and 0 <= lx < 160 and 0 <= ly < 128:
                 kind, sprite_id = CUTTABLE[obj['id']]
                 cuttables.append({'kind': kind, 'x': lx, 'y': ly, 'sprite': sprite_id})
+
+            if obj['id'] in ENEMY_WALLS and 0 <= lx < 160 and 0 <= ly < 128:
+                ox, oy, w, h = ENEMY_WALLS[obj['id']]
+                enemy_walls.append({'x': lx + ox, 'y': ly + oy, 'w': w, 'h': h})
+            stone = compute_move_stone(obj, lx, ly)
+            if stone:
+                move_stones.append(stone)
 
             spawn = compute_enemy_spawn(obj, lx, ly)
             if spawn:
@@ -531,6 +561,8 @@ def extract_room(map_name, screen_col, screen_row, out_id, out_dir, offset_px_x=
         'doors': doors,
         'enemies': enemy_spawns,
         'cuttables': cuttables,
+        'enemyWalls': enemy_walls,
+        'moveStones': move_stones,
         'unportedEnemies': sorted(unported_enemies),
         'objects': [o for o in local_objects if o['category'] != 'collider'],
         'tiles': room_tiles,
