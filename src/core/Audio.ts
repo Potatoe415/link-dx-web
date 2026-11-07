@@ -32,7 +32,8 @@ export type SfxName =
   | 'bush_cut'
   | 'shot_break'
   | 'urchin_push'
-  | 'owl_fly';
+  | 'owl_fly'
+  | 'bowwow_yip';
 
 /**
  * Music tracks rendered from awakening.gbs by scripts/export_gbs_audio.py (song numbers in that script).
@@ -135,7 +136,8 @@ export class SoundManager {
       bush_cut: '/assets/audio/sfx_bush_cut.wav', // D378-05-05
       shot_break: '/assets/audio/sfx_shot_break.wav', // D360-07-07 (EnemyOctorokShot despawn)
       urchin_push: '/assets/audio/sfx_urchin_push.wav', // D360-62-3E (EnemySeaUrchin pushed by the shield)
-      owl_fly: '/assets/audio/sfx_owl_fly.wav' // D378-45-2D (ObjOwl gliding in)
+      owl_fly: '/assets/audio/sfx_owl_fly.wav', // D378-45-2D (ObjOwl gliding in)
+      bowwow_yip: '/assets/audio/sfx_bowwow_yip.wav' // D370-24-18 (ObjBowWowSmall / ObjBowWow bark)
     };
 
     for (const [key, url] of Object.entries(sfxFiles) as [SfxName, string][]) {

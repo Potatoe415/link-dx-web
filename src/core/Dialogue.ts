@@ -204,14 +204,14 @@ export class DialogueSystem {
    */
   public renderProximityIndicator(
     ctx: CanvasRenderingContext2D,
-    npc: PropInstance | null,
+    npc: { x: number; y: number } | null,
     scale: number
   ): void {
     if (this.active || !npc) return;
 
     const bobOffset = Math.sin(this.blinkTimer * 0.006) * 4;
-    const screenX = npc.data.x * scale;
-    const screenY = (npc.data.y - 24) * scale + bobOffset;
+    const screenX = npc.x * scale;
+    const screenY = (npc.y - 24) * scale + bobOffset;
 
     ctx.save();
 

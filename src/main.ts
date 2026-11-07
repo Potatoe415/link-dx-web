@@ -19,6 +19,7 @@ import { BushSystem } from './entities/Bushes';
 import { Owl } from './entities/Owl';
 import { OWLS } from './data/owls';
 import { GameOverScreen } from './core/GameOver';
+import { NpcSystem } from './entities/NpcSystem';
 
 export class GameEngine {
   private ctx: CanvasRenderingContext2D;
@@ -41,6 +42,7 @@ export class GameEngine {
   private interactables: InteractableSystem;
   private enemies: EnemyManager;
   private bushes: BushSystem;
+  private npcs: NpcSystem;
   private owl: Owl | null = null;
   private gameOver: GameOverScreen;
 
@@ -68,6 +70,7 @@ export class GameEngine {
     this.interactables = new InteractableSystem(this.game, this.images, this.sound, this.dialogue);
     this.enemies = new EnemyManager(this.game, this.images, this.sound);
     this.bushes = new BushSystem(this.images, this.sound);
+    this.npcs = new NpcSystem(this.game, this.images, this.sound, this.dialogue);
     this.gameOver = new GameOverScreen(this.images);
     this.scroller = new ScreenScroll(this.camera, (key, props, x, y) => {
       this.initRoom(key, props);
@@ -97,6 +100,7 @@ export class GameEngine {
       } else {
         const nearby = this.dialogue.findNearbyNPC(this.player, this.props);
         if (nearby) this.dialogue.startDialogue(nearby, this.player);
+        else this.npcs.tryTalk(this.player);
       }
     });
   }
@@ -119,6 +123,7 @@ export class GameEngine {
     this.interactables?.setRoom(roomKey, this.currentRoom.interactables);
     this.enemies?.setRoom(this.currentRoom.enemies);
     this.bushes?.setRoom(this.currentRoom.cuttables);
+    this.npcs?.setRoom(roomKey);
     this.setupOwl();
     if (previous && previous.ambience !== this.currentRoom.ambience) this.particles.clear();
     this.sound.playMusic(this.currentRoom.music);
@@ -225,7 +230,8 @@ export class GameEngine {
     const allColliders: Rect[] = [
       ...this.currentRoom.colliders,
       ...this.interactables.colliders(),
-      ...this.bushes.colliders()
+      ...this.bushes.colliders(),
+      ...this.npcs.colliders()
     ];
     for (const prop of this.props) {
       if (prop.data.collision) allColliders.push(prop.data.collision);
@@ -244,6 +250,7 @@ export class GameEngine {
       for (const d of this.bushes.cut(swordHit.area).drops) this.enemies.addPickup(d.kind, d.x, d.y);
     }
     this.bushes.update(dtMs);
+    this.npcs.update(dtMs, this.player, [...this.currentRoom.colliders, ...this.interactables.colliders(), ...this.bushes.colliders()]);
     this.enemies.update(dtMs, allColliders, this.player, ground);
     const picked = this.interactables.checkPickups(this.player);
     if (picked?.item === 'sword') {
@@ -272,6 +279,7 @@ export class GameEngine {
       this.refreshStats();
       return true;
     }
+    if (this.npcs.tryTalk(this.player)) return true;
     const canAct = this.player.state === 'IDLE' || this.player.state === 'WALKING';
     return canAct && this.interactables.tryInteract(this.player);
   }
@@ -395,6 +403,7 @@ export class GameEngine {
         ...this.interactables.renderables(ctx),
         ...this.enemies.renderables(ctx),
         ...this.bushes.renderables(ctx),
+        ...this.npcs.renderables(ctx),
         ...this.owlRenderables(ctx)
       ], () => this.bushes.renderGround(ctx));
       if (dying) {
@@ -413,8 +422,8 @@ export class GameEngine {
 
     // NPC proximity indicator & dialogue box (1280x1024 screen space)
     if (!this.scroller.pending) {
-      const nearbyNPC = this.dialogue.findNearbyNPC(this.player, this.props);
-      this.dialogue.renderProximityIndicator(ctx, nearbyNPC, scale);
+      const prop = this.dialogue.findNearbyNPC(this.player, this.props);
+      this.dialogue.renderProximityIndicator(ctx, prop ? prop.data : this.npcs.nearby(this.player), scale);
     }
     this.dialogue.renderDialogueBox(ctx, canvas.width, canvas.height);
     this.inventory.render(ctx, canvas.width, canvas.height);
