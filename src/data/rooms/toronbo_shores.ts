@@ -15,7 +15,9 @@ export const TORONBO_SHORES_ROOMS: Record<string, RoomDef> = {
     ambience: "outdoor",
     neighbors: { north: "ow_r10_c00", south: "ow_r12_c00", east: "ow_r11_c01" },
     spawnPoint: { x: 80, y: 72, direction: 3 },
-    warpTriggers: [],
+    warpTriggers: [
+      { triggerBox: { x: 48, y: 32, w: 16, h: 16 }, targetRoom: "library", targetX: 80, targetY: 116, targetDirection: 1, requiredDirection: 1 },
+    ],
     colliders: [
       { x: 16, y: 0, w: 16, h: 16 },
       { x: 144, y: 0, w: 16, h: 16 },

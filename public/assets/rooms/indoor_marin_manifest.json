@@ -19,7 +19,7 @@
     "w": 1280,
     "h": 1024
   },
-  "musicTrackId": 3,
+  "musicTrackId": 9,
   "neighbors": {
     "north": null,
     "south": null,
@@ -308,6 +308,34 @@
       "source": "pot2"
     }
   ],
+  "groundZones": [],
+  "interactables": [
+    {
+      "kind": "sign",
+      "id": "sign_112_8",
+      "x": 112,
+      "y": 8,
+      "textKey": "tarin_chest",
+      "sprite": null,
+      "requiredDirection": null
+    }
+  ],
+  "doors": [
+    {
+      "x": 72,
+      "y": 120,
+      "w": 16,
+      "h": 8,
+      "entryId": "h1",
+      "nextMap": "overworld.map",
+      "exitId": "h1",
+      "direction": 1,
+      "mode": 0
+    }
+  ],
+  "enemies": [],
+  "cuttables": [],
+  "unportedEnemies": [],
   "objects": [
     {
       "id": "door",

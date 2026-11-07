@@ -11,15 +11,19 @@ copied verbatim (the engine ignores neighbors that are not registered in ROOMS).
 """
 
 import argparse
+import glob
 import json
 import os
 import sys
 
 ROOMS_DIR = os.path.join('public', 'assets', 'rooms')
-TEXT_FR = os.path.join('scripts', 'regions', 'text_fr.json')
+REGIONS_DIR = os.path.join('scripts', 'regions')
+TEXT_FR = os.path.join(REGIONS_DIR, 'text_fr.json')
 
 # Overworld zone song numbers (musicOverworld.data, read by extract_room.py) -> MusicTrack keys in src/core/Audio.ts
 OVERWORLD_MUSIC = {3: 'outdoor', 4: 'overworld', 5: 'mountain', 7: 'animal_village', 8: 'forest', 10: 'desert'}
+# Indoor/dungeon ObjMusic song numbers -> MusicTrack keys (song list in scripts/export_gbs_audio.py)
+MAP_MUSIC = {1: 'minigame', 6: 'shop', 9: 'house', 37: 'cave', 50: 'helphouse'}
 
 # Original chest item ids (ItemManager.cs) -> ChestContents
 CHEST_RUPEES = {'ruby5': 5, 'ruby10': 10, 'ruby20': 20, 'ruby30': 30, 'ruby50': 50, 'ruby100': 100, 'ruby200': 200}
@@ -98,13 +102,69 @@ def merge_zones(zones):
 
 
 def room_music(m, cfg):
-    """Region config `music` wins; otherwise overworld screens use their musicOverworld.data zone."""
+    """Region config `music` wins; otherwise overworld screens use their musicOverworld.data zone and
+    other maps their ObjMusic song."""
     if cfg.get('music'):
         return cfg['music']
-    track = OVERWORLD_MUSIC.get(m.get('musicTrackId')) if m.get('sourceMap') == 'overworld.map' else None
+    table = OVERWORLD_MUSIC if m.get('sourceMap') == 'overworld.map' else MAP_MUSIC
+    track = table.get(m.get('musicTrackId'))
     if not track:
         sys.exit(f"{m['roomId']}: no music (set `music` in the region config or map song {m.get('musicTrackId')})")
     return track
+
+
+def load_door_index():
+    """(sourceMap, entryId) -> (roomId, door) over every room listed in a region config, so door warps
+    only target rooms that are actually registered (hand-tuned rooms wire their doors by hand)."""
+    index = {}
+    for path in glob.glob(os.path.join(REGIONS_DIR, '*.json')):
+        if os.path.abspath(path) == os.path.abspath(TEXT_FR):
+            continue
+        with open(path, encoding='utf-8') as f:
+            rooms = json.load(f)['rooms']
+        for room_id in rooms:
+            mpath = os.path.join(ROOMS_DIR, f'{room_id}_manifest.json')
+            if not os.path.exists(mpath):
+                continue
+            with open(mpath, encoding='utf-8') as f:
+                m = json.load(f)
+            for door in m.get('doors') or []:
+                if door['entryId']:
+                    index[(m['sourceMap'], door['entryId'])] = (room_id, door)
+    return index
+
+
+def door_arrival(door):
+    """ObjDoor.PlacePlayer (mode 0): Link is placed just outside the door rectangle on its `direction`
+    side. There is no walk-in animation here, so he stands 4 px clear of the return trigger
+    (AGENT_FACTORY_PROTOCOL anti-loop rule). Returns (x, y, facing) in feet-anchor coordinates."""
+    x, y, w, h, d = door['x'], door['y'], door['w'], door['h'], door['direction']
+    if d == 1:  # interior doors in the bottom wall: Link walks in facing Up
+        return x + w / 2, y - 4, 1
+    if d == 3:  # overworld house doors: Link steps out facing Down (8 px feet box + 4 px margin)
+        return x + w / 2, y + h + 12, 3
+    if d == 0:
+        return x - 8, y + h / 2 + 4, 0
+    return x + w + 8, y + h / 2 + 4, 2
+
+
+def build_warps(m, door_index):
+    out = []
+    for door in m.get('doors') or []:
+        if door['mode'] != 0 or not door['nextMap'] or not door['exitId']:
+            continue  # stairs / falls / swim doors: not ported yet
+        target = door_index.get((door['nextMap'], door['exitId']))
+        if not target:
+            print(f"  ! {m['roomId']}: door '{door['entryId']}' -> {door['nextMap']}#{door['exitId']} has no registered room")
+            continue
+        target_id, target_door = target
+        tx, ty, tdir = door_arrival(target_door)
+        # Link must walk into the door, i.e. face away from the side he is placed on when arriving
+        required = (door['direction'] + 2) % 4
+        box = f"{{ x: {door['x']}, y: {door['y']}, w: {door['w']}, h: {door['h']} }}"
+        out.append(f"      {{ triggerBox: {box}, targetRoom: {ts_string(target_id)}, targetX: {tx:g}, targetY: {ty:g}, "
+                   f"targetDirection: {tdir}, requiredDirection: {required} }},")
+    return out
 
 
 def ts_string(s):
@@ -112,12 +172,13 @@ def ts_string(s):
     return json.dumps(s, ensure_ascii=False)
 
 
-def build_room(room_id, name, cfg, texts):
+def build_room(room_id, name, cfg, texts, door_index):
     path = os.path.join(ROOMS_DIR, f'{room_id}_manifest.json')
     with open(path, encoding='utf-8') as f:
         m = json.load(f)
 
     neighbors = {k: v for k, v in (m.get('neighbors') or {}).items() if v}
+    neighbors.update((cfg.get('neighbors') or {}).get(room_id, {}))  # multi-screen interiors
     colliders = merge_rects(m['colliders'])
     bg = f'/assets/rooms/{room_id}_bg_pixel.png'
     ghibli = f'/assets/rooms/{room_id}_bg.png'
@@ -136,11 +197,17 @@ def build_room(room_id, name, cfg, texts):
     if cfg.get('ambience'):
         lines.append(f'    ambience: {ts_string(cfg["ambience"])},')
     lines.append('    neighbors: { ' + ', '.join(f'{k}: {ts_string(v)}' for k, v in neighbors.items()) + ' },')
-    lines += [
-        '    spawnPoint: { x: 80, y: 72, direction: 3 },',
-        '    warpTriggers: [],',
-        '    colliders: [',
-    ]
+    warps = build_warps(m, door_index)
+    own_door = next((d for d in m.get('doors') or [] if d['mode'] == 0 and d['nextMap']), None)
+    spawn = door_arrival(own_door) if own_door and m.get('sourceMap') != 'overworld.map' else (80, 72, 3)
+    lines.append(f'    spawnPoint: {{ x: {spawn[0]:g}, y: {spawn[1]:g}, direction: {spawn[2]} }},')
+    if warps:
+        lines.append('    warpTriggers: [')
+        lines += warps
+        lines.append('    ],')
+    else:
+        lines.append('    warpTriggers: [],')
+    lines.append('    colliders: [')
     lines += [f'      {{ x: {x}, y: {y}, w: {w}, h: {h} }},' for x, y, w, h in colliders]
     lines.append('    ],')
     zones = merge_zones(m.get('groundZones') or [])
@@ -181,7 +248,8 @@ def main():
 
     with open(TEXT_FR, encoding='utf-8') as f:
         texts = {k: v for k, v in json.load(f).items() if not k.startswith('_')}
-    blocks = [build_room(rid, name, cfg, texts) for rid, name in cfg['rooms'].items()]
+    door_index = load_door_index()
+    blocks = [build_room(rid, name, cfg, texts, door_index) for rid, name in cfg['rooms'].items()]
     out = '\n'.join([
         f'// AUTO-GENERATED by scripts/build_region.py from {args.config.replace(os.sep, "/")} — do not edit by hand.',
         f'// {cfg.get("comment", "")}',

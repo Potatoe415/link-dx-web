@@ -1,0 +1,926 @@
+{
+  "roomId": "ulrira",
+  "sourceMap": "house2.map",
+  "screenCol": 0,
+  "screenRow": 0,
+  "tileOrigin": {
+    "col": 0,
+    "row": 0
+  },
+  "worldPixelOrigin": {
+    "x": 0,
+    "y": 0
+  },
+  "logicalSize": {
+    "w": 160,
+    "h": 128
+  },
+  "displaySize": {
+    "w": 1280,
+    "h": 1024
+  },
+  "musicTrackId": 50,
+  "neighbors": {
+    "north": null,
+    "south": null,
+    "west": null,
+    "east": null
+  },
+  "colliders": [
+    {
+      "x": 0,
+      "y": 16,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 0,
+      "y": 32,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 0,
+      "y": 48,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 0,
+      "y": 64,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 0,
+      "y": 80,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 0,
+      "y": 96,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 16,
+      "y": 0,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 16,
+      "y": 112,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 32,
+      "y": 112,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 48,
+      "y": 112,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 96,
+      "y": 112,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 112,
+      "y": 112,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 128,
+      "y": 0,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 128,
+      "y": 112,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 144,
+      "y": 16,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 144,
+      "y": 32,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 144,
+      "y": 48,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 144,
+      "y": 64,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 144,
+      "y": 80,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 144,
+      "y": 96,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 64,
+      "y": 112,
+      "w": 8,
+      "h": 16,
+      "source": "c3"
+    },
+    {
+      "x": 88,
+      "y": 112,
+      "w": 8,
+      "h": 16,
+      "source": "c4"
+    },
+    {
+      "x": 32,
+      "y": 14,
+      "w": 16,
+      "h": 8,
+      "source": "c5"
+    },
+    {
+      "x": 48,
+      "y": 14,
+      "w": 16,
+      "h": 8,
+      "source": "c5"
+    },
+    {
+      "x": 64,
+      "y": 14,
+      "w": 16,
+      "h": 8,
+      "source": "c5"
+    },
+    {
+      "x": 80,
+      "y": 14,
+      "w": 16,
+      "h": 8,
+      "source": "c5"
+    },
+    {
+      "x": 96,
+      "y": 14,
+      "w": 16,
+      "h": 8,
+      "source": "c5"
+    },
+    {
+      "x": 112,
+      "y": 14,
+      "w": 16,
+      "h": 8,
+      "source": "c5"
+    },
+    {
+      "x": 16,
+      "y": 32,
+      "w": 16,
+      "h": 16,
+      "source": "lowCollider16"
+    },
+    {
+      "x": 16,
+      "y": 64,
+      "w": 16,
+      "h": 16,
+      "source": "lowCollider16"
+    },
+    {
+      "x": 16,
+      "y": 80,
+      "w": 16,
+      "h": 16,
+      "source": "lowCollider16"
+    },
+    {
+      "x": 16,
+      "y": 96,
+      "w": 16,
+      "h": 16,
+      "source": "lowCollider16"
+    },
+    {
+      "x": 32,
+      "y": 32,
+      "w": 16,
+      "h": 16,
+      "source": "lowCollider16"
+    },
+    {
+      "x": 96,
+      "y": 32,
+      "w": 16,
+      "h": 16,
+      "source": "lowCollider16"
+    },
+    {
+      "x": 96,
+      "y": 48,
+      "w": 16,
+      "h": 16,
+      "source": "lowCollider16"
+    },
+    {
+      "x": 112,
+      "y": 32,
+      "w": 16,
+      "h": 16,
+      "source": "lowCollider16"
+    },
+    {
+      "x": 112,
+      "y": 48,
+      "w": 16,
+      "h": 16,
+      "source": "lowCollider16"
+    },
+    {
+      "x": 128,
+      "y": 32,
+      "w": 16,
+      "h": 16,
+      "source": "lowCollider16"
+    },
+    {
+      "x": 113,
+      "y": 83,
+      "w": 14,
+      "h": 11,
+      "source": "pot2"
+    },
+    {
+      "x": 113,
+      "y": 99,
+      "w": 14,
+      "h": 11,
+      "source": "pot2"
+    },
+    {
+      "x": 129,
+      "y": 83,
+      "w": 14,
+      "h": 11,
+      "source": "pot2"
+    },
+    {
+      "x": 129,
+      "y": 99,
+      "w": 14,
+      "h": 11,
+      "source": "pot2"
+    }
+  ],
+  "groundZones": [],
+  "interactables": [
+    {
+      "kind": "sign",
+      "id": "sign_32_8",
+      "x": 32,
+      "y": 8,
+      "textKey": "npc_house_chest",
+      "sprite": null,
+      "requiredDirection": null
+    },
+    {
+      "kind": "sign",
+      "id": "sign_32_32",
+      "x": 32,
+      "y": 32,
+      "textKey": "ulrira_telephone",
+      "sprite": null,
+      "requiredDirection": null
+    },
+    {
+      "kind": "sign",
+      "id": "sign_48_8",
+      "x": 48,
+      "y": 8,
+      "textKey": "npc_house_chest",
+      "sprite": null,
+      "requiredDirection": null
+    },
+    {
+      "kind": "sign",
+      "id": "sign_64_8",
+      "x": 64,
+      "y": 8,
+      "textKey": "npc_house_chest",
+      "sprite": null,
+      "requiredDirection": null
+    },
+    {
+      "kind": "sign",
+      "id": "sign_80_8",
+      "x": 80,
+      "y": 8,
+      "textKey": "npc_house_chest",
+      "sprite": null,
+      "requiredDirection": null
+    },
+    {
+      "kind": "sign",
+      "id": "sign_96_8",
+      "x": 96,
+      "y": 8,
+      "textKey": "npc_house_chest",
+      "sprite": null,
+      "requiredDirection": null
+    },
+    {
+      "kind": "sign",
+      "id": "sign_112_8",
+      "x": 112,
+      "y": 8,
+      "textKey": "npc_house_chest",
+      "sprite": null,
+      "requiredDirection": null
+    }
+  ],
+  "doors": [
+    {
+      "x": 72,
+      "y": 120,
+      "w": 16,
+      "h": 8,
+      "entryId": "h2",
+      "nextMap": "overworld.map",
+      "exitId": "h2",
+      "direction": 1,
+      "mode": 0
+    }
+  ],
+  "enemies": [],
+  "cuttables": [],
+  "unportedEnemies": [],
+  "objects": [
+    {
+      "id": "BowWow",
+      "category": "other",
+      "localX": -24,
+      "localY": 72,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "dialogBox",
+      "category": "other",
+      "localX": 168,
+      "localY": 0,
+      "params": [
+        "houseMusic"
+      ]
+    },
+    {
+      "id": "door",
+      "category": "warp",
+      "localX": 72,
+      "localY": 120,
+      "params": [
+        "",
+        "",
+        "h2",
+        "overworld.map",
+        "h2",
+        "1",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "doorLight",
+      "category": "warp",
+      "localX": 72,
+      "localY": 112,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "houseBlacker",
+      "category": "other",
+      "localX": -24,
+      "localY": 24,
+      "params": [
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "music",
+      "category": "other",
+      "localX": -24,
+      "localY": 0,
+      "params": [
+        "50"
+      ]
+    },
+    {
+      "id": "person",
+      "category": "other",
+      "localX": 64,
+      "localY": 40,
+      "params": [
+        "npc04",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "pot2",
+      "category": "other",
+      "localX": 112,
+      "localY": 80,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "pot2",
+      "category": "other",
+      "localX": 112,
+      "localY": 96,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "pot2",
+      "category": "other",
+      "localX": 128,
+      "localY": 80,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "pot2",
+      "category": "other",
+      "localX": 128,
+      "localY": 96,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "sign",
+      "category": "other",
+      "localX": 32,
+      "localY": 8,
+      "params": [
+        "npc_house_chest",
+        "",
+        "",
+        "1"
+      ]
+    },
+    {
+      "id": "sign",
+      "category": "other",
+      "localX": 32,
+      "localY": 32,
+      "params": [
+        "ulrira_telephone",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "sign",
+      "category": "other",
+      "localX": 48,
+      "localY": 8,
+      "params": [
+        "npc_house_chest",
+        "",
+        "",
+        "1"
+      ]
+    },
+    {
+      "id": "sign",
+      "category": "other",
+      "localX": 64,
+      "localY": 8,
+      "params": [
+        "npc_house_chest",
+        "",
+        "",
+        "1"
+      ]
+    },
+    {
+      "id": "sign",
+      "category": "other",
+      "localX": 80,
+      "localY": 8,
+      "params": [
+        "npc_house_chest",
+        "",
+        "",
+        "1"
+      ]
+    },
+    {
+      "id": "sign",
+      "category": "other",
+      "localX": 96,
+      "localY": 8,
+      "params": [
+        "npc_house_chest",
+        "",
+        "",
+        "1"
+      ]
+    },
+    {
+      "id": "sign",
+      "category": "other",
+      "localX": 112,
+      "localY": 8,
+      "params": [
+        "npc_house_chest",
+        "",
+        "",
+        "1"
+      ]
+    }
+  ],
+  "tiles": [
+    [
+      [
+        19,
+        47,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        47,
+        21
+      ],
+      [
+        45,
+        51,
+        95,
+        81,
+        81,
+        81,
+        81,
+        81,
+        51,
+        46
+      ],
+      [
+        45,
+        90,
+        82,
+        51,
+        51,
+        51,
+        61,
+        61,
+        91,
+        46
+      ],
+      [
+        45,
+        51,
+        51,
+        51,
+        51,
+        51,
+        29,
+        29,
+        51,
+        46
+      ],
+      [
+        45,
+        97,
+        51,
+        51,
+        51,
+        51,
+        51,
+        51,
+        51,
+        46
+      ],
+      [
+        45,
+        91,
+        51,
+        69,
+        69,
+        69,
+        69,
+        51,
+        51,
+        46
+      ],
+      [
+        45,
+        97,
+        51,
+        69,
+        69,
+        69,
+        69,
+        51,
+        51,
+        46
+      ],
+      [
+        20,
+        48,
+        48,
+        48,
+        39,
+        38,
+        48,
+        48,
+        48,
+        22
+      ]
+    ],
+    [
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ]
+    ],
+    [
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ]
+    ]
+  ]
+}

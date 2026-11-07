@@ -226,6 +226,19 @@
   ],
   "groundZones": [],
   "interactables": [],
+  "doors": [
+    {
+      "x": 64,
+      "y": 80,
+      "w": 16,
+      "h": 16,
+      "entryId": "h2",
+      "nextMap": "house2.map",
+      "exitId": "h2",
+      "direction": 3,
+      "mode": 0
+    }
+  ],
   "enemies": [],
   "cuttables": [
     {

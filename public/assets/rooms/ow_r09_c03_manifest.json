@@ -150,6 +150,19 @@
     }
   ],
   "interactables": [],
+  "doors": [
+    {
+      "x": 64,
+      "y": 80,
+      "w": 16,
+      "h": 16,
+      "entryId": "s1",
+      "nextMap": "shop1.map",
+      "exitId": "s1",
+      "direction": 3,
+      "mode": 0
+    }
+  ],
   "enemies": [],
   "cuttables": [
     {

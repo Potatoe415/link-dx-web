@@ -191,6 +191,19 @@
   ],
   "groundZones": [],
   "interactables": [],
+  "doors": [
+    {
+      "x": 80,
+      "y": 64,
+      "w": 16,
+      "h": 16,
+      "entryId": "s2",
+      "nextMap": "shop2.map",
+      "exitId": "s2",
+      "direction": 3,
+      "mode": 0
+    }
+  ],
   "enemies": [],
   "cuttables": [
     {

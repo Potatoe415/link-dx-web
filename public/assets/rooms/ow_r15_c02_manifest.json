@@ -480,6 +480,7 @@
       "item": "sword"
     }
   ],
+  "doors": [],
   "enemies": [
     {
       "kind": "urchin",

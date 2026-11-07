@@ -65,6 +65,7 @@
   ],
   "groundZones": [],
   "interactables": [],
+  "doors": [],
   "enemies": [],
   "cuttables": [
     {

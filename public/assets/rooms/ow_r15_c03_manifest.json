@@ -563,6 +563,7 @@
     }
   ],
   "interactables": [],
+  "doors": [],
   "enemies": [
     {
       "kind": "crab",

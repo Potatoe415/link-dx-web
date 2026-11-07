@@ -227,6 +227,19 @@
     }
   ],
   "interactables": [],
+  "doors": [
+    {
+      "x": 32,
+      "y": 48,
+      "w": 16,
+      "h": 16,
+      "entryId": "dreamShrine01",
+      "nextMap": "dreamShrine01.map",
+      "exitId": "dreamShrine01",
+      "direction": 3,
+      "mode": 0
+    }
+  ],
   "enemies": [],
   "cuttables": [],
   "unportedEnemies": [],

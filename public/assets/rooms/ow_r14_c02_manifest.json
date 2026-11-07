@@ -219,6 +219,7 @@
   ],
   "groundZones": [],
   "interactables": [],
+  "doors": [],
   "enemies": [
     {
       "kind": "urchin",

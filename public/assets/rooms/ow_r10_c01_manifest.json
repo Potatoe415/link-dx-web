@@ -170,6 +170,30 @@
   ],
   "groundZones": [],
   "interactables": [],
+  "doors": [
+    {
+      "x": 48,
+      "y": 48,
+      "w": 16,
+      "h": 16,
+      "entryId": "h3m",
+      "nextMap": "house3m.map",
+      "exitId": "h3m",
+      "direction": 3,
+      "mode": 0
+    },
+    {
+      "x": 80,
+      "y": 48,
+      "w": 15,
+      "h": 16,
+      "entryId": "h3n",
+      "nextMap": "house3n.map",
+      "exitId": "h3n",
+      "direction": 3,
+      "mode": 0
+    }
+  ],
   "enemies": [],
   "cuttables": [
     {

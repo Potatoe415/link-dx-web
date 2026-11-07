@@ -59,6 +59,7 @@ Toute la construction du jeu se décompose en **4 opérateurs atomiques**. Un ag
    - Ennemis : les `enemy_respawner` / ids d'ennemis sont convertis via `ENEMY_TEMPLATES` (`scripts/extract_room.py`) ; les ids non portés sont listés par `build_region.py` (« enemies not ported yet ») — les ajouter lors du `TASK_ENTITY_PORT` correspondant.
    - Panneaux (`signpost`, `sign`) et coffres (`chest`) sont générés en `interactables` ; chaque clé de texte doit avoir sa traduction française dans `scripts/regions/text_fr.json` (le script échoue sinon).
    - Les salles retouchées à la main (portes, PNJ, Ghibli) restent dans un module manuel (ex. `mabe_village.ts`) et sont retirées du JSON.
+   - Portes (`ObjDoor`, mode 0) : `build_region.py` relie chaque porte à la porte de même `entryId` d'une salle déclarée dans **n'importe quel** `scripts/regions/*.json` (warp + `requiredDirection` + arrivée à 4 px du déclencheur retour). Une porte sans salle cible est listée (« has no registered room ») ; les escaliers / chutes ne sont pas encore portés. Les intérieurs plus petits qu'un écran sont centrés sur fond noir ; ceux de plusieurs écrans se relient via `neighbors` dans le JSON de région. Après ajout d'un intérieur, régénérer aussi la région extérieure qui porte la porte.
 4. **Critère de validation (`Gate A`) :** `npm run build` passe à `0` erreur + les boîtes rouges en mode `C` correspondent à `<roomId>_grid_ruler.png`.
 
 ---

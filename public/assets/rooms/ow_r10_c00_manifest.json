@@ -311,6 +311,19 @@
     }
   ],
   "interactables": [],
+  "doors": [
+    {
+      "x": 80,
+      "y": 84,
+      "w": 16,
+      "h": 16,
+      "entryId": "cave0",
+      "nextMap": "",
+      "exitId": "",
+      "direction": 3,
+      "mode": 1
+    }
+  ],
   "enemies": [],
   "cuttables": [
     {

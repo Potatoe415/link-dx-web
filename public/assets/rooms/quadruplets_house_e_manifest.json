@@ -1,0 +1,1223 @@
+{
+  "roomId": "quadruplets_house_e",
+  "sourceMap": "house4.map",
+  "screenCol": 1,
+  "screenRow": 0,
+  "tileOrigin": {
+    "col": 10,
+    "row": 0
+  },
+  "worldPixelOrigin": {
+    "x": 160,
+    "y": 0
+  },
+  "logicalSize": {
+    "w": 160,
+    "h": 128
+  },
+  "displaySize": {
+    "w": 1280,
+    "h": 1024
+  },
+  "musicTrackId": 9,
+  "neighbors": {
+    "north": null,
+    "south": null,
+    "west": null,
+    "east": null
+  },
+  "colliders": [
+    {
+      "x": 0,
+      "y": 0,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 0,
+      "y": 112,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 16,
+      "y": 0,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 16,
+      "y": 112,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 32,
+      "y": 0,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 32,
+      "y": 112,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 48,
+      "y": 112,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 64,
+      "y": 0,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 96,
+      "y": 112,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 112,
+      "y": 112,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 128,
+      "y": 112,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 144,
+      "y": 16,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 144,
+      "y": 32,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 144,
+      "y": 48,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 144,
+      "y": 64,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 144,
+      "y": 80,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 144,
+      "y": 96,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 64,
+      "y": 112,
+      "w": 8,
+      "h": 16,
+      "source": "c3"
+    },
+    {
+      "x": 88,
+      "y": 112,
+      "w": 8,
+      "h": 16,
+      "source": "c4"
+    },
+    {
+      "x": 48,
+      "y": 13,
+      "w": 16,
+      "h": 8,
+      "source": "c5"
+    },
+    {
+      "x": 80,
+      "y": 13,
+      "w": 16,
+      "h": 8,
+      "source": "c5"
+    },
+    {
+      "x": 96,
+      "y": 13,
+      "w": 16,
+      "h": 8,
+      "source": "c5"
+    },
+    {
+      "x": 112,
+      "y": 13,
+      "w": 16,
+      "h": 8,
+      "source": "c5"
+    },
+    {
+      "x": 128,
+      "y": 13,
+      "w": 16,
+      "h": 8,
+      "source": "c5"
+    },
+    {
+      "x": 32,
+      "y": 64,
+      "w": 16,
+      "h": 16,
+      "source": "lowCollider16"
+    },
+    {
+      "x": 32,
+      "y": 80,
+      "w": 16,
+      "h": 16,
+      "source": "lowCollider16"
+    },
+    {
+      "x": 48,
+      "y": 32,
+      "w": 16,
+      "h": 16,
+      "source": "lowCollider16"
+    },
+    {
+      "x": 48,
+      "y": 48,
+      "w": 16,
+      "h": 16,
+      "source": "lowCollider16"
+    },
+    {
+      "x": 48,
+      "y": 64,
+      "w": 16,
+      "h": 16,
+      "source": "lowCollider16"
+    },
+    {
+      "x": 80,
+      "y": 32,
+      "w": 16,
+      "h": 16,
+      "source": "lowCollider16"
+    },
+    {
+      "x": 80,
+      "y": 48,
+      "w": 16,
+      "h": 16,
+      "source": "lowCollider16"
+    },
+    {
+      "x": 80,
+      "y": 64,
+      "w": 16,
+      "h": 16,
+      "source": "lowCollider16"
+    },
+    {
+      "x": 80,
+      "y": 80,
+      "w": 16,
+      "h": 16,
+      "source": "lowCollider16"
+    },
+    {
+      "x": 96,
+      "y": 32,
+      "w": 16,
+      "h": 16,
+      "source": "lowCollider16"
+    },
+    {
+      "x": 96,
+      "y": 48,
+      "w": 16,
+      "h": 16,
+      "source": "lowCollider16"
+    },
+    {
+      "x": 96,
+      "y": 64,
+      "w": 16,
+      "h": 16,
+      "source": "lowCollider16"
+    },
+    {
+      "x": 96,
+      "y": 80,
+      "w": 16,
+      "h": 16,
+      "source": "lowCollider16"
+    },
+    {
+      "x": 112,
+      "y": 32,
+      "w": 16,
+      "h": 16,
+      "source": "lowCollider16"
+    },
+    {
+      "x": 112,
+      "y": 48,
+      "w": 16,
+      "h": 16,
+      "source": "lowCollider16"
+    },
+    {
+      "x": 112,
+      "y": 64,
+      "w": 16,
+      "h": 16,
+      "source": "lowCollider16"
+    },
+    {
+      "x": 112,
+      "y": 80,
+      "w": 16,
+      "h": 16,
+      "source": "lowCollider16"
+    },
+    {
+      "x": 128,
+      "y": 32,
+      "w": 16,
+      "h": 16,
+      "source": "lowCollider16"
+    },
+    {
+      "x": 128,
+      "y": 48,
+      "w": 16,
+      "h": 16,
+      "source": "lowCollider16"
+    },
+    {
+      "x": 128,
+      "y": 64,
+      "w": 16,
+      "h": 16,
+      "source": "lowCollider16"
+    },
+    {
+      "x": 128,
+      "y": 80,
+      "w": 16,
+      "h": 16,
+      "source": "lowCollider16"
+    }
+  ],
+  "groundZones": [],
+  "interactables": [
+    {
+      "kind": "sign",
+      "id": "sign_48_4",
+      "x": 48,
+      "y": 4,
+      "textKey": "npc_house_chest",
+      "sprite": null,
+      "requiredDirection": 1
+    },
+    {
+      "kind": "sign",
+      "id": "sign_80_4",
+      "x": 80,
+      "y": 4,
+      "textKey": "npc_house_chest",
+      "sprite": null,
+      "requiredDirection": 1
+    },
+    {
+      "kind": "sign",
+      "id": "sign_96_4",
+      "x": 96,
+      "y": 4,
+      "textKey": "npc_house_chest",
+      "sprite": null,
+      "requiredDirection": 1
+    },
+    {
+      "kind": "sign",
+      "id": "sign_112_4",
+      "x": 112,
+      "y": 4,
+      "textKey": "npc_house_chest",
+      "sprite": null,
+      "requiredDirection": 1
+    },
+    {
+      "kind": "sign",
+      "id": "sign_128_4",
+      "x": 128,
+      "y": 4,
+      "textKey": "npc_house_chest",
+      "sprite": null,
+      "requiredDirection": 1
+    }
+  ],
+  "doors": [
+    {
+      "x": 72,
+      "y": 120,
+      "w": 16,
+      "h": 8,
+      "entryId": "h4-2",
+      "nextMap": "overworld.map",
+      "exitId": "h4-2",
+      "direction": 1,
+      "mode": 0
+    }
+  ],
+  "enemies": [],
+  "cuttables": [],
+  "unportedEnemies": [],
+  "objects": [
+    {
+      "id": "door",
+      "category": "warp",
+      "localX": 72,
+      "localY": 120,
+      "params": [
+        "",
+        "",
+        "h4-2",
+        "overworld.map",
+        "h4-2",
+        "1",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "doorLight",
+      "category": "warp",
+      "localX": 72,
+      "localY": 112,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "objectSpawner",
+      "category": "other",
+      "localX": 64,
+      "localY": 32,
+      "params": [
+        "npc_lost_boy_state",
+        "",
+        "personNew",
+        ".npc_lost_boy.npc08..",
+        ""
+      ]
+    },
+    {
+      "id": "objectSpawner",
+      "category": "other",
+      "localX": 64,
+      "localY": 32,
+      "params": [
+        "npc_lost_boy_state",
+        "2",
+        "personNew",
+        ".npc_lost_boy.npc08.wave.",
+        ""
+      ]
+    },
+    {
+      "id": "person",
+      "category": "other",
+      "localX": 32,
+      "localY": 48,
+      "params": [
+        "npc07",
+        "0.0.16.10",
+        "",
+        "stand"
+      ]
+    },
+    {
+      "id": "sign",
+      "category": "other",
+      "localX": 48,
+      "localY": 4,
+      "params": [
+        "npc_house_chest",
+        "",
+        "",
+        "1"
+      ]
+    },
+    {
+      "id": "sign",
+      "category": "other",
+      "localX": 80,
+      "localY": 4,
+      "params": [
+        "npc_house_chest",
+        "",
+        "",
+        "1"
+      ]
+    },
+    {
+      "id": "sign",
+      "category": "other",
+      "localX": 96,
+      "localY": 4,
+      "params": [
+        "npc_house_chest",
+        "",
+        "",
+        "1"
+      ]
+    },
+    {
+      "id": "sign",
+      "category": "other",
+      "localX": 112,
+      "localY": 4,
+      "params": [
+        "npc_house_chest",
+        "",
+        "",
+        "1"
+      ]
+    },
+    {
+      "id": "sign",
+      "category": "other",
+      "localX": 128,
+      "localY": 4,
+      "params": [
+        "npc_house_chest",
+        "",
+        "",
+        "1"
+      ]
+    },
+    {
+      "id": "upperLevel",
+      "category": "other",
+      "localX": -32,
+      "localY": 16,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "upperLevel",
+      "category": "other",
+      "localX": -32,
+      "localY": 32,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "upperLevel",
+      "category": "other",
+      "localX": -32,
+      "localY": 48,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "upperLevel",
+      "category": "other",
+      "localX": -32,
+      "localY": 64,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "upperLevel",
+      "category": "other",
+      "localX": -32,
+      "localY": 80,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "upperLevel",
+      "category": "other",
+      "localX": -32,
+      "localY": 96,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "upperLevel",
+      "category": "other",
+      "localX": -16,
+      "localY": 16,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "upperLevel",
+      "category": "other",
+      "localX": -16,
+      "localY": 32,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "upperLevel",
+      "category": "other",
+      "localX": -16,
+      "localY": 48,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "upperLevel",
+      "category": "other",
+      "localX": -16,
+      "localY": 64,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "upperLevel",
+      "category": "other",
+      "localX": -16,
+      "localY": 80,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "upperLevel",
+      "category": "other",
+      "localX": -16,
+      "localY": 96,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "upperLevel",
+      "category": "other",
+      "localX": 0,
+      "localY": 16,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "upperLevel",
+      "category": "other",
+      "localX": 0,
+      "localY": 32,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "upperLevel",
+      "category": "other",
+      "localX": 0,
+      "localY": 48,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "upperLevel",
+      "category": "other",
+      "localX": 0,
+      "localY": 64,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "upperLevel",
+      "category": "other",
+      "localX": 0,
+      "localY": 80,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "upperLevel",
+      "category": "other",
+      "localX": 0,
+      "localY": 96,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "upperLevel",
+      "category": "other",
+      "localX": 16,
+      "localY": 16,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "upperLevel",
+      "category": "other",
+      "localX": 16,
+      "localY": 32,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "upperLevel",
+      "category": "other",
+      "localX": 16,
+      "localY": 48,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "upperLevel",
+      "category": "other",
+      "localX": 16,
+      "localY": 64,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "upperLevel",
+      "category": "other",
+      "localX": 16,
+      "localY": 80,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "upperLevel",
+      "category": "other",
+      "localX": 16,
+      "localY": 96,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "upperLevel",
+      "category": "other",
+      "localX": 32,
+      "localY": 16,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "upperLevel",
+      "category": "other",
+      "localX": 32,
+      "localY": 32,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "upperLevel",
+      "category": "other",
+      "localX": 32,
+      "localY": 48,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "upperLevel",
+      "category": "other",
+      "localX": 32,
+      "localY": 96,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "upperLevel",
+      "category": "other",
+      "localX": 48,
+      "localY": 16,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "upperLevel",
+      "category": "other",
+      "localX": 48,
+      "localY": 80,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "upperLevel",
+      "category": "other",
+      "localX": 48,
+      "localY": 96,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "upperLevel",
+      "category": "other",
+      "localX": 64,
+      "localY": 16,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "upperLevel",
+      "category": "other",
+      "localX": 64,
+      "localY": 64,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "upperLevel",
+      "category": "other",
+      "localX": 64,
+      "localY": 80,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "upperLevel",
+      "category": "other",
+      "localX": 64,
+      "localY": 96,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "upperLevel",
+      "category": "other",
+      "localX": 80,
+      "localY": 16,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "upperLevel",
+      "category": "other",
+      "localX": 80,
+      "localY": 96,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "upperLevel",
+      "category": "other",
+      "localX": 96,
+      "localY": 16,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "upperLevel",
+      "category": "other",
+      "localX": 96,
+      "localY": 96,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "upperLevel",
+      "category": "other",
+      "localX": 112,
+      "localY": 16,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "upperLevel",
+      "category": "other",
+      "localX": 112,
+      "localY": 96,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "upperLevel",
+      "category": "other",
+      "localX": 128,
+      "localY": 16,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "upperLevel",
+      "category": "other",
+      "localX": 128,
+      "localY": 96,
+      "params": [
+        ""
+      ]
+    }
+  ],
+  "tiles": [
+    [
+      [
+        47,
+        47,
+        47,
+        100,
+        47,
+        100,
+        100,
+        100,
+        100,
+        21
+      ],
+      [
+        0,
+        51,
+        51,
+        81,
+        51,
+        81,
+        81,
+        81,
+        81,
+        46
+      ],
+      [
+        0,
+        51,
+        51,
+        61,
+        51,
+        61,
+        61,
+        61,
+        61,
+        46
+      ],
+      [
+        0,
+        51,
+        51,
+        29,
+        51,
+        29,
+        29,
+        29,
+        29,
+        46
+      ],
+      [
+        0,
+        51,
+        90,
+        89,
+        51,
+        91,
+        91,
+        91,
+        91,
+        46
+      ],
+      [
+        0,
+        51,
+        97,
+        51,
+        51,
+        97,
+        97,
+        97,
+        97,
+        46
+      ],
+      [
+        51,
+        51,
+        51,
+        51,
+        51,
+        51,
+        51,
+        51,
+        51,
+        46
+      ],
+      [
+        48,
+        48,
+        48,
+        48,
+        39,
+        38,
+        48,
+        48,
+        48,
+        22
+      ]
+    ],
+    [
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ]
+    ],
+    [
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ]
+    ]
+  ]
+}

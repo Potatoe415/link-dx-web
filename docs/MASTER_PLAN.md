@@ -103,7 +103,7 @@
 - [ ] **[T-2.2.1-03]** `TASK_ROOM_GHIBLI` sur `ow_r08_c01`, `ow_r08_c02`, `ow_r08_c03`, `ow_r09_c01`, `ow_r09_c02`, `ow_r09_c03`, `ow_r10_c03` (zone nord et est du village).
 
 ### 2.2.2 — Intérieurs & Habitants du Village des Mouettes
-- [ ] **[T-2.2.2-01]** Extraire et câbler les intérieurs du village depuis `_ref_repo/Data/Maps/` : Bibliothèque (`library`), Maison de Pépé le Ramollo (`ulrira`), Cabine téléphonique (`phonebooth`), Maison de Mme Miaou (`meow_house`), Boutique (`shop`), Jeu de hasard (`trendy_game`).
+- [x] **[T-2.2.2-01]** Extraire et câbler les intérieurs du village depuis `_ref_repo/Data/Maps/` : Bibliothèque (`library`), Maison de Pépé le Ramollo (`ulrira`), Cabine téléphonique (`phonebooth`), Maison de Mme Miaou (`meow_house`), Boutique (`shop`), Jeu de hasard (`trendy_game`) + Niche de Toutou (`bowwow_kennel`) et Maison des quadruplés (`quadruplets_house_w/_e`). Portes générées par `build_region.py` depuis les `ObjDoor` des manifests.
 - [ ] **[T-2.2.2-02]** `TASK_ENTITY_PORT` : Porter les PNJ du village (`ObjBallChildren`, `ObjBowWow` enchaîné devant sa niche, `ObjUlrira`, `ObjShopKeeper`, `ObjTrendy`, `ObjCucco` poules).
 - [ ] **[T-2.2.2-03]** Générer les décors Studio Ghibli des intérieurs principaux du village.
 

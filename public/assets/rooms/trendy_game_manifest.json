@@ -1,0 +1,933 @@
+{
+  "roomId": "trendy_game",
+  "sourceMap": "shop2.map",
+  "screenCol": 0,
+  "screenRow": 0,
+  "tileOrigin": {
+    "col": 0,
+    "row": 0
+  },
+  "worldPixelOrigin": {
+    "x": 0,
+    "y": 0
+  },
+  "logicalSize": {
+    "w": 160,
+    "h": 128
+  },
+  "displaySize": {
+    "w": 1280,
+    "h": 1024
+  },
+  "musicTrackId": 1,
+  "neighbors": {
+    "north": null,
+    "south": null,
+    "west": null,
+    "east": null
+  },
+  "colliders": [
+    {
+      "x": 0,
+      "y": 80,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 0,
+      "y": 96,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 16,
+      "y": 112,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 32,
+      "y": 80,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 32,
+      "y": 112,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 48,
+      "y": 80,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 48,
+      "y": 112,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 64,
+      "y": 80,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 80,
+      "y": 80,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 96,
+      "y": 80,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 96,
+      "y": 112,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 112,
+      "y": 80,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 112,
+      "y": 112,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 128,
+      "y": 80,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 128,
+      "y": 112,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 144,
+      "y": 96,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 64,
+      "y": 112,
+      "w": 8,
+      "h": 16,
+      "source": "c3"
+    },
+    {
+      "x": 88,
+      "y": 112,
+      "w": 8,
+      "h": 16,
+      "source": "c4"
+    }
+  ],
+  "groundZones": [],
+  "interactables": [],
+  "doors": [
+    {
+      "x": 72,
+      "y": 120,
+      "w": 16,
+      "h": 8,
+      "entryId": "s2",
+      "nextMap": "overworld.map",
+      "exitId": "s2",
+      "direction": 1,
+      "mode": 0
+    }
+  ],
+  "enemies": [],
+  "cuttables": [],
+  "unportedEnemies": [],
+  "objects": [
+    {
+      "id": "candyGrabber",
+      "category": "other",
+      "localX": 16,
+      "localY": 6,
+      "params": []
+    },
+    {
+      "id": "candyGrabberControls",
+      "category": "other",
+      "localX": 32,
+      "localY": 64,
+      "params": []
+    },
+    {
+      "id": "door",
+      "category": "warp",
+      "localX": 72,
+      "localY": 120,
+      "params": [
+        "",
+        "",
+        "s2",
+        "overworld.map",
+        "s2",
+        "1",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "doorLight",
+      "category": "warp",
+      "localX": 72,
+      "localY": 112,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "item",
+      "category": "other",
+      "localX": 48,
+      "localY": 32,
+      "params": [
+        "",
+        "trendy_0",
+        "heart_1",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "item",
+      "category": "other",
+      "localX": 64,
+      "localY": 64,
+      "params": [
+        "",
+        "trendy_4",
+        "powderTrendy",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "item",
+      "category": "other",
+      "localX": 80,
+      "localY": 32,
+      "params": [
+        "",
+        "trendy_1",
+        "ruby30",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "item",
+      "category": "other",
+      "localX": 80,
+      "localY": 48,
+      "params": [
+        "",
+        "trade0Collected",
+        "trade0",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "item",
+      "category": "other",
+      "localX": 112,
+      "localY": 32,
+      "params": [
+        "",
+        "trendy_2",
+        "ruby30",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "item",
+      "category": "other",
+      "localX": 112,
+      "localY": 64,
+      "params": [
+        "",
+        "trendy_3",
+        "shield0",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "lamp_wall_house_0",
+      "category": "other",
+      "localX": 32,
+      "localY": 0,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "lamp_wall_house_0",
+      "category": "other",
+      "localX": 112,
+      "localY": 0,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "lamp_wall_house_1",
+      "category": "other",
+      "localX": 144,
+      "localY": 32,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "lamp_wall_house_1",
+      "category": "other",
+      "localX": 144,
+      "localY": 80,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "lamp_wall_house_2",
+      "category": "other",
+      "localX": 32,
+      "localY": 112,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "lamp_wall_house_2",
+      "category": "other",
+      "localX": 112,
+      "localY": 112,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "lamp_wall_house_3",
+      "category": "other",
+      "localX": 0,
+      "localY": 32,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "lamp_wall_house_3",
+      "category": "other",
+      "localX": 0,
+      "localY": 80,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "leaveButton",
+      "category": "other",
+      "localX": 72,
+      "localY": 96,
+      "params": [
+        "trendy_2",
+        "3",
+        "",
+        "",
+        "True"
+      ]
+    },
+    {
+      "id": "leaveButton",
+      "category": "other",
+      "localX": 72,
+      "localY": 96,
+      "params": [
+        "trendy_1",
+        "3",
+        "",
+        "",
+        "True"
+      ]
+    },
+    {
+      "id": "leaveButton",
+      "category": "other",
+      "localX": 72,
+      "localY": 96,
+      "params": [
+        "trendy_3",
+        "3",
+        "",
+        "",
+        "True"
+      ]
+    },
+    {
+      "id": "leaveButton",
+      "category": "other",
+      "localX": 72,
+      "localY": 96,
+      "params": [
+        "trendy_4",
+        "3",
+        "",
+        "",
+        "True"
+      ]
+    },
+    {
+      "id": "leaveButton",
+      "category": "other",
+      "localX": 72,
+      "localY": 96,
+      "params": [
+        "trendy_0",
+        "3",
+        "",
+        "",
+        "True"
+      ]
+    },
+    {
+      "id": "rollband",
+      "category": "other",
+      "localX": 16,
+      "localY": 16,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "rollband",
+      "category": "other",
+      "localX": 16,
+      "localY": 32,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "rollband",
+      "category": "other",
+      "localX": 16,
+      "localY": 48,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "rollband",
+      "category": "other",
+      "localX": 16,
+      "localY": 64,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "rollband",
+      "category": "other",
+      "localX": 48,
+      "localY": 32,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "rollband",
+      "category": "other",
+      "localX": 48,
+      "localY": 48,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "rollband",
+      "category": "other",
+      "localX": 48,
+      "localY": 64,
+      "params": [
+        "3"
+      ]
+    },
+    {
+      "id": "rollband",
+      "category": "other",
+      "localX": 64,
+      "localY": 32,
+      "params": [
+        "1"
+      ]
+    },
+    {
+      "id": "rollband",
+      "category": "other",
+      "localX": 64,
+      "localY": 64,
+      "params": [
+        "3"
+      ]
+    },
+    {
+      "id": "rollband",
+      "category": "other",
+      "localX": 80,
+      "localY": 32,
+      "params": [
+        "1"
+      ]
+    },
+    {
+      "id": "rollband",
+      "category": "other",
+      "localX": 80,
+      "localY": 64,
+      "params": [
+        "3"
+      ]
+    },
+    {
+      "id": "rollband",
+      "category": "other",
+      "localX": 96,
+      "localY": 32,
+      "params": [
+        "1"
+      ]
+    },
+    {
+      "id": "rollband",
+      "category": "other",
+      "localX": 96,
+      "localY": 64,
+      "params": [
+        "3"
+      ]
+    },
+    {
+      "id": "rollband",
+      "category": "other",
+      "localX": 112,
+      "localY": 32,
+      "params": [
+        "1"
+      ]
+    },
+    {
+      "id": "rollband",
+      "category": "other",
+      "localX": 112,
+      "localY": 48,
+      "params": [
+        "2"
+      ]
+    },
+    {
+      "id": "rollband",
+      "category": "other",
+      "localX": 112,
+      "localY": 64,
+      "params": [
+        "2"
+      ]
+    },
+    {
+      "id": "rollbandEdge",
+      "category": "other",
+      "localX": 16,
+      "localY": 80,
+      "params": []
+    },
+    {
+      "id": "scriptOnTouch",
+      "category": "other",
+      "localX": 112,
+      "localY": 96,
+      "params": [
+        "",
+        "",
+        "trendy_marin"
+      ]
+    },
+    {
+      "id": "trendy",
+      "category": "npc",
+      "localX": 128,
+      "localY": 94,
+      "params": []
+    }
+  ],
+  "tiles": [
+    [
+      [
+        13,
+        36,
+        36,
+        36,
+        36,
+        36,
+        36,
+        36,
+        36,
+        11
+      ],
+      [
+        37,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        34
+      ],
+      [
+        37,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        34
+      ],
+      [
+        37,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        34
+      ],
+      [
+        37,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        34
+      ],
+      [
+        37,
+        73,
+        40,
+        40,
+        40,
+        40,
+        40,
+        40,
+        40,
+        34
+      ],
+      [
+        37,
+        51,
+        69,
+        51,
+        51,
+        51,
+        51,
+        51,
+        51,
+        34
+      ],
+      [
+        12,
+        35,
+        35,
+        35,
+        39,
+        38,
+        35,
+        35,
+        35,
+        14
+      ]
+    ],
+    [
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ]
+    ],
+    [
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ]
+    ]
+  ]
+}

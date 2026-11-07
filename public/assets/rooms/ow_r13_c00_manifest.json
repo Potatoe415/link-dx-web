@@ -332,6 +332,7 @@
     }
   ],
   "interactables": [],
+  "doors": [],
   "enemies": [
     {
       "kind": "octorok",

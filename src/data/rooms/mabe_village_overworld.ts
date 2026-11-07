@@ -96,7 +96,10 @@ export const MABE_VILLAGE_OVERWORLD_ROOMS: Record<string, RoomDef> = {
     ambience: "outdoor",
     neighbors: { north: "ow_r07_c02", south: "ow_r09_c02", west: "ow_r08_c01", east: "ow_r08_c03" },
     spawnPoint: { x: 80, y: 72, direction: 3 },
-    warpTriggers: [],
+    warpTriggers: [
+      { triggerBox: { x: 80, y: 64, w: 16, h: 16 }, targetRoom: "quadruplets_house_w", targetX: 80, targetY: 116, targetDirection: 1, requiredDirection: 1 },
+      { triggerBox: { x: 112, y: 64, w: 16, h: 16 }, targetRoom: "quadruplets_house_e", targetX: 80, targetY: 116, targetDirection: 1, requiredDirection: 1 },
+    ],
     colliders: [
       { x: 0, y: 0, w: 16, h: 16 },
       { x: 16, y: 0, w: 144, h: 15 },
@@ -228,7 +231,9 @@ export const MABE_VILLAGE_OVERWORLD_ROOMS: Record<string, RoomDef> = {
     ambience: "outdoor",
     neighbors: { north: "ow_r08_c03", south: "ow_r10_c03", west: "ow_r09_c02", east: "ow_r09_c04" },
     spawnPoint: { x: 80, y: 72, direction: 3 },
-    warpTriggers: [],
+    warpTriggers: [
+      { triggerBox: { x: 64, y: 80, w: 16, h: 16 }, targetRoom: "shop", targetX: 80, targetY: 116, targetDirection: 1, requiredDirection: 1 },
+    ],
     colliders: [
       { x: 0, y: 0, w: 16, h: 16 },
       { x: 32, y: 0, w: 48, h: 16 },
@@ -320,7 +325,10 @@ export const MABE_VILLAGE_OVERWORLD_ROOMS: Record<string, RoomDef> = {
     ambience: "outdoor",
     neighbors: { north: "ow_r09_c01", south: "ow_r11_c01", west: "ow_r10_c00", east: "ow_r10_c02" },
     spawnPoint: { x: 80, y: 72, direction: 3 },
-    warpTriggers: [],
+    warpTriggers: [
+      { triggerBox: { x: 48, y: 48, w: 16, h: 16 }, targetRoom: "meow_house", targetX: 80, targetY: 116, targetDirection: 1, requiredDirection: 1 },
+      { triggerBox: { x: 80, y: 48, w: 15, h: 16 }, targetRoom: "bowwow_kennel", targetX: 80, targetY: 92, targetDirection: 1, requiredDirection: 1 },
+    ],
     colliders: [
       { x: 0, y: 0, w: 64, h: 16 },
       { x: 112, y: 0, w: 48, h: 16 },
@@ -462,7 +470,9 @@ export const MABE_VILLAGE_OVERWORLD_ROOMS: Record<string, RoomDef> = {
     ambience: "outdoor",
     neighbors: { north: "ow_r10_c01", south: "ow_r12_c01", west: "ow_r11_c00", east: "ow_r11_c02" },
     spawnPoint: { x: 80, y: 72, direction: 3 },
-    warpTriggers: [],
+    warpTriggers: [
+      { triggerBox: { x: 64, y: 80, w: 16, h: 16 }, targetRoom: "ulrira", targetX: 80, targetY: 116, targetDirection: 1, requiredDirection: 1 },
+    ],
     colliders: [
       { x: 0, y: 0, w: 16, h: 16 },
       { x: 0, y: 20, w: 16, h: 28 },
@@ -499,7 +509,9 @@ export const MABE_VILLAGE_OVERWORLD_ROOMS: Record<string, RoomDef> = {
     ambience: "outdoor",
     neighbors: { north: "ow_r10_c02", south: "ow_r12_c02", west: "ow_r11_c01", east: "ow_r11_c03" },
     spawnPoint: { x: 80, y: 72, direction: 3 },
-    warpTriggers: [],
+    warpTriggers: [
+      { triggerBox: { x: 80, y: 64, w: 16, h: 16 }, targetRoom: "phonebooth", targetX: 80, targetY: 92, targetDirection: 1, requiredDirection: 1 },
+    ],
     colliders: [
       { x: 64, y: 52, w: 48, h: 12 },
       { x: 64, y: 56, w: 48, h: 8 },
@@ -521,7 +533,9 @@ export const MABE_VILLAGE_OVERWORLD_ROOMS: Record<string, RoomDef> = {
     ambience: "outdoor",
     neighbors: { north: "ow_r10_c03", south: "ow_r12_c03", west: "ow_r11_c02", east: "ow_r11_c04" },
     spawnPoint: { x: 80, y: 72, direction: 3 },
-    warpTriggers: [],
+    warpTriggers: [
+      { triggerBox: { x: 80, y: 64, w: 16, h: 16 }, targetRoom: "trendy_game", targetX: 80, targetY: 116, targetDirection: 1, requiredDirection: 1 },
+    ],
     colliders: [
       { x: 144, y: 0, w: 16, h: 16 },
       { x: 128, y: 16, w: 32, h: 16 },

@@ -1,0 +1,977 @@
+{
+  "roomId": "library",
+  "sourceMap": "library.map",
+  "screenCol": 0,
+  "screenRow": 0,
+  "tileOrigin": {
+    "col": 0,
+    "row": 0
+  },
+  "worldPixelOrigin": {
+    "x": 0,
+    "y": 0
+  },
+  "logicalSize": {
+    "w": 160,
+    "h": 128
+  },
+  "displaySize": {
+    "w": 1280,
+    "h": 1024
+  },
+  "musicTrackId": 9,
+  "neighbors": {
+    "north": null,
+    "south": null,
+    "west": null,
+    "east": null
+  },
+  "colliders": [
+    {
+      "x": 0,
+      "y": 16,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 0,
+      "y": 32,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 0,
+      "y": 48,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 0,
+      "y": 64,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 0,
+      "y": 80,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 0,
+      "y": 96,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 16,
+      "y": 112,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 32,
+      "y": 112,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 48,
+      "y": 112,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 96,
+      "y": 112,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 112,
+      "y": 112,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 128,
+      "y": 112,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 144,
+      "y": 16,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 144,
+      "y": 32,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 144,
+      "y": 48,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 144,
+      "y": 64,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 144,
+      "y": 80,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 144,
+      "y": 96,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 64,
+      "y": 112,
+      "w": 8,
+      "h": 16,
+      "source": "c3"
+    },
+    {
+      "x": 88,
+      "y": 112,
+      "w": 8,
+      "h": 16,
+      "source": "c4"
+    },
+    {
+      "x": 16,
+      "y": 14,
+      "w": 16,
+      "h": 8,
+      "source": "c5"
+    },
+    {
+      "x": 32,
+      "y": 14,
+      "w": 16,
+      "h": 8,
+      "source": "c5"
+    },
+    {
+      "x": 48,
+      "y": 14,
+      "w": 16,
+      "h": 8,
+      "source": "c5"
+    },
+    {
+      "x": 64,
+      "y": 14,
+      "w": 16,
+      "h": 8,
+      "source": "c5"
+    },
+    {
+      "x": 80,
+      "y": 14,
+      "w": 16,
+      "h": 8,
+      "source": "c5"
+    },
+    {
+      "x": 96,
+      "y": 14,
+      "w": 16,
+      "h": 8,
+      "source": "c5"
+    },
+    {
+      "x": 112,
+      "y": 14,
+      "w": 16,
+      "h": 8,
+      "source": "c5"
+    },
+    {
+      "x": 129,
+      "y": 14,
+      "w": 16,
+      "h": 8,
+      "source": "c5"
+    },
+    {
+      "x": 16,
+      "y": 32,
+      "w": 16,
+      "h": 16,
+      "source": "lowCollider16"
+    },
+    {
+      "x": 16,
+      "y": 80,
+      "w": 16,
+      "h": 16,
+      "source": "lowCollider16"
+    },
+    {
+      "x": 48,
+      "y": 32,
+      "w": 16,
+      "h": 16,
+      "source": "lowCollider16"
+    },
+    {
+      "x": 48,
+      "y": 80,
+      "w": 16,
+      "h": 16,
+      "source": "lowCollider16"
+    },
+    {
+      "x": 96,
+      "y": 32,
+      "w": 16,
+      "h": 16,
+      "source": "lowCollider16"
+    },
+    {
+      "x": 96,
+      "y": 80,
+      "w": 16,
+      "h": 16,
+      "source": "lowCollider16"
+    },
+    {
+      "x": 128,
+      "y": 32,
+      "w": 16,
+      "h": 16,
+      "source": "lowCollider16"
+    },
+    {
+      "x": 128,
+      "y": 80,
+      "w": 16,
+      "h": 16,
+      "source": "lowCollider16"
+    }
+  ],
+  "groundZones": [],
+  "interactables": [
+    {
+      "kind": "sign",
+      "id": "book_16_27",
+      "x": 16,
+      "y": 32,
+      "textKey": "book1",
+      "sprite": null,
+      "requiredDirection": null,
+      "bookSprite": "book_2"
+    },
+    {
+      "kind": "sign",
+      "id": "book_16_75",
+      "x": 16,
+      "y": 80,
+      "textKey": "book5",
+      "sprite": null,
+      "requiredDirection": null,
+      "bookSprite": "book_0"
+    },
+    {
+      "kind": "sign",
+      "id": "book_48_27",
+      "x": 48,
+      "y": 32,
+      "textKey": "book2",
+      "sprite": null,
+      "requiredDirection": null,
+      "bookSprite": "book_3"
+    },
+    {
+      "kind": "sign",
+      "id": "book_48_75",
+      "x": 48,
+      "y": 80,
+      "textKey": "book6",
+      "sprite": null,
+      "requiredDirection": null,
+      "bookSprite": "book_1"
+    },
+    {
+      "kind": "sign",
+      "id": "book_96_27",
+      "x": 96,
+      "y": 32,
+      "textKey": "book3",
+      "sprite": null,
+      "requiredDirection": null,
+      "bookSprite": "book_0"
+    },
+    {
+      "kind": "sign",
+      "id": "book_96_75",
+      "x": 96,
+      "y": 80,
+      "textKey": "book7",
+      "sprite": null,
+      "requiredDirection": null,
+      "bookSprite": "book_2"
+    },
+    {
+      "kind": "sign",
+      "id": "book_128_27",
+      "x": 128,
+      "y": 32,
+      "textKey": "book4",
+      "sprite": null,
+      "requiredDirection": null,
+      "bookSprite": "book_1"
+    },
+    {
+      "kind": "sign",
+      "id": "book_128_75",
+      "x": 128,
+      "y": 80,
+      "textKey": "book8",
+      "sprite": null,
+      "requiredDirection": null,
+      "bookSprite": "book_3"
+    },
+    {
+      "kind": "sign",
+      "id": "sign_16_6",
+      "x": 16,
+      "y": 6,
+      "textKey": "bookcase",
+      "sprite": null,
+      "requiredDirection": null
+    },
+    {
+      "kind": "sign",
+      "id": "sign_32_6",
+      "x": 32,
+      "y": 6,
+      "textKey": "bookcase",
+      "sprite": null,
+      "requiredDirection": null
+    },
+    {
+      "kind": "sign",
+      "id": "sign_48_6",
+      "x": 48,
+      "y": 6,
+      "textKey": "bookcase",
+      "sprite": null,
+      "requiredDirection": null
+    },
+    {
+      "kind": "sign",
+      "id": "sign_64_6",
+      "x": 64,
+      "y": 6,
+      "textKey": "bookcase",
+      "sprite": null,
+      "requiredDirection": null
+    },
+    {
+      "kind": "sign",
+      "id": "sign_80_6",
+      "x": 80,
+      "y": 6,
+      "textKey": "bookcase",
+      "sprite": null,
+      "requiredDirection": null
+    },
+    {
+      "kind": "sign",
+      "id": "sign_96_6",
+      "x": 96,
+      "y": 6,
+      "textKey": "bookcase",
+      "sprite": null,
+      "requiredDirection": null
+    },
+    {
+      "kind": "sign",
+      "id": "sign_112_6",
+      "x": 112,
+      "y": 6,
+      "textKey": "bookcase",
+      "sprite": null,
+      "requiredDirection": null
+    },
+    {
+      "kind": "sign",
+      "id": "sign_128_6",
+      "x": 128,
+      "y": 6,
+      "textKey": "bookcase",
+      "sprite": null,
+      "requiredDirection": null
+    }
+  ],
+  "doors": [
+    {
+      "x": 72,
+      "y": 120,
+      "w": 16,
+      "h": 8,
+      "entryId": "l1",
+      "nextMap": "overworld.map",
+      "exitId": "l1",
+      "direction": 1,
+      "mode": 0
+    }
+  ],
+  "enemies": [],
+  "cuttables": [],
+  "unportedEnemies": [],
+  "objects": [
+    {
+      "id": "book",
+      "category": "other",
+      "localX": 16,
+      "localY": 27,
+      "params": [
+        "",
+        "book1",
+        "2"
+      ]
+    },
+    {
+      "id": "book",
+      "category": "other",
+      "localX": 16,
+      "localY": 75,
+      "params": [
+        "",
+        "book5",
+        ""
+      ]
+    },
+    {
+      "id": "book",
+      "category": "other",
+      "localX": 48,
+      "localY": 27,
+      "params": [
+        "",
+        "book2",
+        "3"
+      ]
+    },
+    {
+      "id": "book",
+      "category": "other",
+      "localX": 48,
+      "localY": 75,
+      "params": [
+        "",
+        "book6",
+        "1"
+      ]
+    },
+    {
+      "id": "book",
+      "category": "other",
+      "localX": 72,
+      "localY": 23,
+      "params": [
+        "library_book",
+        "book9",
+        ""
+      ]
+    },
+    {
+      "id": "book",
+      "category": "other",
+      "localX": 96,
+      "localY": 27,
+      "params": [
+        "",
+        "book3",
+        ""
+      ]
+    },
+    {
+      "id": "book",
+      "category": "other",
+      "localX": 96,
+      "localY": 75,
+      "params": [
+        "",
+        "book7",
+        "2"
+      ]
+    },
+    {
+      "id": "book",
+      "category": "other",
+      "localX": 128,
+      "localY": 27,
+      "params": [
+        "",
+        "book4",
+        "1"
+      ]
+    },
+    {
+      "id": "book",
+      "category": "other",
+      "localX": 128,
+      "localY": 75,
+      "params": [
+        "",
+        "book8",
+        "3"
+      ]
+    },
+    {
+      "id": "door",
+      "category": "warp",
+      "localX": 72,
+      "localY": 120,
+      "params": [
+        "",
+        "",
+        "l1",
+        "overworld.map",
+        "l1",
+        "1",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "doorLight",
+      "category": "warp",
+      "localX": 72,
+      "localY": 112,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "sign",
+      "category": "other",
+      "localX": 16,
+      "localY": 6,
+      "params": [
+        "bookcase",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "sign",
+      "category": "other",
+      "localX": 32,
+      "localY": 6,
+      "params": [
+        "bookcase",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "sign",
+      "category": "other",
+      "localX": 48,
+      "localY": 6,
+      "params": [
+        "bookcase",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "sign",
+      "category": "other",
+      "localX": 64,
+      "localY": 6,
+      "params": [
+        "bookcase",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "sign",
+      "category": "other",
+      "localX": 80,
+      "localY": 6,
+      "params": [
+        "bookcase",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "sign",
+      "category": "other",
+      "localX": 96,
+      "localY": 6,
+      "params": [
+        "bookcase",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "sign",
+      "category": "other",
+      "localX": 112,
+      "localY": 6,
+      "params": [
+        "bookcase",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "sign",
+      "category": "other",
+      "localX": 128,
+      "localY": 6,
+      "params": [
+        "bookcase",
+        "",
+        "",
+        ""
+      ]
+    }
+  ],
+  "tiles": [
+    [
+      [
+        2,
+        98,
+        98,
+        98,
+        98,
+        98,
+        98,
+        98,
+        98,
+        5
+      ],
+      [
+        15,
+        76,
+        76,
+        76,
+        76,
+        76,
+        76,
+        76,
+        76,
+        16
+      ],
+      [
+        15,
+        91,
+        51,
+        91,
+        51,
+        51,
+        91,
+        51,
+        91,
+        16
+      ],
+      [
+        15,
+        51,
+        51,
+        51,
+        51,
+        51,
+        51,
+        51,
+        51,
+        16
+      ],
+      [
+        15,
+        51,
+        51,
+        51,
+        51,
+        51,
+        51,
+        51,
+        51,
+        16
+      ],
+      [
+        15,
+        91,
+        51,
+        91,
+        51,
+        51,
+        91,
+        51,
+        91,
+        16
+      ],
+      [
+        15,
+        51,
+        51,
+        51,
+        51,
+        51,
+        51,
+        51,
+        51,
+        16
+      ],
+      [
+        3,
+        17,
+        17,
+        17,
+        39,
+        38,
+        17,
+        17,
+        17,
+        4
+      ]
+    ],
+    [
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ]
+    ],
+    [
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ]
+    ]
+  ]
+}

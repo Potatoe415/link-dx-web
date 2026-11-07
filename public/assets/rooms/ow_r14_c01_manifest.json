@@ -229,6 +229,7 @@
       "requiredDirection": 1
     }
   ],
+  "doors": [],
   "enemies": [
     {
       "kind": "urchin",

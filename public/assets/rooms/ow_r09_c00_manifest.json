@@ -159,6 +159,7 @@
       "requiredDirection": 1
     }
   ],
+  "doors": [],
   "enemies": [],
   "cuttables": [
     {

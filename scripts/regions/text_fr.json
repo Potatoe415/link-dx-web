@@ -21,5 +21,18 @@
   "signpost20": ["Mont Tamaranch"],
   "signpost21": ["Envie de descendre les rapides en radeau ? Présentez-vous au bureau, s'il vous plaît !"],
   "signpost22": ["Entrée du\nDésert de Yarna ←"],
-  "signpost23": ["← Bienvenue au\nVillage des Animaux !"]
+  "signpost23": ["← Bienvenue au\nVillage des Animaux !"],
+  "bookcase": ["Ce n'est pas une commode… Quoi ? Tu le savais déjà ? D'accord."],
+  "npc_house_chest": ["Link fouille la commode.\nOh ! C'est une bien jolie commode !"],
+  "ulrira_telephone": ["« DRING ! DRING ! DRING ! CLIC ! Ouiii ! Ici la Souris du Seau ! Merci d'avoir appelé ! … Bon… CLIC ! »", "??? … Tu as dû faire un faux numéro…"],
+  "ulrira": ["« DRING ! DRING ! Allô ! C'est moi, Pépé le Ramollo ! Demande-moi tout ce que tu veux sur l'île ! Si tu te perds, passe-moi un coup de fil ! Salut ! CLIC ! »"],
+  "shopkeeper": ["Hé ! Bienvenue ! Quelque chose te plaît ?! Apporte-le-moi ici !"],
+  "book1": ["« Choisir l'objet qui te convient »", "Tu peux attribuer tes objets favoris aux boutons A et B depuis le sous-écran. Avec différents objets, tu peux te battre sans épée ! Essaie-en plein pour trouver ce qui te va !"],
+  "book2": ["« Guide de la carte et du mémo »", "Appuie sur SELECT pour voir la carte de l'île. Les zones sombres sont celles que tu n'as pas encore visitées. Déplace le curseur et appuie sur A pour en savoir plus sur un lieu, ou relire un message reçu là-bas…"],
+  "book3": ["« Les secrets de l'Attaque Tornade »", "La technique de l'Attaque Tornade se transmet de génération en génération dans la famille du héros. Maintiens le bouton de l'épée pour accumuler ta force, puis relâche-le ! Sauras-tu la maîtriser ?"],
+  "book4": ["« Manier son bouclier comme un pro ! »", "En maintenant le bouton, tu te protèges des attaques ennemies et tu peux même en renverser certains… Il existe aussi un bouclier miroir qui renvoie les rayons !"],
+  "book5": ["« S'amuser avec les bombes »", "Après avoir posé une bombe, tu peux la ramasser en appuyant de nouveau sur le bouton, puis la lancer en appuyant encore une fois. Tu le savais ?"],
+  "book6": ["« Les propriétés des trous de téléportation »", "Il existe des trous de téléportation sur l'île Cocolint. Si tu sautes dans celui par lequel tu es arrivé, tu iras au suivant de la série. Tu ne peux te rendre que vers un trou que tu as vu de tes propres yeux…"],
+  "book7": ["« Atlas de l'île Cocolint »", "On peut y chercher le nom de chaque lieu en déplaçant le curseur… (la carte n'est pas encore disponible)"],
+  "book8": ["« Sombres secrets et mystères de Cocolint »", "Oh ! Qu'est-ce que c'est ?! … … Impossible de lire ces caractères minuscules sans une loupe…"]
 }

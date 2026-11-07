@@ -1,0 +1,21 @@
+{
+  "export": "MABE_VILLAGE_INTERIOR_ROOMS",
+  "out": "src/data/rooms/mabe_village_interiors.ts",
+  "comment": "Mabe Village houses (house2, house3m, house3n, house4, helphouse5, library, shop1, shop2). Marin's house (house1) is hand-tuned in mabe_village.ts. Doors pair with the overworld doors through their entry ids.",
+  "ambience": "indoor",
+  "neighbors": {
+    "quadruplets_house_w": { "east": "quadruplets_house_e" },
+    "quadruplets_house_e": { "west": "quadruplets_house_w" }
+  },
+  "rooms": {
+    "library": "Bibliothèque",
+    "ulrira": "Maison de Pépé le Ramollo",
+    "phonebooth": "Cabine téléphonique",
+    "meow_house": "Maison de Mme Miaou",
+    "bowwow_kennel": "Niche de Toutou",
+    "quadruplets_house_w": "Maison des quadruplés (ouest)",
+    "quadruplets_house_e": "Maison des quadruplés",
+    "shop": "Boutique",
+    "trendy_game": "Jeu de hasard"
+  }
+}

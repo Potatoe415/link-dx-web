@@ -142,6 +142,7 @@
   ],
   "groundZones": [],
   "interactables": [],
+  "doors": [],
   "enemies": [],
   "cuttables": [],
   "unportedEnemies": [],

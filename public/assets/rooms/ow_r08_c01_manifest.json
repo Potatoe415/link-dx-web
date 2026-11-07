@@ -219,6 +219,19 @@
   ],
   "groundZones": [],
   "interactables": [],
+  "doors": [
+    {
+      "x": 96,
+      "y": 80,
+      "w": 16,
+      "h": 16,
+      "entryId": "pond",
+      "nextMap": "",
+      "exitId": "",
+      "direction": -1,
+      "mode": 1
+    }
+  ],
   "enemies": [],
   "cuttables": [
     {

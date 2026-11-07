@@ -222,9 +222,20 @@ def compute_interactable(obj, lx, ly):
         return None
     params = obj['params']
     if obj['id'] in SIGN_SPRITES:
+        # param 3 overrides the template direction (house chests: 1 = read facing Up); -1 = any
+        direction = SIGN_DIRECTION[obj['id']]
+        if len(params) > 3 and params[3].lstrip('-').isdigit():
+            direction = int(params[3]) if int(params[3]) >= 0 else None
         return {'kind': 'sign', 'id': f"{obj['id']}_{lx}_{ly}", 'x': lx, 'y': ly,
                 'textKey': params[0] if params else '', 'sprite': SIGN_SPRITES[obj['id']],
-                'requiredDirection': SIGN_DIRECTION[obj['id']]}
+                'requiredDirection': direction}
+    if obj['id'] == 'book' and len(params) > 1 and params[1]:
+        if params[0]:  # strKey set: the book sits on a shelf until knocked down (Pegasus Boots) — TEMP: not ported
+            return None
+        # ObjBook: EntityPosition (x + 8, y + 16), interaction CBox(-6, -11, 12, 13) -> text trigger on the
+        # table cell under the book (y + 5), readable from any side
+        return {'kind': 'sign', 'id': f"book_{lx}_{ly}", 'x': lx, 'y': ly + 5, 'textKey': params[1],
+                'sprite': None, 'requiredDirection': None, 'bookSprite': f"book_{max(0, min(3, int(params[2] or 0)))}"}
     if obj['id'] == 'item' and len(params) > 2 and params[2] in GROUND_ITEMS:
         return {'kind': 'item', 'id': params[1] or f'item_{lx}_{ly}', 'x': lx, 'y': ly, 'item': GROUND_ITEMS[params[2]]}
     if obj['id'] == 'chest':
@@ -251,6 +262,28 @@ def compute_enemy_spawn(obj, lx, ly):
         return None
     kind, (ox, oy) = ENEMY_TEMPLATES[tid]
     return {'kind': kind, 'x': lx + ox, 'y': ly + oy}
+
+
+def compute_door(obj, lx, ly):
+    """ObjDoor params (GameObjectTemplates.cs `door`): [width, height, entryId, nextMap, exitId, direction, mode, savePosition]."""
+    if obj['id'] != 'door':
+        return None
+    p = (obj['params'] + [''] * 8)[:8]
+    w, h = int(p[0] or 16), int(p[1] or 16)
+    x0, y0 = max(0, lx), max(0, ly)
+    x1, y1 = min(160, lx + w), min(128, ly + h)
+    if x1 <= x0 or y1 <= y0:
+        return None
+    return {'x': x0, 'y': y0, 'w': x1 - x0, 'h': y1 - y0, 'entryId': p[2], 'nextMap': p[3], 'exitId': p[4],
+            'direction': int(p[5] or 0), 'mode': int(p[6] or 0)}
+
+
+def map_music(parsed):
+    """Indoor/dungeon maps set their song with an ObjMusic object (param 0 = song number)."""
+    for obj in parsed['objects']:
+        if obj['id'] == 'music' and obj['params'] and obj['params'][0].lstrip('-').isdigit():
+            return int(obj['params'][0])
+    return None
 
 
 def compute_object_colliders(obj_id, lx, ly, params, templates):
@@ -295,6 +328,12 @@ def extract_room(map_name, screen_col, screen_row, out_id, out_dir, offset_px_x=
         world_px_y = offset_px_y
         tile_col_start = world_px_x // 16
         tile_row_start = world_px_y // 16
+    elif not is_overworld and (parsed['width'] < 10 or parsed['height'] < 8):
+        # Maps smaller than a screen (telephone booths, small huts) are centred, black around them
+        world_px_x = -((10 - parsed['width']) * 16 // 2) if parsed['width'] < 10 else screen_col * 160
+        world_px_y = -((8 - parsed['height']) * 16 // 2) if parsed['height'] < 8 else screen_row * 128
+        tile_col_start = world_px_x // 16
+        tile_row_start = world_px_y // 16
     else:
         tile_col_start = screen_col * 10 + parsed['offsetX']
         tile_row_start = screen_row * 8 + parsed['offsetY']
@@ -305,17 +344,20 @@ def extract_room(map_name, screen_col, screen_row, out_id, out_dir, offset_px_x=
     tileset_img = Image.open(tileset_path).convert('RGBA')
     ts_cols = tileset_img.width // 16
 
-    room_native = Image.new('RGBA', (160, 128), (0, 0, 0, 255))
-    top_layer_img = Image.new('RGBA', (160, 128), (0, 0, 0, 0)) if parsed['depth'] > 1 else None
+    # Tiles are composited on a one-tile-larger canvas and cropped, so world offsets need not be
+    # tile-aligned (small interiors are centred like the original camera does).
+    sub_x, sub_y = world_px_x - tile_col_start * 16, world_px_y - tile_row_start * 16
+    tiles_canvas = Image.new('RGBA', (176, 144), (0, 0, 0, 255))
+    top_canvas = Image.new('RGBA', (176, 144), (0, 0, 0, 0)) if parsed['depth'] > 1 else None
     room_tiles = []
 
     for z in range(parsed['depth']):
-        target = top_layer_img if (top_layer_img is not None and z == parsed['depth'] - 1) else room_native
+        target = top_canvas if (top_canvas is not None and z == parsed['depth'] - 1) else tiles_canvas
         layer_slice = []
-        for ry in range(8):
+        for ry in range(9):
             row_indices = []
             ty = tile_row_start + ry
-            for rx in range(10):
+            for rx in range(11):
                 tx = tile_col_start + rx
                 t_idx = -1
                 if 0 <= ty < parsed['height'] and 0 <= tx < parsed['width']:
@@ -326,8 +368,12 @@ def extract_room(map_name, screen_col, screen_row, out_id, out_dir, offset_px_x=
                     sy = (t_idx // ts_cols) * 16
                     tile_crop = tileset_img.crop((sx, sy, sx + 16, sy + 16))
                     target.alpha_composite(tile_crop, (rx * 16, ry * 16))
-            layer_slice.append(row_indices)
-        room_tiles.append(layer_slice)
+            layer_slice.append(row_indices[:10])
+        room_tiles.append(layer_slice[:8])
+
+    crop_box = (sub_x, sub_y, sub_x + 160, sub_y + 128)
+    room_native = tiles_canvas.crop(crop_box)
+    top_layer_img = top_canvas.crop(crop_box) if top_canvas is not None else None
 
     # Filter objects inside or overlapping this 160x128 screen
     sprites = load_sprite_atlases()
@@ -339,6 +385,7 @@ def extract_room(map_name, screen_col, screen_row, out_id, out_dir, offset_px_x=
     extracted_colliders = []
     ground_zones = []
     interactables = []
+    doors = []
     enemy_spawns = []
     cuttables = []
     unported_enemies = set()
@@ -365,6 +412,10 @@ def extract_room(map_name, screen_col, screen_row, out_id, out_dir, offset_px_x=
                 enemy_spawns.append(spawn)
             elif obj['id'] == 'enemy_respawner' and obj['params'] and 0 <= lx < 160 and 0 <= ly < 128:
                 unported_enemies.add(obj['params'][0])
+
+            door = compute_door(obj, lx, ly)
+            if door:
+                doors.append(door)
 
             inter = compute_interactable(obj, lx, ly)
             if inter:
@@ -394,6 +445,9 @@ def extract_room(map_name, screen_col, screen_row, out_id, out_dir, offset_px_x=
                 for ax, ay in fence_posts(obj['id'], obj['params']):
                     f = sprites['fence']
                     draws.append((LAYER_PLAYER, ly + ay, 'fence', lx + ax - f['ox'], ly + ay - f['oy']))
+            elif inter and inter.get('bookSprite') in sprites:
+                # ObjBook CSprite at EntityPosition + (-4, -11), LayerBottom
+                draws.append((LAYER_BOTTOM, ly + 16, inter['bookSprite'], lx + 4, ly + 5))
             elif obj['id'] in templates and not inter and obj['id'] not in CUTTABLE:  # runtime objects
                 t = templates[obj['id']]
                 sprite_id = obj['params'][0] if (t['cls'] == 'ObjSprite' and obj['params'] and obj['params'][0] in sprites) else t['sprite']
@@ -453,7 +507,7 @@ def extract_room(map_name, screen_col, screen_row, out_id, out_dir, offset_px_x=
     ruler.save(ruler_path)
 
     # 3. Save deterministic JSON manifest
-    music_track = get_overworld_music(tile_col_start + 5, tile_row_start + 4) if is_overworld else parsed['version']
+    music_track = get_overworld_music(tile_col_start + 5, tile_row_start + 4) if is_overworld else map_music(parsed)
     manifest = {
         'roomId': out_id,
         'sourceMap': map_name,
@@ -473,6 +527,7 @@ def extract_room(map_name, screen_col, screen_row, out_id, out_dir, offset_px_x=
         'colliders': extracted_colliders,
         'groundZones': ground_zones,
         'interactables': interactables,
+        'doors': doors,
         'enemies': enemy_spawns,
         'cuttables': cuttables,
         'unportedEnemies': sorted(unported_enemies),

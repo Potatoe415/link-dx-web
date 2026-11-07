@@ -177,6 +177,19 @@
   ],
   "groundZones": [],
   "interactables": [],
+  "doors": [
+    {
+      "x": 48,
+      "y": 32,
+      "w": 16,
+      "h": 16,
+      "entryId": "l1",
+      "nextMap": "library.map",
+      "exitId": "l1",
+      "direction": 3,
+      "mode": 0
+    }
+  ],
   "enemies": [],
   "cuttables": [
     {

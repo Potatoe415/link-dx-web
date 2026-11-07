@@ -1,0 +1,763 @@
+{
+  "roomId": "shop",
+  "sourceMap": "shop1.map",
+  "screenCol": 0,
+  "screenRow": 0,
+  "tileOrigin": {
+    "col": 0,
+    "row": 0
+  },
+  "worldPixelOrigin": {
+    "x": 0,
+    "y": 0
+  },
+  "logicalSize": {
+    "w": 160,
+    "h": 128
+  },
+  "displaySize": {
+    "w": 1280,
+    "h": 1024
+  },
+  "musicTrackId": 6,
+  "neighbors": {
+    "north": null,
+    "south": null,
+    "west": null,
+    "east": null
+  },
+  "colliders": [
+    {
+      "x": 0,
+      "y": 48,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 0,
+      "y": 64,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 0,
+      "y": 80,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 0,
+      "y": 96,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 16,
+      "y": 112,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 32,
+      "y": 112,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 48,
+      "y": 112,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 96,
+      "y": 112,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 112,
+      "y": 112,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 128,
+      "y": 112,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 144,
+      "y": 48,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 144,
+      "y": 64,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 144,
+      "y": 80,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 144,
+      "y": 96,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 64,
+      "y": 112,
+      "w": 8,
+      "h": 16,
+      "source": "c3"
+    },
+    {
+      "x": 88,
+      "y": 112,
+      "w": 8,
+      "h": 16,
+      "source": "c4"
+    },
+    {
+      "x": 16,
+      "y": 48,
+      "w": 16,
+      "h": 8,
+      "source": "c5"
+    },
+    {
+      "x": 32,
+      "y": 48,
+      "w": 16,
+      "h": 8,
+      "source": "c5"
+    },
+    {
+      "x": 48,
+      "y": 48,
+      "w": 16,
+      "h": 8,
+      "source": "c5"
+    },
+    {
+      "x": 64,
+      "y": 48,
+      "w": 16,
+      "h": 8,
+      "source": "c5"
+    },
+    {
+      "x": 80,
+      "y": 48,
+      "w": 16,
+      "h": 8,
+      "source": "c5"
+    },
+    {
+      "x": 96,
+      "y": 48,
+      "w": 16,
+      "h": 8,
+      "source": "c5"
+    },
+    {
+      "x": 112,
+      "y": 48,
+      "w": 16,
+      "h": 8,
+      "source": "c5"
+    },
+    {
+      "x": 128,
+      "y": 48,
+      "w": 16,
+      "h": 8,
+      "source": "c5"
+    },
+    {
+      "x": 96,
+      "y": 84,
+      "w": 16,
+      "h": 12,
+      "source": "itemShop"
+    }
+  ],
+  "groundZones": [],
+  "interactables": [
+    {
+      "kind": "sign",
+      "id": "sign_96_80",
+      "x": 96,
+      "y": 80,
+      "textKey": "shopkeeper",
+      "sprite": null,
+      "requiredDirection": null
+    }
+  ],
+  "doors": [
+    {
+      "x": 72,
+      "y": 120,
+      "w": 16,
+      "h": 8,
+      "entryId": "s1",
+      "nextMap": "overworld.map",
+      "exitId": "s1",
+      "direction": 1,
+      "mode": 0
+    }
+  ],
+  "enemies": [],
+  "cuttables": [],
+  "unportedEnemies": [],
+  "objects": [
+    {
+      "id": "BowWow",
+      "category": "other",
+      "localX": -24,
+      "localY": 96,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "dialogBox",
+      "category": "other",
+      "localX": 16,
+      "localY": -16,
+      "params": [
+        "check_item0"
+      ]
+    },
+    {
+      "id": "dialogBox",
+      "category": "other",
+      "localX": 168,
+      "localY": 0,
+      "params": [
+        "houseMusic"
+      ]
+    },
+    {
+      "id": "door",
+      "category": "warp",
+      "localX": 72,
+      "localY": 120,
+      "params": [
+        "",
+        "",
+        "s1",
+        "overworld.map",
+        "s1",
+        "1",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "doorLight",
+      "category": "warp",
+      "localX": 72,
+      "localY": 112,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "houseBlacker",
+      "category": "other",
+      "localX": -24,
+      "localY": 24,
+      "params": [
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "itemDisabler",
+      "category": "other",
+      "localX": -24,
+      "localY": 72,
+      "params": []
+    },
+    {
+      "id": "itemShop",
+      "category": "other",
+      "localX": 96,
+      "localY": 80,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "lamp_wall_house_0",
+      "category": "other",
+      "localX": 32,
+      "localY": 0,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "lamp_wall_house_0",
+      "category": "other",
+      "localX": 112,
+      "localY": 0,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "music",
+      "category": "other",
+      "localX": -24,
+      "localY": 0,
+      "params": [
+        "6"
+      ]
+    },
+    {
+      "id": "objectSpawner",
+      "category": "other",
+      "localX": 16,
+      "localY": 16,
+      "params": [
+        "shopItem0",
+        "1",
+        "storeItem",
+        "bow.980.20",
+        ""
+      ]
+    },
+    {
+      "id": "objectSpawner",
+      "category": "other",
+      "localX": 16,
+      "localY": 16,
+      "params": [
+        "shopItem0",
+        "0",
+        "storeItem",
+        "shovel.200.1",
+        ""
+      ]
+    },
+    {
+      "id": "objectSpawner",
+      "category": "other",
+      "localX": 16,
+      "localY": 16,
+      "params": [
+        "shopItem0",
+        "2",
+        "storeItem",
+        "arrow.10.10",
+        ""
+      ]
+    },
+    {
+      "id": "objectSpawner",
+      "category": "other",
+      "localX": 72,
+      "localY": 120,
+      "params": [
+        "isWatched",
+        "1",
+        "pushDialog",
+        "shopkeeper_try_steal",
+        ""
+      ]
+    },
+    {
+      "id": "objectSpawner",
+      "category": "other",
+      "localX": 112,
+      "localY": 16,
+      "params": [
+        "shopLevel",
+        "1",
+        "storeItem",
+        "bomb.10.10",
+        ""
+      ]
+    },
+    {
+      "id": "shopkeeper",
+      "category": "npc",
+      "localX": 112,
+      "localY": 80,
+      "params": []
+    },
+    {
+      "id": "sign",
+      "category": "other",
+      "localX": 96,
+      "localY": 80,
+      "params": [
+        "shopkeeper",
+        "",
+        "0.4.16.12",
+        "2"
+      ]
+    },
+    {
+      "id": "storeItem",
+      "category": "other",
+      "localX": 48,
+      "localY": 16,
+      "params": [
+        "heart",
+        "10",
+        "3"
+      ]
+    },
+    {
+      "id": "storeItem",
+      "category": "other",
+      "localX": 80,
+      "localY": 16,
+      "params": [
+        "shield",
+        "20",
+        ""
+      ]
+    }
+  ],
+  "tiles": [
+    [
+      [
+        19,
+        47,
+        47,
+        47,
+        47,
+        47,
+        47,
+        47,
+        47,
+        21
+      ],
+      [
+        45,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        46
+      ],
+      [
+        45,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        46
+      ],
+      [
+        45,
+        73,
+        73,
+        73,
+        73,
+        73,
+        73,
+        73,
+        73,
+        46
+      ],
+      [
+        45,
+        51,
+        51,
+        51,
+        51,
+        51,
+        51,
+        51,
+        51,
+        46
+      ],
+      [
+        45,
+        51,
+        51,
+        51,
+        51,
+        51,
+        51,
+        51,
+        51,
+        46
+      ],
+      [
+        45,
+        51,
+        51,
+        51,
+        51,
+        51,
+        51,
+        51,
+        51,
+        46
+      ],
+      [
+        20,
+        48,
+        48,
+        48,
+        39,
+        38,
+        48,
+        48,
+        48,
+        22
+      ]
+    ],
+    [
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ]
+    ],
+    [
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ]
+    ]
+  ]
+}
