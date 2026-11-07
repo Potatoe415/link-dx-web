@@ -1,0 +1,1129 @@
+{
+  "roomId": "ow_r04_c00",
+  "sourceMap": "overworld.map",
+  "screenCol": 0,
+  "screenRow": 4,
+  "tileOrigin": {
+    "col": 1,
+    "row": 32
+  },
+  "worldPixelOrigin": {
+    "x": 16,
+    "y": 512
+  },
+  "logicalSize": {
+    "w": 160,
+    "h": 128
+  },
+  "displaySize": {
+    "w": 1280,
+    "h": 1024
+  },
+  "musicTrackId": 8,
+  "neighbors": {
+    "north": "ow_r03_c00",
+    "south": "ow_r05_c00",
+    "west": null,
+    "east": "ow_r04_c01"
+  },
+  "colliders": [
+    {
+      "x": 16,
+      "y": 80,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 16,
+      "y": 96,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 16,
+      "y": 112,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 32,
+      "y": 64,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 48,
+      "y": 0,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 48,
+      "y": 16,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 48,
+      "y": 32,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 48,
+      "y": 64,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 64,
+      "y": 48,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 64,
+      "y": 64,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 80,
+      "y": 48,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 80,
+      "y": 64,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 96,
+      "y": 112,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 112,
+      "y": 48,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 112,
+      "y": 64,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 112,
+      "y": 112,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 128,
+      "y": 0,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 128,
+      "y": 16,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 128,
+      "y": 48,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 128,
+      "y": 64,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 128,
+      "y": 112,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 144,
+      "y": 16,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 144,
+      "y": 48,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 144,
+      "y": 64,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 144,
+      "y": 112,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 16,
+      "y": 0,
+      "w": 32,
+      "h": 15,
+      "source": "treeWoods2"
+    },
+    {
+      "x": 16,
+      "y": 20,
+      "w": 32,
+      "h": 27,
+      "source": "treeWoods2"
+    },
+    {
+      "x": 144,
+      "y": 0,
+      "w": 16,
+      "h": 15,
+      "source": "treeWoods2"
+    }
+  ],
+  "groundZones": [
+    {
+      "kind": "hole",
+      "x": 97,
+      "y": 65,
+      "w": 14,
+      "h": 14
+    }
+  ],
+  "interactables": [],
+  "doors": [],
+  "enemies": [],
+  "cuttables": [
+    {
+      "kind": "bush",
+      "x": 48,
+      "y": 80,
+      "sprite": "bush_1"
+    },
+    {
+      "kind": "bush",
+      "x": 64,
+      "y": 80,
+      "sprite": "bush_1"
+    },
+    {
+      "kind": "bush",
+      "x": 80,
+      "y": 80,
+      "sprite": "bush_1"
+    }
+  ],
+  "unportedEnemies": [
+    "e5"
+  ],
+  "objects": [
+    {
+      "id": "bushForest",
+      "category": "other",
+      "localX": 48,
+      "localY": 80,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "bushForest",
+      "category": "other",
+      "localX": 64,
+      "localY": 80,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "bushForest",
+      "category": "other",
+      "localX": 80,
+      "localY": 80,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "enemy_respawner",
+      "category": "other",
+      "localX": 64,
+      "localY": 32,
+      "params": [
+        "e5",
+        ""
+      ]
+    },
+    {
+      "id": "enemy_respawner",
+      "category": "other",
+      "localX": 96,
+      "localY": 80,
+      "params": [
+        "e5",
+        ""
+      ]
+    },
+    {
+      "id": "flowerforest",
+      "category": "animated_prop",
+      "localX": 32,
+      "localY": 112,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "flowerforest",
+      "category": "animated_prop",
+      "localX": 128,
+      "localY": 32,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "fog",
+      "category": "other",
+      "localX": -32,
+      "localY": -32,
+      "params": [
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "fog",
+      "category": "other",
+      "localX": -16,
+      "localY": 96,
+      "params": [
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "fog",
+      "category": "other",
+      "localX": 128,
+      "localY": -32,
+      "params": [
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "fog",
+      "category": "other",
+      "localX": 128,
+      "localY": 96,
+      "params": [
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "grasForest",
+      "category": "other",
+      "localX": 80,
+      "localY": 112,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "grasForest",
+      "category": "other",
+      "localX": 80,
+      "localY": 128,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "hole",
+      "category": "other",
+      "localX": 96,
+      "localY": 64,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "treeWoods",
+      "category": "static_decor",
+      "localX": 160,
+      "localY": -32,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "treeWoods2",
+      "category": "static_decor",
+      "localX": 16,
+      "localY": -16,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "treeWoods2",
+      "category": "static_decor",
+      "localX": 16,
+      "localY": 16,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "treeWoods2",
+      "category": "static_decor",
+      "localX": 32,
+      "localY": -32,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "treeWoods2",
+      "category": "static_decor",
+      "localX": 128,
+      "localY": -32,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "treeWoods2",
+      "category": "static_decor",
+      "localX": 144,
+      "localY": -16,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave3",
+      "category": "other",
+      "localX": -32,
+      "localY": -32,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave3",
+      "category": "other",
+      "localX": -32,
+      "localY": -16,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave3",
+      "category": "other",
+      "localX": -32,
+      "localY": 0,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave3",
+      "category": "other",
+      "localX": -32,
+      "localY": 16,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave3",
+      "category": "other",
+      "localX": -32,
+      "localY": 32,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave3",
+      "category": "other",
+      "localX": -32,
+      "localY": 48,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave3",
+      "category": "other",
+      "localX": -32,
+      "localY": 64,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave3",
+      "category": "other",
+      "localX": -32,
+      "localY": 80,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave3",
+      "category": "other",
+      "localX": -32,
+      "localY": 96,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave3",
+      "category": "other",
+      "localX": -32,
+      "localY": 112,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave3",
+      "category": "other",
+      "localX": -32,
+      "localY": 128,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave3",
+      "category": "other",
+      "localX": -16,
+      "localY": -32,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave3",
+      "category": "other",
+      "localX": -16,
+      "localY": -16,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave3",
+      "category": "other",
+      "localX": -16,
+      "localY": 0,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave3",
+      "category": "other",
+      "localX": -16,
+      "localY": 16,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave3",
+      "category": "other",
+      "localX": -16,
+      "localY": 32,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave3",
+      "category": "other",
+      "localX": -16,
+      "localY": 48,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave3",
+      "category": "other",
+      "localX": -16,
+      "localY": 64,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave3",
+      "category": "other",
+      "localX": -16,
+      "localY": 80,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave3",
+      "category": "other",
+      "localX": -16,
+      "localY": 96,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave3",
+      "category": "other",
+      "localX": -16,
+      "localY": 112,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "wave3",
+      "category": "other",
+      "localX": -16,
+      "localY": 128,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    }
+  ],
+  "tiles": [
+    [
+      [
+        64,
+        467,
+        467,
+        468,
+        657,
+        657,
+        658,
+        659,
+        466,
+        447
+      ],
+      [
+        64,
+        467,
+        467,
+        468,
+        198,
+        434,
+        434,
+        434,
+        486,
+        487
+      ],
+      [
+        64,
+        467,
+        467,
+        468,
+        355,
+        434,
+        434,
+        198,
+        434,
+        434
+      ],
+      [
+        64,
+        467,
+        467,
+        67,
+        617,
+        448,
+        434,
+        446,
+        447,
+        447
+      ],
+      [
+        64,
+        119,
+        487,
+        487,
+        487,
+        488,
+        381,
+        486,
+        487,
+        487
+      ],
+      [
+        64,
+        468,
+        198,
+        434,
+        434,
+        434,
+        434,
+        434,
+        434,
+        374
+      ],
+      [
+        64,
+        468,
+        434,
+        434,
+        434,
+        434,
+        434,
+        434,
+        434,
+        434
+      ],
+      [
+        64,
+        468,
+        434,
+        434,
+        434,
+        434,
+        446,
+        447,
+        447,
+        447
+      ]
+    ],
+    [
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ]
+    ],
+    [
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ]
+    ]
+  ]
+}

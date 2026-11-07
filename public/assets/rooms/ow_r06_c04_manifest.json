@@ -1,0 +1,951 @@
+{
+  "roomId": "ow_r06_c04",
+  "sourceMap": "overworld.map",
+  "screenCol": 4,
+  "screenRow": 6,
+  "tileOrigin": {
+    "col": 41,
+    "row": 48
+  },
+  "worldPixelOrigin": {
+    "x": 656,
+    "y": 768
+  },
+  "logicalSize": {
+    "w": 160,
+    "h": 128
+  },
+  "displaySize": {
+    "w": 1280,
+    "h": 1024
+  },
+  "musicTrackId": 4,
+  "neighbors": {
+    "north": "ow_r05_c04",
+    "south": "ow_r07_c04",
+    "west": "ow_r06_c03",
+    "east": "ow_r06_c05"
+  },
+  "colliders": [
+    {
+      "x": 80,
+      "y": 112,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 96,
+      "y": 112,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 128,
+      "y": 112,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 144,
+      "y": 112,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 113,
+      "y": 98,
+      "w": 15,
+      "h": 11,
+      "source": "stone"
+    },
+    {
+      "x": 16,
+      "y": 0,
+      "w": 32,
+      "h": 16,
+      "source": "tree0"
+    },
+    {
+      "x": 16,
+      "y": 20,
+      "w": 32,
+      "h": 28,
+      "source": "tree0"
+    },
+    {
+      "x": 32,
+      "y": 4,
+      "w": 32,
+      "h": 28,
+      "source": "tree0"
+    },
+    {
+      "x": 32,
+      "y": 36,
+      "w": 32,
+      "h": 28,
+      "source": "tree0"
+    },
+    {
+      "x": 48,
+      "y": 0,
+      "w": 32,
+      "h": 16,
+      "source": "tree0"
+    },
+    {
+      "x": 48,
+      "y": 52,
+      "w": 32,
+      "h": 28,
+      "source": "tree0"
+    },
+    {
+      "x": 64,
+      "y": 68,
+      "w": 32,
+      "h": 28,
+      "source": "tree0"
+    },
+    {
+      "x": 80,
+      "y": 84,
+      "w": 32,
+      "h": 28,
+      "source": "tree0"
+    },
+    {
+      "x": 144,
+      "y": 0,
+      "w": 16,
+      "h": 16,
+      "source": "tree0"
+    },
+    {
+      "x": 0,
+      "y": 4,
+      "w": 32,
+      "h": 28,
+      "source": "treeWoods"
+    },
+    {
+      "x": 0,
+      "y": 36,
+      "w": 32,
+      "h": 28,
+      "source": "treeWoods"
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "w": 16,
+      "h": 15,
+      "source": "treeWoods2"
+    },
+    {
+      "x": 0,
+      "y": 20,
+      "w": 16,
+      "h": 27,
+      "source": "treeWoods2"
+    },
+    {
+      "x": 0,
+      "y": 52,
+      "w": 16,
+      "h": 27,
+      "source": "treeWoods2"
+    },
+    {
+      "x": 0,
+      "y": 84,
+      "w": 16,
+      "h": 27,
+      "source": "treeWoods2"
+    },
+    {
+      "x": 0,
+      "y": 116,
+      "w": 16,
+      "h": 12,
+      "source": "treeWoods2"
+    }
+  ],
+  "groundZones": [
+    {
+      "kind": "stairs",
+      "x": 112,
+      "y": 112,
+      "w": 16,
+      "h": 12
+    }
+  ],
+  "interactables": [],
+  "doors": [],
+  "enemies": [],
+  "cuttables": [],
+  "unportedEnemies": [],
+  "objects": [
+    {
+      "id": "flower",
+      "category": "animated_prop",
+      "localX": 16,
+      "localY": 64,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "flower",
+      "category": "animated_prop",
+      "localX": 16,
+      "localY": 80,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "flower",
+      "category": "animated_prop",
+      "localX": 16,
+      "localY": 96,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "flower",
+      "category": "animated_prop",
+      "localX": 32,
+      "localY": 64,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "flower",
+      "category": "animated_prop",
+      "localX": 32,
+      "localY": 96,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "flower",
+      "category": "animated_prop",
+      "localX": 48,
+      "localY": 80,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "flower",
+      "category": "animated_prop",
+      "localX": 48,
+      "localY": 96,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "gravestone",
+      "category": "other",
+      "localX": 32,
+      "localY": 80,
+      "params": [
+        "0",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "hitTrigger",
+      "category": "other",
+      "localX": 32,
+      "localY": 88,
+      "params": [
+        "128",
+        "ghost_grave_powder",
+        "",
+        "8",
+        "100",
+        "False",
+        ""
+      ]
+    },
+    {
+      "id": "objectSpawner",
+      "category": "other",
+      "localX": 32,
+      "localY": 112,
+      "params": [
+        "ghost_grave_powder",
+        "1",
+        "dialogBox",
+        "ghost_grave_powder_dialog",
+        ""
+      ]
+    },
+    {
+      "id": "owl",
+      "category": "npc",
+      "localX": 32,
+      "localY": 67,
+      "params": [
+        "5_0",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "pushDialog",
+      "category": "other",
+      "localX": 32,
+      "localY": 80,
+      "params": [
+        "photo_sequence_grave",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "scriptOnTouch",
+      "category": "other",
+      "localX": 20,
+      "localY": 68,
+      "params": [
+        "40",
+        "40",
+        "ghost_grave_sequence"
+      ]
+    },
+    {
+      "id": "stairs",
+      "category": "warp",
+      "localX": 112,
+      "localY": 112,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "stairs",
+      "category": "warp",
+      "localX": 112,
+      "localY": 128,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "stone",
+      "category": "other",
+      "localX": 112,
+      "localY": 95,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "tree0",
+      "category": "static_decor",
+      "localX": 16,
+      "localY": -16,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "tree0",
+      "category": "static_decor",
+      "localX": 16,
+      "localY": 16,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "tree0",
+      "category": "static_decor",
+      "localX": 32,
+      "localY": 0,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "tree0",
+      "category": "static_decor",
+      "localX": 32,
+      "localY": 32,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "tree0",
+      "category": "static_decor",
+      "localX": 48,
+      "localY": -16,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "tree0",
+      "category": "static_decor",
+      "localX": 48,
+      "localY": 48,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "tree0",
+      "category": "static_decor",
+      "localX": 64,
+      "localY": 64,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "tree0",
+      "category": "static_decor",
+      "localX": 80,
+      "localY": 80,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "tree0",
+      "category": "static_decor",
+      "localX": 144,
+      "localY": -16,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "tree0",
+      "category": "static_decor",
+      "localX": 160,
+      "localY": -32,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "treeWoods",
+      "category": "static_decor",
+      "localX": 0,
+      "localY": -32,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "treeWoods",
+      "category": "static_decor",
+      "localX": 0,
+      "localY": 0,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "treeWoods",
+      "category": "static_decor",
+      "localX": 0,
+      "localY": 32,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "treeWoods2",
+      "category": "static_decor",
+      "localX": -16,
+      "localY": -16,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "treeWoods2",
+      "category": "static_decor",
+      "localX": -16,
+      "localY": 16,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "treeWoods2",
+      "category": "static_decor",
+      "localX": -16,
+      "localY": 48,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "treeWoods2",
+      "category": "static_decor",
+      "localX": -16,
+      "localY": 80,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "treeWoods2",
+      "category": "static_decor",
+      "localX": -16,
+      "localY": 112,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    }
+  ],
+  "tiles": [
+    [
+      [
+        615,
+        615,
+        615,
+        615,
+        615,
+        500,
+        500,
+        356,
+        353,
+        615
+      ],
+      [
+        615,
+        615,
+        615,
+        615,
+        500,
+        500,
+        352,
+        356,
+        356,
+        412
+      ],
+      [
+        615,
+        615,
+        615,
+        615,
+        500,
+        500,
+        432,
+        327,
+        356,
+        452
+      ],
+      [
+        615,
+        615,
+        615,
+        615,
+        615,
+        500,
+        372,
+        452,
+        356,
+        356
+      ],
+      [
+        615,
+        68,
+        68,
+        615,
+        615,
+        615,
+        500,
+        372,
+        413,
+        373
+      ],
+      [
+        615,
+        68,
+        452,
+        68,
+        615,
+        615,
+        615,
+        500,
+        500,
+        500
+      ],
+      [
+        615,
+        68,
+        68,
+        68,
+        373,
+        615,
+        615,
+        500,
+        500,
+        500
+      ],
+      [
+        615,
+        372,
+        413,
+        373,
+        500,
+        214,
+        421,
+        210,
+        422,
+        204
+      ]
+    ],
+    [
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ]
+    ],
+    [
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ]
+    ]
+  ]
+}

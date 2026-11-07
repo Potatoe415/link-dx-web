@@ -57,7 +57,11 @@ export type ChestContents =
   | { type: 'rupees'; amount: number }
   | { type: 'item'; item: string }
   | { type: 'key'; dungeon: string }
+  | { type: 'questKey'; key: QuestKey }
   | { type: 'heartPiece' };
+
+/** Overworld keys that open a dungeon (ItemManager.cs dkey1..dkey5). */
+export type QuestKey = 'tail' | 'slime' | 'angler' | 'face' | 'bird';
 
 /** Item lying on the ground (ObjItem), picked up on touch; `saveKey` keeps it collected. */
 export interface GroundItemDef {
@@ -65,7 +69,7 @@ export interface GroundItemDef {
   id: string;
   x: number; // map object origin (16x16 cell top-left)
   y: number;
-  item: 'sword'; // extend as more ground items are ported
+  item: 'sword' | 'heartPiece'; // extend as more ground items are ported
 }
 
 export type InteractableDef = SignDef | ChestDef | GroundItemDef;

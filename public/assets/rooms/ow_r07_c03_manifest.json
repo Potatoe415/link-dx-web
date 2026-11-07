@@ -1,0 +1,1219 @@
+{
+  "roomId": "ow_r07_c03",
+  "sourceMap": "overworld.map",
+  "screenCol": 3,
+  "screenRow": 7,
+  "tileOrigin": {
+    "col": 31,
+    "row": 56
+  },
+  "worldPixelOrigin": {
+    "x": 496,
+    "y": 896
+  },
+  "logicalSize": {
+    "w": 160,
+    "h": 128
+  },
+  "displaySize": {
+    "w": 1280,
+    "h": 1024
+  },
+  "musicTrackId": 8,
+  "neighbors": {
+    "north": "ow_r06_c03",
+    "south": "ow_r08_c03",
+    "west": "ow_r07_c02",
+    "east": "ow_r07_c04"
+  },
+  "colliders": [
+    {
+      "x": 0,
+      "y": 0,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 0,
+      "y": 32,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 16,
+      "y": 0,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 16,
+      "y": 32,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 16,
+      "y": 48,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 16,
+      "y": 64,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 16,
+      "y": 80,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 32,
+      "y": 0,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 32,
+      "y": 96,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 48,
+      "y": 96,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 64,
+      "y": 96,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 80,
+      "y": 96,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 96,
+      "y": 96,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 112,
+      "y": 0,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 112,
+      "y": 96,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 128,
+      "y": 0,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 128,
+      "y": 16,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 128,
+      "y": 32,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 128,
+      "y": 48,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 128,
+      "y": 64,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 128,
+      "y": 80,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 128,
+      "y": 96,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 0,
+      "y": 52,
+      "w": 16,
+      "h": 27,
+      "source": "treeWoods2"
+    },
+    {
+      "x": 0,
+      "y": 84,
+      "w": 16,
+      "h": 27,
+      "source": "treeWoods2"
+    },
+    {
+      "x": 0,
+      "y": 116,
+      "w": 16,
+      "h": 12,
+      "source": "treeWoods2"
+    },
+    {
+      "x": 16,
+      "y": 116,
+      "w": 32,
+      "h": 12,
+      "source": "treeWoods2"
+    },
+    {
+      "x": 48,
+      "y": 116,
+      "w": 32,
+      "h": 12,
+      "source": "treeWoods2"
+    },
+    {
+      "x": 80,
+      "y": 116,
+      "w": 32,
+      "h": 12,
+      "source": "treeWoods2"
+    },
+    {
+      "x": 112,
+      "y": 116,
+      "w": 32,
+      "h": 12,
+      "source": "treeWoods2"
+    },
+    {
+      "x": 144,
+      "y": 0,
+      "w": 16,
+      "h": 15,
+      "source": "treeWoods2"
+    },
+    {
+      "x": 144,
+      "y": 20,
+      "w": 16,
+      "h": 27,
+      "source": "treeWoods2"
+    },
+    {
+      "x": 144,
+      "y": 52,
+      "w": 16,
+      "h": 27,
+      "source": "treeWoods2"
+    },
+    {
+      "x": 144,
+      "y": 84,
+      "w": 16,
+      "h": 27,
+      "source": "treeWoods2"
+    },
+    {
+      "x": 144,
+      "y": 116,
+      "w": 16,
+      "h": 12,
+      "source": "treeWoods2"
+    }
+  ],
+  "groundZones": [
+    {
+      "kind": "hole",
+      "x": 33,
+      "y": 49,
+      "w": 14,
+      "h": 14
+    },
+    {
+      "kind": "hole",
+      "x": 65,
+      "y": 17,
+      "w": 14,
+      "h": 14
+    },
+    {
+      "kind": "hole",
+      "x": 65,
+      "y": 81,
+      "w": 14,
+      "h": 14
+    },
+    {
+      "kind": "hole",
+      "x": 97,
+      "y": 49,
+      "w": 14,
+      "h": 14
+    }
+  ],
+  "interactables": [],
+  "doors": [],
+  "enemies": [],
+  "cuttables": [
+    {
+      "kind": "bush",
+      "x": 64,
+      "y": 48,
+      "sprite": "bush_1"
+    }
+  ],
+  "unportedEnemies": [
+    "e5"
+  ],
+  "objects": [
+    {
+      "id": "bushForest",
+      "category": "other",
+      "localX": 64,
+      "localY": 48,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "enemy_respawner",
+      "category": "other",
+      "localX": 64,
+      "localY": 32,
+      "params": [
+        "e5",
+        ""
+      ]
+    },
+    {
+      "id": "enemy_respawner",
+      "category": "other",
+      "localX": 80,
+      "localY": 48,
+      "params": [
+        "e5",
+        ""
+      ]
+    },
+    {
+      "id": "enemyWall",
+      "category": "other",
+      "localX": 48,
+      "localY": 0,
+      "params": [
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "enemyWall",
+      "category": "other",
+      "localX": 64,
+      "localY": 0,
+      "params": [
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "enemyWall",
+      "category": "other",
+      "localX": 80,
+      "localY": 0,
+      "params": [
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "enemyWall",
+      "category": "other",
+      "localX": 96,
+      "localY": 0,
+      "params": [
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "flowerforest",
+      "category": "animated_prop",
+      "localX": 32,
+      "localY": 16,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "flowerforest",
+      "category": "animated_prop",
+      "localX": 48,
+      "localY": -32,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "fog",
+      "category": "other",
+      "localX": -32,
+      "localY": -32,
+      "params": [
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "grasForest",
+      "category": "other",
+      "localX": 80,
+      "localY": -16,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "grasForest",
+      "category": "other",
+      "localX": 80,
+      "localY": 0,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "grasForest",
+      "category": "other",
+      "localX": 96,
+      "localY": -32,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "grasForest",
+      "category": "other",
+      "localX": 96,
+      "localY": -16,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "grasForest",
+      "category": "other",
+      "localX": 96,
+      "localY": 0,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "grasForest",
+      "category": "other",
+      "localX": 96,
+      "localY": 80,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "grasForest",
+      "category": "other",
+      "localX": 112,
+      "localY": 16,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "grasForest",
+      "category": "other",
+      "localX": 112,
+      "localY": 32,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "grasForest",
+      "category": "other",
+      "localX": 112,
+      "localY": 48,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "grasForest",
+      "category": "other",
+      "localX": 112,
+      "localY": 64,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "grasForest",
+      "category": "other",
+      "localX": 112,
+      "localY": 80,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "hole",
+      "category": "other",
+      "localX": 32,
+      "localY": 48,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "hole",
+      "category": "other",
+      "localX": 64,
+      "localY": 16,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "hole",
+      "category": "other",
+      "localX": 64,
+      "localY": 80,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "hole",
+      "category": "other",
+      "localX": 96,
+      "localY": 48,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "tree0",
+      "category": "static_decor",
+      "localX": -32,
+      "localY": 128,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "tree0",
+      "category": "static_decor",
+      "localX": 0,
+      "localY": 128,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "tree0",
+      "category": "static_decor",
+      "localX": 32,
+      "localY": 128,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "tree0",
+      "category": "static_decor",
+      "localX": 64,
+      "localY": 128,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "tree0",
+      "category": "static_decor",
+      "localX": 96,
+      "localY": 128,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "tree0",
+      "category": "static_decor",
+      "localX": 128,
+      "localY": 128,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "tree0",
+      "category": "static_decor",
+      "localX": 160,
+      "localY": 128,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "treeWoods2",
+      "category": "static_decor",
+      "localX": -16,
+      "localY": 48,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "treeWoods2",
+      "category": "static_decor",
+      "localX": -16,
+      "localY": 80,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "treeWoods2",
+      "category": "static_decor",
+      "localX": -16,
+      "localY": 112,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "treeWoods2",
+      "category": "static_decor",
+      "localX": 16,
+      "localY": 112,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "treeWoods2",
+      "category": "static_decor",
+      "localX": 48,
+      "localY": 112,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "treeWoods2",
+      "category": "static_decor",
+      "localX": 80,
+      "localY": 112,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "treeWoods2",
+      "category": "static_decor",
+      "localX": 112,
+      "localY": 112,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "treeWoods2",
+      "category": "static_decor",
+      "localX": 144,
+      "localY": -16,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "treeWoods2",
+      "category": "static_decor",
+      "localX": 144,
+      "localY": 16,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "treeWoods2",
+      "category": "static_decor",
+      "localX": 144,
+      "localY": 48,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "treeWoods2",
+      "category": "static_decor",
+      "localX": 144,
+      "localY": 80,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "treeWoods2",
+      "category": "static_decor",
+      "localX": 144,
+      "localY": 112,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    }
+  ],
+  "tiles": [
+    [
+      [
+        487,
+        487,
+        488,
+        434,
+        434,
+        434,
+        434,
+        486,
+        472,
+        467
+      ],
+      [
+        434,
+        434,
+        434,
+        434,
+        381,
+        374,
+        192,
+        434,
+        466,
+        467
+      ],
+      [
+        447,
+        448,
+        434,
+        198,
+        434,
+        198,
+        374,
+        434,
+        466,
+        467
+      ],
+      [
+        467,
+        468,
+        381,
+        434,
+        434,
+        434,
+        381,
+        434,
+        466,
+        467
+      ],
+      [
+        467,
+        468,
+        434,
+        198,
+        434,
+        198,
+        354,
+        434,
+        466,
+        467
+      ],
+      [
+        467,
+        468,
+        198,
+        434,
+        381,
+        354,
+        434,
+        434,
+        466,
+        467
+      ],
+      [
+        467,
+        67,
+        447,
+        447,
+        447,
+        447,
+        447,
+        447,
+        244,
+        467
+      ],
+      [
+        467,
+        467,
+        467,
+        467,
+        467,
+        467,
+        467,
+        467,
+        467,
+        467
+      ]
+    ],
+    [
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ]
+    ],
+    [
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ]
+    ]
+  ]
+}

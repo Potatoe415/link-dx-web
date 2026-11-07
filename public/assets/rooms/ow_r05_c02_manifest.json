@@ -1,0 +1,1091 @@
+{
+  "roomId": "ow_r05_c02",
+  "sourceMap": "overworld.map",
+  "screenCol": 2,
+  "screenRow": 5,
+  "tileOrigin": {
+    "col": 21,
+    "row": 40
+  },
+  "worldPixelOrigin": {
+    "x": 336,
+    "y": 640
+  },
+  "logicalSize": {
+    "w": 160,
+    "h": 128
+  },
+  "displaySize": {
+    "w": 1280,
+    "h": 1024
+  },
+  "musicTrackId": 8,
+  "neighbors": {
+    "north": "ow_r04_c02",
+    "south": "ow_r06_c02",
+    "west": "ow_r05_c01",
+    "east": "ow_r05_c03"
+  },
+  "colliders": [
+    {
+      "x": 16,
+      "y": 0,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 16,
+      "y": 16,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 16,
+      "y": 32,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 16,
+      "y": 48,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 16,
+      "y": 64,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 16,
+      "y": 80,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 16,
+      "y": 96,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 16,
+      "y": 112,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 80,
+      "y": 112,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 96,
+      "y": 0,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 96,
+      "y": 16,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 96,
+      "y": 112,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 112,
+      "y": 16,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 112,
+      "y": 112,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 128,
+      "y": 32,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 128,
+      "y": 48,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 128,
+      "y": 64,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 128,
+      "y": 80,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 128,
+      "y": 112,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 144,
+      "y": 80,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 144,
+      "y": 112,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "w": 16,
+      "h": 15,
+      "source": "treeWoods2"
+    },
+    {
+      "x": 0,
+      "y": 20,
+      "w": 16,
+      "h": 27,
+      "source": "treeWoods2"
+    },
+    {
+      "x": 0,
+      "y": 52,
+      "w": 16,
+      "h": 27,
+      "source": "treeWoods2"
+    },
+    {
+      "x": 0,
+      "y": 84,
+      "w": 16,
+      "h": 27,
+      "source": "treeWoods2"
+    },
+    {
+      "x": 0,
+      "y": 116,
+      "w": 16,
+      "h": 12,
+      "source": "treeWoods2"
+    },
+    {
+      "x": 112,
+      "y": 0,
+      "w": 32,
+      "h": 15,
+      "source": "treeWoods2"
+    },
+    {
+      "x": 144,
+      "y": 0,
+      "w": 16,
+      "h": 15,
+      "source": "treeWoods2"
+    },
+    {
+      "x": 144,
+      "y": 20,
+      "w": 16,
+      "h": 27,
+      "source": "treeWoods2"
+    },
+    {
+      "x": 144,
+      "y": 52,
+      "w": 16,
+      "h": 27,
+      "source": "treeWoods2"
+    }
+  ],
+  "groundZones": [],
+  "interactables": [],
+  "doors": [
+    {
+      "x": 112,
+      "y": 32,
+      "w": 16,
+      "h": 16,
+      "entryId": "bc1",
+      "nextMap": "caveBat1.map",
+      "exitId": "bc1",
+      "direction": 3,
+      "mode": 1
+    }
+  ],
+  "enemies": [],
+  "cuttables": [],
+  "unportedEnemies": [
+    "e5",
+    "moblinSword"
+  ],
+  "objects": [
+    {
+      "id": "door",
+      "category": "warp",
+      "localX": 112,
+      "localY": 32,
+      "params": [
+        "",
+        "",
+        "bc1",
+        "caveBat1.map",
+        "bc1",
+        "3",
+        "1",
+        ""
+      ]
+    },
+    {
+      "id": "enemy_respawner",
+      "category": "other",
+      "localX": 32,
+      "localY": 64,
+      "params": [
+        "moblinSword",
+        ""
+      ]
+    },
+    {
+      "id": "enemy_respawner",
+      "category": "other",
+      "localX": 80,
+      "localY": 64,
+      "params": [
+        "e5",
+        ""
+      ]
+    },
+    {
+      "id": "flowerforest",
+      "category": "animated_prop",
+      "localX": 48,
+      "localY": 48,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "flowerforest",
+      "category": "animated_prop",
+      "localX": 48,
+      "localY": 64,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "flowerforest",
+      "category": "animated_prop",
+      "localX": 48,
+      "localY": 80,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "flowerforest",
+      "category": "animated_prop",
+      "localX": 64,
+      "localY": -32,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "flowerforest",
+      "category": "animated_prop",
+      "localX": 64,
+      "localY": 48,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "flowerforest",
+      "category": "animated_prop",
+      "localX": 64,
+      "localY": 64,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "flowerforest",
+      "category": "animated_prop",
+      "localX": 64,
+      "localY": 80,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "flowerforest",
+      "category": "animated_prop",
+      "localX": 80,
+      "localY": 48,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "flowerforest",
+      "category": "animated_prop",
+      "localX": 80,
+      "localY": 64,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "flowerforest",
+      "category": "animated_prop",
+      "localX": 80,
+      "localY": 80,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "fog",
+      "category": "other",
+      "localX": -32,
+      "localY": -32,
+      "params": [
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "fog",
+      "category": "other",
+      "localX": -32,
+      "localY": 96,
+      "params": [
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "fog",
+      "category": "other",
+      "localX": 128,
+      "localY": -32,
+      "params": [
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "fog",
+      "category": "other",
+      "localX": 128,
+      "localY": 96,
+      "params": [
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "grasForest",
+      "category": "other",
+      "localX": 32,
+      "localY": 80,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "grasForest",
+      "category": "other",
+      "localX": 32,
+      "localY": 96,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "grasForest",
+      "category": "other",
+      "localX": 48,
+      "localY": 96,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "grasForest",
+      "category": "other",
+      "localX": 48,
+      "localY": 112,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "grasForest",
+      "category": "other",
+      "localX": 80,
+      "localY": -32,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "grasForest",
+      "category": "other",
+      "localX": 80,
+      "localY": -16,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "grasForest",
+      "category": "other",
+      "localX": 80,
+      "localY": 0,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "grasForest",
+      "category": "other",
+      "localX": 80,
+      "localY": 16,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "grasForest",
+      "category": "other",
+      "localX": 96,
+      "localY": 32,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "objectSpawner",
+      "category": "other",
+      "localX": 112,
+      "localY": 32,
+      "params": [
+        "ow_woods_stone",
+        "1",
+        "stairsWoods",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "objectSpawner",
+      "category": "other",
+      "localX": 112,
+      "localY": 32,
+      "params": [
+        "ow_woods_stone",
+        "",
+        "stoneWoods",
+        "..ow_woods_stone",
+        "False"
+      ]
+    },
+    {
+      "id": "treeWoods2",
+      "category": "static_decor",
+      "localX": -32,
+      "localY": -32,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "treeWoods2",
+      "category": "static_decor",
+      "localX": -32,
+      "localY": 128,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "treeWoods2",
+      "category": "static_decor",
+      "localX": -16,
+      "localY": -16,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "treeWoods2",
+      "category": "static_decor",
+      "localX": -16,
+      "localY": 16,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "treeWoods2",
+      "category": "static_decor",
+      "localX": -16,
+      "localY": 48,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "treeWoods2",
+      "category": "static_decor",
+      "localX": -16,
+      "localY": 80,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "treeWoods2",
+      "category": "static_decor",
+      "localX": -16,
+      "localY": 112,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "treeWoods2",
+      "category": "static_decor",
+      "localX": 112,
+      "localY": -16,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "treeWoods2",
+      "category": "static_decor",
+      "localX": 144,
+      "localY": -16,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "treeWoods2",
+      "category": "static_decor",
+      "localX": 144,
+      "localY": 16,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "treeWoods2",
+      "category": "static_decor",
+      "localX": 144,
+      "localY": 48,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    }
+  ],
+  "tiles": [
+    [
+      [
+        467,
+        468,
+        434,
+        434,
+        434,
+        434,
+        466,
+        467,
+        467,
+        467
+      ],
+      [
+        467,
+        468,
+        434,
+        434,
+        434,
+        434,
+        486,
+        487,
+        472,
+        467
+      ],
+      [
+        467,
+        468,
+        434,
+        434,
+        198,
+        434,
+        434,
+        434,
+        466,
+        467
+      ],
+      [
+        467,
+        468,
+        434,
+        434,
+        434,
+        434,
+        434,
+        434,
+        466,
+        467
+      ],
+      [
+        467,
+        468,
+        434,
+        434,
+        434,
+        434,
+        434,
+        434,
+        466,
+        467
+      ],
+      [
+        467,
+        468,
+        434,
+        434,
+        434,
+        434,
+        198,
+        434,
+        486,
+        487
+      ],
+      [
+        467,
+        468,
+        434,
+        434,
+        434,
+        434,
+        434,
+        434,
+        434,
+        198
+      ],
+      [
+        467,
+        468,
+        198,
+        434,
+        434,
+        446,
+        447,
+        447,
+        447,
+        447
+      ]
+    ],
+    [
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ]
+    ],
+    [
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ]
+    ]
+  ]
+}

@@ -1,5 +1,5 @@
-import { ChestDef, GroundItemDef, InteractableDef, Rect, SignDef } from '../data/rooms';
-import { GameState, ITEM_IDS, ItemId } from '../core/GameState';
+import { ChestDef, GroundItemDef, InteractableDef, QuestKey, Rect, SignDef } from '../data/rooms';
+import { GameFlag, GameState, ITEM_IDS, ItemId } from '../core/GameState';
 import { SoundManager } from '../core/Audio';
 import { DialogueSystem } from '../core/Dialogue';
 import { ImageCache } from '../core/Images';
@@ -17,6 +17,16 @@ const CHEST_BACK = { x: 259, y: 51, w: 16, h: 7 };
 const CHEST_FRONT = { x: 259, y: 58, w: 16, h: 9 };
 const CHEST_OPEN_DX = 16; // opened lid frame is the next 16 px on the sheet
 const CHEST_RISE_MS = 250; // ObjChest.MoveTime: item rises out of the chest
+const HEART_PIECE_SPRITE = { x: 174, y: 73, w: 16, h: 15 }; // items.atlas heartMeter
+
+// dialog_eng.lng dkey1..dkey5, French adaptation
+const QUEST_KEYS: Record<QuestKey, { flag: GameFlag; text: string }> = {
+  tail: { flag: 'FLAG_TAIL_KEY_OBTAINED', text: 'Vous obtenez la Clé Flagello ! Elle ouvre la grille de la Cave Flagello !' },
+  slime: { flag: 'FLAG_SLIME_KEY_OBTAINED', text: 'Vous obtenez la Clé Gluante ! Elle ouvre la grille de la Prairie Ukuku !' },
+  angler: { flag: 'FLAG_ANGLER_KEY_OBTAINED', text: 'Vous obtenez la Clé Poisson !' },
+  face: { flag: 'FLAG_FACE_KEY_OBTAINED', text: 'Vous obtenez la Clé Visage !' },
+  bird: { flag: 'FLAG_BIRD_KEY_OBTAINED', text: 'Vous obtenez la Clé Oiseau !' }
+};
 
 /** Logical-space collider of each interactable (walls for Link). */
 export function interactableCollider(def: InteractableDef): Rect | null {
@@ -139,6 +149,12 @@ export class InteractableSystem {
       this.game.addKey(c.dungeon);
       this.sound.playSfx('treasure', 0.75);
       this.dialogue.startCustomDialogue('', ['Vous obtenez une Petite Clé ! Elle ouvre une porte verrouillée.']);
+    } else if (c.type === 'questKey') {
+      // ItemManager dkeyN: D368-16-10 fanfare (item_get) + key flag
+      const key = QUEST_KEYS[c.key];
+      this.game.setFlag(key.flag);
+      this.sound.playSfx('item_get', 0.85);
+      this.dialogue.startCustomDialogue('★ Objet Obtenu ★', [key.text]);
     } else if (c.type === 'heartPiece') {
       this.game.addHeartPiece();
       this.sound.playSfx('item_get', 0.85);
@@ -159,10 +175,11 @@ export class InteractableSystem {
     for (const def of this.defs) {
       if (def.kind === 'item') {
         if (this.game.isChestOpened(this.roomId, def.id)) continue;
-        const s = ITEM_SPRITES.sword;
+        // The beach sword lies in the sand, tip down (sword1 sprite); heart pieces use heartMeter (items.atlas)
+        const s = def.item === 'sword' ? ITEM_SPRITES.sword : HEART_PIECE_SPRITE;
         const items = this.images.get(UI_SHEETS.items);
-        // The beach sword lies in the sand, tip down (sword1 sprite, items.atlas)
-        out.push({ y: def.y + 14, render: () => items && ctx.drawImage(items, s.x, s.y, s.w, s.h, def.x + 4, def.y, s.w, s.h) });
+        const dx = 8 - s.w / 2;
+        out.push({ y: def.y + 14, render: () => items && ctx.drawImage(items, s.x, s.y, s.w, s.h, def.x + dx, def.y + 16 - s.h, s.w, s.h) });
         continue;
       }
       if (def.kind === 'sign') {

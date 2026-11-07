@@ -1,0 +1,50 @@
+{
+  "export": "MYSTERIOUS_FOREST_ROOMS",
+  "out": "src/data/rooms/mysterious_forest.ts",
+  "comment": "Mysterious Forest (overworld rows 04..08, cols 00..03), Ukuku Prairie edge (r05/r06 c04), the witch's hut screen (r06_c05) and its interior (shop3.map), and the forest cave (cave1.map, 3 screens; its south-west quarter is empty). Music comes from musicOverworld.data / ObjMusic.",
+  "neighbors": {
+    "forest_cave_r0_c0": {
+      "east": "forest_cave_r0_c1"
+    },
+    "forest_cave_r0_c1": {
+      "west": "forest_cave_r0_c0",
+      "south": "forest_cave_r1_c1"
+    },
+    "forest_cave_r1_c1": {
+      "north": "forest_cave_r0_c1"
+    }
+  },
+  "ambience": {
+    "default": "outdoor",
+    "witch_hut": "indoor",
+    "forest_cave_r0_c0": "none",
+    "forest_cave_r0_c1": "none",
+    "forest_cave_r1_c1": "none"
+  },
+  "rooms": {
+    "ow_r04_c00": "Forêt Enchantée — Lisière nord-ouest",
+    "ow_r04_c01": "Forêt Enchantée — Coffre de la Clé",
+    "ow_r04_c02": "Forêt Enchantée — Grotte nord",
+    "ow_r04_c03": "Forêt Enchantée — Lisière nord-est",
+    "ow_r05_c00": "Forêt Enchantée — Sortie de la grotte",
+    "ow_r05_c01": "Forêt Enchantée — Clairière du raton-laveur",
+    "ow_r05_c02": "Forêt Enchantée — Terrier",
+    "ow_r05_c03": "Forêt Enchantée — Est",
+    "ow_r06_c00": "Forêt Enchantée — Ouest",
+    "ow_r06_c01": "Forêt Enchantée — Cœur de la forêt",
+    "ow_r06_c02": "Forêt Enchantée — Entrée de la grotte",
+    "ow_r06_c03": "Forêt Enchantée — Sentier est",
+    "ow_r07_c00": "Forêt Enchantée — Sud-ouest",
+    "ow_r07_c01": "Forêt Enchantée — Sud",
+    "ow_r07_c02": "Forêt Enchantée — Sous-bois",
+    "ow_r07_c03": "Forêt Enchantée — Sud-est",
+    "ow_r08_c00": "Forêt Enchantée — Entrée",
+    "ow_r05_c04": "Prairie Ukuku — Nord-ouest",
+    "ow_r06_c04": "Prairie Ukuku — Ouest",
+    "ow_r06_c05": "Prairie Ukuku — Cabane de la Sorcière",
+    "witch_hut": "Cabane de la Sorcière",
+    "forest_cave_r0_c0": "Grotte de la Forêt — Nord-ouest",
+    "forest_cave_r0_c1": "Grotte de la Forêt — Nord-est",
+    "forest_cave_r1_c1": "Grotte de la Forêt — Sud-est"
+  }
+}

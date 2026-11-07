@@ -1,0 +1,1345 @@
+{
+  "roomId": "ow_r05_c01",
+  "sourceMap": "overworld.map",
+  "screenCol": 1,
+  "screenRow": 5,
+  "tileOrigin": {
+    "col": 11,
+    "row": 40
+  },
+  "worldPixelOrigin": {
+    "x": 176,
+    "y": 640
+  },
+  "logicalSize": {
+    "w": 160,
+    "h": 128
+  },
+  "displaySize": {
+    "w": 1280,
+    "h": 1024
+  },
+  "musicTrackId": 8,
+  "neighbors": {
+    "north": "ow_r04_c01",
+    "south": "ow_r06_c01",
+    "west": "ow_r05_c00",
+    "east": "ow_r05_c02"
+  },
+  "colliders": [
+    {
+      "x": 0,
+      "y": 0,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 0,
+      "y": 16,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 0,
+      "y": 32,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 0,
+      "y": 48,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 0,
+      "y": 64,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 0,
+      "y": 80,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 0,
+      "y": 96,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 0,
+      "y": 112,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 16,
+      "y": 0,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 16,
+      "y": 16,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 16,
+      "y": 112,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 32,
+      "y": 0,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 32,
+      "y": 112,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 112,
+      "y": 0,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 112,
+      "y": 16,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 112,
+      "y": 96,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 112,
+      "y": 112,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 128,
+      "y": 0,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 128,
+      "y": 16,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 128,
+      "y": 32,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 128,
+      "y": 48,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 128,
+      "y": 64,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 128,
+      "y": 80,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 128,
+      "y": 96,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 128,
+      "y": 112,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 48,
+      "y": 52,
+      "w": 32,
+      "h": 28,
+      "source": "treeWoods"
+    },
+    {
+      "x": 144,
+      "y": 0,
+      "w": 16,
+      "h": 15,
+      "source": "treeWoods2"
+    },
+    {
+      "x": 144,
+      "y": 20,
+      "w": 16,
+      "h": 27,
+      "source": "treeWoods2"
+    },
+    {
+      "x": 144,
+      "y": 52,
+      "w": 16,
+      "h": 27,
+      "source": "treeWoods2"
+    },
+    {
+      "x": 144,
+      "y": 84,
+      "w": 16,
+      "h": 27,
+      "source": "treeWoods2"
+    },
+    {
+      "x": 144,
+      "y": 116,
+      "w": 16,
+      "h": 12,
+      "source": "treeWoods2"
+    }
+  ],
+  "groundZones": [],
+  "interactables": [],
+  "doors": [],
+  "enemies": [],
+  "cuttables": [
+    {
+      "kind": "bush",
+      "x": 32,
+      "y": 48,
+      "sprite": "bush_1"
+    },
+    {
+      "kind": "bush",
+      "x": 32,
+      "y": 64,
+      "sprite": "bush_1"
+    },
+    {
+      "kind": "bush",
+      "x": 48,
+      "y": 32,
+      "sprite": "bush_1"
+    },
+    {
+      "kind": "bush",
+      "x": 48,
+      "y": 80,
+      "sprite": "bush_1"
+    },
+    {
+      "kind": "bush",
+      "x": 64,
+      "y": 32,
+      "sprite": "bush_1"
+    },
+    {
+      "kind": "bush",
+      "x": 64,
+      "y": 80,
+      "sprite": "bush_1"
+    },
+    {
+      "kind": "bush",
+      "x": 80,
+      "y": 48,
+      "sprite": "bush_1"
+    },
+    {
+      "kind": "bush",
+      "x": 80,
+      "y": 64,
+      "sprite": "bush_1"
+    }
+  ],
+  "unportedEnemies": [],
+  "objects": [
+    {
+      "id": "bushForest",
+      "category": "other",
+      "localX": 32,
+      "localY": 48,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "bushForest",
+      "category": "other",
+      "localX": 32,
+      "localY": 64,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "bushForest",
+      "category": "other",
+      "localX": 48,
+      "localY": 32,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "bushForest",
+      "category": "other",
+      "localX": 48,
+      "localY": 80,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "bushForest",
+      "category": "other",
+      "localX": 64,
+      "localY": 32,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "bushForest",
+      "category": "other",
+      "localX": 64,
+      "localY": 80,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "bushForest",
+      "category": "other",
+      "localX": 80,
+      "localY": 48,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "bushForest",
+      "category": "other",
+      "localX": 80,
+      "localY": 64,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "door",
+      "category": "warp",
+      "localX": -32,
+      "localY": 32,
+      "params": [
+        "",
+        "",
+        "c1n",
+        "cave1.map",
+        "c1n",
+        "3",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "enemyWall",
+      "category": "other",
+      "localX": -32,
+      "localY": 32,
+      "params": [
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "enemyWall",
+      "category": "other",
+      "localX": 48,
+      "localY": -16,
+      "params": [
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "enemyWall",
+      "category": "other",
+      "localX": 48,
+      "localY": 128,
+      "params": [
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "enemyWall",
+      "category": "other",
+      "localX": 64,
+      "localY": -16,
+      "params": [
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "enemyWall",
+      "category": "other",
+      "localX": 64,
+      "localY": 128,
+      "params": [
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "enemyWall",
+      "category": "other",
+      "localX": 80,
+      "localY": -16,
+      "params": [
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "enemyWall",
+      "category": "other",
+      "localX": 80,
+      "localY": 128,
+      "params": [
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "enemyWall",
+      "category": "other",
+      "localX": 96,
+      "localY": -16,
+      "params": [
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "enemyWall",
+      "category": "other",
+      "localX": 96,
+      "localY": 128,
+      "params": [
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "flowerforest",
+      "category": "animated_prop",
+      "localX": -32,
+      "localY": 80,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "flowerforest",
+      "category": "animated_prop",
+      "localX": 48,
+      "localY": -16,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "flowerforest",
+      "category": "animated_prop",
+      "localX": 48,
+      "localY": 96,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "flowerforest",
+      "category": "animated_prop",
+      "localX": 96,
+      "localY": 48,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "flowerforest",
+      "category": "animated_prop",
+      "localX": 112,
+      "localY": 32,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "fog",
+      "category": "other",
+      "localX": -32,
+      "localY": -32,
+      "params": [
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "fog",
+      "category": "other",
+      "localX": -32,
+      "localY": 96,
+      "params": [
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "fog",
+      "category": "other",
+      "localX": 128,
+      "localY": -32,
+      "params": [
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "fog",
+      "category": "other",
+      "localX": 128,
+      "localY": 96,
+      "params": [
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "grasForest",
+      "category": "other",
+      "localX": -32,
+      "localY": 48,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "grasForest",
+      "category": "other",
+      "localX": 80,
+      "localY": 112,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "grasForest",
+      "category": "other",
+      "localX": 96,
+      "localY": -32,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "grasForest",
+      "category": "other",
+      "localX": 96,
+      "localY": -16,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "grasForest",
+      "category": "other",
+      "localX": 96,
+      "localY": 0,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "grasForest",
+      "category": "other",
+      "localX": 96,
+      "localY": 16,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "grasForest",
+      "category": "other",
+      "localX": 96,
+      "localY": 80,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "grasForest",
+      "category": "other",
+      "localX": 96,
+      "localY": 96,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "grasForest",
+      "category": "other",
+      "localX": 96,
+      "localY": 112,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "grasForest",
+      "category": "other",
+      "localX": 112,
+      "localY": 48,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "grasForest",
+      "category": "other",
+      "localX": 112,
+      "localY": 64,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "grasForest",
+      "category": "other",
+      "localX": 112,
+      "localY": 80,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "objectSpawner",
+      "category": "other",
+      "localX": 48,
+      "localY": -16,
+      "params": [
+        "raccoon_transformed",
+        "",
+        "teleporter",
+        "20.16.64.16",
+        ""
+      ]
+    },
+    {
+      "id": "objectSpawner",
+      "category": "other",
+      "localX": 48,
+      "localY": 0,
+      "params": [
+        "raccoon_warning",
+        "",
+        "pushDialog",
+        "raccoon_warning",
+        ""
+      ]
+    },
+    {
+      "id": "objectSpawner",
+      "category": "other",
+      "localX": 64,
+      "localY": 0,
+      "params": [
+        "raccoon_warning",
+        "",
+        "pushDialog",
+        "raccoon_warning",
+        ""
+      ]
+    },
+    {
+      "id": "objectSpawner",
+      "category": "other",
+      "localX": 80,
+      "localY": 0,
+      "params": [
+        "raccoon_warning",
+        "",
+        "pushDialog",
+        "raccoon_warning",
+        ""
+      ]
+    },
+    {
+      "id": "objectSpawner",
+      "category": "other",
+      "localX": 96,
+      "localY": 0,
+      "params": [
+        "raccoon_warning",
+        "",
+        "pushDialog",
+        "raccoon_warning",
+        ""
+      ]
+    },
+    {
+      "id": "objectSpawner",
+      "category": "other",
+      "localX": 112,
+      "localY": 64,
+      "params": [
+        "final_show",
+        "1",
+        "personNew",
+        ".tarin mushroom.tarinMushroom.hidden.",
+        ""
+      ]
+    },
+    {
+      "id": "objectSpawner",
+      "category": "other",
+      "localX": 112,
+      "localY": 64,
+      "params": [
+        "final_show",
+        "1",
+        "personNew",
+        ".tarin.tarinFinal.stand_3.",
+        ""
+      ]
+    },
+    {
+      "id": "raccoon",
+      "category": "other",
+      "localX": 112,
+      "localY": 48,
+      "params": []
+    },
+    {
+      "id": "treeWoods",
+      "category": "static_decor",
+      "localX": 48,
+      "localY": 48,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "treeWoods2",
+      "category": "static_decor",
+      "localX": 128,
+      "localY": -32,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "treeWoods2",
+      "category": "static_decor",
+      "localX": 128,
+      "localY": 128,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "treeWoods2",
+      "category": "static_decor",
+      "localX": 144,
+      "localY": -16,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "treeWoods2",
+      "category": "static_decor",
+      "localX": 144,
+      "localY": 16,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "treeWoods2",
+      "category": "static_decor",
+      "localX": 144,
+      "localY": 48,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "treeWoods2",
+      "category": "static_decor",
+      "localX": 144,
+      "localY": 80,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "treeWoods2",
+      "category": "static_decor",
+      "localX": 144,
+      "localY": 112,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    }
+  ],
+  "tiles": [
+    [
+      [
+        467,
+        119,
+        488,
+        434,
+        434,
+        434,
+        434,
+        466,
+        467,
+        467
+      ],
+      [
+        119,
+        488,
+        434,
+        434,
+        434,
+        434,
+        434,
+        486,
+        472,
+        467
+      ],
+      [
+        468,
+        198,
+        434,
+        434,
+        434,
+        434,
+        434,
+        434,
+        466,
+        467
+      ],
+      [
+        468,
+        434,
+        434,
+        434,
+        434,
+        434,
+        434,
+        434,
+        466,
+        467
+      ],
+      [
+        468,
+        434,
+        434,
+        434,
+        434,
+        434,
+        434,
+        434,
+        466,
+        467
+      ],
+      [
+        468,
+        434,
+        434,
+        434,
+        434,
+        434,
+        434,
+        434,
+        466,
+        467
+      ],
+      [
+        468,
+        434,
+        434,
+        434,
+        198,
+        434,
+        434,
+        446,
+        244,
+        467
+      ],
+      [
+        67,
+        447,
+        448,
+        434,
+        434,
+        434,
+        434,
+        466,
+        467,
+        467
+      ]
+    ],
+    [
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ]
+    ],
+    [
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ]
+    ]
+  ]
+}

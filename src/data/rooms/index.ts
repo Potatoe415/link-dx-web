@@ -3,12 +3,13 @@ import { MABE_VILLAGE_ROOMS } from './mabe_village';
 import { MABE_VILLAGE_OVERWORLD_ROOMS } from './mabe_village_overworld';
 import { MABE_VILLAGE_INTERIOR_ROOMS } from './mabe_village_interiors';
 import { TORONBO_SHORES_ROOMS } from './toronbo_shores';
+import { MYSTERIOUS_FOREST_ROOMS } from './mysterious_forest';
 
-export type { Rect, WarpTrigger, RoomProp, RoomDef, RoomNeighbors, RoomMusic, RoomAmbience, GroundKind, GroundZone, SignDef, ChestDef, ChestContents, InteractableDef, GroundItemDef, CuttableDef } from './types';
+export type { Rect, WarpTrigger, RoomProp, RoomDef, RoomNeighbors, RoomMusic, RoomAmbience, GroundKind, GroundZone, SignDef, ChestDef, ChestContents, QuestKey, InteractableDef, GroundItemDef, CuttableDef } from './types';
 
 // One module per region (mabe_village, toronbo_shores, mysterious_forest, dungeon1, ...).
 // Region modules must not share room ids; collisions are reported at startup.
-const REGIONS: Record<string, RoomDef>[] = [MABE_VILLAGE_ROOMS, MABE_VILLAGE_OVERWORLD_ROOMS, MABE_VILLAGE_INTERIOR_ROOMS, TORONBO_SHORES_ROOMS];
+const REGIONS: Record<string, RoomDef>[] = [MABE_VILLAGE_ROOMS, MABE_VILLAGE_OVERWORLD_ROOMS, MABE_VILLAGE_INTERIOR_ROOMS, TORONBO_SHORES_ROOMS, MYSTERIOUS_FOREST_ROOMS];
 
 function mergeRegions(regions: Record<string, RoomDef>[]): Record<string, RoomDef> {
   const merged: Record<string, RoomDef> = {};

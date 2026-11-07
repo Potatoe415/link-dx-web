@@ -209,7 +209,7 @@ def compute_ground_zone(obj_id, lx, ly):
 # Params follow GameObjectTemplates.cs: sign = [signText, spriteId, rect, direction], chest = [item, spawn, saveKey, spriteType].
 SIGN_SPRITES = {'signpost': 'signpost_0', 'signpostWoods': 'signpost_1', 'sign': None}
 SIGN_DIRECTION = {'signpost': 1, 'signpostWoods': 1, 'sign': None}
-GROUND_ITEMS = {'sword1': 'sword'}
+GROUND_ITEMS = {'sword1': 'sword', 'heartMeter': 'heartPiece'}
 # Cuttable ObjBush objects (template id -> (kind, spriteId)); drawn + cut at runtime (src/entities/Bushes.ts)
 CUTTABLE = {'bush': ('bush', 'bush_0'), 'bushForest': ('bush', 'bush_1'),
             'gras': ('grass', 'grass_0'), 'gras0': ('grass', 'grass_0_0'), 'gras1': ('grass', 'grass_0_1'),
@@ -270,11 +270,12 @@ def compute_door(obj, lx, ly):
         return None
     p = (obj['params'] + [''] * 8)[:8]
     w, h = int(p[0] or 16), int(p[1] or 16)
-    x0, y0 = max(0, lx), max(0, ly)
-    x1, y1 = min(160, lx + w), min(128, ly + h)
-    if x1 <= x0 or y1 <= y0:
+    # A door belongs to the screen holding its origin (interior exits sit on the bottom wall and poke
+    # past the map edge); the trigger is clipped to the screen
+    if not (0 <= lx < 160 and 0 <= ly < 128):
         return None
-    return {'x': x0, 'y': y0, 'w': x1 - x0, 'h': y1 - y0, 'entryId': p[2], 'nextMap': p[3], 'exitId': p[4],
+    w, h = min(w, 160 - lx), min(h, 128 - ly)
+    return {'x': lx, 'y': ly, 'w': w, 'h': h, 'entryId': p[2], 'nextMap': p[3], 'exitId': p[4],
             'direction': int(p[5] or 0), 'mode': int(p[6] or 0)}
 
 

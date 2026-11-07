@@ -128,7 +128,7 @@
 
 ## 2.4 — Chapitre 1.4 : La Forêt Enchantée, la Sorcière & la Clé Flagello (`FLAG_TAIL_KEY_OBTAINED`)
 ### 2.4.1 — Écrans de la Forêt Enchantée & Plaine Koholint (`ow_r04_c00` à `ow_r07_c05`)
-- [ ] **[T-2.4.1-01]** `TASK_ROOM_EXTRACT` sur les écrans de la Forêt Enchantée (`ow_r04_c00..c03`, `ow_r05_c00..c03`, `ow_r06_c00..c03`, `ow_r07_c00..c03`) + grotte du tronc creux (`forest_cave.map`) + Plaine Koholint & Cabane de la Sorcière (`ow_r05_c04`, `ow_r06_c04`, `witch_hut.map`).
+- [x] **[T-2.4.1-01]** `TASK_ROOM_EXTRACT` sur les écrans de la Forêt Enchantée (`ow_r04_c00..c03`, `ow_r05_c00..c03`, `ow_r06_c00..c03`, `ow_r07_c00..c03`) + grotte du tronc creux (`forest_cave.map`) + Plaine Koholint & Cabane de la Sorcière (`ow_r05_c04`, `ow_r06_c04`, `witch_hut.map`). Fait : région `mysterious_forest` (+ `ow_r08_c00`, `ow_r06_c05` où se trouve réellement la cabane, intérieur `shop3.map` → `witch_hut`, grotte `cave1.map` → `forest_cave_r0_c0/r0_c1/r1_c1`). Coffre de la Clé Flagello (`dkey1`) et quart de cœur de la grotte câblés ; ennemis `e5`/`e15`/`e17`/`moblinSword` listés « not ported » pour `[T-2.4.1-02]`.
 - [ ] **[T-2.4.1-02]** `TASK_ENTITY_PORT` : Porter `EnemyMoblin.cs` (Moblins à lance et à épée/bouclier), `EnemyMiniMoldorm.cs` et `EnemyKeese.cs` (chauves-souris de la grotte) + rochers poussables (`ObjMoveStone.cs`).
 - [ ] **[T-2.4.1-03]** `TASK_ROOM_GHIBLI` sur les écrans de la Forêt Enchantée (avec brume légère et arbres géants Ghibli) et la Cabane de la Sorcière.
 

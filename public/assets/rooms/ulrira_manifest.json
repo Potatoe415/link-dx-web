@@ -331,7 +331,7 @@
       "y": 8,
       "textKey": "npc_house_chest",
       "sprite": null,
-      "requiredDirection": null
+      "requiredDirection": 1
     },
     {
       "kind": "sign",
@@ -349,7 +349,7 @@
       "y": 8,
       "textKey": "npc_house_chest",
       "sprite": null,
-      "requiredDirection": null
+      "requiredDirection": 1
     },
     {
       "kind": "sign",
@@ -358,7 +358,7 @@
       "y": 8,
       "textKey": "npc_house_chest",
       "sprite": null,
-      "requiredDirection": null
+      "requiredDirection": 1
     },
     {
       "kind": "sign",
@@ -367,7 +367,7 @@
       "y": 8,
       "textKey": "npc_house_chest",
       "sprite": null,
-      "requiredDirection": null
+      "requiredDirection": 1
     },
     {
       "kind": "sign",
@@ -376,7 +376,7 @@
       "y": 8,
       "textKey": "npc_house_chest",
       "sprite": null,
-      "requiredDirection": null
+      "requiredDirection": 1
     },
     {
       "kind": "sign",
@@ -385,7 +385,7 @@
       "y": 8,
       "textKey": "npc_house_chest",
       "sprite": null,
-      "requiredDirection": null
+      "requiredDirection": 1
     }
   ],
   "doors": [

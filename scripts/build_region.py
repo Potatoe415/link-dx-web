@@ -30,6 +30,8 @@ CHEST_RUPEES = {'ruby5': 5, 'ruby10': 10, 'ruby20': 20, 'ruby30': 30, 'ruby50': 
 CHEST_ITEMS = {'sword1': 'sword', 'shield': 'shield', 'powder': 'powder', 'feather': 'feather', 'stonelifter': 'bracelet',
                'bomb': 'bombs', 'bow': 'bow', 'hookshot': 'hookshot', 'ocarina': 'ocarina', 'magicRod': 'rod',
                'boomerang': 'boomerang', 'pegasusBoots': 'boots', 'shovel': 'shovel', 'flippers': 'flippers'}
+# dkey1..dkey5 are the overworld dungeon keys (Tail, Slime, Angler, Face, Bird), not small keys
+QUEST_KEYS = {'dkey1': 'tail', 'dkey2': 'slime', 'dkey3': 'angler', 'dkey4': 'face', 'dkey5': 'bird'}
 
 
 def chest_contents(item, region_dungeon):
@@ -37,9 +39,10 @@ def chest_contents(item, region_dungeon):
         return f"{{ type: 'rupees', amount: {CHEST_RUPEES[item]} }}"
     if item in CHEST_ITEMS:
         return f"{{ type: 'item', item: '{CHEST_ITEMS[item]}' }}"
-    if item == 'smallkey' or item.startswith('dkey'):
-        dungeon = f"d{item[4:]}" if item.startswith('dkey') else region_dungeon
-        return f"{{ type: 'key', dungeon: '{dungeon}' }}"
+    if item in QUEST_KEYS:
+        return f"{{ type: 'questKey', key: '{QUEST_KEYS[item]}' }}"
+    if item == 'smallkey':
+        return f"{{ type: 'key', dungeon: '{region_dungeon}' }}"
     if item == 'heartPiece':
         return "{ type: 'heartPiece' }"
     return None
@@ -194,8 +197,11 @@ def build_room(room_id, name, cfg, texts, door_index):
         f'    bgGhibli: {ts_string(ghibli if has_ghibli else bg)},{"" if has_ghibli else " // TEMP: pixel fallback until TASK_ROOM_GHIBLI"}',
         f'    music: {ts_string(room_music(m, cfg))},',
     ]
-    if cfg.get('ambience'):
-        lines.append(f'    ambience: {ts_string(cfg["ambience"])},')
+    ambience = cfg.get('ambience')
+    if isinstance(ambience, dict):  # per-room overrides: { "default": ..., "<roomId>": ... }
+        ambience = ambience.get(room_id, ambience.get('default'))
+    if ambience:
+        lines.append(f'    ambience: {ts_string(ambience)},')
     lines.append('    neighbors: { ' + ', '.join(f'{k}: {ts_string(v)}' for k, v in neighbors.items()) + ' },')
     warps = build_warps(m, door_index)
     own_door = next((d for d in m.get('doors') or [] if d['mode'] == 0 and d['nextMap']), None)

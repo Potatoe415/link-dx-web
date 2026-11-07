@@ -317,7 +317,7 @@
       "y": 8,
       "textKey": "tarin_chest",
       "sprite": null,
-      "requiredDirection": null
+      "requiredDirection": 1
     }
   ],
   "doors": [

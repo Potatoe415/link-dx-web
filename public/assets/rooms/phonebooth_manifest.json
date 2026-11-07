@@ -149,7 +149,7 @@
       "y": 32,
       "textKey": "npc_house_chest",
       "sprite": null,
-      "requiredDirection": null
+      "requiredDirection": 1
     },
     {
       "kind": "sign",

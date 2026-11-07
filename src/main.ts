@@ -257,6 +257,16 @@ export class GameEngine {
       this.giveSword();
       return;
     }
+    if (picked?.item === 'heartPiece') {
+      // ItemManager heartMeter: dialog heartMeter / heartMeterFilled
+      const completes = this.game.heartPieces === 3;
+      this.game.addHeartPiece();
+      this.sound.playSfx('item_get', 0.85);
+      this.dialogue.startCustomDialogue('★ Objet Obtenu ★', [completes
+        ? 'Vous avez réuni quatre Quarts de Cœur ! Vous gagnez un Réceptacle de Cœur !'
+        : 'Vous obtenez un Quart de Cœur ! Ouvrez le sous-écran pour le voir.']);
+      return;
+    }
     if (this.game.healthQuarters <= 0) {
       this.startGameOver();
       return;

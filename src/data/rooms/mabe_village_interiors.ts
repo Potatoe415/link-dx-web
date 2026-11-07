@@ -93,13 +93,13 @@ export const MABE_VILLAGE_INTERIOR_ROOMS: Record<string, RoomDef> = {
       { x: 88, y: 112, w: 56, h: 16 },
     ],
     interactables: [
-      { kind: 'sign', id: "sign_32_8", x: 32, y: 8, pages: ["Link fouille la commode.\nOh ! C'est une bien jolie commode !"] },
+      { kind: 'sign', id: "sign_32_8", x: 32, y: 8, pages: ["Link fouille la commode.\nOh ! C'est une bien jolie commode !"], requiredDirection: 1 },
       { kind: 'sign', id: "sign_32_32", x: 32, y: 32, pages: ["« DRING ! DRING ! DRING ! CLIC ! Ouiii ! Ici la Souris du Seau ! Merci d'avoir appelé ! … Bon… CLIC ! »", "??? … Tu as dû faire un faux numéro…"] },
-      { kind: 'sign', id: "sign_48_8", x: 48, y: 8, pages: ["Link fouille la commode.\nOh ! C'est une bien jolie commode !"] },
-      { kind: 'sign', id: "sign_64_8", x: 64, y: 8, pages: ["Link fouille la commode.\nOh ! C'est une bien jolie commode !"] },
-      { kind: 'sign', id: "sign_80_8", x: 80, y: 8, pages: ["Link fouille la commode.\nOh ! C'est une bien jolie commode !"] },
-      { kind: 'sign', id: "sign_96_8", x: 96, y: 8, pages: ["Link fouille la commode.\nOh ! C'est une bien jolie commode !"] },
-      { kind: 'sign', id: "sign_112_8", x: 112, y: 8, pages: ["Link fouille la commode.\nOh ! C'est une bien jolie commode !"] },
+      { kind: 'sign', id: "sign_48_8", x: 48, y: 8, pages: ["Link fouille la commode.\nOh ! C'est une bien jolie commode !"], requiredDirection: 1 },
+      { kind: 'sign', id: "sign_64_8", x: 64, y: 8, pages: ["Link fouille la commode.\nOh ! C'est une bien jolie commode !"], requiredDirection: 1 },
+      { kind: 'sign', id: "sign_80_8", x: 80, y: 8, pages: ["Link fouille la commode.\nOh ! C'est une bien jolie commode !"], requiredDirection: 1 },
+      { kind: 'sign', id: "sign_96_8", x: 96, y: 8, pages: ["Link fouille la commode.\nOh ! C'est une bien jolie commode !"], requiredDirection: 1 },
+      { kind: 'sign', id: "sign_112_8", x: 112, y: 8, pages: ["Link fouille la commode.\nOh ! C'est une bien jolie commode !"], requiredDirection: 1 },
     ],
     props: []
   },
@@ -130,7 +130,7 @@ export const MABE_VILLAGE_INTERIOR_ROOMS: Record<string, RoomDef> = {
       { x: 72, y: 104, w: 16, h: 16 },
     ],
     interactables: [
-      { kind: 'sign', id: "sign_64_32", x: 64, y: 32, pages: ["Link fouille la commode.\nOh ! C'est une bien jolie commode !"] },
+      { kind: 'sign', id: "sign_64_32", x: 64, y: 32, pages: ["Link fouille la commode.\nOh ! C'est une bien jolie commode !"], requiredDirection: 1 },
       { kind: 'sign', id: "sign_80_56", x: 80, y: 56, pages: ["« DRING ! DRING ! Allô ! C'est moi, Pépé le Ramollo ! Demande-moi tout ce que tu veux sur l'île ! Si tu te perds, passe-moi un coup de fil ! Salut ! CLIC ! »"] },
     ],
     props: []
@@ -173,7 +173,7 @@ export const MABE_VILLAGE_INTERIOR_ROOMS: Record<string, RoomDef> = {
       { x: 88, y: 112, w: 56, h: 16 },
     ],
     interactables: [
-      { kind: 'sign', id: "sign_96_6", x: 96, y: 6, pages: ["Link fouille la commode.\nOh ! C'est une bien jolie commode !"] },
+      { kind: 'sign', id: "sign_96_6", x: 96, y: 6, pages: ["Link fouille la commode.\nOh ! C'est une bien jolie commode !"], requiredDirection: 1 },
     ],
     props: []
   },
@@ -301,7 +301,7 @@ export const MABE_VILLAGE_INTERIOR_ROOMS: Record<string, RoomDef> = {
       { x: 88, y: 112, w: 56, h: 16 },
     ],
     interactables: [
-      { kind: 'sign', id: "sign_96_80", x: 96, y: 80, pages: ["Hé ! Bienvenue ! Quelque chose te plaît ?! Apporte-le-moi ici !"] },
+      { kind: 'sign', id: "sign_96_80", x: 96, y: 80, pages: ["Hé ! Bienvenue ! Quelque chose te plaît ?! Apporte-le-moi ici !"], requiredDirection: 2 },
     ],
     props: []
   },

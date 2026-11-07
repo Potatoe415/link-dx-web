@@ -1,0 +1,963 @@
+{
+  "roomId": "forest_cave_r1_c1",
+  "sourceMap": "cave1.map",
+  "screenCol": 1,
+  "screenRow": 1,
+  "tileOrigin": {
+    "col": 11,
+    "row": 9
+  },
+  "worldPixelOrigin": {
+    "x": 176,
+    "y": 144
+  },
+  "logicalSize": {
+    "w": 160,
+    "h": 128
+  },
+  "displaySize": {
+    "w": 1280,
+    "h": 1024
+  },
+  "musicTrackId": 37,
+  "neighbors": {
+    "north": null,
+    "south": null,
+    "west": null,
+    "east": null
+  },
+  "colliders": [
+    {
+      "x": 0,
+      "y": 16,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 0,
+      "y": 32,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 0,
+      "y": 48,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 0,
+      "y": 64,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 0,
+      "y": 80,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 0,
+      "y": 96,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 16,
+      "y": 0,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 16,
+      "y": 112,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 32,
+      "y": 0,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 32,
+      "y": 112,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 48,
+      "y": 0,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 48,
+      "y": 112,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 80,
+      "y": 0,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 96,
+      "y": 0,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 96,
+      "y": 96,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 96,
+      "y": 112,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 112,
+      "y": 0,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 112,
+      "y": 96,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 128,
+      "y": 16,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 128,
+      "y": 96,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 144,
+      "y": 32,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 144,
+      "y": 48,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 144,
+      "y": 64,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 144,
+      "y": 80,
+      "w": 16,
+      "h": 16,
+      "source": "c1"
+    },
+    {
+      "x": 64,
+      "y": 112,
+      "w": 8,
+      "h": 16,
+      "source": "c3"
+    },
+    {
+      "x": 88,
+      "y": 112,
+      "w": 8,
+      "h": 16,
+      "source": "c4"
+    }
+  ],
+  "groundZones": [],
+  "interactables": [
+    {
+      "kind": "chest",
+      "id": "cave1chest",
+      "x": 64,
+      "y": 48,
+      "item": "ruby50"
+    }
+  ],
+  "doors": [
+    {
+      "x": 72,
+      "y": 120,
+      "w": 16,
+      "h": 8,
+      "entryId": "c1m",
+      "nextMap": "overworld.map",
+      "exitId": "c1m",
+      "direction": 1,
+      "mode": 0
+    }
+  ],
+  "enemies": [],
+  "cuttables": [],
+  "unportedEnemies": [],
+  "objects": [
+    {
+      "id": "caveBreakingFloor",
+      "category": "other",
+      "localX": 16,
+      "localY": 16,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "caveBreakingFloor",
+      "category": "other",
+      "localX": 16,
+      "localY": 32,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "caveBreakingFloor",
+      "category": "other",
+      "localX": 16,
+      "localY": 48,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "caveBreakingFloor",
+      "category": "other",
+      "localX": 16,
+      "localY": 64,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "caveBreakingFloor",
+      "category": "other",
+      "localX": 16,
+      "localY": 80,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "caveBreakingFloor",
+      "category": "other",
+      "localX": 16,
+      "localY": 96,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "caveBreakingFloor",
+      "category": "other",
+      "localX": 32,
+      "localY": 16,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "caveBreakingFloor",
+      "category": "other",
+      "localX": 48,
+      "localY": 16,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "caveBreakingFloor",
+      "category": "other",
+      "localX": 64,
+      "localY": 16,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "caveBreakingFloor",
+      "category": "other",
+      "localX": 80,
+      "localY": 16,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "caveBreakingFloor",
+      "category": "other",
+      "localX": 96,
+      "localY": 16,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "caveBreakingFloor",
+      "category": "other",
+      "localX": 112,
+      "localY": 16,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "caveBreakingFloor",
+      "category": "other",
+      "localX": 112,
+      "localY": 32,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "caveBreakingFloor",
+      "category": "other",
+      "localX": 112,
+      "localY": 48,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "caveBreakingFloor",
+      "category": "other",
+      "localX": 128,
+      "localY": 32,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "caveBreakingFloor",
+      "category": "other",
+      "localX": 128,
+      "localY": 48,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "caveCrystal",
+      "category": "other",
+      "localX": 48,
+      "localY": 32,
+      "params": [
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "caveCrystal",
+      "category": "other",
+      "localX": 48,
+      "localY": 48,
+      "params": [
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "caveCrystal",
+      "category": "other",
+      "localX": 48,
+      "localY": 64,
+      "params": [
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "caveCrystal",
+      "category": "other",
+      "localX": 64,
+      "localY": 32,
+      "params": [
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "caveCrystal",
+      "category": "other",
+      "localX": 80,
+      "localY": 48,
+      "params": [
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "caveCrystal",
+      "category": "other",
+      "localX": 80,
+      "localY": 64,
+      "params": [
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "caveLight",
+      "category": "other",
+      "localX": 72,
+      "localY": 112,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "chest",
+      "category": "other",
+      "localX": 64,
+      "localY": 48,
+      "params": [
+        "ruby50",
+        "",
+        "cave1chest",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "door",
+      "category": "warp",
+      "localX": 72,
+      "localY": 120,
+      "params": [
+        "",
+        "",
+        "c1m",
+        "overworld.map",
+        "c1m",
+        "1",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "e10",
+      "category": "enemy",
+      "localX": 32,
+      "localY": 32,
+      "params": []
+    },
+    {
+      "id": "e10",
+      "category": "enemy",
+      "localX": 32,
+      "localY": 80,
+      "params": []
+    },
+    {
+      "id": "e10",
+      "category": "enemy",
+      "localX": 80,
+      "localY": 32,
+      "params": []
+    },
+    {
+      "id": "e10",
+      "category": "enemy",
+      "localX": 96,
+      "localY": 32,
+      "params": []
+    },
+    {
+      "id": "fullHole",
+      "category": "other",
+      "localX": 32,
+      "localY": 32,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "fullHole",
+      "category": "other",
+      "localX": 32,
+      "localY": 48,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "fullHole",
+      "category": "other",
+      "localX": 32,
+      "localY": 80,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "fullHole",
+      "category": "other",
+      "localX": 48,
+      "localY": 80,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "fullHole",
+      "category": "other",
+      "localX": 64,
+      "localY": 80,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "fullHole",
+      "category": "other",
+      "localX": 80,
+      "localY": 32,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "fullHole",
+      "category": "other",
+      "localX": 96,
+      "localY": 32,
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "holeReset",
+      "category": "other",
+      "localX": 72,
+      "localY": 112,
+      "params": [
+        ""
+      ]
+    },
+    {
+      "id": "moveStoneCave",
+      "category": "other",
+      "localX": 64,
+      "localY": 64,
+      "params": [
+        "5",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "moveStoneCave",
+      "category": "other",
+      "localX": 80,
+      "localY": 80,
+      "params": [
+        "1",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    }
+  ],
+  "tiles": [
+    [
+      [
+        39,
+        47,
+        47,
+        67,
+        70,
+        68,
+        47,
+        47,
+        37,
+        -1
+      ],
+      [
+        45,
+        86,
+        86,
+        86,
+        86,
+        86,
+        86,
+        86,
+        68,
+        37
+      ],
+      [
+        45,
+        86,
+        87,
+        63,
+        63,
+        86,
+        86,
+        86,
+        86,
+        44
+      ],
+      [
+        45,
+        86,
+        88,
+        63,
+        63,
+        63,
+        70,
+        86,
+        86,
+        44
+      ],
+      [
+        45,
+        86,
+        70,
+        63,
+        63,
+        63,
+        70,
+        70,
+        63,
+        44
+      ],
+      [
+        45,
+        86,
+        86,
+        86,
+        86,
+        63,
+        70,
+        63,
+        63,
+        44
+      ],
+      [
+        45,
+        86,
+        70,
+        70,
+        70,
+        70,
+        69,
+        46,
+        46,
+        38
+      ],
+      [
+        36,
+        46,
+        46,
+        46,
+        16,
+        15,
+        38,
+        -1,
+        -1,
+        -1
+      ]
+    ],
+    [
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ]
+    ],
+    [
+      [
+        3,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        4,
+        0
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        4
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        2
+      ],
+      [
+        1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        2,
+        0,
+        0,
+        0
+      ]
+    ]
+  ]
+}
