@@ -416,6 +416,20 @@ export class Player {
     this.updateAnimation(dtMs);
   }
 
+  /** FreezePlayer: drop the shield / sword and stand still for a cutscene. */
+  public stopForCutscene(): void {
+    this.sword.cancel();
+    this.isBlocking = false;
+    this.state = 'IDLE';
+    this.updateIdleAnimation();
+  }
+
+  public faceDirection(direction: number): void {
+    if (this.direction === direction) return;
+    this.direction = direction;
+    this.updateIdleAnimation();
+  }
+
   public syncIdleDirection(): void {
     this.updateIdleAnimation();
   }

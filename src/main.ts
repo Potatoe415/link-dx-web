@@ -16,6 +16,8 @@ import { PropInstance, ParticleSystem } from './entities/Prop';
 import { InteractableSystem } from './entities/Interactables';
 import { EnemyManager } from './entities/EnemyManager';
 import { BushSystem } from './entities/Bushes';
+import { Owl } from './entities/Owl';
+import { OWLS } from './data/owls';
 import { GameOverScreen } from './core/GameOver';
 
 export class GameEngine {
@@ -39,6 +41,7 @@ export class GameEngine {
   private interactables: InteractableSystem;
   private enemies: EnemyManager;
   private bushes: BushSystem;
+  private owl: Owl | null = null;
   private gameOver: GameOverScreen;
 
   // Render mode: true = Pre-rendered Ghibli HD, false = Original Pixel-Art Whitebox
@@ -116,6 +119,7 @@ export class GameEngine {
     this.interactables?.setRoom(roomKey, this.currentRoom.interactables);
     this.enemies?.setRoom(this.currentRoom.enemies);
     this.bushes?.setRoom(this.currentRoom.cuttables);
+    this.setupOwl();
     if (previous && previous.ambience !== this.currentRoom.ambience) this.particles.clear();
     this.sound.playMusic(this.currentRoom.music);
     for (const key of Object.values(this.currentRoom.neighbors ?? {})) {
@@ -227,6 +231,7 @@ export class GameEngine {
       if (prop.data.collision) allColliders.push(prop.data.collision);
     }
 
+    if (this.updateOwl(dtMs)) return;
     if (this.input.wasInteractJustPressed() && this.tryAction()) return;
 
     const ground = [...(this.currentRoom.groundZones ?? []), ...this.bushes.grassZones()];
@@ -277,6 +282,7 @@ export class GameEngine {
     this.game.setFlag('FLAG_SWORD_OBTAINED');
     if (this.game.equippedA !== 'sword' && this.game.equippedB !== 'sword') this.game.equip('A', 'sword');
     this.player.startItemGet('sword');
+    this.setupOwl(); // the beach Owl waits for Link right next to the sword (ObjOwl key "owl" = "0")
     this.sound.playJingle('sword_get', this.currentRoom.music);
     this.dialogue.startCustomDialogue(
       '★ Objet Obtenu ★',
@@ -284,6 +290,43 @@ export class GameEngine {
         'Appuyez sur [Espace] ou [J] pour frapper. Maintenez la touche puis relâchez-la pour une Attaque Tournoyante !'],
       () => this.player.finishItemGet()
     );
+  }
+
+  private owlRenderables(ctx: CanvasRenderingContext2D): { y: number; render: () => void }[] {
+    const r = this.owl?.renderable(ctx);
+    return r ? [r] : [];
+  }
+
+  /** Creates the room's Owl if its condition is met and it has not talked yet. */
+  private setupOwl(): void {
+    const def = OWLS[this.currentRoom.id];
+    const ready = def && this.game.hasFlag(def.requires) && !this.game.isChestOpened(this.currentRoom.id, def.saveId);
+    this.owl = ready && this.images && this.sound ? new Owl(def, this.images, this.sound) : null;
+  }
+
+  /**
+   * ObjOwl cutscene: trigger, glide-in (Link frozen, owl music), dialogue, fly-off (music back to the
+   * zone track). Returns true while Link is frozen.
+   */
+  private updateOwl(dtMs: number): boolean {
+    const owl = this.owl;
+    if (!owl) return false;
+    const def = OWLS[this.currentRoom.id];
+    if (owl.state === 'wait') {
+      if (!this.game.hasFlag(def.requires) || !owl.checkTrigger(this.player.x, this.player.y)) return false;
+      this.game.markChestOpened(this.currentRoom.id, def.saveId);
+      this.player.stopForCutscene();
+      this.sound.playMusic('owl');
+    }
+    const r = owl.update(dtMs, this.player.x, this.player.y, () =>
+      this.dialogue.startCustomDialogue('Le Hibou', def.pages, () => {
+        owl.leave();
+        this.sound.playMusic(this.currentRoom.music);
+      })
+    );
+    if (r.faceDirection !== undefined) this.player.faceDirection(r.faceDirection);
+    if (owl.state === 'gone') this.owl = null;
+    return owl.freezesPlayer;
   }
 
   /** ObjLink.OnDeath: stop music, death jingle, spin, then the GAME OVER screen. */
@@ -351,7 +394,8 @@ export class GameEngine {
         ...(dying ? [] : [playerRenderable]),
         ...this.interactables.renderables(ctx),
         ...this.enemies.renderables(ctx),
-        ...this.bushes.renderables(ctx)
+        ...this.bushes.renderables(ctx),
+        ...this.owlRenderables(ctx)
       ], () => this.bushes.renderGround(ctx));
       if (dying) {
         // Dim the world, keep Link on top (GameOverSystem.DrawPlayerOnTopPercentage)
