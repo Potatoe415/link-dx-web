@@ -505,12 +505,20 @@
       "kind": "octorok",
       "x": 40,
       "y": 44
+    },
+    {
+      "kind": "leever",
+      "x": 72,
+      "y": 80
+    },
+    {
+      "kind": "leever",
+      "x": 120,
+      "y": 80
     }
   ],
   "cuttables": [],
-  "unportedEnemies": [
-    "e3"
-  ],
+  "unportedEnemies": [],
   "objects": [
     {
       "id": "bush",

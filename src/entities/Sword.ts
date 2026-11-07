@@ -108,6 +108,8 @@ export class Sword {
 
   /** Current damaging area in logical space (null on wind-up frames with an empty hit rect). */
   public hit(feetX: number, feetY: number): SwordHit | null {
+    // No attack running: the idle `stand_` frame must not deal damage
+    if (this.phase === 'none') return null;
     const f = this.currentFrame();
     if (!f || f.hit[2] === 0 || f.hit[3] === 0) return null;
     const baseX = feetX - 7 + f.ox;

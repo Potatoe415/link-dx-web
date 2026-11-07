@@ -236,7 +236,10 @@ def compute_interactable(obj, lx, ly):
 # Enemy spawns: `enemy_respawner` objects (param 0 = template id) and directly placed enemy ids.
 # Template id -> (enemy kind in src/data/enemies.ts, feet anchor offset from the object origin).
 ENEMY_TEMPLATES = {
+    'e1': ('urchin', (8, 16)),  # EnemySeaUrchin: EntityPosition = (posX + 8, posY + 16)
     'e2': ('octorok', (8, 12)),  # EnemyOctorok: EntityPosition = (posX + 8, posY + 12)
+    'e3': ('leever', (8, 16)),  # EnemyLeever
+    'e4': ('crab', (8, 16)),  # EnemyCrab
 }
 
 

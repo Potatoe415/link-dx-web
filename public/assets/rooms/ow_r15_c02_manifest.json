@@ -480,11 +480,15 @@
       "item": "sword"
     }
   ],
-  "enemies": [],
-  "cuttables": [],
-  "unportedEnemies": [
-    "e1"
+  "enemies": [
+    {
+      "kind": "urchin",
+      "x": 40,
+      "y": 64
+    }
   ],
+  "cuttables": [],
+  "unportedEnemies": [],
   "objects": [
     {
       "id": "enemy_respawner",

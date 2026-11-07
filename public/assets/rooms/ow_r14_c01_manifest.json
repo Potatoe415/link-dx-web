@@ -229,7 +229,23 @@
       "requiredDirection": 1
     }
   ],
-  "enemies": [],
+  "enemies": [
+    {
+      "kind": "urchin",
+      "x": 56,
+      "y": 48
+    },
+    {
+      "kind": "urchin",
+      "x": 104,
+      "y": 80
+    },
+    {
+      "kind": "urchin",
+      "x": 120,
+      "y": 80
+    }
+  ],
   "cuttables": [
     {
       "kind": "bush",
@@ -262,9 +278,7 @@
       "sprite": "bush_0"
     }
   ],
-  "unportedEnemies": [
-    "e1"
-  ],
+  "unportedEnemies": [],
   "objects": [
     {
       "id": "bush",

@@ -320,6 +320,11 @@ export const TORONBO_SHORES_ROOMS: Record<string, RoomDef> = {
       { kind: 'bush', x: 96, y: 16, sprite: 'bush_0' },
       { kind: 'bush', x: 112, y: 16, sprite: 'bush_0' },
     ],
+    enemies: [
+      { kind: 'urchin', x: 56, y: 48 },
+      { kind: 'urchin', x: 104, y: 80 },
+      { kind: 'urchin', x: 120, y: 80 },
+    ],
     interactables: [
       { kind: 'sign', id: "signpost_32_12", x: 32, y: 12, pages: ["Attention aux oursins !\nNe les touchez pas à mains nues !"], sprite: 'signpost_0', requiredDirection: 1 },
     ],
@@ -349,6 +354,8 @@ export const TORONBO_SHORES_ROOMS: Record<string, RoomDef> = {
       { x: 112, y: 112, w: 32, h: 16 },
     ],
     enemies: [
+      { kind: 'urchin', x: 40, y: 96 },
+      { kind: 'urchin', x: 40, y: 112 },
       { kind: 'octorok', x: 88, y: 92 },
       { kind: 'octorok', x: 104, y: 44 },
     ],
@@ -385,6 +392,8 @@ export const TORONBO_SHORES_ROOMS: Record<string, RoomDef> = {
     ],
     enemies: [
       { kind: 'octorok', x: 40, y: 44 },
+      { kind: 'leever', x: 72, y: 80 },
+      { kind: 'leever', x: 120, y: 80 },
     ],
     props: []
   },
@@ -414,6 +423,8 @@ export const TORONBO_SHORES_ROOMS: Record<string, RoomDef> = {
     ],
     enemies: [
       { kind: 'octorok', x: 56, y: 28 },
+      { kind: 'leever', x: 56, y: 48 },
+      { kind: 'leever', x: 88, y: 80 },
     ],
     props: []
   },
@@ -440,6 +451,9 @@ export const TORONBO_SHORES_ROOMS: Record<string, RoomDef> = {
     ],
     groundZones: [
       { kind: 'shallowWater', x: 32, y: 80, w: 128, h: 48 },
+    ],
+    enemies: [
+      { kind: 'urchin', x: 40, y: 64 },
     ],
     interactables: [
       { kind: 'item', id: "ow_sword_1", x: 80, y: 80, item: 'sword' },
@@ -468,6 +482,10 @@ export const TORONBO_SHORES_ROOMS: Record<string, RoomDef> = {
     ],
     groundZones: [
       { kind: 'shallowWater', x: 0, y: 80, w: 160, h: 48 },
+    ],
+    enemies: [
+      { kind: 'crab', x: 40, y: 64 },
+      { kind: 'crab', x: 104, y: 80 },
     ],
     props: []
   }

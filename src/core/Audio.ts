@@ -29,7 +29,9 @@ export type SfxName =
   | 'sword_slash4'
   | 'sword_charged'
   | 'sword_spin'
-  | 'bush_cut';
+  | 'bush_cut'
+  | 'shot_break'
+  | 'urchin_push';
 
 /**
  * Music tracks rendered from awakening.gbs by scripts/export_gbs_audio.py (song numbers in that script).
@@ -129,7 +131,9 @@ export class SoundManager {
       sword_slash4: '/assets/audio/sfx_sword_slash4.wav', // D378-24-18
       sword_charged: '/assets/audio/sfx_sword_charged.wav', // D360-04-04
       sword_spin: '/assets/audio/sfx_sword_spin.wav', // D378-03-03
-      bush_cut: '/assets/audio/sfx_bush_cut.wav' // D378-05-05
+      bush_cut: '/assets/audio/sfx_bush_cut.wav', // D378-05-05
+      shot_break: '/assets/audio/sfx_shot_break.wav', // D360-07-07 (EnemyOctorokShot despawn)
+      urchin_push: '/assets/audio/sfx_urchin_push.wav' // D360-62-3E (EnemySeaUrchin pushed by the shield)
     };
 
     for (const [key, url] of Object.entries(sfxFiles) as [SfxName, string][]) {

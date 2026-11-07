@@ -230,14 +230,16 @@ export class GameEngine {
     if (this.input.wasInteractJustPressed() && this.tryAction()) return;
 
     const ground = [...(this.currentRoom.groundZones ?? []), ...this.bushes.grassZones()];
-    this.player.update(dtMs, this.input, allColliders, this.sound, ground);
+    // Sea urchins block Link but not the other enemies' movement checks
+    const playerColliders = [...allColliders, ...this.enemies.solidColliders()];
+    this.player.update(dtMs, this.input, playerColliders, this.sound, ground);
     const swordHit = this.player.sword.hit(this.player.x, this.player.y);
     if (swordHit) {
       this.enemies.hitArea(swordHit.area, swordHit.damage, this.player.x, this.player.y);
       for (const d of this.bushes.cut(swordHit.area).drops) this.enemies.addPickup(d.kind, d.x, d.y);
     }
     this.bushes.update(dtMs);
-    this.enemies.update(dtMs, allColliders, this.player);
+    this.enemies.update(dtMs, allColliders, this.player, ground);
     const picked = this.interactables.checkPickups(this.player);
     if (picked?.item === 'sword') {
       this.giveSword();

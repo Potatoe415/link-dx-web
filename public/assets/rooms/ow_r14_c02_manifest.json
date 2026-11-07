@@ -221,6 +221,16 @@
   "interactables": [],
   "enemies": [
     {
+      "kind": "urchin",
+      "x": 40,
+      "y": 96
+    },
+    {
+      "kind": "urchin",
+      "x": 40,
+      "y": 112
+    },
+    {
       "kind": "octorok",
       "x": 88,
       "y": 92
@@ -232,9 +242,7 @@
     }
   ],
   "cuttables": [],
-  "unportedEnemies": [
-    "e1"
-  ],
+  "unportedEnemies": [],
   "objects": [
     {
       "id": "enemy_respawner",
