@@ -240,6 +240,11 @@ export const MABE_VILLAGE_INTERIOR_ROOMS: Record<string, RoomDef> = {
     groundZones: [
       { kind: 'stairs', x: 48, y: 64, w: 16, h: 12 },
     ],
+    jumps: [
+      { x: 32, y: 72, w: 16, h: 8, offsetX: 0, offsetY: -18 },
+      { x: 64, y: 72, w: 48, h: 8, offsetX: 0, offsetY: -18 },
+      { x: 120, y: 32, w: 8, h: 32, offsetX: -18, offsetY: 0 },
+    ],
     props: []
   },
 

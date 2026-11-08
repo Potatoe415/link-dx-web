@@ -133,6 +133,9 @@ export const MABE_VILLAGE_OVERWORLD_ROOMS: Record<string, RoomDef> = {
       { x: 80, y: 64, w: 16, h: 16 },
       { x: 112, y: 64, w: 16, h: 16 },
     ],
+    jumps: [
+      { x: 128, y: 120, w: 16, h: 8, offsetX: 0, offsetY: 26 },
+    ],
     props: []
   },
 
@@ -321,6 +324,9 @@ export const MABE_VILLAGE_OVERWORLD_ROOMS: Record<string, RoomDef> = {
       { kind: 'bush', x: 96, y: 32, sprite: 'bush_0' },
       { kind: 'bush', x: 128, y: 48, sprite: 'bush_0' },
       { kind: 'grass', x: 112, y: 0, sprite: 'grass_0' },
+    ],
+    jumps: [
+      { x: 80, y: 56, w: 16, h: 8, offsetX: 0, offsetY: 24, ignoreCollision: true },
     ],
     props: []
   },

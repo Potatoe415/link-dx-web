@@ -1625,5 +1625,16 @@
         -1
       ]
     ]
+  ],
+  "jumps": [
+    {
+      "x": 80,
+      "y": 56,
+      "w": 16,
+      "h": 8,
+      "offsetX": 0,
+      "offsetY": 24,
+      "ignoreCollision": true
+    }
   ]
 }

@@ -81,6 +81,7 @@ export class GameEngine {
       this.initRoom(key, props);
       this.player.x = x;
       this.player.y = y;
+      if (this.player.state === 'JUMPING') this.player.finishLedgeJump(this.sound);
     });
 
     this.currentRoom = ROOMS[this.currentRoomKey];
@@ -268,7 +269,7 @@ export class GameEngine {
     // Sea urchins block Link but not the other enemies' movement checks
     const playerColliders = [...allColliders, ...this.enemies.solidColliders()];
     this.player.slowedByGel = this.enemies.linkGrabbed;
-    this.player.update(dtMs, this.input, playerColliders, this.sound, ground);
+    this.player.update(dtMs, this.input, playerColliders, this.sound, ground, this.currentRoom);
     this.updateStonePush(dtMs);
     const swordHit = this.player.sword.hit(this.player.x, this.player.y);
     if (swordHit) {
@@ -304,12 +305,14 @@ export class GameEngine {
       return;
     }
 
-    const canLeave = this.player.state === 'IDLE' || this.player.state === 'WALKING' || this.player.state === 'SWIMMING';
+    // A ledge hop may land past the screen edge: the scroll then carries the jump into the next room
+    const canLeave = ['IDLE', 'WALKING', 'SWIMMING', 'JUMPING'].includes(this.player.state);
     if (!canLeave) return;
     if (this.scroller.checkEdges(this.currentRoom, this.player)) {
       void this.roomRenderer.prefetch(ROOMS[this.scroller.pending!.nextKey]);
       return;
     }
+    if (this.player.state === 'JUMPING') return;
     this.checkWarps();
   }
 

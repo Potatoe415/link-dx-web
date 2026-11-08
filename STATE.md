@@ -2,7 +2,7 @@
 
 Replace on every update. Max 40 lines. History lives in git and `docs/decisions/`.
 
-Status: Link speed doubled (2.0 px/frame = 120 px/s) & Escape key closes dialogue/inventory. Quota resets at 17:44 UTC.
+Status: Ledge jumps (`ObjJump`) ported: `RoomDef.jumps` + `src/entities/LedgeJump.ts`, extracted by `scripts/extract_room.py`. Quota resets at 17:44 UTC.
 Focus: Tail Cave dungeon entrance & extraction (`[T-2.5.1-*]`).
 Level: L1
 

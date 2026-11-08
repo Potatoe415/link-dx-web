@@ -58,6 +58,12 @@ export class ScreenScroll {
     if (direction === 2) toX = player.x - room.width + SCROLL_PUSH_PX;
     if (direction === 1) toY = player.y + next.height - SCROLL_PUSH_PX;
     if (direction === 3) toY = player.y - room.height + SCROLL_PUSH_PX;
+    if (player.state === 'JUMPING') {
+      // Mid ledge hop: arrive exactly on the jump goal, carried over into the next room
+      const { targetX, targetY } = player.ledge;
+      toX = direction === 0 ? targetX + next.width : direction === 2 ? targetX - room.width : targetX;
+      toY = direction === 1 ? targetY + next.height : direction === 3 ? targetY - room.height : targetY;
+    }
 
     this.pending = {
       direction,
@@ -91,6 +97,7 @@ export class ScreenScroll {
     const off = this.camera.getScrollOffsets(room.width, room.height);
     player.x = s.fromX + (endX - s.fromX) * t + off.current.x;
     player.y = s.fromY + (endY - s.fromY) * t + off.current.y;
-    player.animateWalk(dtMs, s.direction);
+    if (player.state === 'JUMPING') player.animateLedgeJump(dtMs);
+    else player.animateWalk(dtMs, s.direction);
   }
 }

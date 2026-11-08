@@ -246,6 +246,14 @@ def build_room(room_id, name, cfg, texts, door_index):
         lines += [f"      {{ x: {st['x']}, y: {st['y']}, sprite: '{st['sprite']}', directions: {st['directions']} }},"
                   for st in m['moveStones']]
         lines.append('    ],')
+    if m.get('jumps'):
+        lines.append('    jumps: [')
+        for j in m['jumps']:
+            extra = ''.join(f', {k}: {str(j[k]).lower() if k == "ignoreCollision" else f"{j[k]:g}"}'
+                            for k in ('height', 'speed', 'ignoreCollision') if k in j)
+            lines.append(f"      {{ x: {j['x']}, y: {j['y']}, w: {j['w']}, h: {j['h']}, "
+                         f"offsetX: {j['offsetX']}, offsetY: {j['offsetY']}{extra} }},")
+        lines.append('    ],')
     if m.get('unportedEnemies'):
         print(f"  ! {room_id}: enemies not ported yet: {', '.join(m['unportedEnemies'])}")
     inter = build_interactables(m, cfg, texts)

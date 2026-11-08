@@ -1,11 +1,12 @@
 import { Input } from '../core/Input';
 import { Collision } from '../core/Collision';
 import { SoundManager } from '../core/Audio';
-import { GroundKind, GroundZone, Rect } from '../data/rooms';
+import { GroundKind, GroundZone, JumpDef, Rect } from '../data/rooms';
 import { ANIMATIONS, AnimationDef, AnimationFrame } from '../data/animations';
 import { renderEquippedShield, renderItemGetOverhead, ShieldPose } from './PlayerShieldRender';
 import { Knockback, blockingDirectionFor } from './Damage';
 import { Sword } from './Sword';
+import { LedgeJump } from './LedgeJump';
 import { GameState } from '../core/GameState';
 import {
   DROWN_HIDDEN_MS,
@@ -24,6 +25,7 @@ export type PlayerState =
   | 'SLEEPING'
   | 'WAKING'
   | 'JUMPING_OUT'
+  | 'JUMPING'
   | 'IDLE'
   | 'WALKING'
   | 'ITEM_GET'
@@ -84,6 +86,8 @@ export class Player {
   // Buzz Blob shock (ObjLink.ShockPlayer): frozen, animation paused for `shockMs`
   public shockMs = 0;
   public readonly sword = new Sword();
+  // Ledge hop over an ObjJump field (state 'JUMPING')
+  public readonly ledge = new LedgeJump();
   /** Item shown overhead during ITEM_GET (shield by default, sword on the beach). */
   public itemGetSprite: 'shield' | 'sword' | 'toadstool' | 'powder' = 'shield';
   private dyingTimer: number = 0;
@@ -205,7 +209,8 @@ export class Player {
     input: Input,
     colliders: Rect[],
     sound?: SoundManager,
-    groundZones?: GroundZone[]
+    groundZones?: GroundZone[],
+    room?: { jumps?: JumpDef[]; width: number; height: number }
   ): void {
     this.groundTime += dtMs;
     switch (this.state) {
@@ -219,6 +224,10 @@ export class Player {
 
       case 'JUMPING_OUT':
         this.updateJumpingOut(dtMs, sound);
+        break;
+
+      case 'JUMPING':
+        this.updateLedgeJump(dtMs, groundZones, sound);
         break;
 
       case 'ITEM_GET':
@@ -237,11 +246,12 @@ export class Player {
         const pushed = this.knockback.step(dtMs, this.x, this.y, colliders);
         this.x = pushed.x;
         this.y = pushed.y;
+        let jumped = false;
         if (Math.hypot(this.knockback.vx, this.knockback.vy) < 1) {
           const slow = this.slowedByGel ? 0.5 : 1;
-          this.updateMovement(input, colliders, sound, GROUND_SPEED[this.ground ?? 'hole'] * slow, dtMs);
+          jumped = this.updateMovement(input, colliders, sound, GROUND_SPEED[this.ground ?? 'hole'] * slow, dtMs, room);
         }
-        this.updateGround(dtMs, groundZones, sound);
+        if (!jumped) this.updateGround(dtMs, groundZones, sound);
         break;
       }
 
@@ -393,16 +403,18 @@ export class Player {
     return this.sword.phase === 'slash' || this.sword.phase === 'spin';
   }
 
+  /** Returns true when Link started a ledge hop this step. */
   private updateMovement(
     input: Input,
     colliders: Rect[],
     sound?: SoundManager,
     groundSpeed: number = 1,
-    dtMs: number = 1000 / 60
-  ): void {
+    dtMs: number = 1000 / 60,
+    room?: { jumps?: JumpDef[]; width: number; height: number }
+  ): boolean {
     if (this.updateSword(dtMs, input, sound)) {
       this.state = 'IDLE';
-      return;
+      return false;
     }
     const wasBlocking = this.isBlocking;
     const shieldHeld = !this.slowedByGel && (input.isShieldHeld() || this.buttonHeld(input, 'shield'));
@@ -411,6 +423,7 @@ export class Player {
       sound?.playSfx('shield', 0.65);
     }
     const move = input.getMovement();
+    const swimming = this.state === 'SWIMMING';
 
     if (move.isMoving) {
       this.state = 'WALKING';
@@ -438,10 +451,41 @@ export class Player {
       this.y = newY;
 
       this.updateWalkAnimation();
+      if (!swimming && room && this.ledge.tryStart(room.jumps, this.x, this.y, dx, dy, colliders, room.width, room.height)) {
+        this.state = 'JUMPING';
+        this.isBlocking = false;
+        sound?.playSfx('jump', 0.7);
+        return true;
+      }
     } else {
       this.state = 'IDLE';
       this.updateIdleAnimation();
     }
+    return false;
+  }
+
+  /** Airborne over a ledge: walls are ignored until Link lands on the goal position. */
+  private updateLedgeJump(dtMs: number, zones: GroundZone[] | undefined, sound?: SoundManager): void {
+    const s = this.ledge.step(dtMs);
+    this.x = s.x;
+    this.y = s.y;
+    this.z = s.z;
+    if (!s.done) return;
+    this.finishLedgeJump(sound);
+    this.updateGround(dtMs, zones, sound);
+  }
+
+  /** Lands the ledge hop (also called when a screen scroll ends mid-jump). */
+  public finishLedgeJump(sound?: SoundManager): void {
+    this.z = 0;
+    this.state = 'IDLE';
+    this.updateIdleAnimation();
+    sound?.playSfx('land', 0.7);
+  }
+
+  /** Keeps the hop arc going while the engine moves Link across a screen scroll. */
+  public animateLedgeJump(dtMs: number): void {
+    this.z = this.ledge.step(dtMs).z;
   }
 
   /** Keeps Link's walk cycle running while the engine moves him (screen scroll transitions). */
@@ -608,7 +652,7 @@ export class Player {
   private pose(): ShieldPose {
     return {
       x: this.x,
-      y: this.y,
+      y: this.y - this.z,
       direction: this.direction,
       state: this.state,
       isBlocking: this.isBlocking,

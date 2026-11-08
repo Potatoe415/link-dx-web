@@ -70,6 +70,10 @@ export const TORONBO_SHORES_ROOMS: Record<string, RoomDef> = {
       { x: 80, y: 112, w: 64, h: 16 },
       { x: 64, y: 120, w: 16, h: 8 },
     ],
+    jumps: [
+      { x: 64, y: 120, w: 16, h: 8, offsetX: 0, offsetY: 26 },
+      { x: 96, y: 56, w: 16, h: 8, offsetX: 0, offsetY: 26 },
+    ],
     interactables: [
       { kind: 'sign', id: "signpost_64_16", x: 64, y: 16, pages: ["← Cave Flagello\n↓ Plage Coco"], sprite: 'signpost_0', requiredDirection: 1 },
     ],
@@ -109,6 +113,10 @@ export const TORONBO_SHORES_ROOMS: Record<string, RoomDef> = {
     ],
     enemies: [
       { kind: 'octorok', x: 120, y: 28 },
+    ],
+    jumps: [
+      { x: 80, y: 56, w: 16, h: 8, offsetX: 0, offsetY: 26 },
+      { x: 96, y: 120, w: 16, h: 8, offsetX: 0, offsetY: 26 },
     ],
     props: []
   },
@@ -262,6 +270,10 @@ export const TORONBO_SHORES_ROOMS: Record<string, RoomDef> = {
     enemies: [
       { kind: 'octorok', x: 56, y: 76 },
       { kind: 'octorok', x: 120, y: 60 },
+    ],
+    jumps: [
+      { x: 64, y: 40, w: 16, h: 8, offsetX: 0, offsetY: 26 },
+      { x: 80, y: 120, w: 16, h: 8, offsetX: 0, offsetY: 40 },
     ],
     props: []
   },

@@ -82,6 +82,18 @@ export interface CuttableDef {
   sprite: string; // objects.atlas sprite id
 }
 
+/**
+ * Ledge jump field (ObjJump): walking into the rect in the offset's direction hops Link over the
+ * ledge collider by (offsetX, offsetY). height / speed are ObjJump multipliers (default 1).
+ */
+export interface JumpDef extends Rect {
+  offsetX: number;
+  offsetY: number;
+  height?: number;
+  speed?: number;
+  ignoreCollision?: boolean; // land even if the goal overlaps a wall
+}
+
 /** Push block (ObjMoveStone): solid 16x16 cell Link can slide one tile at a time. */
 export interface MoveStoneDef {
   x: number; // map object origin (16x16 cell top-left)
@@ -129,5 +141,7 @@ export interface RoomDef {
   enemyWalls?: Rect[];
   // Push blocks (ObjMoveStone), reset when the room is re-entered
   moveStones?: MoveStoneDef[];
+  // Ledge jump fields (ObjJump)
+  jumps?: JumpDef[];
   props: RoomProp[];
 }

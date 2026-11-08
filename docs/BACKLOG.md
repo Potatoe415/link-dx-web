@@ -3,6 +3,7 @@
 Current work queue (synced with the full 3-level living checklist in `docs/MASTER_PLAN.md` and `docs/plans/STAGE_01_02_MATRIX.md`). Completed work lives in git history and checked `[x]` items in `docs/MASTER_PLAN.md`.
 
 ## Done (Recent)
+- [x] Bug fix: ledge jumps (`ObjJump`) ported — Link hops over cliff notches instead of being blocked (`src/entities/LedgeJump.ts`, `RoomDef.jumps`, cross-screen landings carried by the scroll).
 - [x] `[T-2.4.2-01..04]` Toadstool, Witch's Magic Powder brewing (`witch_hut`), Raccoon Tarin de-transformation (`ow_r05_c01`), Tail Key chest (`ow_r04_c01`) & Owl flight cutscene.
 - [x] `[T-2.2.1-02]` / `[T-2.2.2-03]` Studio Ghibli HD backgrounds & occlusion masks (Batch 1 & 2 — 8 rooms):
   - Overworld: `ow_r09_c02` (village square), `ow_r10_c01` (Papahl cottage), `ow_r10_c03` (cultivation field), `ow_r11_c02` (phonebooth crossroads).

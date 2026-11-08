@@ -279,6 +279,24 @@ def compute_move_stone(obj, lx, ly):
     return {'x': lx, 'y': ly, 'sprite': MOVE_STONES[obj['id']], 'directions': -1 if mask == 15 else mask}
 
 
+def compute_jump(obj, lx, ly):
+    """ObjJump (`jump`) params: [offsetX, offsetY, fieldWidth, fieldHeight, height, speed, inertiaTime,
+    ignoreCollision, moveOnTop], template defaults (0, 0, 16, 16, 1, 1, 0, False, False)."""
+    if obj['id'] != 'jump' or not (0 <= lx < 160 and 0 <= ly < 128):
+        return None
+    p = (obj['params'] + [''] * 9)[:9]
+    num = lambda s, d: float(s) if s.strip() else d
+    jump = {'x': lx, 'y': ly, 'w': int(num(p[2], 16)), 'h': int(num(p[3], 16)),
+            'offsetX': int(num(p[0], 0)), 'offsetY': int(num(p[1], 0))}
+    if num(p[4], 1) != 1:
+        jump['height'] = num(p[4], 1)
+    if num(p[5], 1) != 1:
+        jump['speed'] = num(p[5], 1)
+    if p[7].strip().lower() == 'true':
+        jump['ignoreCollision'] = True
+    return jump
+
+
 def compute_enemy_spawn(obj, lx, ly):
     if not (0 <= lx < 160 and 0 <= ly < 128):
         return None
@@ -416,6 +434,7 @@ def extract_room(map_name, screen_col, screen_row, out_id, out_dir, offset_px_x=
     cuttables = []
     enemy_walls = []
     move_stones = []
+    jumps = []
     unported_enemies = set()
     for obj in parsed['objects']:
         lx = obj['mapX'] - world_px_x
@@ -441,6 +460,9 @@ def extract_room(map_name, screen_col, screen_row, out_id, out_dir, offset_px_x=
             stone = compute_move_stone(obj, lx, ly)
             if stone:
                 move_stones.append(stone)
+            jump = compute_jump(obj, lx, ly)
+            if jump:
+                jumps.append(jump)
 
             spawn = compute_enemy_spawn(obj, lx, ly)
             if spawn:
@@ -567,6 +589,7 @@ def extract_room(map_name, screen_col, screen_row, out_id, out_dir, offset_px_x=
         'cuttables': cuttables,
         'enemyWalls': enemy_walls,
         'moveStones': move_stones,
+        'jumps': jumps,
         'unportedEnemies': sorted(unported_enemies),
         'objects': [o for o in local_objects if o['category'] != 'collider'],
         'tiles': room_tiles,
