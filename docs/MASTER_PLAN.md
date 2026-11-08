@@ -99,13 +99,25 @@
   - `ow_r09_c01` (Maison des quadruplés), `ow_r09_c02` (Place centrale & girouette nord), `ow_r09_c03` (Étang de pêche)
   - `ow_r10_c00` (Entrée ouest), `ow_r10_c01` (Enfants jouant à la balle), `ow_r10_c03` (Jeu de hasard *Trendy Game*)
   - `ow_r11_c01` (Bibliothèque du village), `ow_r11_c02` (Maison de Pépé le Ramollo & Cabine téléphonique), `ow_r11_c03` (Prairie aux trous).
-- [ ] **[T-2.2.1-02]** `TASK_ROOM_GHIBLI` sur `ow_r10_c01`, `ow_r11_c01`, `ow_r11_c02`, `ow_r11_c03` (zone sud du village).
-- [ ] **[T-2.2.1-03]** `TASK_ROOM_GHIBLI` sur `ow_r08_c01`, `ow_r08_c02`, `ow_r08_c03`, `ow_r09_c01`, `ow_r09_c02`, `ow_r09_c03`, `ow_r10_c03` (zone nord et est du village).
+- [ ] **[T-2.2.1-02]** `TASK_ROOM_GHIBLI` sur les écrans extérieurs du Village des Mouettes :
+  - [x] `ow_r10_c02` (Maison de Marine & Tarkin, extérieur + arbre/toit)
+  - [x] `ow_r09_c02` (Place centrale & girouette nord)
+  - [x] `ow_r10_c01` (Maison de Papahl & quadruplés)
+  - [x] `ow_r10_c03` (Champ de culture / Est du village)
+  - [x] `ow_r11_c02` (Cabine téléphonique & carrefour sud)
+  - [ ] *En attente quota (17:44 UTC)* : `ow_r08_c01`, `ow_r08_c02`, `ow_r08_c03`, `ow_r09_c01`, `ow_r09_c03`, `ow_r10_c00`, `ow_r11_c01`, `ow_r11_c03`
+- [ ] **[T-2.2.1-03]** `TASK_ROOM_GHIBLI` sur le secteur nord et étang de pêche (`ow_r08_c01..c03`, `ow_r09_c01`, `ow_r09_c03`).
 
 ### 2.2.2 — Intérieurs & Habitants du Village des Mouettes
 - [x] **[T-2.2.2-01]** Extraire et câbler les intérieurs du village depuis `_ref_repo/Data/Maps/` : Bibliothèque (`library`), Maison de Pépé le Ramollo (`ulrira`), Cabine téléphonique (`phonebooth`), Maison de Mme Miaou (`meow_house`), Boutique (`shop`), Jeu de hasard (`trendy_game`) + Niche de Toutou (`bowwow_kennel`) et Maison des quadruplés (`quadruplets_house_w/_e`). Portes générées par `build_region.py` depuis les `ObjDoor` des manifests.
 - [x] **[T-2.2.2-02]** `TASK_ENTITY_PORT` : Porter les PNJ du village (`ObjBallChildren`, `ObjBowWow` enchaîné devant sa niche, `ObjUlrira`, `ObjShopKeeper`, `ObjTrendy`, `ObjCucco` poules). Fait : `src/entities/Npc.ts` + `src/data/npcs.ts` (jeu de balle, Toutou enchaîné, petits Toutous, chiens, Pépé le Ramollo, Mme Miaou, mère des quadruplés, marchand, gérant du jeu, pêcheur, Mamie Youpi, gamins). `overworld.map` ne place aucune poule (`ObjCock` n'apparaît que dans `cave rooster.map`).
-- [ ] **[T-2.2.2-03]** Générer les décors Studio Ghibli des intérieurs principaux du village.
+- [ ] **[T-2.2.2-03]** Générer les décors Studio Ghibli des intérieurs du village (`1280x1024`) :
+  - [x] `indoor` / `indoor_marin` (Maison de Marine & Tarkin)
+  - [x] `library` (Bibliothèque du village — 8 étagères et tables)
+  - [x] `shop` (Boutique d'outils et piédestaux d'achat)
+  - [x] `ulrira` (Cottage douillet de Pépé le Ramollo)
+  - [x] `phonebooth` (Cabine téléphonique en rondins)
+  - [ ] *En attente quota (17:44 UTC)* : `bowwow_kennel` (Niche de Toutou), `meow_house` (Maison de Mme Miaou), `quadruplets_house_w`, `quadruplets_house_e` (Maison des quadruplés), `trendy_game` (Jeu de la grue).
 
 ---
 
@@ -133,10 +145,10 @@
 - [ ] **[T-2.4.1-03]** `TASK_ROOM_GHIBLI` sur les écrans de la Forêt Enchantée (avec brume légère et arbres géants Ghibli) et la Cabane de la Sorcière.
 
 ### 2.4.2 — Quête du Champignon, Poudre Magique, Raton-Laveur & Clé Flagello
-- [ ] **[T-2.4.2-01]** `TASK_ENTITY_PORT(sleepy_toadstool)` : Ramassage du **Champignon** (`toadstool`) au sortir de la grotte de la forêt (`ow_r05_c00`).
-- [ ] **[T-2.4.2-02]** `TASK_QUEST_WIRE(witch_magic_powder)` : Remettre le Champignon à la Sorcière Syrup (`witch_hut`) -> animation de brassage du chaudron -> obtention de la **Poudre Magique** (`powder`) équipable.
-- [ ] **[T-2.4.2-03]** `TASK_ENTITY_PORT(raccoon_tarin)` : Porter `ObjRaccoon.cs` sur `ow_r05_c01` (le raton-laveur farceur qui téléporte Link dans une boucle tant qu'on monte sans lui jeter de Poudre Magique).
-- [ ] **[T-2.4.2-04]** `TASK_QUEST_WIRE(FLAG_TAIL_KEY_OBTAINED)` : Utiliser la Poudre Magique sur le raton-laveur -> transformation en Tarkin -> accès au coffre au nord (`ow_r04_c01`) -> obtention de la **Clé Flagello** (`tail_key`) + intervention du Hibou.
+- [x] **[T-2.4.2-01]** `TASK_ENTITY_PORT(sleepy_toadstool)` : Ramassage du **Champignon** (`toadstool`) au sortir de la grotte de la forêt (`ow_r05_c00`).
+- [x] **[T-2.4.2-02]** `TASK_QUEST_WIRE(witch_magic_powder)` : Remettre le Champignon à la Sorcière Syrup (`witch_hut`) -> animation de brassage du chaudron -> obtention de la **Poudre Magique** (`powder`) équipable.
+- [x] **[T-2.4.2-03]** `TASK_ENTITY_PORT(raccoon_tarin)` : Porter `ObjRaccoon.cs` sur `ow_r05_c01` (le raton-laveur farceur qui téléporte Link dans une boucle tant qu'on monte sans lui jeter de Poudre Magique).
+- [x] **[T-2.4.2-04]** `TASK_QUEST_WIRE(FLAG_TAIL_KEY_OBTAINED)` : Utiliser la Poudre Magique sur le raton-laveur -> transformation en Tarkin -> accès au coffre au nord (`ow_r04_c01`) -> obtention de la **Clé Flagello** (`tail_key`) + intervention du Hibou.
 
 ---
 

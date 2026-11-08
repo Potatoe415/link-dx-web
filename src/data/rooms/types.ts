@@ -69,7 +69,7 @@ export interface GroundItemDef {
   id: string;
   x: number; // map object origin (16x16 cell top-left)
   y: number;
-  item: 'sword' | 'heartPiece'; // extend as more ground items are ported
+  item: 'sword' | 'heartPiece' | 'toadstool'; // extend as more ground items are ported
 }
 
 export type InteractableDef = SignDef | ChestDef | GroundItemDef;

@@ -1,14 +1,27 @@
 # BACKLOG
 
-Current work queue (synced with the full 3-level living checklist in `docs/MASTER_PLAN.md`). Completed work lives in git history and checked `[x]` items in `docs/MASTER_PLAN.md`.
+Current work queue (synced with the full 3-level living checklist in `docs/MASTER_PLAN.md` and `docs/plans/STAGE_01_02_MATRIX.md`). Completed work lives in git history and checked `[x]` items in `docs/MASTER_PLAN.md`.
 
-## Now (Étape 2 — Acte I)
-- [ ] `[T-2.4.2-01..04]` Toadstool, witch's Magic Powder, raccoon Tarin, Tail Key quest wiring (chest already placed in `ow_r04_c01`).
+## Done (Recent)
+- [x] `[T-2.4.2-01..04]` Toadstool, Witch's Magic Powder brewing (`witch_hut`), Raccoon Tarin de-transformation (`ow_r05_c01`), Tail Key chest (`ow_r04_c01`) & Owl flight cutscene.
+- [x] `[T-2.2.1-02]` / `[T-2.2.2-03]` Studio Ghibli HD backgrounds & occlusion masks (Batch 1 & 2 — 8 rooms):
+  - Overworld: `ow_r09_c02` (village square), `ow_r10_c01` (Papahl cottage), `ow_r10_c03` (cultivation field), `ow_r11_c02` (phonebooth crossroads).
+  - Interiors: `library`, `shop`, `ulrira`, `phonebooth`.
+- [x] Engine dual-pass auto-injection: `scripts/build_region.py` detects `fgGhibli`/`fgPixel` and wires them into `RoomDef`.
+
+## Now (Tail Cave / Chapter 2.5)
+- [ ] `[T-2.5.1-01]` Tail Cave exterior entrance (`ow_r13_c03`): keyhole interaction consuming `FLAG_TAIL_KEY_OBTAINED` to open the dungeon gate.
+- [ ] `[T-2.5.1-02]` Extract all Tail Cave rooms (`d1_r*_c*`) from `_ref_repo/Data/Maps/dungeon1.map`.
+- [ ] `[T-2.5.1-03]` Dungeon systems (small keys, locked doors, stone beak, compass, dungeon map, nightmare key).
 
 ## Next
 - [ ] Mini-Moldorm (`e12`, `EnemyMiniMoldorm.cs`) with the Tal Tal / mountain screens (`ow_r00_c00`, `ow_r00_c04`, `ow_r00_c05`, `ow_r01_c04`).
 - [ ] Enemy hole falls (`AiFallState`): Moblins / Gels walking into `hole` zones; enemies currently treat holes as floor.
-- [ ] Village mini-systems: shop buying, Trendy Game crane, fishing, BowWow quest states, stairs/cave doors (`cave_rooster`, `cave0`, `dreamShrine01`).
+- [ ] Village mini-systems: shop purchasing flow, Trendy Game crane physics, side-view fishing pond (`pond.map`), stairs/cave doors (`cave_rooster`, `cave0`, `dreamShrine01`).
 
-## Blocked
-- [ ] `[T-2.2.1-02]`, `[T-2.2.1-03]`, `[T-2.2.2-03]` (9 interiors), `[T-2.3.1-04]`, `[T-2.4.1-03]` (forest) and every `TASK_ROOM_GHIBLI`: need an image-generation tool (pixel-art fallback ships meanwhile).
+## Blocked (Until 17:44 UTC / 18:44 CET Quota Reset)
+- [ ] Studio Ghibli image generation API calls (`gemini-3.1-flash-image` HTTP 429 quota window reset at 17:44 UTC):
+  - Remaining village interiors: `bowwow_kennel`, `meow_house`, `quadruplets_house_w`, `quadruplets_house_e`, `trendy_game`.
+  - Toronbo Shores corridor: `ow_r12_c02`, `ow_r13_c02`, `ow_r14_c02`, `ow_r15_c02`.
+  - Mysterious Forest: `ow_r05_c00`, `ow_r05_c01`, `ow_r04_c01`, `witch_hut`.
+  *(Note: Dual-pass engine runs seamlessly on pixel-art backgrounds `*_bg_pixel.png` in the meantime).*

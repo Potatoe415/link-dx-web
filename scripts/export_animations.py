@@ -23,7 +23,8 @@ ENEMY_OUT = os.path.join('src', 'data', 'enemyAnimations.ts')
 
 # Animators used by src/data/npcs.ts
 NPC_ANIMATORS = ['npc04', 'npc07', 'npc09', 'npc_green_boy', 'shopkeeper', 'npc_trendy', 'npc_woman_broom',
-                 'npc_fisherman', 'dog', 'bowWowSmall', 'BowWow', 'npc_boy_left', 'npc_boy_right']
+                 'npc_fisherman', 'dog', 'bowWowSmall', 'BowWow', 'npc_boy_left', 'npc_boy_right',
+                 'witch', 'raccoon', 'tarin']
 
 # Animators used by src/data/enemies.ts: TS key -> .ani path under Data/Animations
 ENEMY_ANIMATORS = {

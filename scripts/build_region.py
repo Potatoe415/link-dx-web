@@ -185,7 +185,11 @@ def build_room(room_id, name, cfg, texts, door_index):
     colliders = merge_rects(m['colliders'])
     bg = f'/assets/rooms/{room_id}_bg_pixel.png'
     ghibli = f'/assets/rooms/{room_id}_bg.png'
+    fg_pixel = f'/assets/rooms/{room_id}_fg_pixel.png'
+    fg_ghibli = f'/assets/rooms/{room_id}_fg.png'
     has_ghibli = os.path.exists(os.path.join('public', ghibli.lstrip('/')))
+    has_fg_pixel = os.path.exists(os.path.join('public', fg_pixel.lstrip('/')))
+    has_fg_ghibli = os.path.exists(os.path.join('public', fg_ghibli.lstrip('/')))
 
     lines = [
         f'  {room_id}: {{',
@@ -195,8 +199,12 @@ def build_room(room_id, name, cfg, texts, door_index):
         '    height: 128,',
         f'    bgPixel: {ts_string(bg)},',
         f'    bgGhibli: {ts_string(ghibli if has_ghibli else bg)},{"" if has_ghibli else " // TEMP: pixel fallback until TASK_ROOM_GHIBLI"}',
-        f'    music: {ts_string(room_music(m, cfg))},',
     ]
+    if has_fg_pixel:
+        lines.append(f'    fgPixel: {ts_string(fg_pixel)},')
+    if has_fg_ghibli:
+        lines.append(f'    fgGhibli: {ts_string(fg_ghibli)},')
+    lines.append(f'    music: {ts_string(room_music(m, cfg))},')
     ambience = cfg.get('ambience')
     if isinstance(ambience, dict):  # per-room overrides: { "default": ..., "<roomId>": ... }
         ambience = ambience.get(room_id, ambience.get('default'))

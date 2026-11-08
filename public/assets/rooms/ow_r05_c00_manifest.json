@@ -239,7 +239,15 @@
     }
   ],
   "groundZones": [],
-  "interactables": [],
+  "interactables": [
+    {
+      "kind": "item",
+      "id": "spawn_toadstool",
+      "x": 32,
+      "y": 48,
+      "item": "toadstool"
+    }
+  ],
   "doors": [
     {
       "x": 128,

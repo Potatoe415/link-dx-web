@@ -10,7 +10,7 @@ export const MABE_VILLAGE_INTERIOR_ROOMS: Record<string, RoomDef> = {
     width: 160,
     height: 128,
     bgPixel: "/assets/rooms/library_bg_pixel.png",
-    bgGhibli: "/assets/rooms/library_bg_pixel.png", // TEMP: pixel fallback until TASK_ROOM_GHIBLI
+    bgGhibli: "/assets/rooms/library_bg.png",
     music: "house",
     ambience: "indoor",
     neighbors: {  },
@@ -65,7 +65,7 @@ export const MABE_VILLAGE_INTERIOR_ROOMS: Record<string, RoomDef> = {
     width: 160,
     height: 128,
     bgPixel: "/assets/rooms/ulrira_bg_pixel.png",
-    bgGhibli: "/assets/rooms/ulrira_bg_pixel.png", // TEMP: pixel fallback until TASK_ROOM_GHIBLI
+    bgGhibli: "/assets/rooms/ulrira_bg.png",
     music: "helphouse",
     ambience: "indoor",
     neighbors: {  },
@@ -110,7 +110,7 @@ export const MABE_VILLAGE_INTERIOR_ROOMS: Record<string, RoomDef> = {
     width: 160,
     height: 128,
     bgPixel: "/assets/rooms/phonebooth_bg_pixel.png",
-    bgGhibli: "/assets/rooms/phonebooth_bg_pixel.png", // TEMP: pixel fallback until TASK_ROOM_GHIBLI
+    bgGhibli: "/assets/rooms/phonebooth_bg.png",
     music: "helphouse",
     ambience: "indoor",
     neighbors: {  },
@@ -287,7 +287,7 @@ export const MABE_VILLAGE_INTERIOR_ROOMS: Record<string, RoomDef> = {
     width: 160,
     height: 128,
     bgPixel: "/assets/rooms/shop_bg_pixel.png",
-    bgGhibli: "/assets/rooms/shop_bg_pixel.png", // TEMP: pixel fallback until TASK_ROOM_GHIBLI
+    bgGhibli: "/assets/rooms/shop_bg.png",
     music: "shop",
     ambience: "indoor",
     neighbors: {  },

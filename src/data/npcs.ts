@@ -1,3 +1,18 @@
+import { SoundManager } from '../core/Audio';
+import { DialogueSystem } from '../core/Dialogue';
+import { GameState } from '../core/GameState';
+import { Player } from '../entities/Player';
+import { Npc } from '../entities/Npc';
+
+export interface NpcTalkContext {
+  game: GameState;
+  npc: Npc;
+  player: Player;
+  dialogue: DialogueSystem;
+  sound: SoundManager;
+}
+
+export type NpcTalkHandler = (ctx: NpcTalkContext) => boolean;
 import { Rect } from './rooms';
 
 /**
@@ -29,6 +44,7 @@ export interface NpcDef {
   talkKey?: string; // shared conversation counter (npc05_help: every village kid continues the same tip cycle)
   sfx?: 'bowwow_yip'; // played when talking (ObjBowWowSmall.Interact)
   requires?: 'FLAG_SWORD_OBTAINED'; // spawn condition already covered by GameState flags
+  onTalk?: NpcTalkHandler;
 }
 
 // Body boxes from the constructors: ObjPerson(New) Rectangle(0, 0, 14, 10) -> (-7, -10, 14, 10)
@@ -41,6 +57,117 @@ const KIDS_HELP = [
 ];
 
 export const NPCS: Record<string, NpcDef[]> = {
+  witch_hut: [
+    {
+      id: 'witch',
+      animator: 'witch',
+      animation: 'idle',
+      behavior: 'static',
+      x: 64,
+      y: 64,
+      body: PERSON,
+      speaker: 'Sorcière Syrup',
+      onTalk: ({ game, npc, player, dialogue, sound }) => {
+        if (game.hasItem('toadstool')) {
+          dialogue.startCustomDialogue(
+            'Sorcière Syrup',
+            [
+              "Ooooh ! Tu m'apportes le Champignon du sommeil, oui !",
+              "Attends un petit instant, je te prépare ça en deux temps trois mouvements !"
+            ],
+            () => {
+              npc.playAnimation('mix');
+              sound.playSfx('menu_open', 0.8);
+              setTimeout(() => {
+                npc.playAnimation('idle');
+                game.removeItem('toadstool');
+                game.addItem('powder');
+                if (game.equippedB === 'toadstool' || game.equippedB === null) game.equip('B', 'powder');
+                player.startItemGet('powder');
+                sound.playSfx('item_get', 0.85);
+                dialogue.startCustomDialogue(
+                  '★ Objet Obtenu ★',
+                  [
+                    'Vous obtenez de la Poudre Magique !',
+                    'Saupoudrez-en sur les torches ou sur les ennemis pour voir ce qui se passe !'
+                  ],
+                  () => player.finishItemGet()
+                );
+              }, 1200);
+            }
+          );
+          return true;
+        }
+        if (game.hasItem('powder')) {
+          dialogue.startCustomDialogue(
+            'Sorcière Syrup',
+            ["Essaie cette Poudre Magique sur tes ennemis, et... surprise ! Si tu es à court, va chercher un autre champignon dans la forêt et je t'en referai !"]
+          );
+          return true;
+        }
+        dialogue.startCustomDialogue(
+          'Sorcière Syrup',
+          ["Bouillonne, chaudron, bouillonne ! Un champignon dans ma mixture, et voilà de la poudre pure !"]
+        );
+        return true;
+      }
+    }
+  ],
+  ow_r05_c01: [
+    {
+      id: 'raccoon',
+      animator: 'raccoon',
+      animation: 'idle',
+      behavior: 'static',
+      x: 112,
+      y: 48,
+      body: PERSON,
+      speaker: 'Raton-Laveur',
+      onTalk: ({ game, npc, player, dialogue, sound }) => {
+        if (game.isChestOpened('ow_r05_c01', 'raccoon_transformed')) {
+          dialogue.startCustomDialogue(
+            'Tarkin',
+            ["Ouh là là... Quelle aventure ! Je ferais bien d'éviter de croquer dans des champignons bizarres..."]
+          );
+          return true;
+        }
+        if (game.hasItem('powder')) {
+          dialogue.startCustomDialogue(
+            'Raton-Laveur',
+            [
+              "Grrr ! Mon pif me chatouille !",
+              "Link saupoudre de la Poudre Magique sur le museau du raton-laveur !"
+            ],
+            () => {
+              npc.playAnimation('rotate');
+              sound.playSfx('menu_select', 0.8);
+              setTimeout(() => {
+                npc.setAnimator('tarin', 'stand_3');
+                sound.playSfx('treasure', 0.85);
+                game.markChestOpened('ow_r05_c01', 'raccoon_transformed');
+                dialogue.startCustomDialogue(
+                  'Tarkin',
+                  [
+                    "Aie aie aie... J'ai la tête qui tourne comme une toupie !",
+                    "Qu'est-ce que je fais là ? J'ai rêvé que j'étais un raton-laveur...",
+                    "J'ai dû manger un champignon pas très frais en venant cueillir des noisettes.",
+                    "Bon, je ferais mieux de rentrer à la maison !"
+                  ]
+                );
+              }, 1200);
+            }
+          );
+          return true;
+        }
+        dialogue.startCustomDialogue(
+          'Raton-Laveur',
+          ["Héhéhé ! Mon pif me gratte, mais tu ne passeras pas ! Va faire un tour ailleurs !"]
+        );
+        return true;
+      }
+    }
+  ],
+
   ulrira: [
     {
       id: 'ulrira', animator: 'npc04', behavior: 'static', animation: 'stand_0', x: 64, y: 40, body: PERSON,

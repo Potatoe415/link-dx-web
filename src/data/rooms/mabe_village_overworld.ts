@@ -209,7 +209,8 @@ export const MABE_VILLAGE_OVERWORLD_ROOMS: Record<string, RoomDef> = {
     width: 160,
     height: 128,
     bgPixel: "/assets/rooms/ow_r09_c02_bg_pixel.png",
-    bgGhibli: "/assets/rooms/ow_r09_c02_bg_pixel.png", // TEMP: pixel fallback until TASK_ROOM_GHIBLI
+    bgGhibli: "/assets/rooms/ow_r09_c02_bg.png",
+    fgGhibli: "/assets/rooms/ow_r09_c02_fg.png",
     music: "outdoor",
     ambience: "outdoor",
     neighbors: { north: "ow_r08_c02", south: "ow_r10_c02", west: "ow_r09_c01", east: "ow_r09_c03" },
@@ -330,7 +331,8 @@ export const MABE_VILLAGE_OVERWORLD_ROOMS: Record<string, RoomDef> = {
     width: 160,
     height: 128,
     bgPixel: "/assets/rooms/ow_r10_c01_bg_pixel.png",
-    bgGhibli: "/assets/rooms/ow_r10_c01_bg_pixel.png", // TEMP: pixel fallback until TASK_ROOM_GHIBLI
+    bgGhibli: "/assets/rooms/ow_r10_c01_bg.png",
+    fgGhibli: "/assets/rooms/ow_r10_c01_fg.png",
     music: "outdoor",
     ambience: "outdoor",
     neighbors: { north: "ow_r09_c01", south: "ow_r11_c01", west: "ow_r10_c00", east: "ow_r10_c02" },
@@ -383,7 +385,8 @@ export const MABE_VILLAGE_OVERWORLD_ROOMS: Record<string, RoomDef> = {
     width: 160,
     height: 128,
     bgPixel: "/assets/rooms/ow_r10_c03_bg_pixel.png",
-    bgGhibli: "/assets/rooms/ow_r10_c03_bg_pixel.png", // TEMP: pixel fallback until TASK_ROOM_GHIBLI
+    bgGhibli: "/assets/rooms/ow_r10_c03_bg.png",
+    fgGhibli: "/assets/rooms/ow_r10_c03_fg.png",
     music: "outdoor",
     ambience: "outdoor",
     neighbors: { north: "ow_r09_c03", south: "ow_r11_c03", west: "ow_r10_c02", east: "ow_r10_c04" },
@@ -521,7 +524,8 @@ export const MABE_VILLAGE_OVERWORLD_ROOMS: Record<string, RoomDef> = {
     width: 160,
     height: 128,
     bgPixel: "/assets/rooms/ow_r11_c02_bg_pixel.png",
-    bgGhibli: "/assets/rooms/ow_r11_c02_bg_pixel.png", // TEMP: pixel fallback until TASK_ROOM_GHIBLI
+    bgGhibli: "/assets/rooms/ow_r11_c02_bg.png",
+    fgGhibli: "/assets/rooms/ow_r11_c02_fg.png",
     music: "outdoor",
     ambience: "outdoor",
     neighbors: { north: "ow_r10_c02", south: "ow_r12_c02", west: "ow_r11_c01", east: "ow_r11_c03" },

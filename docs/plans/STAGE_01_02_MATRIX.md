@@ -15,46 +15,46 @@
 *Référence : `docs/la_dx_knowledge_base/04_walkthrough_act1_mabe_to_d3.md#11`*
 
 ### `ow_r08_c01` (Overworld Row 8, Col 1) — Puits du Village (Quart de Cœur #1) & Entrée Nord-Ouest
-- [ ] `[2.1.1-OW_R08_C01-P1]` **[EXTRACT]** : `python scripts/extract_room.py --overworld-row 8 --overworld-col 1 --out-id ow_r08_c01`
-- [ ] `[2.1.1-OW_R08_C01-P2]` **[WIRE_WHITEBOX]** : Ajouter `ow_r08_c01` dans `src/data/rooms/<region>.ts` (`colliders`, `neighbors`, `bgPixel`).
-- [ ] `[2.1.1-OW_R08_C01-P3]` **[ENTITIES_DIALOGUES]** : Câbler entités, portes et dialogues FR de `ow_r08_c01`.
+- [x] `[2.1.1-OW_R08_C01-P1]` **[EXTRACT]** : `python scripts/extract_room.py --overworld-row 8 --overworld-col 1 --out-id ow_r08_c01`
+- [x] `[2.1.1-OW_R08_C01-P2]` **[WIRE_WHITEBOX]** : Ajouter `ow_r08_c01` dans `src/data/rooms/<region>.ts` (`colliders`, `neighbors`, `bgPixel`).
+- [x] `[2.1.1-OW_R08_C01-P3]` **[ENTITIES_DIALOGUES]** : Câbler entités, portes et dialogues FR de `ow_r08_c01`.
 - [ ] `[2.1.1-OW_R08_C01-P4]` **[GHIBLI_PAINT]** : Peindre `ow_r08_c01_bg.png` (`1280x1024`) + `ow_r08_c01_fg.png` (masque alpha pur).
 
 ### `ow_r08_c02` (Overworld Row 8, Col 2) — Maison de Pépé le Ramollo (Grandpa Ulrira) & Cabine Téléphonique
-- [ ] `[2.1.1-OW_R08_C02-P1]` **[EXTRACT]** : `python scripts/extract_room.py --overworld-row 8 --overworld-col 2 --out-id ow_r08_c02`
-- [ ] `[2.1.1-OW_R08_C02-P2]` **[WIRE_WHITEBOX]** : Ajouter `ow_r08_c02` dans `src/data/rooms/<region>.ts` (`colliders`, `neighbors`, `bgPixel`).
-- [ ] `[2.1.1-OW_R08_C02-P3]` **[ENTITIES_DIALOGUES]** : Câbler entités, portes et dialogues FR de `ow_r08_c02`.
+- [x] `[2.1.1-OW_R08_C02-P1]` **[EXTRACT]** : `python scripts/extract_room.py --overworld-row 8 --overworld-col 2 --out-id ow_r08_c02`
+- [x] `[2.1.1-OW_R08_C02-P2]` **[WIRE_WHITEBOX]** : Ajouter `ow_r08_c02` dans `src/data/rooms/<region>.ts` (`colliders`, `neighbors`, `bgPixel`).
+- [x] `[2.1.1-OW_R08_C02-P3]` **[ENTITIES_DIALOGUES]** : Câbler entités, portes et dialogues FR de `ow_r08_c02`.
 - [ ] `[2.1.1-OW_R08_C02-P4]` **[GHIBLI_PAINT]** : Peindre `ow_r08_c02_bg.png` (`1280x1024`) + `ow_r08_c02_fg.png` (masque alpha pur).
 
 ### `ow_r08_c03` (Overworld Row 8, Col 3) — Sanctuaire des Rêves (Dream Shrine - Lit & Ocarina)
-- [ ] `[2.1.1-OW_R08_C03-P1]` **[EXTRACT]** : `python scripts/extract_room.py --overworld-row 8 --overworld-col 3 --out-id ow_r08_c03`
-- [ ] `[2.1.1-OW_R08_C03-P2]` **[WIRE_WHITEBOX]** : Ajouter `ow_r08_c03` dans `src/data/rooms/<region>.ts` (`colliders`, `neighbors`, `bgPixel`).
-- [ ] `[2.1.1-OW_R08_C03-P3]` **[ENTITIES_DIALOGUES]** : Câbler entités, portes et dialogues FR de `ow_r08_c03`.
+- [x] `[2.1.1-OW_R08_C03-P1]` **[EXTRACT]** : `python scripts/extract_room.py --overworld-row 8 --overworld-col 3 --out-id ow_r08_c03`
+- [x] `[2.1.1-OW_R08_C03-P2]` **[WIRE_WHITEBOX]** : Ajouter `ow_r08_c03` dans `src/data/rooms/<region>.ts` (`colliders`, `neighbors`, `bgPixel`).
+- [x] `[2.1.1-OW_R08_C03-P3]` **[ENTITIES_DIALOGUES]** : Câbler entités, portes et dialogues FR de `ow_r08_c03`.
 - [ ] `[2.1.1-OW_R08_C03-P4]` **[GHIBLI_PAINT]** : Peindre `ow_r08_c03_bg.png` (`1280x1024`) + `ow_r08_c03_fg.png` (masque alpha pur).
 
 ### `ow_r09_c01` (Overworld Row 9, Col 1) — Maison de Madame MiaouMiaou & Niche de Toutou (BowWow)
-- [ ] `[2.1.1-OW_R09_C01-P1]` **[EXTRACT]** : `python scripts/extract_room.py --overworld-row 9 --overworld-col 1 --out-id ow_r09_c01`
-- [ ] `[2.1.1-OW_R09_C01-P2]` **[WIRE_WHITEBOX]** : Ajouter `ow_r09_c01` dans `src/data/rooms/<region>.ts` (`colliders`, `neighbors`, `bgPixel`).
-- [ ] `[2.1.1-OW_R09_C01-P3]` **[ENTITIES_DIALOGUES]** : Câbler entités, portes et dialogues FR de `ow_r09_c01`.
+- [x] `[2.1.1-OW_R09_C01-P1]` **[EXTRACT]** : `python scripts/extract_room.py --overworld-row 9 --overworld-col 1 --out-id ow_r09_c01`
+- [x] `[2.1.1-OW_R09_C01-P2]` **[WIRE_WHITEBOX]** : Ajouter `ow_r09_c01` dans `src/data/rooms/<region>.ts` (`colliders`, `neighbors`, `bgPixel`).
+- [x] `[2.1.1-OW_R09_C01-P3]` **[ENTITIES_DIALOGUES]** : Câbler entités, portes et dialogues FR de `ow_r09_c01`.
 - [ ] `[2.1.1-OW_R09_C01-P4]` **[GHIBLI_PAINT]** : Peindre `ow_r09_c01_bg.png` (`1280x1024`) + `ow_r09_c01_fg.png` (masque alpha pur).
 
 ### `ow_r09_c02` (Overworld Row 9, Col 2) — Place Centrale du Village & Girouette (Marine qui chante)
-- [ ] `[2.1.1-OW_R09_C02-P1]` **[EXTRACT]** : `python scripts/extract_room.py --overworld-row 9 --overworld-col 2 --out-id ow_r09_c02`
-- [ ] `[2.1.1-OW_R09_C02-P2]` **[WIRE_WHITEBOX]** : Ajouter `ow_r09_c02` dans `src/data/rooms/<region>.ts` (`colliders`, `neighbors`, `bgPixel`).
-- [ ] `[2.1.1-OW_R09_C02-P3]` **[ENTITIES_DIALOGUES]** : Câbler entités, portes et dialogues FR de `ow_r09_c02`.
-- [ ] `[2.1.1-OW_R09_C02-P4]` **[GHIBLI_PAINT]** : Peindre `ow_r09_c02_bg.png` (`1280x1024`) + `ow_r09_c02_fg.png` (masque alpha pur).
+- [x] `[2.1.1-OW_R09_C02-P1]` **[EXTRACT]** : `python scripts/extract_room.py --overworld-row 9 --overworld-col 2 --out-id ow_r09_c02`
+- [x] `[2.1.1-OW_R09_C02-P2]` **[WIRE_WHITEBOX]** : Ajouter `ow_r09_c02` dans `src/data/rooms/<region>.ts` (`colliders`, `neighbors`, `bgPixel`).
+- [x] `[2.1.1-OW_R09_C02-P3]` **[ENTITIES_DIALOGUES]** : Câbler entités, portes et dialogues FR de `ow_r09_c02`.
+- [x] `[2.1.1-OW_R09_C02-P4]` **[GHIBLI_PAINT]** : Peindre `ow_r09_c02_bg.png` (`1280x1024`) + `ow_r09_c02_fg.png` (masque alpha pur).
 
 ### `ow_r09_c03` (Overworld Row 9, Col 3) — Boutique du Village (Shop : Pelle 200R, Arc 980R, Bombes)
-- [ ] `[2.1.1-OW_R09_C03-P1]` **[EXTRACT]** : `python scripts/extract_room.py --overworld-row 9 --overworld-col 3 --out-id ow_r09_c03`
-- [ ] `[2.1.1-OW_R09_C03-P2]` **[WIRE_WHITEBOX]** : Ajouter `ow_r09_c03` dans `src/data/rooms/<region>.ts` (`colliders`, `neighbors`, `bgPixel`).
-- [ ] `[2.1.1-OW_R09_C03-P3]` **[ENTITIES_DIALOGUES]** : Câbler entités, portes et dialogues FR de `ow_r09_c03`.
+- [x] `[2.1.1-OW_R09_C03-P1]` **[EXTRACT]** : `python scripts/extract_room.py --overworld-row 9 --overworld-col 3 --out-id ow_r09_c03`
+- [x] `[2.1.1-OW_R09_C03-P2]` **[WIRE_WHITEBOX]** : Ajouter `ow_r09_c03` dans `src/data/rooms/<region>.ts` (`colliders`, `neighbors`, `bgPixel`).
+- [x] `[2.1.1-OW_R09_C03-P3]` **[ENTITIES_DIALOGUES]** : Câbler entités, portes et dialogues FR de `ow_r09_c03`.
 - [ ] `[2.1.1-OW_R09_C03-P4]` **[GHIBLI_PAINT]** : Peindre `ow_r09_c03_bg.png` (`1280x1024`) + `ow_r09_c03_fg.png` (masque alpha pur).
 
 ### `ow_r10_c01` (Overworld Row 10, Col 1) — Maison des Quadruplés & Famille Papahl
-- [ ] `[2.1.1-OW_R10_C01-P1]` **[EXTRACT]** : `python scripts/extract_room.py --overworld-row 10 --overworld-col 1 --out-id ow_r10_c01`
-- [ ] `[2.1.1-OW_R10_C01-P2]` **[WIRE_WHITEBOX]** : Ajouter `ow_r10_c01` dans `src/data/rooms/<region>.ts` (`colliders`, `neighbors`, `bgPixel`).
-- [ ] `[2.1.1-OW_R10_C01-P3]` **[ENTITIES_DIALOGUES]** : Câbler entités, portes et dialogues FR de `ow_r10_c01`.
-- [ ] `[2.1.1-OW_R10_C01-P4]` **[GHIBLI_PAINT]** : Peindre `ow_r10_c01_bg.png` (`1280x1024`) + `ow_r10_c01_fg.png` (masque alpha pur).
+- [x] `[2.1.1-OW_R10_C01-P1]` **[EXTRACT]** : `python scripts/extract_room.py --overworld-row 10 --overworld-col 1 --out-id ow_r10_c01`
+- [x] `[2.1.1-OW_R10_C01-P2]` **[WIRE_WHITEBOX]** : Ajouter `ow_r10_c01` dans `src/data/rooms/<region>.ts` (`colliders`, `neighbors`, `bgPixel`).
+- [x] `[2.1.1-OW_R10_C01-P3]` **[ENTITIES_DIALOGUES]** : Câbler entités, portes et dialogues FR de `ow_r10_c01`.
+- [x] `[2.1.1-OW_R10_C01-P4]` **[GHIBLI_PAINT]** : Peindre `ow_r10_c01_bg.png` (`1280x1024`) + `ow_r10_c01_fg.png` (masque alpha pur).
 
 ### `ow_r10_c02` (Overworld Row 10, Col 2) — Extérieur Maison de Marine & Tarkin (Vertical Slice 01)
 - [x] `[2.1.1-OW_R10_C02-P1]` **[EXTRACT]** : `python scripts/extract_room.py --overworld-row 10 --overworld-col 2 --out-id ow_r10_c02`
@@ -63,27 +63,27 @@
 - [x] `[2.1.1-OW_R10_C02-P4]` **[GHIBLI_PAINT]** : Peindre `ow_r10_c02_bg.png` (`1280x1024`) + `ow_r10_c02_fg.png` (masque alpha pur).
 
 ### `ow_r10_c03` (Overworld Row 10, Col 3) — Jeu de Hasard (Trendy Game - Peluche Yoshi)
-- [ ] `[2.1.1-OW_R10_C03-P1]` **[EXTRACT]** : `python scripts/extract_room.py --overworld-row 10 --overworld-col 3 --out-id ow_r10_c03`
-- [ ] `[2.1.1-OW_R10_C03-P2]` **[WIRE_WHITEBOX]** : Ajouter `ow_r10_c03` dans `src/data/rooms/<region>.ts` (`colliders`, `neighbors`, `bgPixel`).
-- [ ] `[2.1.1-OW_R10_C03-P3]` **[ENTITIES_DIALOGUES]** : Câbler entités, portes et dialogues FR de `ow_r10_c03`.
-- [ ] `[2.1.1-OW_R10_C03-P4]` **[GHIBLI_PAINT]** : Peindre `ow_r10_c03_bg.png` (`1280x1024`) + `ow_r10_c03_fg.png` (masque alpha pur).
+- [x] `[2.1.1-OW_R10_C03-P1]` **[EXTRACT]** : `python scripts/extract_room.py --overworld-row 10 --overworld-col 3 --out-id ow_r10_c03`
+- [x] `[2.1.1-OW_R10_C03-P2]` **[WIRE_WHITEBOX]** : Ajouter `ow_r10_c03` dans `src/data/rooms/<region>.ts` (`colliders`, `neighbors`, `bgPixel`).
+- [x] `[2.1.1-OW_R10_C03-P3]` **[ENTITIES_DIALOGUES]** : Câbler entités, portes et dialogues FR de `ow_r10_c03`.
+- [x] `[2.1.1-OW_R10_C03-P4]` **[GHIBLI_PAINT]** : Peindre `ow_r10_c03_bg.png` (`1280x1024`) + `ow_r10_c03_fg.png` (masque alpha pur).
 
 ### `ow_r11_c01` (Overworld Row 11, Col 1) — Bibliothèque du Village & Panneau Sud-Ouest
-- [ ] `[2.1.1-OW_R11_C01-P1]` **[EXTRACT]** : `python scripts/extract_room.py --overworld-row 11 --overworld-col 1 --out-id ow_r11_c01`
-- [ ] `[2.1.1-OW_R11_C01-P2]` **[WIRE_WHITEBOX]** : Ajouter `ow_r11_c01` dans `src/data/rooms/<region>.ts` (`colliders`, `neighbors`, `bgPixel`).
-- [ ] `[2.1.1-OW_R11_C01-P3]` **[ENTITIES_DIALOGUES]** : Câbler entités, portes et dialogues FR de `ow_r11_c01`.
+- [x] `[2.1.1-OW_R11_C01-P1]` **[EXTRACT]** : `python scripts/extract_room.py --overworld-row 11 --overworld-col 1 --out-id ow_r11_c01`
+- [x] `[2.1.1-OW_R11_C01-P2]` **[WIRE_WHITEBOX]** : Ajouter `ow_r11_c01` dans `src/data/rooms/<region>.ts` (`colliders`, `neighbors`, `bgPixel`).
+- [x] `[2.1.1-OW_R11_C01-P3]` **[ENTITIES_DIALOGUES]** : Câbler entités, portes et dialogues FR de `ow_r11_c01`.
 - [ ] `[2.1.1-OW_R11_C01-P4]` **[GHIBLI_PAINT]** : Peindre `ow_r11_c01_bg.png` (`1280x1024`) + `ow_r11_c01_fg.png` (masque alpha pur).
 
 ### `ow_r11_c02` (Overworld Row 11, Col 2) — Étang de Pêche (Fishing Pond) & Sortie Sud vers la Plage
-- [ ] `[2.1.1-OW_R11_C02-P1]` **[EXTRACT]** : `python scripts/extract_room.py --overworld-row 11 --overworld-col 2 --out-id ow_r11_c02`
-- [ ] `[2.1.1-OW_R11_C02-P2]` **[WIRE_WHITEBOX]** : Ajouter `ow_r11_c02` dans `src/data/rooms/<region>.ts` (`colliders`, `neighbors`, `bgPixel`).
-- [ ] `[2.1.1-OW_R11_C02-P3]` **[ENTITIES_DIALOGUES]** : Câbler entités, portes et dialogues FR de `ow_r11_c02`.
-- [ ] `[2.1.1-OW_R11_C02-P4]` **[GHIBLI_PAINT]** : Peindre `ow_r11_c02_bg.png` (`1280x1024`) + `ow_r11_c02_fg.png` (masque alpha pur).
+- [x] `[2.1.1-OW_R11_C02-P1]` **[EXTRACT]** : `python scripts/extract_room.py --overworld-row 11 --overworld-col 2 --out-id ow_r11_c02`
+- [x] `[2.1.1-OW_R11_C02-P2]` **[WIRE_WHITEBOX]** : Ajouter `ow_r11_c02` dans `src/data/rooms/<region>.ts` (`colliders`, `neighbors`, `bgPixel`).
+- [x] `[2.1.1-OW_R11_C02-P3]` **[ENTITIES_DIALOGUES]** : Câbler entités, portes et dialogues FR de `ow_r11_c02`.
+- [x] `[2.1.1-OW_R11_C02-P4]` **[GHIBLI_PAINT]** : Peindre `ow_r11_c02_bg.png` (`1280x1024`) + `ow_r11_c02_fg.png` (masque alpha pur).
 
 ### `ow_r11_c03` (Overworld Row 11, Col 3) — Prairie Sud-Est du Village vers la Cave aux Clés (D1)
-- [ ] `[2.1.1-OW_R11_C03-P1]` **[EXTRACT]** : `python scripts/extract_room.py --overworld-row 11 --overworld-col 3 --out-id ow_r11_c03`
-- [ ] `[2.1.1-OW_R11_C03-P2]` **[WIRE_WHITEBOX]** : Ajouter `ow_r11_c03` dans `src/data/rooms/<region>.ts` (`colliders`, `neighbors`, `bgPixel`).
-- [ ] `[2.1.1-OW_R11_C03-P3]` **[ENTITIES_DIALOGUES]** : Câbler entités, portes et dialogues FR de `ow_r11_c03`.
+- [x] `[2.1.1-OW_R11_C03-P1]` **[EXTRACT]** : `python scripts/extract_room.py --overworld-row 11 --overworld-col 3 --out-id ow_r11_c03`
+- [x] `[2.1.1-OW_R11_C03-P2]` **[WIRE_WHITEBOX]** : Ajouter `ow_r11_c03` dans `src/data/rooms/<region>.ts` (`colliders`, `neighbors`, `bgPixel`).
+- [x] `[2.1.1-OW_R11_C03-P3]` **[ENTITIES_DIALOGUES]** : Câbler entités, portes et dialogues FR de `ow_r11_c03`.
 - [ ] `[2.1.1-OW_R11_C03-P4]` **[GHIBLI_PAINT]** : Peindre `ow_r11_c03_bg.png` (`1280x1024`) + `ow_r11_c03_fg.png` (masque alpha pur).
 
 ## 2.1.2 — Intérieurs du Village des Mouettes (Mabe Village Indoors)
@@ -96,45 +96,45 @@
 - [x] `[2.1.2-INDOOR_MARIN-P4]` **[GHIBLI_PAINT]** : Peindre `indoor_marin_bg.png` (`1280x1024`).
 
 ### `indoor_bowwow` (`house1.map`, Room 0,0) — Maison de Madame MiaouMiaou (Mme MeowMeow)
-- [ ] `[2.1.2-INDOOR_BOWWOW-P1]` **[EXTRACT]** : `python scripts/extract_room.py --map-file house1.map --room-row 0 --room-col 0 --out-id indoor_bowwow`
-- [ ] `[2.1.2-INDOOR_BOWWOW-P2]` **[WIRE_WHITEBOX]** : Ajouter `indoor_bowwow` dans `src/data/rooms/<region>.ts` (`colliders`, `warps`, `bgPixel`).
-- [ ] `[2.1.2-INDOOR_BOWWOW-P3]` **[ENTITIES_DIALOGUES]** : Câbler PNJ, événements et dialogues FR de `indoor_bowwow`.
+- [x] `[2.1.2-INDOOR_BOWWOW-P1]` **[EXTRACT]** : `python scripts/extract_room.py --map-file house1.map --room-row 0 --room-col 0 --out-id indoor_bowwow`
+- [x] `[2.1.2-INDOOR_BOWWOW-P2]` **[WIRE_WHITEBOX]** : Ajouter `indoor_bowwow` dans `src/data/rooms/<region>.ts` (`colliders`, `warps`, `bgPixel`).
+- [x] `[2.1.2-INDOOR_BOWWOW-P3]` **[ENTITIES_DIALOGUES]** : Câbler PNJ, événements et dialogues FR de `indoor_bowwow`.
 - [ ] `[2.1.2-INDOOR_BOWWOW-P4]` **[GHIBLI_PAINT]** : Peindre `indoor_bowwow_bg.png` (`1280x1024`).
 
 ### `indoor_quadruplets` (`house3m.map`, Room 0,0) — Maison des Quadruplés & Maman (Échange Peluche Yoshi -> Ruban)
-- [ ] `[2.1.2-INDOOR_QUADRUPLETS-P1]` **[EXTRACT]** : `python scripts/extract_room.py --map-file house3m.map --room-row 0 --room-col 0 --out-id indoor_quadruplets`
-- [ ] `[2.1.2-INDOOR_QUADRUPLETS-P2]` **[WIRE_WHITEBOX]** : Ajouter `indoor_quadruplets` dans `src/data/rooms/<region>.ts` (`colliders`, `warps`, `bgPixel`).
-- [ ] `[2.1.2-INDOOR_QUADRUPLETS-P3]` **[ENTITIES_DIALOGUES]** : Câbler PNJ, événements et dialogues FR de `indoor_quadruplets`.
+- [x] `[2.1.2-INDOOR_QUADRUPLETS-P1]` **[EXTRACT]** : `python scripts/extract_room.py --map-file house3m.map --room-row 0 --room-col 0 --out-id indoor_quadruplets`
+- [x] `[2.1.2-INDOOR_QUADRUPLETS-P2]` **[WIRE_WHITEBOX]** : Ajouter `indoor_quadruplets` dans `src/data/rooms/<region>.ts` (`colliders`, `warps`, `bgPixel`).
+- [x] `[2.1.2-INDOOR_QUADRUPLETS-P3]` **[ENTITIES_DIALOGUES]** : Câbler PNJ, événements et dialogues FR de `indoor_quadruplets`.
 - [ ] `[2.1.2-INDOOR_QUADRUPLETS-P4]` **[GHIBLI_PAINT]** : Peindre `indoor_quadruplets_bg.png` (`1280x1024`).
 
 ### `indoor_ulrira` (`house4.map`, Room 0,0) — Maison de Pépé le Ramollo (Grandpa Ulrira)
-- [ ] `[2.1.2-INDOOR_ULRIRA-P1]` **[EXTRACT]** : `python scripts/extract_room.py --map-file house4.map --room-row 0 --room-col 0 --out-id indoor_ulrira`
-- [ ] `[2.1.2-INDOOR_ULRIRA-P2]` **[WIRE_WHITEBOX]** : Ajouter `indoor_ulrira` dans `src/data/rooms/<region>.ts` (`colliders`, `warps`, `bgPixel`).
-- [ ] `[2.1.2-INDOOR_ULRIRA-P3]` **[ENTITIES_DIALOGUES]** : Câbler PNJ, événements et dialogues FR de `indoor_ulrira`.
-- [ ] `[2.1.2-INDOOR_ULRIRA-P4]` **[GHIBLI_PAINT]** : Peindre `indoor_ulrira_bg.png` (`1280x1024`).
+- [x] `[2.1.2-INDOOR_ULRIRA-P1]` **[EXTRACT]** : `python scripts/extract_room.py --map-file house4.map --room-row 0 --room-col 0 --out-id indoor_ulrira`
+- [x] `[2.1.2-INDOOR_ULRIRA-P2]` **[WIRE_WHITEBOX]** : Ajouter `indoor_ulrira` dans `src/data/rooms/<region>.ts` (`colliders`, `warps`, `bgPixel`).
+- [x] `[2.1.2-INDOOR_ULRIRA-P3]` **[ENTITIES_DIALOGUES]** : Câbler PNJ, événements et dialogues FR de `indoor_ulrira`.
+- [x] `[2.1.2-INDOOR_ULRIRA-P4]` **[GHIBLI_PAINT]** : Peindre `indoor_ulrira_bg.png` (`1280x1024`).
 
 ### `indoor_phone_mabe` (`helphouse1.map`, Room 0,0) — Cabine Téléphonique du Village des Mouettes
-- [ ] `[2.1.2-INDOOR_PHONE_MABE-P1]` **[EXTRACT]** : `python scripts/extract_room.py --map-file helphouse1.map --room-row 0 --room-col 0 --out-id indoor_phone_mabe`
-- [ ] `[2.1.2-INDOOR_PHONE_MABE-P2]` **[WIRE_WHITEBOX]** : Ajouter `indoor_phone_mabe` dans `src/data/rooms/<region>.ts` (`colliders`, `warps`, `bgPixel`).
-- [ ] `[2.1.2-INDOOR_PHONE_MABE-P3]` **[ENTITIES_DIALOGUES]** : Câbler PNJ, événements et dialogues FR de `indoor_phone_mabe`.
-- [ ] `[2.1.2-INDOOR_PHONE_MABE-P4]` **[GHIBLI_PAINT]** : Peindre `indoor_phone_mabe_bg.png` (`1280x1024`).
+- [x] `[2.1.2-INDOOR_PHONE_MABE-P1]` **[EXTRACT]** : `python scripts/extract_room.py --map-file helphouse1.map --room-row 0 --room-col 0 --out-id indoor_phone_mabe`
+- [x] `[2.1.2-INDOOR_PHONE_MABE-P2]` **[WIRE_WHITEBOX]** : Ajouter `indoor_phone_mabe` dans `src/data/rooms/<region>.ts` (`colliders`, `warps`, `bgPixel`).
+- [x] `[2.1.2-INDOOR_PHONE_MABE-P3]` **[ENTITIES_DIALOGUES]** : Câbler PNJ, événements et dialogues FR de `indoor_phone_mabe`.
+- [x] `[2.1.2-INDOOR_PHONE_MABE-P4]` **[GHIBLI_PAINT]** : Peindre `indoor_phone_mabe_bg.png` (`1280x1024`).
 
 ### `indoor_library` (`library.map`, Room 0,0) — Bibliothèque du Village (8 Livres d’Aide & Livre Sombre)
-- [ ] `[2.1.2-INDOOR_LIBRARY-P1]` **[EXTRACT]** : `python scripts/extract_room.py --map-file library.map --room-row 0 --room-col 0 --out-id indoor_library`
-- [ ] `[2.1.2-INDOOR_LIBRARY-P2]` **[WIRE_WHITEBOX]** : Ajouter `indoor_library` dans `src/data/rooms/<region>.ts` (`colliders`, `warps`, `bgPixel`).
-- [ ] `[2.1.2-INDOOR_LIBRARY-P3]` **[ENTITIES_DIALOGUES]** : Câbler PNJ, événements et dialogues FR de `indoor_library`.
-- [ ] `[2.1.2-INDOOR_LIBRARY-P4]` **[GHIBLI_PAINT]** : Peindre `indoor_library_bg.png` (`1280x1024`).
+- [x] `[2.1.2-INDOOR_LIBRARY-P1]` **[EXTRACT]** : `python scripts/extract_room.py --map-file library.map --room-row 0 --room-col 0 --out-id indoor_library`
+- [x] `[2.1.2-INDOOR_LIBRARY-P2]` **[WIRE_WHITEBOX]** : Ajouter `indoor_library` dans `src/data/rooms/<region>.ts` (`colliders`, `warps`, `bgPixel`).
+- [x] `[2.1.2-INDOOR_LIBRARY-P3]` **[ENTITIES_DIALOGUES]** : Câbler PNJ, événements et dialogues FR de `indoor_library`.
+- [x] `[2.1.2-INDOOR_LIBRARY-P4]` **[GHIBLI_PAINT]** : Peindre `indoor_library_bg.png` (`1280x1024`).
 
 ### `indoor_shop` (`shop1.map`, Room 0,0) — Boutique d’Objets (Pelle, Bombes, Arc, Cœurs)
-- [ ] `[2.1.2-INDOOR_SHOP-P1]` **[EXTRACT]** : `python scripts/extract_room.py --map-file shop1.map --room-row 0 --room-col 0 --out-id indoor_shop`
-- [ ] `[2.1.2-INDOOR_SHOP-P2]` **[WIRE_WHITEBOX]** : Ajouter `indoor_shop` dans `src/data/rooms/<region>.ts` (`colliders`, `warps`, `bgPixel`).
-- [ ] `[2.1.2-INDOOR_SHOP-P3]` **[ENTITIES_DIALOGUES]** : Câbler PNJ, événements et dialogues FR de `indoor_shop`.
-- [ ] `[2.1.2-INDOOR_SHOP-P4]` **[GHIBLI_PAINT]** : Peindre `indoor_shop_bg.png` (`1280x1024`).
+- [x] `[2.1.2-INDOOR_SHOP-P1]` **[EXTRACT]** : `python scripts/extract_room.py --map-file shop1.map --room-row 0 --room-col 0 --out-id indoor_shop`
+- [x] `[2.1.2-INDOOR_SHOP-P2]` **[WIRE_WHITEBOX]** : Ajouter `indoor_shop` dans `src/data/rooms/<region>.ts` (`colliders`, `warps`, `bgPixel`).
+- [x] `[2.1.2-INDOOR_SHOP-P3]` **[ENTITIES_DIALOGUES]** : Câbler PNJ, événements et dialogues FR de `indoor_shop`.
+- [x] `[2.1.2-INDOOR_SHOP-P4]` **[GHIBLI_PAINT]** : Peindre `indoor_shop_bg.png` (`1280x1024`).
 
 ### `indoor_trendy` (`shop2.map`, Room 0,0) — Salle du Jeu de Grue (Trendy Game - Peluche Yoshi & Quart de Cœur)
-- [ ] `[2.1.2-INDOOR_TRENDY-P1]` **[EXTRACT]** : `python scripts/extract_room.py --map-file shop2.map --room-row 0 --room-col 0 --out-id indoor_trendy`
-- [ ] `[2.1.2-INDOOR_TRENDY-P2]` **[WIRE_WHITEBOX]** : Ajouter `indoor_trendy` dans `src/data/rooms/<region>.ts` (`colliders`, `warps`, `bgPixel`).
-- [ ] `[2.1.2-INDOOR_TRENDY-P3]` **[ENTITIES_DIALOGUES]** : Câbler PNJ, événements et dialogues FR de `indoor_trendy`.
+- [x] `[2.1.2-INDOOR_TRENDY-P1]` **[EXTRACT]** : `python scripts/extract_room.py --map-file shop2.map --room-row 0 --room-col 0 --out-id indoor_trendy`
+- [x] `[2.1.2-INDOOR_TRENDY-P2]` **[WIRE_WHITEBOX]** : Ajouter `indoor_trendy` dans `src/data/rooms/<region>.ts` (`colliders`, `warps`, `bgPixel`).
+- [x] `[2.1.2-INDOOR_TRENDY-P3]` **[ENTITIES_DIALOGUES]** : Câbler PNJ, événements et dialogues FR de `indoor_trendy`.
 - [ ] `[2.1.2-INDOOR_TRENDY-P4]` **[GHIBLI_PAINT]** : Peindre `indoor_trendy_bg.png` (`1280x1024`).
 
 ### `indoor_fishing` (`pond.map`, Room 0,0) — Étang de Pêche (Mini-jeu 2D Vue de Côté)

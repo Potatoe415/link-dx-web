@@ -12,6 +12,20 @@ export interface OwlAppearance extends OwlDef {
 }
 
 export const OWLS: Record<string, OwlAppearance> = {
+  ow_r04_c01: {
+    saveId: 'owl_tail_key',
+    requires: 'FLAG_TAIL_KEY_OBTAINED',
+    x: 104,
+    y: 32,
+    trigger: { x: -48, y: 24, w: 48, h: 32 },
+    pages: [
+      'Hou hou ! Tu as obtenu la Clé Flagello !',
+      'Rends-toi maintenant à la Cave Flagello, située au sud du Village des Mouettes !',
+      'Récupère l’Instrument des Sirènes qui y sommeille !',
+      'Fais vite ! Le Poisson-Rêve attend son réveil… Hou hou !'
+    ]
+  },
+
   // ow_r15_c02 owl at (88, 32), params ['0', ''] -> template trigger Rectangle(-16, 32, 48, 32)
   ow_r15_c02: {
     saveId: 'owl_1_0',

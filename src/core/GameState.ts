@@ -37,6 +37,7 @@ export type GameFlag = (typeof GAME_FLAGS)[number];
 export const ITEM_IDS = [
   'shield',
   'sword',
+  'toadstool',
   'powder',
   'feather',
   'bracelet',
@@ -212,6 +213,14 @@ export class GameState {
       if (!this.equippedB) this.equippedB = item;
       else if (!this.equippedA) this.equippedA = item;
     }
+    this.commit();
+  }
+
+  public removeItem(item: ItemId): void {
+    if (!this.inventory.has(item)) return;
+    this.inventory.delete(item);
+    if (this.equippedA === item) this.equippedA = null;
+    if (this.equippedB === item) this.equippedB = null;
     this.commit();
   }
 

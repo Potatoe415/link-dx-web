@@ -199,6 +199,9 @@ export const MYSTERIOUS_FOREST_ROOMS: Record<string, RoomDef> = {
     enemyWalls: [
       { x: 128, y: 32, w: 16, h: 16 },
     ],
+    interactables: [
+      { kind: 'item', id: "spawn_toadstool", x: 32, y: 48, item: 'toadstool' },
+    ],
     props: []
   },
 

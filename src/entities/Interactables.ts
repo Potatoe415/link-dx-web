@@ -4,7 +4,7 @@ import { SoundManager } from '../core/Audio';
 import { DialogueSystem } from '../core/Dialogue';
 import { ImageCache } from '../core/Images';
 import { Player } from './Player';
-import { ITEM_NAMES_FR, ITEM_SPRITES, UI_SHEETS, UiSprite } from '../data/uiSprites';
+import { ITEM_NAMES_FR, ITEM_SPRITES, TOADSTOOL_MAP_SPRITE, UI_SHEETS, UiSprite } from '../data/uiSprites';
 
 const OBJECTS_SHEET = '/assets/ui/objects.png';
 
@@ -176,7 +176,7 @@ export class InteractableSystem {
       if (def.kind === 'item') {
         if (this.game.isChestOpened(this.roomId, def.id)) continue;
         // The beach sword lies in the sand, tip down (sword1 sprite); heart pieces use heartMeter (items.atlas)
-        const s = def.item === 'sword' ? ITEM_SPRITES.sword : HEART_PIECE_SPRITE;
+        const s = def.item === 'sword' ? ITEM_SPRITES.sword : def.item === 'toadstool' ? TOADSTOOL_MAP_SPRITE : HEART_PIECE_SPRITE;
         const items = this.images.get(UI_SHEETS.items);
         const dx = 8 - s.w / 2;
         out.push({ y: def.y + 14, render: () => items && ctx.drawImage(items, s.x, s.y, s.w, s.h, def.x + dx, def.y + 16 - s.h, s.w, s.h) });

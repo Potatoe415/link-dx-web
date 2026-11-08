@@ -26,6 +26,7 @@ export const UI_GAME_OVER: UiSprite = { sheet: 'ui', x: 0, y: 39, w: 78, h: 24 }
 export const ITEM_SPRITES: Record<ItemId, UiSprite> = {
   shield: { sheet: 'items', x: 40, y: 127, w: 8, h: 10 },
   sword: { sheet: 'items', x: 176, y: 148, w: 8, h: 16 },
+  toadstool: { sheet: 'items', x: 101, y: 40, w: 8, h: 11 },
   powder: { sheet: 'items', x: 49, y: 123, w: 8, h: 14 },
   feather: { sheet: 'items', x: 58, y: 121, w: 7, h: 16 },
   bracelet: { sheet: 'items', x: 66, y: 123, w: 8, h: 14 },
@@ -41,12 +42,15 @@ export const ITEM_SPRITES: Record<ItemId, UiSprite> = {
 };
 
 /** The 8 Siren Instruments (16x16 each, stacked vertically). */
+export const TOADSTOOL_MAP_SPRITE: UiSprite = { sheet: 'items', x: 90, y: 40, w: 10, h: 11 };
+
 export const INSTRUMENT_SPRITE = (index: number): UiSprite => ({ sheet: 'items', x: 224, y: index * 16, w: 16, h: 16 });
 
 /** French names shown in the inventory (user-facing copy is French, see docs/PRODUCT.md). */
 export const ITEM_NAMES_FR: Record<ItemId, string> = {
   shield: 'Bouclier',
   sword: 'Épée',
+  toadstool: 'Champignon',
   powder: 'Poudre Magique',
   feather: 'Plume de Roc',
   bracelet: 'Bracelet de Force',

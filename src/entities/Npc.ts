@@ -69,6 +69,19 @@ export class Npc {
   }
 
   /** Solid boxes for Link (NPCs never move Link; he slides around them). */
+  
+  public playAnimation(anim: string): void {
+    this.anim.play(anim);
+  }
+
+  public setAnimator(animatorName: string, initialAnim: string): void {
+    const animator = NPC_ANIMATORS[animatorName];
+    if (animator) {
+      (this as any).anim = new AnimPlayer(animator);
+      this.anim.play(initialAnim);
+    }
+  }
+
   public colliders(): Rect[] {
     const b = this.def.body;
     const boxes = [{ x: this.x + b.x, y: this.y + b.y, w: b.w, h: b.h }];

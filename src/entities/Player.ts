@@ -85,7 +85,7 @@ export class Player {
   public shockMs = 0;
   public readonly sword = new Sword();
   /** Item shown overhead during ITEM_GET (shield by default, sword on the beach). */
-  public itemGetSprite: 'shield' | 'sword' = 'shield';
+  public itemGetSprite: 'shield' | 'sword' | 'toadstool' | 'powder' = 'shield';
   private dyingTimer: number = 0;
 
   constructor(game: GameState, startX: number = 56, startY: number = 51, initialDirection: number = 3) {
@@ -112,7 +112,7 @@ export class Player {
     this.updateIdleAnimation();
   }
 
-  public startItemGet(sprite: 'shield' | 'sword' = 'shield'): void {
+  public startItemGet(sprite: 'shield' | 'sword' | 'toadstool' | 'powder' = 'shield'): void {
     this.itemGetSprite = sprite;
     this.sword.cancel();
     this.isBlocking = false;

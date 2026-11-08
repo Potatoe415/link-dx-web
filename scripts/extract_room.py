@@ -209,7 +209,7 @@ def compute_ground_zone(obj_id, lx, ly):
 # Params follow GameObjectTemplates.cs: sign = [signText, spriteId, rect, direction], chest = [item, spawn, saveKey, spriteType].
 SIGN_SPRITES = {'signpost': 'signpost_0', 'signpostWoods': 'signpost_1', 'sign': None}
 SIGN_DIRECTION = {'signpost': 1, 'signpostWoods': 1, 'sign': None}
-GROUND_ITEMS = {'sword1': 'sword', 'heartMeter': 'heartPiece'}
+GROUND_ITEMS = {'sword1': 'sword', 'heartMeter': 'heartPiece', 'toadstool': 'toadstool'}
 # Cuttable ObjBush objects (template id -> (kind, spriteId)); drawn + cut at runtime (src/entities/Bushes.ts)
 CUTTABLE = {'bush': ('bush', 'bush_0'), 'bushForest': ('bush', 'bush_1'),
             'gras': ('grass', 'grass_0'), 'gras0': ('grass', 'grass_0_0'), 'gras1': ('grass', 'grass_0_1'),
@@ -238,6 +238,10 @@ def compute_interactable(obj, lx, ly):
                 'sprite': None, 'requiredDirection': None, 'bookSprite': f"book_{max(0, min(3, int(params[2] or 0)))}"}
     if obj['id'] == 'item' and len(params) > 2 and params[2] in GROUND_ITEMS:
         return {'kind': 'item', 'id': params[1] or f'item_{lx}_{ly}', 'x': lx, 'y': ly, 'item': GROUND_ITEMS[params[2]]}
+    if obj['id'] == 'objectSpawner' and len(params) > 3 and params[2] == 'item':
+        raw_item = params[3].strip('.').strip()
+        if raw_item in GROUND_ITEMS:
+            return {'kind': 'item', 'id': params[0] or f'item_{lx}_{ly}', 'x': lx, 'y': ly, 'item': GROUND_ITEMS[raw_item]}
     if obj['id'] == 'chest':
         return {'kind': 'chest', 'id': (params[2] if len(params) > 2 and params[2] else f'chest_{lx}_{ly}'),
                 'x': lx, 'y': ly, 'item': params[0] if params else ''}

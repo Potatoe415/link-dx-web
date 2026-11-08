@@ -246,6 +246,13 @@ export class GameEngine {
     }
 
     if (this.updateOwl(dtMs)) return;
+
+    if (this.currentRoom.id === 'ow_r05_c01' && !this.game.isChestOpened('ow_r05_c01', 'raccoon_transformed') && this.player.y < 20) {
+      this.player.teleport(this.player.x, 110, 1);
+      this.sound.playSfx('menu_select', 0.8);
+      this.dialogue.startCustomDialogue('Raton-Laveur', ["Le museau de ce farceur frétille... Tu as l'impression de tourner en rond dans la brume !"]);
+      return;
+    }
     if (this.input.wasInteractJustPressed() && this.tryAction()) return;
 
     const ground = [...(this.currentRoom.groundZones ?? []), ...this.bushes.grassZones()];
@@ -267,6 +274,10 @@ export class GameEngine {
     const picked = this.interactables.checkPickups(this.player);
     if (picked?.item === 'sword') {
       this.giveSword();
+      return;
+    }
+    if (picked?.item === 'toadstool') {
+      this.giveToadstool();
       return;
     }
     if (picked?.item === 'heartPiece') {
@@ -325,6 +336,22 @@ export class GameEngine {
   }
 
   /** Beach sword (ObjItem sword1): fanfare, ITEM_GET pose, FLAG_SWORD_OBTAINED, auto-equipped. */
+
+  private giveToadstool(): void {
+    this.game.addItem('toadstool');
+    if (this.game.equippedB === null) this.game.equip('B', 'toadstool');
+    this.player.startItemGet('toadstool');
+    this.sound.playSfx('item_get', 0.85);
+    this.dialogue.startCustomDialogue(
+      '★ Objet Obtenu ★',
+      [
+        'Vous ramassez le Champignon du sommeil !',
+        'En le brandissant au-dessus de votre tête, un arôme suave et envoûtant embaume vos narines.'
+      ],
+      () => this.player.finishItemGet()
+    );
+  }
+
   private giveSword(): void {
     this.game.addItem('sword');
     this.game.setFlag('FLAG_SWORD_OBTAINED');
@@ -357,6 +384,7 @@ export class GameEngine {
    * zone track). Returns true while Link is frozen.
    */
   private updateOwl(dtMs: number): boolean {
+    if (!this.owl) this.setupOwl();
     const owl = this.owl;
     if (!owl) return false;
     const def = OWLS[this.currentRoom.id];

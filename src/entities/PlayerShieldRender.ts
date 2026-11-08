@@ -10,7 +10,7 @@ export interface ShieldPose {
   isBlocking: boolean;
   animFrameIndex: number;
   itemGetTimer: number;
-  itemGetSprite?: 'shield' | 'sword';
+  itemGetSprite?: 'shield' | 'sword' | 'toadstool' | 'powder';
 }
 
 export function renderEquippedShield(ctx: CanvasRenderingContext2D, p: ShieldPose): void {
@@ -78,8 +78,10 @@ export function renderItemGetOverhead(ctx: CanvasRenderingContext2D, p: ShieldPo
   ctx.arc(cx, cy, 10, 0, Math.PI * 2);
   ctx.fill();
 
-  // Draw the shield large and clear overhead
+  // Draw the shield / item large and clear overhead
   if (p.itemGetSprite === 'sword') drawRaisedSword(ctx, cx, cy);
+  else if (p.itemGetSprite === 'toadstool') drawRaisedToadstool(ctx, cx, cy);
+  else if (p.itemGetSprite === 'powder') drawRaisedPowder(ctx, cx, cy);
   else drawCocolintShield(ctx, cx, cy, 1.35, false);
 
   ctx.restore();
@@ -187,5 +189,46 @@ function drawRaisedSword(ctx: CanvasRenderingContext2D, cx: number, cy: number):
   ctx.beginPath();
   ctx.arc(0, 8.2, 1, 0, Math.PI * 2);
   ctx.fill();
+  ctx.restore();
+}
+
+/** Toadstool held overhead in the ITEM_GET pose */
+function drawRaisedToadstool(ctx: CanvasRenderingContext2D, cx: number, cy: number): void {
+  ctx.save();
+  ctx.translate(cx, cy);
+  // Stem
+  ctx.fillStyle = '#fef3c7';
+  ctx.fillRect(-2, 0, 4, 6);
+  // Red mushroom cap
+  ctx.fillStyle = '#dc2626';
+  ctx.beginPath();
+  ctx.arc(0, 0, 6, Math.PI, 0, false);
+  ctx.closePath();
+  ctx.fill();
+  // White dots on cap
+  ctx.fillStyle = '#ffffff';
+  ctx.beginPath();
+  ctx.arc(-2.5, -2.5, 1, 0, Math.PI * 2);
+  ctx.arc(2.5, -3, 1.2, 0, Math.PI * 2);
+  ctx.arc(0, -1, 0.8, 0, Math.PI * 2);
+  ctx.fill();
+  ctx.restore();
+}
+
+/** Powder pouch held overhead in the ITEM_GET pose */
+function drawRaisedPowder(ctx: CanvasRenderingContext2D, cx: number, cy: number): void {
+  ctx.save();
+  ctx.translate(cx, cy);
+  // Brown pouch with yellow drawstring and sparkling dots
+  ctx.fillStyle = '#b45309';
+  ctx.beginPath();
+  ctx.roundRect(-4, -1, 8, 8, [2, 2, 4, 4]);
+  ctx.fill();
+  ctx.fillStyle = '#fde047';
+  ctx.fillRect(-2, -3, 4, 2);
+  // Sparkles
+  ctx.fillStyle = '#ffffff';
+  ctx.fillRect(-1, 1, 2, 2);
+  ctx.fillRect(1, 3, 1.5, 1.5);
   ctx.restore();
 }

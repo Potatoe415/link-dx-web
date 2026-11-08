@@ -255,4 +255,90 @@ export const NPC_ANIMATORS: Record<string, NpcAnimator> = {
       ] },
     }
   },
+  witch: {
+    first: 'idle',
+    bounds: { w: 16, h: 30 },
+    anims: {
+      'idle': { next: '', loop: true, frames: [
+        { ms: 250, x: 27, y: 264, w: 16, h: 30, dx: 0, dy: 0, flip: false },
+        { ms: 250, x: 9, y: 265, w: 16, h: 29, dx: 0, dy: 1, flip: true },
+        { ms: 250, x: 27, y: 264, w: 16, h: 30, dx: 0, dy: 0, flip: false },
+        { ms: 250, x: 9, y: 265, w: 16, h: 29, dx: 0, dy: 1, flip: false },
+      ] },
+      'mix': { next: '', loop: false, frames: [
+        { ms: 67, x: 27, y: 264, w: 16, h: 30, dx: 0, dy: 0, flip: false },
+        { ms: 67, x: 9, y: 265, w: 16, h: 29, dx: 0, dy: 1, flip: true },
+        { ms: 67, x: 27, y: 264, w: 16, h: 30, dx: 0, dy: 0, flip: false },
+        { ms: 67, x: 9, y: 265, w: 16, h: 29, dx: 0, dy: 1, flip: false },
+      ] },
+    }
+  },
+  raccoon: {
+    first: 'idle',
+    bounds: { w: 16, h: 16 },
+    anims: {
+      'idle': { next: '', loop: true, frames: [
+        { ms: 267, x: 125, y: 205, w: 16, h: 16, dx: 0, dy: 0, flip: false },
+        { ms: 267, x: 125, y: 205, w: 16, h: 16, dx: 0, dy: 0, flip: true },
+      ] },
+      'laugh': { next: '', loop: true, frames: [
+        { ms: 133, x: 125, y: 205, w: 16, h: 16, dx: 0, dy: 0, flip: false },
+        { ms: 133, x: 143, y: 205, w: 16, h: 16, dx: 0, dy: 0, flip: false },
+      ] },
+      'rotate': { next: '', loop: true, frames: [
+        { ms: 133, x: 125, y: 205, w: 16, h: 16, dx: 0, dy: 0, flip: false },
+        { ms: 133, x: 89, y: 205, w: 16, h: 16, dx: 0, dy: 0, flip: false },
+        { ms: 133, x: 107, y: 205, w: 16, h: 16, dx: 0, dy: 0, flip: false },
+        { ms: 133, x: 107, y: 205, w: 16, h: 16, dx: 0, dy: 0, flip: true },
+        { ms: 133, x: 89, y: 205, w: 16, h: 16, dx: 0, dy: 0, flip: true },
+        { ms: 133, x: 125, y: 205, w: 16, h: 16, dx: 0, dy: 0, flip: true },
+      ] },
+    }
+  },
+  tarin: {
+    first: 'stand_0',
+    bounds: { w: 13, h: 16 },
+    anims: {
+      'stand_0': { next: '', loop: true, frames: [
+        { ms: 200, x: 8, y: 205, w: 13, h: 16, dx: -7, dy: -16, flip: false },
+      ] },
+      'stand_3': { next: '', loop: true, frames: [
+        { ms: 200, x: 39, y: 205, w: 14, h: 16, dx: -7, dy: -16, flip: false },
+      ] },
+      'stand_1': { next: '', loop: true, frames: [
+        { ms: 200, x: 55, y: 205, w: 14, h: 16, dx: -7, dy: -16, flip: false },
+      ] },
+      'stand_2': { next: '', loop: true, frames: [
+        { ms: 200, x: 8, y: 205, w: 13, h: 16, dx: -6, dy: -16, flip: true },
+      ] },
+      'walk_0': { next: '', loop: true, frames: [
+        { ms: 133, x: 8, y: 205, w: 13, h: 16, dx: -7, dy: -16, flip: false },
+        { ms: 133, x: 23, y: 206, w: 14, h: 15, dx: -7, dy: -15, flip: false },
+      ] },
+      'walk_1': { next: '', loop: true, frames: [
+        { ms: 133, x: 55, y: 205, w: 14, h: 16, dx: -7, dy: -16, flip: false },
+        { ms: 133, x: 55, y: 205, w: 14, h: 16, dx: -7, dy: -16, flip: true },
+      ] },
+      'walk_2': { next: '', loop: true, frames: [
+        { ms: 133, x: 8, y: 205, w: 13, h: 16, dx: -6, dy: -16, flip: true },
+        { ms: 133, x: 23, y: 206, w: 14, h: 15, dx: -7, dy: -15, flip: true },
+      ] },
+      'walk_3': { next: '', loop: true, frames: [
+        { ms: 133, x: 39, y: 205, w: 14, h: 16, dx: -7, dy: -16, flip: false },
+        { ms: 133, x: 39, y: 205, w: 14, h: 16, dx: -7, dy: -16, flip: true },
+      ] },
+      'show': { next: '', loop: false, frames: [
+        { ms: 83, x: 71, y: 205, w: 16, h: 16, dx: -8, dy: -16, flip: false },
+      ] },
+      'stick_down': { next: '', loop: false, frames: [
+        { ms: 83, x: 23, y: 206, w: 14, h: 15, dx: -7, dy: -15, flip: false },
+      ] },
+      'stick_up': { next: '', loop: false, frames: [
+        { ms: 83, x: 8, y: 205, w: 13, h: 16, dx: -7, dy: -16, flip: false },
+      ] },
+      'sleep': { next: '', loop: false, frames: [
+        { ms: 83, x: 192, y: 205, w: 15, h: 16, dx: -8, dy: -16, flip: false },
+      ] },
+    }
+  },
 };

@@ -61,16 +61,19 @@ export class NpcSystem {
     const hit = this.find(player);
     if (!hit) return false;
     const { npc, point } = hit;
-    const pages = npc.def.pages!;
-    const key = npc.def.talkKey ?? npc.def.id;
-    const count = this.talkCounts.get(key) ?? 0;
-    this.talkCounts.set(key, count + 1);
-    const conversation = pages[count % pages.length];
-
     faceToward(player, point.x, point.y);
     player.state = 'IDLE';
     player.syncIdleDirection();
     if (npc.def.sfx) this.sound.playSfx(npc.def.sfx, 0.7);
+    if (npc.def.onTalk) {
+      return npc.def.onTalk({ game: this.game, npc, player, dialogue: this.dialogue, sound: this.sound });
+    }
+    const pages = npc.def.pages ?? [];
+    if (!pages.length) return false;
+    const key = npc.def.talkKey ?? npc.def.id;
+    const count = this.talkCounts.get(key) ?? 0;
+    this.talkCounts.set(key, count + 1);
+    const conversation = pages[count % pages.length];
     this.dialogue.startCustomDialogue(npc.def.speaker ?? '', conversation);
     return true;
   }
@@ -81,7 +84,7 @@ export class NpcSystem {
     let best: { npc: Npc; point: { x: number; y: number } } | null = null;
     let bestDist = TALK_RANGE;
     for (const npc of this.npcs) {
-      if (!npc.def.pages?.length) continue;
+      if (!npc.def.pages?.length && !npc.def.onTalk) continue;
       const point = npc.talkPoint(player.x);
       const nx = point.x;
       const ny = point.y - 4;
