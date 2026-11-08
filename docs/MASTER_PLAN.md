@@ -111,13 +111,17 @@
 ### 2.2.2 — Intérieurs & Habitants du Village des Mouettes
 - [x] **[T-2.2.2-01]** Extraire et câbler les intérieurs du village depuis `_ref_repo/Data/Maps/` : Bibliothèque (`library`), Maison de Pépé le Ramollo (`ulrira`), Cabine téléphonique (`phonebooth`), Maison de Mme Miaou (`meow_house`), Boutique (`shop`), Jeu de hasard (`trendy_game`) + Niche de Toutou (`bowwow_kennel`) et Maison des quadruplés (`quadruplets_house_w/_e`). Portes générées par `build_region.py` depuis les `ObjDoor` des manifests.
 - [x] **[T-2.2.2-02]** `TASK_ENTITY_PORT` : Porter les PNJ du village (`ObjBallChildren`, `ObjBowWow` enchaîné devant sa niche, `ObjUlrira`, `ObjShopKeeper`, `ObjTrendy`, `ObjCucco` poules). Fait : `src/entities/Npc.ts` + `src/data/npcs.ts` (jeu de balle, Toutou enchaîné, petits Toutous, chiens, Pépé le Ramollo, Mme Miaou, mère des quadruplés, marchand, gérant du jeu, pêcheur, Mamie Youpi, gamins). `overworld.map` ne place aucune poule (`ObjCock` n'apparaît que dans `cave rooster.map`).
-- [ ] **[T-2.2.2-03]** Générer les décors Studio Ghibli des intérieurs du village (`1280x1024`) :
+- [x] **[T-2.2.2-03]** Générer les décors Studio Ghibli des intérieurs du village (`1280x1024`) :
   - [x] `indoor` / `indoor_marin` (Maison de Marine & Tarkin)
   - [x] `library` (Bibliothèque du village — 8 étagères et tables)
   - [x] `shop` (Boutique d'outils et piédestaux d'achat)
   - [x] `ulrira` (Cottage douillet de Pépé le Ramollo)
   - [x] `phonebooth` (Cabine téléphonique en rondins)
-  - [ ] *En attente quota (17:44 UTC)* : `bowwow_kennel` (Niche de Toutou), `meow_house` (Maison de Mme Miaou), `quadruplets_house_w`, `quadruplets_house_e` (Maison des quadruplés), `trendy_game` (Jeu de la grue).
+  - [x] `bowwow_kennel` (Niche de Toutou)
+  - [x] `meow_house` (Maison de Mme Miaou)
+  - [x] `quadruplets_house_w` (Maison des quadruplés ouest)
+  - [x] `quadruplets_house_e` (Maison des quadruplés est)
+  - [x] `trendy_game` (Jeu de la grue).
 
 ---
 
@@ -126,7 +130,9 @@
 - [x] **[T-2.3.1-01]** `TASK_ROOM_EXTRACT` sur les écrans de la Plage Coco (*Toronbo Shores*) : `ow_r12_c01`, `ow_r12_c02`, `ow_r13_c01`, `ow_r13_c02`, `ow_r14_c01`, `ow_r14_c02`, `ow_r15_c00`, `ow_r15_c01`, `ow_r15_c02` (écran de l'Épée), `ow_r15_c03`.
 - [x] **[T-2.3.1-02]** `TASK_ENTITY_PORT(sea_urchin)` : Porter `ObjSeaUrchin.cs` (les oursins piquants qui bloquent le chemin et que Link doit **repousser avec son Bouclier levé** + son `D360-62-3E.wav`).
 - [x] **[T-2.3.1-03]** `TASK_ENTITY_PORT(octorok)` : Porter `EnemyOctorok.cs` (marche 4 directions + tir de rocher que le Bouclier L-1 dévie avec `D360-11-0B.wav`).
-- [ ] **[T-2.3.1-04]** `TASK_ROOM_GHIBLI` sur la séquence d'écrans menant à la plage (`ow_r12_c02` $\rightarrow$ `ow_r15_c02`) avec vagues animées (`wave1`, `wave2`).
+- [ ] **[T-2.3.1-04]** `TASK_ROOM_GHIBLI` sur la séquence d'écrans menant à la plage (`ow_r12_c02` $\rightarrow$ `ow_r15_c02`) avec vagues animées (`wave1`, `wave2`) :
+  - [x] `ow_r12_c02` (Sentier nord vers la plage)
+  - [ ] *En attente quota (22:44 UTC)* : `ow_r13_c02` (Corniche), `ow_r14_c02` (Palmeraie), `ow_r15_c02` (Plage de l'Épée).
 
 ### 2.3.2 — Ramassage de l'Épée, Hibou & Attaque à l'Épée (`SWORD_SLASH`)
 - [x] **[T-2.3.2-01]** `TASK_ENTITY_PORT(sword_beach)` : Porter `ObjSwordSpawner.cs` sur `ow_r15_c02`. Quand Link touche l'épée échouée dans le sable : joue la fanfare de l'Épée (Piste #14 de `awakening.gbs`), active `FLAG_SWORD_OBTAINED`, affiche la pose `ITEM_GET` de l'Épée.

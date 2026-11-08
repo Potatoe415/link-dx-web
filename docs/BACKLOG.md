@@ -8,6 +8,7 @@ Current work queue (synced with the full 3-level living checklist in `docs/MASTE
 - [x] `[T-2.2.1-02]` / `[T-2.2.2-03]` Studio Ghibli HD backgrounds & occlusion masks (Batch 1 & 2 — 8 rooms):
   - Overworld: `ow_r09_c02` (village square), `ow_r10_c01` (Papahl cottage), `ow_r10_c03` (cultivation field), `ow_r11_c02` (phonebooth crossroads).
   - Interiors: `library`, `shop`, `ulrira`, `phonebooth`.
+- [x] `[T-2.2.2-03]` Studio Ghibli HD backgrounds for all 9 Mabe Village interiors (`library`, `shop`, `ulrira`, `phonebooth`, `bowwow_kennel`, `meow_house`, `quadruplets_house_w`, `quadruplets_house_e`, `trendy_game`).
 - [x] Engine dual-pass auto-injection: `scripts/build_region.py` detects `fgGhibli`/`fgPixel` and wires them into `RoomDef`.
 
 ## Now (Tail Cave / Chapter 2.5)
@@ -20,9 +21,8 @@ Current work queue (synced with the full 3-level living checklist in `docs/MASTE
 - [ ] Enemy hole falls (`AiFallState`): Moblins / Gels walking into `hole` zones; enemies currently treat holes as floor.
 - [ ] Village mini-systems: shop purchasing flow, Trendy Game crane physics, side-view fishing pond (`pond.map`), stairs/cave doors (`cave_rooster`, `cave0`, `dreamShrine01`).
 
-## Blocked (Until 17:44 UTC / 18:44 CET Quota Reset)
-- [ ] Studio Ghibli image generation API calls (`gemini-3.1-flash-image` HTTP 429 quota window reset at 17:44 UTC):
-  - Remaining village interiors: `bowwow_kennel`, `meow_house`, `quadruplets_house_w`, `quadruplets_house_e`, `trendy_game`.
-  - Toronbo Shores corridor: `ow_r12_c02`, `ow_r13_c02`, `ow_r14_c02`, `ow_r15_c02`.
+## Blocked (Until 22:44 UTC / 23:44 CET Quota Reset)
+- [ ] Studio Ghibli image generation API calls (`gemini-3.1-flash-image` HTTP 429 quota window resets at 22:44 UTC):
+  - Toronbo Shores corridor: `ow_r12_c02` (done), `ow_r13_c02` (prompt ready), `ow_r14_c02`, `ow_r15_c02`.
   - Mysterious Forest: `ow_r05_c00`, `ow_r05_c01`, `ow_r04_c01`, `witch_hut`.
   *(Note: Dual-pass engine runs seamlessly on pixel-art backgrounds `*_bg_pixel.png` in the meantime).*
