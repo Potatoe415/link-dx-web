@@ -2,7 +2,7 @@
 
 Replace on every update. Max 40 lines. History lives in git and `docs/decisions/`.
 
-Status: Ledge jumps (`ObjJump`) ported: `RoomDef.jumps` + `src/entities/LedgeJump.ts`, extracted by `scripts/extract_room.py`. Quota resets at 17:44 UTC.
+Status: Studio Ghibli generation done for Mysterious Forest & Toronbo Shores.
 Focus: Tail Cave dungeon entrance & extraction (`[T-2.5.1-*]`).
 Level: L1
 
@@ -15,10 +15,9 @@ Context:
 Next:
 - `[T-2.5.1-01]` Tail Cave exterior entrance (`ow_r13_c03`): keyhole interaction opening the dungeon gate.
 - `[T-2.5.1-02]` Extract Tail Cave rooms from `_ref_repo/Data/Maps/dungeon1.map`.
-- At 17:44 UTC / 18:44 CET: Resume Studio Ghibli generation (Interiors batch remainder -> Toronbo Shores corridor).
 
 Open_Questions:
 - None.
 
 Blockers:
-- Studio Ghibli image generation API throttled until 17:44 UTC (pixel fallbacks active).
+- None.

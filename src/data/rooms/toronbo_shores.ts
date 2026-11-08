@@ -164,7 +164,7 @@ export const TORONBO_SHORES_ROOMS: Record<string, RoomDef> = {
     width: 160,
     height: 128,
     bgPixel: "/assets/rooms/ow_r12_c01_bg_pixel.png",
-    bgGhibli: "/assets/rooms/ow_r12_c01_bg_pixel.png", // TEMP: pixel fallback until TASK_ROOM_GHIBLI
+    bgGhibli: "/assets/rooms/ow_r12_c01_bg.png",
     music: "overworld",
     ambience: "outdoor",
     neighbors: { north: "ow_r11_c01", south: "ow_r13_c01", west: "ow_r12_c00", east: "ow_r12_c02" },
@@ -203,7 +203,7 @@ export const TORONBO_SHORES_ROOMS: Record<string, RoomDef> = {
     width: 160,
     height: 128,
     bgPixel: "/assets/rooms/ow_r12_c02_bg_pixel.png",
-    bgGhibli: "/assets/rooms/ow_r12_c02_bg_pixel.png", // TEMP: pixel fallback until TASK_ROOM_GHIBLI
+    bgGhibli: "/assets/rooms/ow_r12_c02_bg.png",
     music: "overworld",
     ambience: "outdoor",
     neighbors: { north: "ow_r11_c02", south: "ow_r13_c02", west: "ow_r12_c01", east: "ow_r12_c03" },
@@ -239,7 +239,7 @@ export const TORONBO_SHORES_ROOMS: Record<string, RoomDef> = {
     width: 160,
     height: 128,
     bgPixel: "/assets/rooms/ow_r13_c01_bg_pixel.png",
-    bgGhibli: "/assets/rooms/ow_r13_c01_bg_pixel.png", // TEMP: pixel fallback until TASK_ROOM_GHIBLI
+    bgGhibli: "/assets/rooms/ow_r13_c01_bg.png",
     music: "overworld",
     ambience: "outdoor",
     neighbors: { north: "ow_r12_c01", south: "ow_r14_c01", west: "ow_r13_c00", east: "ow_r13_c02" },
@@ -284,7 +284,7 @@ export const TORONBO_SHORES_ROOMS: Record<string, RoomDef> = {
     width: 160,
     height: 128,
     bgPixel: "/assets/rooms/ow_r13_c02_bg_pixel.png",
-    bgGhibli: "/assets/rooms/ow_r13_c02_bg_pixel.png", // TEMP: pixel fallback until TASK_ROOM_GHIBLI
+    bgGhibli: "/assets/rooms/ow_r13_c02_bg.png",
     music: "overworld",
     ambience: "outdoor",
     neighbors: { north: "ow_r12_c02", south: "ow_r14_c02", west: "ow_r13_c01", east: "ow_r13_c03" },
@@ -312,7 +312,7 @@ export const TORONBO_SHORES_ROOMS: Record<string, RoomDef> = {
     width: 160,
     height: 128,
     bgPixel: "/assets/rooms/ow_r14_c01_bg_pixel.png",
-    bgGhibli: "/assets/rooms/ow_r14_c01_bg_pixel.png", // TEMP: pixel fallback until TASK_ROOM_GHIBLI
+    bgGhibli: "/assets/rooms/ow_r14_c01_bg.png",
     music: "overworld",
     ambience: "outdoor",
     neighbors: { north: "ow_r13_c01", south: "ow_r15_c01", west: "ow_r14_c00", east: "ow_r14_c02" },
@@ -354,7 +354,7 @@ export const TORONBO_SHORES_ROOMS: Record<string, RoomDef> = {
     width: 160,
     height: 128,
     bgPixel: "/assets/rooms/ow_r14_c02_bg_pixel.png",
-    bgGhibli: "/assets/rooms/ow_r14_c02_bg_pixel.png", // TEMP: pixel fallback until TASK_ROOM_GHIBLI
+    bgGhibli: "/assets/rooms/ow_r14_c02_bg.png",
     music: "overworld",
     ambience: "outdoor",
     neighbors: { north: "ow_r13_c02", south: "ow_r15_c02", west: "ow_r14_c01", east: "ow_r14_c03" },
@@ -385,7 +385,7 @@ export const TORONBO_SHORES_ROOMS: Record<string, RoomDef> = {
     width: 160,
     height: 128,
     bgPixel: "/assets/rooms/ow_r15_c00_bg_pixel.png",
-    bgGhibli: "/assets/rooms/ow_r15_c00_bg_pixel.png", // TEMP: pixel fallback until TASK_ROOM_GHIBLI
+    bgGhibli: "/assets/rooms/ow_r15_c00_bg.png",
     music: "overworld",
     ambience: "outdoor",
     neighbors: { north: "ow_r14_c00", east: "ow_r15_c01" },
@@ -421,7 +421,7 @@ export const TORONBO_SHORES_ROOMS: Record<string, RoomDef> = {
     width: 160,
     height: 128,
     bgPixel: "/assets/rooms/ow_r15_c01_bg_pixel.png",
-    bgGhibli: "/assets/rooms/ow_r15_c01_bg_pixel.png", // TEMP: pixel fallback until TASK_ROOM_GHIBLI
+    bgGhibli: "/assets/rooms/ow_r15_c01_bg.png",
     music: "overworld",
     ambience: "outdoor",
     neighbors: { north: "ow_r14_c01", west: "ow_r15_c00", east: "ow_r15_c02" },
@@ -452,7 +452,7 @@ export const TORONBO_SHORES_ROOMS: Record<string, RoomDef> = {
     width: 160,
     height: 128,
     bgPixel: "/assets/rooms/ow_r15_c02_bg_pixel.png",
-    bgGhibli: "/assets/rooms/ow_r15_c02_bg_pixel.png", // TEMP: pixel fallback until TASK_ROOM_GHIBLI
+    bgGhibli: "/assets/rooms/ow_r15_c02_bg.png",
     music: "overworld",
     ambience: "outdoor",
     neighbors: { north: "ow_r14_c02", west: "ow_r15_c01", east: "ow_r15_c03" },
@@ -484,7 +484,7 @@ export const TORONBO_SHORES_ROOMS: Record<string, RoomDef> = {
     width: 160,
     height: 128,
     bgPixel: "/assets/rooms/ow_r15_c03_bg_pixel.png",
-    bgGhibli: "/assets/rooms/ow_r15_c03_bg_pixel.png", // TEMP: pixel fallback until TASK_ROOM_GHIBLI
+    bgGhibli: "/assets/rooms/ow_r15_c03_bg.png",
     music: "overworld",
     ambience: "outdoor",
     neighbors: { north: "ow_r14_c03", west: "ow_r15_c02", east: "ow_r15_c04" },

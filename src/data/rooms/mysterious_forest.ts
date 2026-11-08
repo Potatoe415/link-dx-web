@@ -10,7 +10,7 @@ export const MYSTERIOUS_FOREST_ROOMS: Record<string, RoomDef> = {
     width: 160,
     height: 128,
     bgPixel: "/assets/rooms/ow_r04_c00_bg_pixel.png",
-    bgGhibli: "/assets/rooms/ow_r04_c00_bg_pixel.png", // TEMP: pixel fallback until TASK_ROOM_GHIBLI
+    bgGhibli: "/assets/rooms/ow_r04_c00_bg.png",
     music: "forest",
     ambience: "outdoor",
     neighbors: { north: "ow_r03_c00", south: "ow_r05_c00", east: "ow_r04_c01" },
@@ -50,7 +50,7 @@ export const MYSTERIOUS_FOREST_ROOMS: Record<string, RoomDef> = {
     width: 160,
     height: 128,
     bgPixel: "/assets/rooms/ow_r04_c01_bg_pixel.png",
-    bgGhibli: "/assets/rooms/ow_r04_c01_bg_pixel.png", // TEMP: pixel fallback until TASK_ROOM_GHIBLI
+    bgGhibli: "/assets/rooms/ow_r04_c01_bg.png",
     music: "forest",
     ambience: "outdoor",
     neighbors: { north: "ow_r03_c01", south: "ow_r05_c01", west: "ow_r04_c00", east: "ow_r04_c02" },
@@ -93,7 +93,7 @@ export const MYSTERIOUS_FOREST_ROOMS: Record<string, RoomDef> = {
     width: 160,
     height: 128,
     bgPixel: "/assets/rooms/ow_r04_c02_bg_pixel.png",
-    bgGhibli: "/assets/rooms/ow_r04_c02_bg_pixel.png", // TEMP: pixel fallback until TASK_ROOM_GHIBLI
+    bgGhibli: "/assets/rooms/ow_r04_c02_bg.png",
     music: "forest",
     ambience: "outdoor",
     neighbors: { north: "ow_r03_c02", south: "ow_r05_c02", west: "ow_r04_c01", east: "ow_r04_c03" },
@@ -139,7 +139,7 @@ export const MYSTERIOUS_FOREST_ROOMS: Record<string, RoomDef> = {
     width: 160,
     height: 128,
     bgPixel: "/assets/rooms/ow_r04_c03_bg_pixel.png",
-    bgGhibli: "/assets/rooms/ow_r04_c03_bg_pixel.png", // TEMP: pixel fallback until TASK_ROOM_GHIBLI
+    bgGhibli: "/assets/rooms/ow_r04_c03_bg.png",
     music: "forest",
     ambience: "outdoor",
     neighbors: { north: "ow_r03_c03", south: "ow_r05_c03", west: "ow_r04_c02", east: "ow_r04_c04" },
@@ -173,7 +173,7 @@ export const MYSTERIOUS_FOREST_ROOMS: Record<string, RoomDef> = {
     width: 160,
     height: 128,
     bgPixel: "/assets/rooms/ow_r05_c00_bg_pixel.png",
-    bgGhibli: "/assets/rooms/ow_r05_c00_bg_pixel.png", // TEMP: pixel fallback until TASK_ROOM_GHIBLI
+    bgGhibli: "/assets/rooms/ow_r05_c00_bg.png",
     music: "forest",
     ambience: "outdoor",
     neighbors: { north: "ow_r04_c00", south: "ow_r06_c00", east: "ow_r05_c01" },
@@ -211,7 +211,7 @@ export const MYSTERIOUS_FOREST_ROOMS: Record<string, RoomDef> = {
     width: 160,
     height: 128,
     bgPixel: "/assets/rooms/ow_r05_c01_bg_pixel.png",
-    bgGhibli: "/assets/rooms/ow_r05_c01_bg_pixel.png", // TEMP: pixel fallback until TASK_ROOM_GHIBLI
+    bgGhibli: "/assets/rooms/ow_r05_c01_bg.png",
     music: "forest",
     ambience: "outdoor",
     neighbors: { north: "ow_r04_c01", south: "ow_r06_c01", west: "ow_r05_c00", east: "ow_r05_c02" },
@@ -251,7 +251,7 @@ export const MYSTERIOUS_FOREST_ROOMS: Record<string, RoomDef> = {
     width: 160,
     height: 128,
     bgPixel: "/assets/rooms/ow_r05_c02_bg_pixel.png",
-    bgGhibli: "/assets/rooms/ow_r05_c02_bg_pixel.png", // TEMP: pixel fallback until TASK_ROOM_GHIBLI
+    bgGhibli: "/assets/rooms/ow_r05_c02_bg.png",
     music: "forest",
     ambience: "outdoor",
     neighbors: { north: "ow_r04_c02", south: "ow_r06_c02", west: "ow_r05_c01", east: "ow_r05_c03" },
@@ -286,7 +286,7 @@ export const MYSTERIOUS_FOREST_ROOMS: Record<string, RoomDef> = {
     width: 160,
     height: 128,
     bgPixel: "/assets/rooms/ow_r05_c03_bg_pixel.png",
-    bgGhibli: "/assets/rooms/ow_r05_c03_bg_pixel.png", // TEMP: pixel fallback until TASK_ROOM_GHIBLI
+    bgGhibli: "/assets/rooms/ow_r05_c03_bg.png",
     music: "forest",
     ambience: "outdoor",
     neighbors: { north: "ow_r04_c03", south: "ow_r06_c03", west: "ow_r05_c02", east: "ow_r05_c04" },
@@ -320,7 +320,7 @@ export const MYSTERIOUS_FOREST_ROOMS: Record<string, RoomDef> = {
     width: 160,
     height: 128,
     bgPixel: "/assets/rooms/ow_r06_c00_bg_pixel.png",
-    bgGhibli: "/assets/rooms/ow_r06_c00_bg_pixel.png", // TEMP: pixel fallback until TASK_ROOM_GHIBLI
+    bgGhibli: "/assets/rooms/ow_r06_c00_bg.png",
     music: "forest",
     ambience: "outdoor",
     neighbors: { north: "ow_r05_c00", south: "ow_r07_c00", east: "ow_r06_c01" },
@@ -354,7 +354,7 @@ export const MYSTERIOUS_FOREST_ROOMS: Record<string, RoomDef> = {
     width: 160,
     height: 128,
     bgPixel: "/assets/rooms/ow_r06_c01_bg_pixel.png",
-    bgGhibli: "/assets/rooms/ow_r06_c01_bg_pixel.png", // TEMP: pixel fallback until TASK_ROOM_GHIBLI
+    bgGhibli: "/assets/rooms/ow_r06_c01_bg.png",
     music: "forest",
     ambience: "outdoor",
     neighbors: { north: "ow_r05_c01", south: "ow_r07_c01", west: "ow_r06_c00", east: "ow_r06_c02" },
@@ -395,7 +395,7 @@ export const MYSTERIOUS_FOREST_ROOMS: Record<string, RoomDef> = {
     width: 160,
     height: 128,
     bgPixel: "/assets/rooms/ow_r06_c02_bg_pixel.png",
-    bgGhibli: "/assets/rooms/ow_r06_c02_bg_pixel.png", // TEMP: pixel fallback until TASK_ROOM_GHIBLI
+    bgGhibli: "/assets/rooms/ow_r06_c02_bg.png",
     music: "forest",
     ambience: "outdoor",
     neighbors: { north: "ow_r05_c02", south: "ow_r07_c02", west: "ow_r06_c01", east: "ow_r06_c03" },
@@ -436,7 +436,7 @@ export const MYSTERIOUS_FOREST_ROOMS: Record<string, RoomDef> = {
     width: 160,
     height: 128,
     bgPixel: "/assets/rooms/ow_r06_c03_bg_pixel.png",
-    bgGhibli: "/assets/rooms/ow_r06_c03_bg_pixel.png", // TEMP: pixel fallback until TASK_ROOM_GHIBLI
+    bgGhibli: "/assets/rooms/ow_r06_c03_bg.png",
     music: "forest",
     ambience: "outdoor",
     neighbors: { north: "ow_r05_c03", south: "ow_r07_c03", west: "ow_r06_c02", east: "ow_r06_c04" },
@@ -479,7 +479,7 @@ export const MYSTERIOUS_FOREST_ROOMS: Record<string, RoomDef> = {
     width: 160,
     height: 128,
     bgPixel: "/assets/rooms/ow_r07_c00_bg_pixel.png",
-    bgGhibli: "/assets/rooms/ow_r07_c00_bg_pixel.png", // TEMP: pixel fallback until TASK_ROOM_GHIBLI
+    bgGhibli: "/assets/rooms/ow_r07_c00_bg.png",
     music: "forest",
     ambience: "outdoor",
     neighbors: { north: "ow_r06_c00", south: "ow_r08_c00", east: "ow_r07_c01" },
@@ -514,7 +514,7 @@ export const MYSTERIOUS_FOREST_ROOMS: Record<string, RoomDef> = {
     width: 160,
     height: 128,
     bgPixel: "/assets/rooms/ow_r07_c01_bg_pixel.png",
-    bgGhibli: "/assets/rooms/ow_r07_c01_bg_pixel.png", // TEMP: pixel fallback until TASK_ROOM_GHIBLI
+    bgGhibli: "/assets/rooms/ow_r07_c01_bg.png",
     music: "forest",
     ambience: "outdoor",
     neighbors: { north: "ow_r06_c01", south: "ow_r08_c01", west: "ow_r07_c00", east: "ow_r07_c02" },
@@ -554,7 +554,7 @@ export const MYSTERIOUS_FOREST_ROOMS: Record<string, RoomDef> = {
     width: 160,
     height: 128,
     bgPixel: "/assets/rooms/ow_r07_c02_bg_pixel.png",
-    bgGhibli: "/assets/rooms/ow_r07_c02_bg_pixel.png", // TEMP: pixel fallback until TASK_ROOM_GHIBLI
+    bgGhibli: "/assets/rooms/ow_r07_c02_bg.png",
     music: "forest",
     ambience: "outdoor",
     neighbors: { north: "ow_r06_c02", south: "ow_r08_c02", west: "ow_r07_c01", east: "ow_r07_c03" },
@@ -600,7 +600,7 @@ export const MYSTERIOUS_FOREST_ROOMS: Record<string, RoomDef> = {
     width: 160,
     height: 128,
     bgPixel: "/assets/rooms/ow_r07_c03_bg_pixel.png",
-    bgGhibli: "/assets/rooms/ow_r07_c03_bg_pixel.png", // TEMP: pixel fallback until TASK_ROOM_GHIBLI
+    bgGhibli: "/assets/rooms/ow_r07_c03_bg.png",
     music: "forest",
     ambience: "outdoor",
     neighbors: { north: "ow_r06_c03", south: "ow_r08_c03", west: "ow_r07_c02", east: "ow_r07_c04" },
@@ -646,7 +646,7 @@ export const MYSTERIOUS_FOREST_ROOMS: Record<string, RoomDef> = {
     width: 160,
     height: 128,
     bgPixel: "/assets/rooms/ow_r08_c00_bg_pixel.png",
-    bgGhibli: "/assets/rooms/ow_r08_c00_bg_pixel.png", // TEMP: pixel fallback until TASK_ROOM_GHIBLI
+    bgGhibli: "/assets/rooms/ow_r08_c00_bg.png",
     music: "forest",
     ambience: "outdoor",
     neighbors: { north: "ow_r07_c00", south: "ow_r09_c00", east: "ow_r08_c01" },
@@ -680,7 +680,7 @@ export const MYSTERIOUS_FOREST_ROOMS: Record<string, RoomDef> = {
     width: 160,
     height: 128,
     bgPixel: "/assets/rooms/ow_r05_c04_bg_pixel.png",
-    bgGhibli: "/assets/rooms/ow_r05_c04_bg_pixel.png", // TEMP: pixel fallback until TASK_ROOM_GHIBLI
+    bgGhibli: "/assets/rooms/ow_r05_c04_bg.png",
     music: "overworld",
     ambience: "outdoor",
     neighbors: { north: "ow_r04_c04", south: "ow_r06_c04", west: "ow_r05_c03", east: "ow_r05_c05" },
@@ -720,7 +720,7 @@ export const MYSTERIOUS_FOREST_ROOMS: Record<string, RoomDef> = {
     width: 160,
     height: 128,
     bgPixel: "/assets/rooms/ow_r06_c04_bg_pixel.png",
-    bgGhibli: "/assets/rooms/ow_r06_c04_bg_pixel.png", // TEMP: pixel fallback until TASK_ROOM_GHIBLI
+    bgGhibli: "/assets/rooms/ow_r06_c04_bg.png",
     music: "overworld",
     ambience: "outdoor",
     neighbors: { north: "ow_r05_c04", south: "ow_r07_c04", west: "ow_r06_c03", east: "ow_r06_c05" },
@@ -755,7 +755,7 @@ export const MYSTERIOUS_FOREST_ROOMS: Record<string, RoomDef> = {
     width: 160,
     height: 128,
     bgPixel: "/assets/rooms/ow_r06_c05_bg_pixel.png",
-    bgGhibli: "/assets/rooms/ow_r06_c05_bg_pixel.png", // TEMP: pixel fallback until TASK_ROOM_GHIBLI
+    bgGhibli: "/assets/rooms/ow_r06_c05_bg.png",
     music: "overworld",
     ambience: "outdoor",
     neighbors: { north: "ow_r05_c05", south: "ow_r07_c05", west: "ow_r06_c04", east: "ow_r06_c06" },
@@ -797,7 +797,7 @@ export const MYSTERIOUS_FOREST_ROOMS: Record<string, RoomDef> = {
     width: 160,
     height: 128,
     bgPixel: "/assets/rooms/witch_hut_bg_pixel.png",
-    bgGhibli: "/assets/rooms/witch_hut_bg_pixel.png", // TEMP: pixel fallback until TASK_ROOM_GHIBLI
+    bgGhibli: "/assets/rooms/witch_hut_bg.png",
     music: "shop",
     ambience: "indoor",
     neighbors: {  },
@@ -852,7 +852,7 @@ export const MYSTERIOUS_FOREST_ROOMS: Record<string, RoomDef> = {
     width: 160,
     height: 128,
     bgPixel: "/assets/rooms/forest_cave_r0_c0_bg_pixel.png",
-    bgGhibli: "/assets/rooms/forest_cave_r0_c0_bg_pixel.png", // TEMP: pixel fallback until TASK_ROOM_GHIBLI
+    bgGhibli: "/assets/rooms/forest_cave_r0_c0_bg.png",
     music: "cave",
     ambience: "none",
     neighbors: { east: "forest_cave_r0_c1" },
@@ -902,7 +902,7 @@ export const MYSTERIOUS_FOREST_ROOMS: Record<string, RoomDef> = {
     width: 160,
     height: 128,
     bgPixel: "/assets/rooms/forest_cave_r0_c1_bg_pixel.png",
-    bgGhibli: "/assets/rooms/forest_cave_r0_c1_bg_pixel.png", // TEMP: pixel fallback until TASK_ROOM_GHIBLI
+    bgGhibli: "/assets/rooms/forest_cave_r0_c1_bg.png",
     music: "cave",
     ambience: "none",
     neighbors: { west: "forest_cave_r0_c0", south: "forest_cave_r1_c1" },
@@ -928,7 +928,7 @@ export const MYSTERIOUS_FOREST_ROOMS: Record<string, RoomDef> = {
     width: 160,
     height: 128,
     bgPixel: "/assets/rooms/forest_cave_r1_c1_bg_pixel.png",
-    bgGhibli: "/assets/rooms/forest_cave_r1_c1_bg_pixel.png", // TEMP: pixel fallback until TASK_ROOM_GHIBLI
+    bgGhibli: "/assets/rooms/forest_cave_r1_c1_bg.png",
     music: "cave",
     ambience: "none",
     neighbors: { north: "forest_cave_r0_c1" },
