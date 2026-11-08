@@ -178,6 +178,21 @@ export class DialogueSystem {
     }
   }
 
+  /**
+   * Immediately exits / closes any active dialogue (e.g. on Escape key).
+   * Triggers the onClose callback to cleanly complete any associated quest/state changes.
+   */
+  public closeDialogue(): void {
+    if (!this.active) return;
+    this.active = false;
+    this.sound?.playSfx('cursor', 0.55);
+    if (this.onCloseCallback) {
+      const cb = this.onCloseCallback;
+      this.onCloseCallback = null;
+      cb();
+    }
+  }
+
   public update(dtMs: number): void {
     this.blinkTimer += dtMs;
     if (!this.active) return;

@@ -67,6 +67,11 @@ export class Input {
     );
   }
 
+  /** Escape key (Esc) to cancel/skip dialogue or close sub-menus. */
+  public wasEscapeJustPressed(): boolean {
+    return this.wasJustPressed('Escape') || this.wasJustPressed('escape');
+  }
+
   /** Inventory sub-menu toggle (Tab / I). */
   public wasMenuJustPressed(): boolean {
     return this.wasJustPressed('Tab') || this.wasJustPressed('KeyI') || this.wasJustPressed('i');

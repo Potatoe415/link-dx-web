@@ -210,6 +210,10 @@ export class GameEngine {
       return true;
     }
     if (this.inventory.isOpen()) {
+      if (this.input.wasEscapeJustPressed()) {
+        this.inventory.toggle();
+        return true;
+      }
       this.inventory.update(this.input);
       return true;
     }
@@ -220,6 +224,11 @@ export class GameEngine {
 
     if (this.dialogue.isOpen()) {
       if (this.player.state === 'ITEM_GET') this.player.update(dtMs, this.input, [], this.sound);
+      if (this.input.wasEscapeJustPressed()) {
+        this.dialogue.closeDialogue();
+        this.refreshStats();
+        return true;
+      }
       if (this.input.wasInteractJustPressed()) {
         this.dialogue.onInteractPressed();
         this.refreshStats();

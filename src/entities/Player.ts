@@ -66,8 +66,8 @@ export class Player {
   private wakeTimer: number = 0;
   private readonly wakeDurationMs: number = 700;
 
-  // Movement speed: 1.0 logical pixel per frame at 60 FPS (60.0 px/s)
-  public readonly speed: number = 1.0;
+  // Movement speed: 2.0 logical pixels per frame at 60 FPS (120.0 px/s, doubled for testing)
+  public readonly speed: number = 2.0;
 
   // Special ground (grass, water, stairs, holes) — see Ground.ts
   public ground: GroundKind | null = null;
@@ -509,7 +509,9 @@ export class Player {
     const def = ANIMATIONS[this.currentAnimKey];
     if (!def || def.frames.length <= 1) return;
 
-    this.animTimer += dtMs;
+    // Scale walk animation with doubled running speed
+    const animRate = this.state === 'WALKING' ? 1.5 : 1.0;
+    this.animTimer += dtMs * animRate;
     if (this.animTimer >= def.frameTime) {
       this.animTimer -= def.frameTime;
       if (this.animFrameIndex + 1 < def.frames.length) {
