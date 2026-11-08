@@ -539,8 +539,14 @@ export class GameEngine {
     window.location.reload();
   }
 
-  public getPlayerInfo(): { state: string; x: number; y: number; room: string } {
-    return { state: this.player.state, x: Math.round(this.player.x), y: Math.round(this.player.y), room: this.currentRoom.name };
+  public getPlayerInfo(): { state: string; x: number; y: number; roomId: string; roomName: string } {
+    return { 
+      state: this.player.state, 
+      x: Math.round(this.player.x), 
+      y: Math.round(this.player.y), 
+      roomId: this.currentRoomKey, 
+      roomName: this.currentRoom.name 
+    };
   }
 
   private refreshStats(): void {
@@ -574,6 +580,22 @@ window.addEventListener('DOMContentLoaded', async () => {
   document.getElementById('btn-toggle-mode')?.addEventListener('click', () => engine.toggleGhibli());
   document.getElementById('btn-toggle-coll')?.addEventListener('click', () => engine.toggleColliders());
   document.getElementById('btn-toggle-audio')?.addEventListener('click', () => engine.toggleMute());
+  document.getElementById('btn-copy-debug')?.addEventListener('click', async () => {
+    const btn = document.getElementById('btn-copy-debug');
+    if (!btn) return;
+    const info = {
+      player: engine.getPlayerInfo(),
+      gameState: engine.game.toJSON()
+    };
+    try {
+      await navigator.clipboard.writeText(JSON.stringify(info, null, 2));
+      const originalText = btn.innerHTML;
+      btn.innerHTML = '<span>✅ Copié !</span>';
+      setTimeout(() => (btn.innerHTML = originalText), 2000);
+    } catch (err) {
+      console.error('Failed to copy info:', err);
+    }
+  });
   document.getElementById('btn-reset-save')?.addEventListener('click', () => {
     if (window.confirm('Effacer la sauvegarde et recommencer une nouvelle partie ?')) engine.resetSave();
   });
