@@ -105,7 +105,7 @@
   - [x] `ow_r10_c01` (Maison de Papahl & quadruplés)
   - [x] `ow_r10_c03` (Champ de culture / Est du village)
   - [x] `ow_r11_c02` (Cabine téléphonique & carrefour sud)
-  - [x] `ow_r08_c01`, `ow_r08_c02`, `ow_r08_c03`, `ow_r09_c01`, `ow_r09_c03`, `ow_r10_c00`, `ow_r11_c01`, `ow_r11_c03`
+  - [ ] *En attente quota (17:44 UTC)* : `ow_r08_c01`, `ow_r08_c02`, `ow_r08_c03`, `ow_r09_c01`, `ow_r09_c03`, `ow_r10_c00`, `ow_r11_c01`, `ow_r11_c03`
 - [ ] **[T-2.2.1-03]** `TASK_ROOM_GHIBLI` sur le secteur nord et étang de pêche (`ow_r08_c01..c03`, `ow_r09_c01`, `ow_r09_c03`).
 
 ### 2.2.2 — Intérieurs & Habitants du Village des Mouettes
@@ -117,7 +117,7 @@
   - [x] `shop` (Boutique d'outils et piédestaux d'achat)
   - [x] `ulrira` (Cottage douillet de Pépé le Ramollo)
   - [x] `phonebooth` (Cabine téléphonique en rondins)
-  - [x] `bowwow_kennel` (Niche de Toutou), `meow_house` (Maison de Mme Miaou), `quadruplets_house_w`, `quadruplets_house_e` (Maison des quadruplés), `trendy_game` (Jeu de la grue).
+  - [ ] *En attente quota (17:44 UTC)* : `bowwow_kennel` (Niche de Toutou), `meow_house` (Maison de Mme Miaou), `quadruplets_house_w`, `quadruplets_house_e` (Maison des quadruplés), `trendy_game` (Jeu de la grue).
 
 ---
 
@@ -126,7 +126,7 @@
 - [x] **[T-2.3.1-01]** `TASK_ROOM_EXTRACT` sur les écrans de la Plage Coco (*Toronbo Shores*) : `ow_r12_c01`, `ow_r12_c02`, `ow_r13_c01`, `ow_r13_c02`, `ow_r14_c01`, `ow_r14_c02`, `ow_r15_c00`, `ow_r15_c01`, `ow_r15_c02` (écran de l'Épée), `ow_r15_c03`.
 - [x] **[T-2.3.1-02]** `TASK_ENTITY_PORT(sea_urchin)` : Porter `ObjSeaUrchin.cs` (les oursins piquants qui bloquent le chemin et que Link doit **repousser avec son Bouclier levé** + son `D360-62-3E.wav`).
 - [x] **[T-2.3.1-03]** `TASK_ENTITY_PORT(octorok)` : Porter `EnemyOctorok.cs` (marche 4 directions + tir de rocher que le Bouclier L-1 dévie avec `D360-11-0B.wav`).
-- [x] **[T-2.3.1-04]** `TASK_ROOM_GHIBLI` sur la séquence d'écrans menant à la plage (`ow_r12_c02` $\rightarrow$ `ow_r15_c02`) avec vagues animées (`wave1`, `wave2`).
+- [ ] **[T-2.3.1-04]** `TASK_ROOM_GHIBLI` sur la séquence d'écrans menant à la plage (`ow_r12_c02` $\rightarrow$ `ow_r15_c02`) avec vagues animées (`wave1`, `wave2`).
 
 ### 2.3.2 — Ramassage de l'Épée, Hibou & Attaque à l'Épée (`SWORD_SLASH`)
 - [x] **[T-2.3.2-01]** `TASK_ENTITY_PORT(sword_beach)` : Porter `ObjSwordSpawner.cs` sur `ow_r15_c02`. Quand Link touche l'épée échouée dans le sable : joue la fanfare de l'Épée (Piste #14 de `awakening.gbs`), active `FLAG_SWORD_OBTAINED`, affiche la pose `ITEM_GET` de l'Épée.
@@ -142,7 +142,7 @@
 ### 2.4.1 — Écrans de la Forêt Enchantée & Plaine Koholint (`ow_r04_c00` à `ow_r07_c05`)
 - [x] **[T-2.4.1-01]** `TASK_ROOM_EXTRACT` sur les écrans de la Forêt Enchantée (`ow_r04_c00..c03`, `ow_r05_c00..c03`, `ow_r06_c00..c03`, `ow_r07_c00..c03`) + grotte du tronc creux (`forest_cave.map`) + Plaine Koholint & Cabane de la Sorcière (`ow_r05_c04`, `ow_r06_c04`, `witch_hut.map`). Fait : région `mysterious_forest` (+ `ow_r08_c00`, `ow_r06_c05` où se trouve réellement la cabane, intérieur `shop3.map` → `witch_hut`, grotte `cave1.map` → `forest_cave_r0_c0/r0_c1/r1_c1`). Coffre de la Clé Flagello (`dkey1`) et quart de cœur de la grotte câblés ; ennemis `e5`/`e15`/`e17`/`moblinSword` listés « not ported » pour `[T-2.4.1-02]`.
 - [x] **[T-2.4.1-02]** `TASK_ENTITY_PORT` : Porter `EnemyMoblin.cs` (Moblins à lance et à épée/bouclier), `EnemyMiniMoldorm.cs` et `EnemyKeese.cs` (chauves-souris de la grotte) + rochers poussables (`ObjMoveStone.cs`). Fait : Moblin à lance (`e5`, lance `EnemySpear`), Moblin à épée (`moblinSword`, lame qui blesse et pare), Zol rouge (`e15`, se divise en 2 Gels qui collent à Link), Zol vert (`e9`, grotte), Keese (`e10`), Buzz Blob (`e17`, électrocute Link quand on le frappe à l'épée), murs `enemyWall` réservés aux ennemis et rochers poussables `moveStone*`. Le Mini-Moldorm (`e12`) n'est placé que sur `ow_r00_c00`, `ow_r00_c04`, `ow_r00_c05`, `ow_r01_c04` (Monts Tal Tal / Montagne) : reporté à ces écrans.
-- [x] **[T-2.4.1-03]** `TASK_ROOM_GHIBLI` sur les écrans de la Forêt Enchantée (avec brume légère et arbres géants Ghibli) et la Cabane de la Sorcière.
+- [ ] **[T-2.4.1-03]** `TASK_ROOM_GHIBLI` sur les écrans de la Forêt Enchantée (avec brume légère et arbres géants Ghibli) et la Cabane de la Sorcière.
 
 ### 2.4.2 — Quête du Champignon, Poudre Magique, Raton-Laveur & Clé Flagello
 - [x] **[T-2.4.2-01]** `TASK_ENTITY_PORT(sleepy_toadstool)` : Ramassage du **Champignon** (`toadstool`) au sortir de la grotte de la forêt (`ow_r05_c00`).

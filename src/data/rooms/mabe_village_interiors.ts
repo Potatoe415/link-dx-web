@@ -142,7 +142,7 @@ export const MABE_VILLAGE_INTERIOR_ROOMS: Record<string, RoomDef> = {
     width: 160,
     height: 128,
     bgPixel: "/assets/rooms/meow_house_bg_pixel.png",
-    bgGhibli: "/assets/rooms/meow_house_bg.png",
+    bgGhibli: "/assets/rooms/meow_house_bg_pixel.png", // TEMP: pixel fallback until TASK_ROOM_GHIBLI
     music: "house",
     ambience: "indoor",
     neighbors: {  },
@@ -184,7 +184,7 @@ export const MABE_VILLAGE_INTERIOR_ROOMS: Record<string, RoomDef> = {
     width: 160,
     height: 128,
     bgPixel: "/assets/rooms/bowwow_kennel_bg_pixel.png",
-    bgGhibli: "/assets/rooms/bowwow_kennel_bg.png",
+    bgGhibli: "/assets/rooms/bowwow_kennel_bg_pixel.png", // TEMP: pixel fallback until TASK_ROOM_GHIBLI
     music: "house",
     ambience: "indoor",
     neighbors: {  },
@@ -212,7 +212,7 @@ export const MABE_VILLAGE_INTERIOR_ROOMS: Record<string, RoomDef> = {
     width: 160,
     height: 128,
     bgPixel: "/assets/rooms/quadruplets_house_w_bg_pixel.png",
-    bgGhibli: "/assets/rooms/quadruplets_house_w_bg.png",
+    bgGhibli: "/assets/rooms/quadruplets_house_w_bg_pixel.png", // TEMP: pixel fallback until TASK_ROOM_GHIBLI
     music: "house",
     ambience: "indoor",
     neighbors: { east: "quadruplets_house_e" },
@@ -254,7 +254,7 @@ export const MABE_VILLAGE_INTERIOR_ROOMS: Record<string, RoomDef> = {
     width: 160,
     height: 128,
     bgPixel: "/assets/rooms/quadruplets_house_e_bg_pixel.png",
-    bgGhibli: "/assets/rooms/quadruplets_house_e_bg.png",
+    bgGhibli: "/assets/rooms/quadruplets_house_e_bg_pixel.png", // TEMP: pixel fallback until TASK_ROOM_GHIBLI
     music: "house",
     ambience: "indoor",
     neighbors: { west: "quadruplets_house_w" },
@@ -320,7 +320,7 @@ export const MABE_VILLAGE_INTERIOR_ROOMS: Record<string, RoomDef> = {
     width: 160,
     height: 128,
     bgPixel: "/assets/rooms/trendy_game_bg_pixel.png",
-    bgGhibli: "/assets/rooms/trendy_game_bg.png",
+    bgGhibli: "/assets/rooms/trendy_game_bg_pixel.png", // TEMP: pixel fallback until TASK_ROOM_GHIBLI
     music: "minigame",
     ambience: "indoor",
     neighbors: {  },
