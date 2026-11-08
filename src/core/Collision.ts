@@ -54,6 +54,7 @@ export class Collision {
 
   /**
    * Resolves player movement with smooth sliding along walls on individual X and Y axes.
+   * A blocked step stops flush against the obstacle (pushable urchins need contact).
    * If player is slightly stuck in an obstacle, allows movement that decreases overlap.
    */
   public static moveWithSlide(
@@ -78,6 +79,8 @@ export class Collision {
       // Allow move if either no collision OR movement is helping unstick
       if (overlapX === 0 || (initialOverlap > 0 && overlapX < initialOverlap)) {
         newX = targetX;
+      } else if (initialOverlap === 0) {
+        newX = this.contactPosition(currentBox, 'x', dx, colliders) + 4;
       }
     }
 
@@ -90,10 +93,31 @@ export class Collision {
       // Allow move if either no collision OR movement is helping unstick
       if (overlapY === 0 || (initialOverlap > 0 && overlapY < initialOverlap)) {
         newY = targetY;
+      } else if (initialOverlap === 0) {
+        newY = this.contactPosition(this.getPlayerCollisionBox(newX, currentY), 'y', dy, colliders) + 8;
       }
     }
 
     return { newX, newY };
+  }
+
+  /**
+   * Box origin (x or y) after moving `d` along `axis` until it touches the nearest collider ahead.
+   * The box must not overlap any collider. Snapping to the collider edge keeps the contact exact
+   * (no float residue that would read as an overlap next frame).
+   */
+  private static contactPosition(box: Rect, axis: 'x' | 'y', d: number, colliders: Rect[]): number {
+    const size = axis === 'x' ? box.w : box.h;
+    let pos = box[axis] + d;
+    for (const c of colliders) {
+      const crosses = axis === 'x' ? box.y < c.y + c.h && box.y + box.h > c.y : box.x < c.x + c.w && box.x + box.w > c.x;
+      if (!crosses) continue;
+      const start = c[axis];
+      const end = start + (axis === 'x' ? c.w : c.h);
+      if (d > 0 && start >= box[axis] + size) pos = Math.min(pos, start - size);
+      if (d < 0 && end <= box[axis]) pos = Math.max(pos, end);
+    }
+    return pos;
   }
 
   /**
