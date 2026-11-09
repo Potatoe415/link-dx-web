@@ -54,7 +54,7 @@ export class GameEngine {
   public useGhibliMode = true;
   public showColliders = false;
   public godMode = false;
-  public gameSpeed: 1 | 2 | 4 = 4; // default x4 speed for rapid testing
+  public gameSpeed: 1 | 2 | 4 = 2; // default x2 speed
 
   // Fixed timestep loop (60 FPS: 16.666 ms per tick)
   private readonly fixedStepMs = 1000 / 60;
