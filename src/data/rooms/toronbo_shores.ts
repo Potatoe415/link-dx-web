@@ -354,7 +354,7 @@ export const TORONBO_SHORES_ROOMS: Record<string, RoomDef> = {
     width: 160,
     height: 128,
     bgPixel: "/assets/rooms/ow_r14_c02_bg_pixel.png",
-    bgGhibli: "/assets/rooms/ow_r14_c02_bg_pixel.png", // TEMP: pixel fallback until TASK_ROOM_GHIBLI
+    bgGhibli: "/assets/rooms/ow_r14_c02_bg.png",
     music: "overworld",
     ambience: "outdoor",
     neighbors: { north: "ow_r13_c02", south: "ow_r15_c02", west: "ow_r14_c01", east: "ow_r14_c03" },
