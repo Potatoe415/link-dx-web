@@ -177,11 +177,11 @@ export const MABE_VILLAGE_OVERWORLD_ROOMS: Record<string, RoomDef> = {
 
   ow_r09_c01: {
     id: "ow_r09_c01",
-    name: "Village des Mouettes — Maison des quadruplés",
+    name: "Village des Mouettes — Verger des chênes",
     width: 160,
     height: 128,
     bgPixel: "/assets/rooms/ow_r09_c01_bg_pixel.png",
-    bgGhibli: "/assets/rooms/ow_r09_c01_bg_pixel.png", // TEMP: pixel fallback until TASK_ROOM_GHIBLI
+    bgGhibli: "/assets/rooms/ow_r09_c01_bg.png",
     music: "outdoor",
     ambience: "outdoor",
     neighbors: { north: "ow_r08_c01", south: "ow_r10_c01", west: "ow_r09_c00", east: "ow_r09_c02" },
