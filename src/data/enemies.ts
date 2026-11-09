@@ -30,6 +30,17 @@ export const ENEMIES: Record<string, EnemyConfig> = {
         1: [{ x: 72, y: 44, w: 16, h: 15 }, { x: 90, y: 44, w: 16, h: 15 }],
         2: [{ x: 125, y: 43, w: 15, h: 16 }, { x: 108, y: 44, w: 15, h: 15 }]
       }
+    },
+    ghibliSprite: {
+      frameMs: 200,
+      originX: 8,
+      originY: 15,
+      frames: {
+        0: [{ x: 659, y: 253, w: 252, h: 248, flip: true, renderW: 16, renderH: 16 }],
+        3: [{ x: 27, y: 255, w: 247, h: 239, renderW: 16, renderH: 16 }],
+        1: [{ x: 349, y: 255, w: 241, h: 240, renderW: 16, renderH: 16 }],
+        2: [{ x: 659, y: 253, w: 252, h: 248, renderW: 16, renderH: 16 }]
+      }
     }
   },
 
@@ -56,6 +67,17 @@ export const ENEMIES: Record<string, EnemyConfig> = {
           { x: 16, y: 0, w: 16, h: 16 },
           { x: 32, y: 0, w: 16, h: 16 },
           { x: 48, y: 0, w: 16, h: 16 }
+        ]
+      }
+    },
+    ghibliSprite: {
+      frameMs: 300,
+      originX: 8,
+      originY: 15,
+      frames: {
+        3: [
+          { x: 12, y: 15, w: 238, h: 213, renderW: 16, renderH: 15 },
+          { x: 280, y: 14, w: 239, h: 216, renderW: 16, renderH: 15 }
         ]
       }
     }
@@ -95,6 +117,26 @@ export const ENEMIES: Record<string, EnemyConfig> = {
           { x: 0, y: 64, w: 16, h: 16 }
         ]
       }
+    },
+    ghibliSprite: {
+      frameMs: 150,
+      originX: 8,
+      originY: 15,
+      frames: {
+        3: [
+          { x: 48, y: 522, w: 209, h: 240, renderW: 15, renderH: 16 }
+        ]
+      },
+      anims: {
+        spawn: [
+          { x: 342, y: 522, w: 249, h: 239, renderW: 16, renderH: 16 },
+          { x: 48, y: 522, w: 209, h: 240, renderW: 15, renderH: 16 }
+        ],
+        leave: [
+          { x: 48, y: 522, w: 209, h: 240, renderW: 15, renderH: 16 },
+          { x: 342, y: 522, w: 249, h: 239, renderW: 16, renderH: 16 }
+        ]
+      }
     }
   },
 
@@ -118,6 +160,17 @@ export const ENEMIES: Record<string, EnemyConfig> = {
         3: [
           { x: 0, y: 80, w: 16, h: 16 },
           { x: 16, y: 80, w: 16, h: 16 }
+        ]
+      }
+    },
+    ghibliSprite: {
+      frameMs: 150,
+      originX: 9,
+      originY: 15,
+      frames: {
+        3: [
+          { x: 15, y: 788, w: 280, h: 224, renderW: 18, renderH: 15 },
+          { x: 330, y: 787, w: 278, h: 220, renderW: 18, renderH: 15 }
         ]
       }
     }

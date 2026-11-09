@@ -4,7 +4,7 @@ import { GameState } from '../core/GameState';
 import { ImageCache } from '../core/Images';
 import { GroundZone, Rect } from '../data/rooms';
 import { ENEMIES } from '../data/enemies';
-import { ENEMIES_SHEET, Enemy, EnemyEvent, EnemyWorld, LootDrop, directionOf, rollLoot } from './Enemy';
+import { ENEMIES_SHEET, ENEMIES_GHIBLI_SHEET, Enemy, EnemyEvent, EnemyWorld, LootDrop, directionOf, rollLoot } from './Enemy';
 import { Gel, createEnemy } from './enemies';
 import { AnimatedEnemy } from './enemies/AnimatedEnemy';
 import { Projectile } from './Projectile';
@@ -63,7 +63,10 @@ export class EnemyManager {
     this.shots = [];
     this.linkGrabbed = false;
     this.pendingShock = null;
-    if (this.enemies.length) void this.images.load(ENEMIES_SHEET);
+    if (this.enemies.length) {
+      void this.images.load(ENEMIES_SHEET);
+      void this.images.load(ENEMIES_GHIBLI_SHEET);
+    }
   }
 
   /** Bodies of solid enemies (sea urchins) that block Link. */
@@ -250,11 +253,12 @@ export class EnemyManager {
     }
   }
 
-  public renderables(ctx: CanvasRenderingContext2D): { y: number; render: () => void }[] {
+  public renderables(ctx: CanvasRenderingContext2D, useGhibli = false): { y: number; render: () => void }[] {
     const enemySheet = this.images.get(ENEMIES_SHEET);
+    const ghibliSheet = useGhibli ? this.images.get(ENEMIES_GHIBLI_SHEET) : undefined;
     const out = this.enemies.map((e) => ({
       y: e.sortY,
-      render: () => e.render(ctx, enemySheet)
+      render: () => e.render(ctx, enemySheet, ghibliSheet, useGhibli)
     }));
     for (const shot of this.shots) out.push({ y: shot.y, render: () => shot.render(ctx, enemySheet) });
     const items = this.images.get(ITEMS_SHEET);

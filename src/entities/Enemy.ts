@@ -33,9 +33,10 @@ export type EnemyState =
  */
 export type EnemyBehavior = 'wander' | 'static' | 'leever' | 'crab' | 'custom';
 
-type Frame = { x: number; y: number; w: number; h: number; flip?: boolean };
+type Frame = { x: number; y: number; w: number; h: number; flip?: boolean; renderW?: number; renderH?: number };
 
 export const ENEMIES_SHEET = '/assets/ui/enemies.png'; // copied from `_ref_repo/Data/Map Objects/enemies.png`
+export const ENEMIES_GHIBLI_SHEET = '/assets/ui/beach_enemies_ghibli_transparent.png'; // Studio Ghibli HD beach enemies
 
 export interface EnemySprite {
   frames: Record<number, Frame[]>; // per direction (direction 3 is the fallback for 1-direction enemies)
@@ -60,6 +61,7 @@ export interface EnemyConfig {
   solid?: boolean; // blocks Link (sea urchin BodyCollisionComponent)
   shot?: { range: number; speed: number; offsets: Record<number, [number, number]> }; // EnemyOctorok rock
   sprite?: EnemySprite; // hand-written frames (enemies ported before the .ani exporter)
+  ghibliSprite?: EnemySprite; // Studio Ghibli HD hand-painted frames
   ai?: EnemyAi; // behavior 'custom': subclass to instantiate
   animator?: { id: string; offsetX: number; offsetY: number }; // ENEMY_ANIMATORS key + AnimationComponent offset
 }
@@ -474,20 +476,41 @@ export class Enemy {
     return !this.surfaced || (this.hitCooldown > 0 && Math.floor(this.hitCooldown / BLINK_MS) % 2 === 1);
   }
 
-  public render(ctx: CanvasRenderingContext2D, sheet: HTMLImageElement | undefined): void {
+  public render(
+    ctx: CanvasRenderingContext2D,
+    sheet: HTMLImageElement | undefined,
+    ghibliSheet?: HTMLImageElement | undefined,
+    useGhibli = false
+  ): void {
     if (this.state === 'DYING') {
       this.renderDeathPuff(ctx);
       return;
     }
-    if (!sheet || this.hiddenThisFrame) return;
-    const s = this.config.sprite;
+    const isGhibli = useGhibli && !!this.config.ghibliSprite && !!ghibliSheet;
+    const targetSheet = isGhibli ? ghibliSheet : sheet;
+    if (!targetSheet || this.hiddenThisFrame) return;
+    const s = (isGhibli ? this.config.ghibliSprite : this.config.sprite) ?? this.config.sprite;
     if (!s) {
-      this.renderBody(ctx, sheet);
+      if (sheet) this.renderBody(ctx, sheet);
       return;
     }
     const f = this.currentFrame(s);
     if (!f) return;
-    drawFrame(ctx, sheet, { ...f, ms: 0, dx: 0, dy: 0, flip: !!f.flip }, Math.round(this.x - s.originX), Math.round(this.y - s.originY));
+
+    const rw = f.renderW ?? f.w;
+    const rh = f.renderH ?? f.h;
+    const dx = Math.round(this.x - s.originX);
+    const dy = Math.round(this.y - s.originY);
+
+    if (!f.flip) {
+      ctx.drawImage(targetSheet, f.x, f.y, f.w, f.h, dx, dy, rw, rh);
+    } else {
+      ctx.save();
+      ctx.translate(dx + rw, dy);
+      ctx.scale(-1, 1);
+      ctx.drawImage(targetSheet, f.x, f.y, f.w, f.h, 0, 0, rw, rh);
+      ctx.restore();
+    }
   }
 
   /** Animator-driven enemies (src/entities/enemies/) draw themselves. */
