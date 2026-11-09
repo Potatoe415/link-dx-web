@@ -28,6 +28,8 @@ interface Pickup {
 const PICKUP_LIFETIME_MS = 8000; // dropped items blink then vanish (ObjItem)
 const PICKUP_BOX = 8;
 const ITEMS_SHEET = '/assets/ui/items.png';
+const GHIBLI_RUPEE = '/assets/ui/ghibli_props/rupee_green.png';
+const GHIBLI_HEART = '/assets/ui/ghibli_props/heart_recovery.png';
 const SHOT_DAMAGE = 2; // EnemyOctorokShot / EnemySpear DamageFieldComponent
 const REPEL_SPEED = 1; // ObjLink.RepelPlayer multiplier when the sword clashes with a weapon
 const URCHIN_PUSH_SFX_MS = 75; // EnemySeaUrchin._soundCounter
@@ -67,6 +69,8 @@ export class EnemyManager {
       void this.images.load(ENEMIES_SHEET);
       void this.images.load(ENEMIES_GHIBLI_SHEET);
     }
+    void this.images.load(GHIBLI_RUPEE);
+    void this.images.load(GHIBLI_HEART);
   }
 
   /** Bodies of solid enemies (sea urchins) that block Link. */
@@ -266,12 +270,22 @@ export class EnemyManager {
     }));
     for (const shot of this.shots) out.push({ y: shot.y, render: () => shot.render(ctx, enemySheet) });
     const items = this.images.get(ITEMS_SHEET);
+    const ghibliRupee = useGhibli ? this.images.get(GHIBLI_RUPEE) : undefined;
+    const ghibliHeart = useGhibli ? this.images.get(GHIBLI_HEART) : undefined;
     for (const p of this.pickups) {
       // Blink during the last 2 s before vanishing
       if (p.ageMs > PICKUP_LIFETIME_MS - 2000 && Math.floor(p.ageMs / 100) % 2 === 1) continue;
       out.push({
         y: p.y,
         render: () => {
+          if (useGhibli && p.kind === 'rupee' && ghibliRupee) {
+            ctx.drawImage(ghibliRupee, Math.round(p.x - 4), Math.round(p.y - 12), 8, 14);
+            return;
+          }
+          if (useGhibli && p.kind === 'heart' && ghibliHeart) {
+            ctx.drawImage(ghibliHeart, Math.round(p.x - 4.5), Math.round(p.y - 7), 9, 8);
+            return;
+          }
           if (!items) return;
           if (p.kind === 'rupee') ctx.drawImage(items, 64, 144, 7, 14, Math.round(p.x - 3.5), Math.round(p.y - 10), 7, 14); // rubyGreen
           else ctx.drawImage(items, 143, 45, 7, 7, Math.round(p.x - 3.5), Math.round(p.y - 5), 7, 7); // heart

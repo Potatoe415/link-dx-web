@@ -4,6 +4,7 @@ import { ImageCache } from '../core/Images';
 import { MoveStoneDef, Rect } from '../data/rooms';
 
 const OBJECTS_SHEET = '/assets/ui/objects.png';
+const GHIBLI_STONE = '/assets/ui/ghibli_props/pushable_stone.png';
 const MOVE_MS = 450; // ObjMoveStone._moveTime
 const INERTIA_MS = 450; // PushableComponent.InertiaTime: push this long before the stone budges
 const DIR_VEC: Record<number, [number, number]> = { 0: [-1, 0], 1: [0, -1], 2: [1, 0], 3: [0, 1] };
@@ -43,7 +44,10 @@ export class MoveStoneSystem {
     this.stones = (defs ?? []).map((def) => ({ def, x: def.x, y: def.y, moving: null, moved: false }));
     this.pushMs = 0;
     this.pushDir = -1;
-    if (this.stones.length) void this.images.load(OBJECTS_SHEET);
+    if (this.stones.length) {
+      void this.images.load(OBJECTS_SHEET);
+      void this.images.load(GHIBLI_STONE);
+    }
   }
 
   /** CBox(0, -16, 16, 16) from EntityPosition (x, y + 16): the whole cell. */
@@ -102,7 +106,16 @@ export class MoveStoneSystem {
   }
 
   /** LayerBottom: drawn flat under Link and the enemies. */
-  public renderGround(ctx: CanvasRenderingContext2D): void {
+  public renderGround(ctx: CanvasRenderingContext2D, useGhibli = false): void {
+    if (useGhibli) {
+      const ghibliStone = this.images.get(GHIBLI_STONE);
+      if (ghibliStone) {
+        for (const s of this.stones) {
+          ctx.drawImage(ghibliStone, Math.round(s.x), Math.round(s.y), 16, 16);
+        }
+        return;
+      }
+    }
     const img = this.images.get(OBJECTS_SHEET);
     if (!img) return;
     for (const s of this.stones) {

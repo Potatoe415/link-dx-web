@@ -36,5 +36,6 @@ coverage/
 tmp/
 temp/
 tmp-*/
+scratch/
 extracted/
 .cache/

@@ -490,14 +490,14 @@ export class GameEngine {
       const dying = this.gameOver.isActive();
       this.roomRenderer.renderRoom(ctx, room, this.props, spritesheet, this.useGhibliMode, 0, 0, [
         ...(dying ? [] : [playerRenderable]),
-        ...this.interactables.renderables(ctx),
+        ...this.interactables.renderables(ctx, this.useGhibliMode),
         ...this.enemies.renderables(ctx, this.useGhibliMode),
-        ...this.bushes.renderables(ctx),
+        ...this.bushes.renderables(ctx, this.useGhibliMode),
         ...this.npcs.renderables(ctx),
         ...this.owlRenderables(ctx)
       ], () => {
-        this.bushes.renderGround(ctx);
-        this.stones.renderGround(ctx);
+        this.bushes.renderGround(ctx, this.useGhibliMode);
+        this.stones.renderGround(ctx, this.useGhibliMode);
       });
       if (dying) {
         // Dim the world, keep Link on top (GameOverSystem.DrawPlayerOnTopPercentage)

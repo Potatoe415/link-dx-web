@@ -7,6 +7,16 @@ import { Player } from './Player';
 import { ITEM_NAMES_FR, ITEM_SPRITES, TOADSTOOL_MAP_SPRITE, UI_SHEETS, UiSprite } from '../data/uiSprites';
 
 const OBJECTS_SHEET = '/assets/ui/objects.png';
+const GHIBLI_PROPS = {
+  sword: '/assets/ui/ghibli_props/sword_l1.png',
+  signpost: '/assets/ui/ghibli_props/signpost.png',
+  chest_closed: '/assets/ui/ghibli_props/chest_closed.png',
+  chest_opened: '/assets/ui/ghibli_props/chest_opened.png',
+  toadstool: '/assets/ui/ghibli_props/sleepy_toadstool.png',
+  heart_piece: '/assets/ui/ghibli_props/heart_piece.png',
+  tail_key: '/assets/ui/ghibli_props/tail_key.png',
+  rupee_green: '/assets/ui/ghibli_props/rupee_green.png'
+};
 
 // Geometry from `_ref_repo` (ObjSignpost.cs / ObjChest.cs + objects.atlas), relative to the object origin
 const SIGN_SPRITES: Record<'signpost_0' | 'signpost_1', { x: number; y: number }> = {
@@ -65,6 +75,9 @@ export class InteractableSystem {
     this.defs = defs ?? [];
     this.rising = null;
     void this.images.load(OBJECTS_SHEET);
+    for (const path of Object.values(GHIBLI_PROPS)) {
+      void this.images.load(path);
+    }
   }
 
   public colliders(): Rect[] {
@@ -168,45 +181,107 @@ export class InteractableSystem {
   }
 
   /** Draws the back of chests / signposts (before Link) — call in the Y-sorted pass. */
-  public renderables(ctx: CanvasRenderingContext2D): { y: number; render: () => void }[] {
+  public renderables(ctx: CanvasRenderingContext2D, useGhibli = false): { y: number; render: () => void }[] {
     const img = this.images.get(OBJECTS_SHEET);
-    if (!img) return [];
     const out: { y: number; render: () => void }[] = [];
+
     for (const def of this.defs) {
       if (def.kind === 'item') {
         if (this.game.isChestOpened(this.roomId, def.id)) continue;
-        // The beach sword lies in the sand, tip down (sword1 sprite); heart pieces use heartMeter (items.atlas)
+        if (useGhibli) {
+          const propPath =
+            def.item === 'sword'
+              ? GHIBLI_PROPS.sword
+              : def.item === 'toadstool'
+              ? GHIBLI_PROPS.toadstool
+              : GHIBLI_PROPS.heart_piece;
+          const ghibliImg = this.images.get(propPath);
+          if (ghibliImg) {
+            out.push({
+              y: def.y + 14,
+              render: () => ctx.drawImage(ghibliImg, def.x + 1, def.y, 14, 15)
+            });
+            continue;
+          }
+        }
+        // Pixel-art fallback: The beach sword lies in the sand, tip down (sword1 sprite); heart pieces use heartMeter (items.atlas)
         const s = def.item === 'sword' ? ITEM_SPRITES.sword : def.item === 'toadstool' ? TOADSTOOL_MAP_SPRITE : HEART_PIECE_SPRITE;
         const items = this.images.get(UI_SHEETS.items);
         const dx = 8 - s.w / 2;
         out.push({ y: def.y + 14, render: () => items && ctx.drawImage(items, s.x, s.y, s.w, s.h, def.x + dx, def.y + 16 - s.h, s.w, s.h) });
         continue;
       }
+
       if (def.kind === 'sign') {
         const sprite = def.sprite;
         if (!sprite) continue;
+        if (useGhibli) {
+          const ghibliSign = this.images.get(GHIBLI_PROPS.signpost);
+          if (ghibliSign) {
+            out.push({
+              y: def.y + 16,
+              render: () => ctx.drawImage(ghibliSign, def.x, def.y + 1, 16, 15)
+            });
+            continue;
+          }
+        }
+        if (!img) continue;
         const s = SIGN_SPRITES[sprite];
         // ObjSignpost: sprite origin (8, 15) anchored at (x + 8, y + 16)
         out.push({ y: def.y + 16, render: () => ctx.drawImage(img, s.x, s.y, 16, 15, def.x, def.y + 1, 16, 15) });
         continue;
       }
-      const dx = this.isOpened(def) ? CHEST_OPEN_DX : 0;
-      out.push({
-        y: def.y + 13,
-        render: () => {
-          ctx.drawImage(img, CHEST_BACK.x + dx, CHEST_BACK.y, CHEST_BACK.w, CHEST_BACK.h, def.x, def.y, CHEST_BACK.w, CHEST_BACK.h);
-          ctx.drawImage(img, CHEST_FRONT.x + dx, CHEST_FRONT.y, CHEST_FRONT.w, CHEST_FRONT.h, def.x, def.y + 7, CHEST_FRONT.w, CHEST_FRONT.h);
-          if (this.rising?.chest === def) this.renderRisingItem(ctx, def);
+
+      if (def.kind === 'chest') {
+        if (useGhibli) {
+          const opened = this.isOpened(def);
+          const ghibliChest = this.images.get(opened ? GHIBLI_PROPS.chest_opened : GHIBLI_PROPS.chest_closed);
+          if (ghibliChest) {
+            out.push({
+              y: def.y + 13,
+              render: () => {
+                ctx.drawImage(ghibliChest, def.x, def.y, 16, 16);
+                if (this.rising?.chest === def) this.renderRisingItem(ctx, def, true);
+              }
+            });
+            continue;
+          }
         }
-      });
+        if (!img) continue;
+        const dx = this.isOpened(def) ? CHEST_OPEN_DX : 0;
+        out.push({
+          y: def.y + 13,
+          render: () => {
+            ctx.drawImage(img, CHEST_BACK.x + dx, CHEST_BACK.y, CHEST_BACK.w, CHEST_BACK.h, def.x, def.y, CHEST_BACK.w, CHEST_BACK.h);
+            ctx.drawImage(img, CHEST_FRONT.x + dx, CHEST_FRONT.y, CHEST_FRONT.w, CHEST_FRONT.h, def.x, def.y + 7, CHEST_FRONT.w, CHEST_FRONT.h);
+            if (this.rising?.chest === def) this.renderRisingItem(ctx, def, false);
+          }
+        });
+      }
     }
     return out;
   }
 
-  private renderRisingItem(ctx: CanvasRenderingContext2D, chest: ChestDef): void {
+  private renderRisingItem(ctx: CanvasRenderingContext2D, chest: ChestDef, useGhibli = false): void {
     const t = Math.min(1, (this.rising?.timer ?? 0) / CHEST_RISE_MS);
     const lift = Math.sin((t * Math.PI) / 1.55) * 10; // ObjChest.OpeningTick
     const c = chest.contents;
+
+    if (useGhibli) {
+      let ghibliProp: string | null = null;
+      if (c.type === 'questKey' && c.key === 'tail') ghibliProp = GHIBLI_PROPS.tail_key;
+      else if (c.type === 'rupees') ghibliProp = GHIBLI_PROPS.rupee_green;
+      else if (c.type === 'heartPiece') ghibliProp = GHIBLI_PROPS.heart_piece;
+
+      if (ghibliProp) {
+        const img = this.images.get(ghibliProp);
+        if (img) {
+          ctx.drawImage(img, chest.x + 3, chest.y - lift - 10, 10, 14);
+          return;
+        }
+      }
+    }
+
     const sprite: UiSprite =
       c.type === 'item' && (ITEM_IDS as readonly string[]).includes(c.item)
         ? ITEM_SPRITES[c.item as ItemId]

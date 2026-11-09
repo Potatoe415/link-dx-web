@@ -1,0 +1,290 @@
+{
+  "sword_l1": {
+    "label": "Épée L-1",
+    "path": "/assets/ui/ghibli_props/sword_l1.png",
+    "cell": {
+      "row": 0,
+      "col": 0
+    },
+    "sheet_coords": {
+      "x": 43,
+      "y": 45,
+      "w": 431,
+      "h": 437
+    },
+    "crop_size": {
+      "w": 431,
+      "h": 437
+    }
+  },
+  "signpost": {
+    "label": "Panneau en Bois",
+    "path": "/assets/ui/ghibli_props/signpost.png",
+    "cell": {
+      "row": 0,
+      "col": 1
+    },
+    "sheet_coords": {
+      "x": 593,
+      "y": 38,
+      "w": 352,
+      "h": 449
+    },
+    "crop_size": {
+      "w": 352,
+      "h": 449
+    }
+  },
+  "bush": {
+    "label": "Buisson",
+    "path": "/assets/ui/ghibli_props/bush.png",
+    "cell": {
+      "row": 0,
+      "col": 2
+    },
+    "sheet_coords": {
+      "x": 1052,
+      "y": 57,
+      "w": 456,
+      "h": 413
+    },
+    "crop_size": {
+      "w": 456,
+      "h": 413
+    }
+  },
+  "flowers_grass": {
+    "label": "Fleurs Coupables",
+    "path": "/assets/ui/ghibli_props/flowers_grass.png",
+    "cell": {
+      "row": 0,
+      "col": 3
+    },
+    "sheet_coords": {
+      "x": 1564,
+      "y": 95,
+      "w": 449,
+      "h": 343
+    },
+    "crop_size": {
+      "w": 449,
+      "h": 343
+    }
+  },
+  "rupee_green": {
+    "label": "Rubis Vert",
+    "path": "/assets/ui/ghibli_props/rupee_green.png",
+    "cell": {
+      "row": 1,
+      "col": 0
+    },
+    "sheet_coords": {
+      "x": 117,
+      "y": 556,
+      "w": 279,
+      "h": 424
+    },
+    "crop_size": {
+      "w": 279,
+      "h": 424
+    }
+  },
+  "rupee_blue": {
+    "label": "Rubis Bleu",
+    "path": "/assets/ui/ghibli_props/rupee_blue.png",
+    "cell": {
+      "row": 1,
+      "col": 1
+    },
+    "sheet_coords": {
+      "x": 629,
+      "y": 556,
+      "w": 279,
+      "h": 425
+    },
+    "crop_size": {
+      "w": 279,
+      "h": 425
+    }
+  },
+  "rupee_red": {
+    "label": "Rubis Rouge",
+    "path": "/assets/ui/ghibli_props/rupee_red.png",
+    "cell": {
+      "row": 1,
+      "col": 2
+    },
+    "sheet_coords": {
+      "x": 1140,
+      "y": 556,
+      "w": 280,
+      "h": 425
+    },
+    "crop_size": {
+      "w": 280,
+      "h": 425
+    }
+  },
+  "heart_recovery": {
+    "label": "Cœur de Vie",
+    "path": "/assets/ui/ghibli_props/heart_recovery.png",
+    "cell": {
+      "row": 1,
+      "col": 3
+    },
+    "sheet_coords": {
+      "x": 1570,
+      "y": 578,
+      "w": 442,
+      "h": 402
+    },
+    "crop_size": {
+      "w": 442,
+      "h": 402
+    }
+  },
+  "sleepy_toadstool": {
+    "label": "Champignon Magique",
+    "path": "/assets/ui/ghibli_props/sleepy_toadstool.png",
+    "cell": {
+      "row": 2,
+      "col": 0
+    },
+    "sheet_coords": {
+      "x": 57,
+      "y": 1064,
+      "w": 399,
+      "h": 431
+    },
+    "crop_size": {
+      "w": 399,
+      "h": 431
+    }
+  },
+  "magic_powder": {
+    "label": "Poudre Magique",
+    "path": "/assets/ui/ghibli_props/magic_powder.png",
+    "cell": {
+      "row": 2,
+      "col": 1
+    },
+    "sheet_coords": {
+      "x": 608,
+      "y": 1081,
+      "w": 392,
+      "h": 415
+    },
+    "crop_size": {
+      "w": 392,
+      "h": 415
+    }
+  },
+  "tail_key": {
+    "label": "Clé Flagello",
+    "path": "/assets/ui/ghibli_props/tail_key.png",
+    "cell": {
+      "row": 2,
+      "col": 2
+    },
+    "sheet_coords": {
+      "x": 1081,
+      "y": 1058,
+      "w": 399,
+      "h": 445
+    },
+    "crop_size": {
+      "w": 399,
+      "h": 445
+    }
+  },
+  "heart_piece": {
+    "label": "Quart de Cœur",
+    "path": "/assets/ui/ghibli_props/heart_piece.png",
+    "cell": {
+      "row": 2,
+      "col": 3
+    },
+    "sheet_coords": {
+      "x": 1585,
+      "y": 1079,
+      "w": 413,
+      "h": 406
+    },
+    "crop_size": {
+      "w": 413,
+      "h": 406
+    }
+  },
+  "chest_closed": {
+    "label": "Coffre Fermé",
+    "path": "/assets/ui/ghibli_props/chest_closed.png",
+    "cell": {
+      "row": 3,
+      "col": 0
+    },
+    "sheet_coords": {
+      "x": 31,
+      "y": 1582,
+      "w": 450,
+      "h": 423
+    },
+    "crop_size": {
+      "w": 450,
+      "h": 423
+    }
+  },
+  "chest_opened": {
+    "label": "Coffre Ouvert",
+    "path": "/assets/ui/ghibli_props/chest_opened.png",
+    "cell": {
+      "row": 3,
+      "col": 1
+    },
+    "sheet_coords": {
+      "x": 553,
+      "y": 1551,
+      "w": 443,
+      "h": 463
+    },
+    "crop_size": {
+      "w": 443,
+      "h": 463
+    }
+  },
+  "pushable_stone": {
+    "label": "Rocher Poussable",
+    "path": "/assets/ui/ghibli_props/pushable_stone.png",
+    "cell": {
+      "row": 3,
+      "col": 2
+    },
+    "sheet_coords": {
+      "x": 1061,
+      "y": 1571,
+      "w": 439,
+      "h": 441
+    },
+    "crop_size": {
+      "w": 439,
+      "h": 441
+    }
+  },
+  "secret_seashell": {
+    "label": "Coquillage Secret",
+    "path": "/assets/ui/ghibli_props/secret_seashell.png",
+    "cell": {
+      "row": 3,
+      "col": 3
+    },
+    "sheet_coords": {
+      "x": 1584,
+      "y": 1589,
+      "w": 417,
+      "h": 385
+    },
+    "crop_size": {
+      "w": 417,
+      "h": 385
+    }
+  }
+}

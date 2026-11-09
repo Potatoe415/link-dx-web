@@ -4,6 +4,8 @@ import { ImageCache } from '../core/Images';
 import { CuttableDef, GroundZone, Rect } from '../data/rooms';
 
 const OBJECTS_SHEET = '/assets/ui/objects.png';
+const GHIBLI_BUSH = '/assets/ui/ghibli_props/bush.png';
+const GHIBLI_FLOWERS = '/assets/ui/ghibli_props/flowers_grass.png';
 
 // objects.atlas: id -> source rect + origin (ObjBush draws at (x + 8, y + 8) - origin)
 const SPRITES: Record<string, { x: number; y: number; w: number; h: number; ox: number; oy: number }> = {
@@ -51,6 +53,8 @@ export class BushSystem {
     this.items = [...(defs ?? [])];
     this.bursts = [];
     void this.images.load(OBJECTS_SHEET);
+    void this.images.load(GHIBLI_BUSH);
+    void this.images.load(GHIBLI_FLOWERS);
   }
 
   /** Solid collider of each standing bush (ObjBush collisionBox CBox(-8, -7, 16, 14) at (x+8, y+8)). */
@@ -90,19 +94,43 @@ export class BushSystem {
   }
 
   /** Grass draws flat under everything; bushes Y-sort with Link and enemies. */
-  public renderGround(ctx: CanvasRenderingContext2D): void {
+  public renderGround(ctx: CanvasRenderingContext2D, useGhibli = false): void {
+    if (useGhibli) {
+      const ghibliImg = this.images.get(GHIBLI_FLOWERS);
+      if (ghibliImg) {
+        for (const b of this.items) {
+          if (b.kind === 'grass') {
+            ctx.drawImage(ghibliImg, b.x - 1, b.y - 1, 18, 18);
+          }
+        }
+        return;
+      }
+    }
     const img = this.images.get(OBJECTS_SHEET);
     if (!img) return;
     for (const b of this.items) if (b.kind === 'grass') this.draw(ctx, img, b);
   }
 
-  public renderables(ctx: CanvasRenderingContext2D): { y: number; render: () => void }[] {
+  public renderables(ctx: CanvasRenderingContext2D, useGhibli = false): { y: number; render: () => void }[] {
     const img = this.images.get(OBJECTS_SHEET);
-    if (!img) return [];
-    const out = this.items
-      .filter((b) => b.kind === 'bush')
-      .map((b) => ({ y: b.y + 15, render: () => this.draw(ctx, img, b) }));
-    for (const burst of this.bursts) out.push({ y: 999, render: () => this.drawLeaves(ctx, img, burst) });
+    const ghibliBush = useGhibli ? this.images.get(GHIBLI_BUSH) : null;
+    const out: { y: number; render: () => void }[] = [];
+    for (const b of this.items) {
+      if (b.kind !== 'bush') continue;
+      out.push({
+        y: b.y + 15,
+        render: () => {
+          if (useGhibli && ghibliBush) {
+            ctx.drawImage(ghibliBush, b.x - 1, b.y - 1, 18, 17);
+          } else if (img) {
+            this.draw(ctx, img, b);
+          }
+        }
+      });
+    }
+    if (img) {
+      for (const burst of this.bursts) out.push({ y: 999, render: () => this.drawLeaves(ctx, img, burst) });
+    }
     return out;
   }
 
