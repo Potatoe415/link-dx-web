@@ -22,6 +22,7 @@ Current work queue (synced with the full 3-level living checklist in `docs/MASTE
 - [ ] Village mini-systems: shop purchasing flow, Trendy Game crane physics, side-view fishing pond (`pond.map`), stairs/cave doors (`cave_rooster`, `cave0`, `dreamShrine01`).
 
 ## Assets & Sprites Backlog
+- [ ] **Planche 16 Objets & Props Ghibli (Village, Plage, Forêt)** : planche 4x4 sur fond vert `#00FF00` (Épée L-1, panneau en bois, buisson, fleurs coupables, rubis vert/bleu/rouge, cœur, champignon magique, sac de poudre, clé flagello, quart de cœur, coffre fermé/ouvert, rocher sculpté, coquillage secret). Script de découpe prêt : `scripts/pack_object_sprites.py`. *(En attente fenêtre de quota API 13:18 UTC / 14:18 CET)*.
 - [ ] **Animation des tentacules / pattes des pieuvres (Octoroks)** : dessiner plusieurs frames pour animer la marche et l'ondulation des tentacules de l'Octorok lors de ses déplacements en 4 directions.
 - [ ] **Sprite pour le bras de Link tenant le bouclier** : ajouter un calque/sprite de bras reliant explicitement le corps de Link au bouclier (en posture de garde et pendant la marche) pour éviter l'effet de flottement du bouclier à côté du corps.
 
