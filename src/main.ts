@@ -388,8 +388,8 @@ export class GameEngine {
     );
   }
 
-  private owlRenderables(ctx: CanvasRenderingContext2D): { y: number; render: () => void }[] {
-    const r = this.owl?.renderable(ctx);
+  private owlRenderables(ctx: CanvasRenderingContext2D, useGhibli = false): { y: number; render: () => void }[] {
+    const r = this.owl?.renderable(ctx, useGhibli);
     return r ? [r] : [];
   }
 
@@ -493,8 +493,8 @@ export class GameEngine {
         ...this.interactables.renderables(ctx, this.useGhibliMode),
         ...this.enemies.renderables(ctx, this.useGhibliMode),
         ...this.bushes.renderables(ctx, this.useGhibliMode),
-        ...this.npcs.renderables(ctx),
-        ...this.owlRenderables(ctx)
+        ...this.npcs.renderables(ctx, this.useGhibliMode),
+        ...this.owlRenderables(ctx, this.useGhibliMode)
       ], () => {
         this.bushes.renderGround(ctx, this.useGhibliMode);
         this.stones.renderGround(ctx, this.useGhibliMode);

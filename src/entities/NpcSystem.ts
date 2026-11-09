@@ -13,6 +13,25 @@ import { Player } from './Player';
 const TALK_RANGE = 22; // same reach as DialogueSystem.findNearbyNPC
 const DIR_PROBE: Record<number, [number, number]> = { 0: [-6, 0], 1: [0, -6], 2: [6, 0], 3: [0, 6] };
 
+const GHIBLI_NPC_MAP: Record<string, { path: string; w: number; h: number }> = {
+  witch: { path: '/assets/ui/ghibli_characters/witch_syrup.png', w: 14, h: 20 },
+  raccoon: { path: '/assets/ui/ghibli_characters/raccoon_tarin.png', w: 18, h: 19 },
+  ulrira: { path: '/assets/ui/ghibli_characters/ulrira.png', w: 11, h: 20 },
+  madam_meowmeow: { path: '/assets/ui/ghibli_characters/madam_meowmeow.png', w: 16, h: 20 },
+  small_bowwow_meow: { path: '/assets/ui/ghibli_characters/baby_bowwow.png', w: 12, h: 13 },
+  small_bowwow_kennel: { path: '/assets/ui/ghibli_characters/baby_bowwow.png', w: 12, h: 13 },
+  quadruplets_mother: { path: '/assets/ui/ghibli_characters/madam_meowmeow.png', w: 16, h: 20 },
+  shopkeeper: { path: '/assets/ui/ghibli_characters/shopkeeper.png', w: 15, h: 20 },
+  trendy: { path: '/assets/ui/ghibli_characters/trendy_owner.png', w: 13, h: 20 },
+  fisherman: { path: '/assets/ui/ghibli_characters/fisherman.png', w: 18, h: 20 },
+  npc_boy_0: { path: '/assets/ui/ghibli_characters/village_kids.png', w: 15, h: 14 },
+  npc_boy_1: { path: '/assets/ui/ghibli_characters/village_kids.png', w: 15, h: 14 },
+  npc_boy_2: { path: '/assets/ui/ghibli_characters/village_kids.png', w: 15, h: 14 },
+  bowwow: { path: '/assets/ui/ghibli_characters/bowwow.png', w: 16, h: 14 },
+  ball_game: { path: '/assets/ui/ghibli_characters/village_kids.png', w: 15, h: 14 },
+  grandma_ulrira: { path: '/assets/ui/ghibli_characters/grandma_ulrira.png', w: 13, h: 20 }
+};
+
 /**
  * NPCs of the current room (src/data/npcs.ts): updates, draws, blocks Link and starts their
  * conversations. Conversations cycle per NPC (or per shared `talkKey`) for the session, like the
@@ -31,7 +50,13 @@ export class NpcSystem {
 
   public setRoom(roomId: string): void {
     this.npcs = (NPCS[roomId] ?? []).filter((d) => !d.requires || this.game.hasFlag(d.requires)).map((d) => new Npc(d));
-    if (this.npcs.length) void this.images.load(NPCS_SHEET);
+    if (this.npcs.length) {
+      void this.images.load(NPCS_SHEET);
+      for (const npc of this.npcs) {
+        const cfg = GHIBLI_NPC_MAP[npc.def.id];
+        if (cfg) void this.images.load(cfg.path);
+      }
+    }
   }
 
   public colliders(): Rect[] {
@@ -44,10 +69,17 @@ export class NpcSystem {
     for (const npc of this.npcs) npc.update(dtMs, player, blocking);
   }
 
-  public renderables(ctx: CanvasRenderingContext2D): Renderable[] {
+  public renderables(ctx: CanvasRenderingContext2D, useGhibli = false): Renderable[] {
     const sheet = this.images.get(NPCS_SHEET);
     if (!sheet) return [];
-    return this.npcs.map((npc) => ({ y: npc.y, render: () => npc.render(ctx, sheet) }));
+    return this.npcs.map((npc) => {
+      const cfg = useGhibli ? GHIBLI_NPC_MAP[npc.def.id] : undefined;
+      const ghibliImg = cfg ? this.images.get(cfg.path) : undefined;
+      return {
+        y: npc.y,
+        render: () => npc.render(ctx, sheet, useGhibli, ghibliImg, cfg ? { w: cfg.w, h: cfg.h } : undefined)
+      };
+    });
   }
 
   /** Talk anchor of the NPC Link would speak to (for the proximity badge), if any. */

@@ -120,15 +120,37 @@ export class Npc {
     }
   }
 
-  public render(ctx: CanvasRenderingContext2D, sheet: HTMLImageElement): void {
+  public render(
+    ctx: CanvasRenderingContext2D,
+    sheet: HTMLImageElement,
+    useGhibli = false,
+    ghibliImg?: HTMLImageElement,
+    ghibliSize?: { w: number; h: number }
+  ): void {
     if (this.stake) this.renderChain(ctx, sheet);
     this.renderShadow(ctx, this.x, this.y);
-    const z = this.partner && this.ball.jumper !== 0 ? 0 : this.z;
-    this.anim.draw(ctx, sheet, this.x + this.spriteOffset.x, this.y + this.spriteOffset.y - z);
+
+    if (useGhibli && ghibliImg) {
+      const gw = ghibliSize?.w ?? 16;
+      const gh = ghibliSize?.h ?? 20;
+      const gx = Math.round(this.x - gw / 2);
+      const gy = Math.round(this.y - gh - this.z);
+      ctx.drawImage(ghibliImg, gx, gy, gw, gh);
+    } else {
+      const z = this.partner && this.ball.jumper !== 0 ? 0 : this.z;
+      this.anim.draw(ctx, sheet, this.x + this.spriteOffset.x, this.y + this.spriteOffset.y - z);
+    }
+
     if (this.partner) {
       this.renderShadow(ctx, this.x + 48, this.y);
-      this.partner.draw(ctx, sheet, this.x + 48, this.y - (this.ball.jumper === 1 ? this.z : 0));
-      this.renderBall(ctx, sheet);
+      if (useGhibli && ghibliImg) {
+        const gw = ghibliSize?.w ?? 16;
+        const gh = ghibliSize?.h ?? 20;
+        ctx.drawImage(ghibliImg, Math.round(this.x + 48 - gw / 2), Math.round(this.y - gh - (this.ball.jumper === 1 ? this.z : 0)), gw, gh);
+      } else {
+        this.partner.draw(ctx, sheet, this.x + 48, this.y - (this.ball.jumper === 1 ? this.z : 0));
+        this.renderBall(ctx, sheet);
+      }
     }
   }
 

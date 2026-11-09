@@ -47,21 +47,21 @@ export class RoomRenderer {
     // 2a. Runtime ground layer (tall grass), then ground props (zIndex < 10: flowers, ground decor)
     renderGroundLayer?.();
     for (const prop of props) {
-      if ((prop.data.zIndex ?? 10) < 10) prop.render(ctx, spritesheet);
+      if ((prop.data.zIndex ?? 10) < 10) prop.render(ctx, spritesheet, useGhibli, this.images);
     }
 
     // 2b. Player-level entities and props, Y-sorted (higher Y is drawn in front)
     const renderList: Renderable[] = [...entities];
     for (const prop of props) {
       const z = prop.data.zIndex ?? 10;
-      if (z >= 10 && z < 20) renderList.push({ y: prop.data.y, render: () => prop.render(ctx, spritesheet) });
+      if (z >= 10 && z < 20) renderList.push({ y: prop.data.y, render: () => prop.render(ctx, spritesheet, useGhibli, this.images) });
     }
     renderList.sort((a, b) => a.y - b.y);
     for (const item of renderList) item.render();
 
     // 2c. Props above the player (zIndex >= 20: roof items like the weathercock)
     for (const prop of props) {
-      if ((prop.data.zIndex ?? 10) >= 20) prop.render(ctx, spritesheet);
+      if ((prop.data.zIndex ?? 10) >= 20) prop.render(ctx, spritesheet, useGhibli, this.images);
     }
 
     // 3. Foreground occlusion mask (roof / tree tops)
@@ -74,6 +74,10 @@ export class RoomRenderer {
   /** Prefetch the images a room needs (called for the current room and its neighbors). */
   public prefetch(room: RoomDef | undefined): Promise<void> {
     if (!room) return Promise.resolve();
+    if (room.id === 'indoor') {
+      void this.images.load('/assets/ui/ghibli_characters/marin.png');
+      void this.images.load('/assets/ui/ghibli_characters/tarin.png');
+    }
     return this.images.loadAll([room.bgPixel, room.bgGhibli, room.fgPixel, room.fgGhibli]);
   }
 }

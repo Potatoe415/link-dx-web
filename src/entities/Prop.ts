@@ -1,4 +1,5 @@
 import { RoomProp, RoomAmbience } from '../data/rooms';
+import { ImageCache } from '../core/Images';
 import { ANIMATIONS, AnimationFrame } from '../data/animations';
 
 export class PropInstance {
@@ -27,10 +28,12 @@ export class PropInstance {
     return def.frames[this.animFrameIndex];
   }
 
-  public render(ctx: CanvasRenderingContext2D, spritesheet: HTMLImageElement): void {
-    const frame = this.getCurrentFrame();
-    if (!frame) return;
-
+  public render(
+    ctx: CanvasRenderingContext2D,
+    spritesheet: HTMLImageElement,
+    useGhibli = false,
+    images?: ImageCache
+  ): void {
     // Contact shadow for NPCs
     const isNPC = this.data.id === 'marin' || this.data.id === 'tarin';
     if (isNPC) {
@@ -49,6 +52,22 @@ export class PropInstance {
       ctx.fill();
       ctx.restore();
     }
+
+    if (useGhibli && images && isNPC) {
+      const ghibliPath = this.data.id === 'marin' ? '/assets/ui/ghibli_characters/marin.png' : '/assets/ui/ghibli_characters/tarin.png';
+      const ghibliImg = images.get(ghibliPath);
+      if (ghibliImg) {
+        if (this.data.id === 'marin') {
+          ctx.drawImage(ghibliImg, Math.round(this.data.x - 5), Math.round(this.data.y - 20), 10, 20);
+        } else {
+          ctx.drawImage(ghibliImg, Math.round(this.data.x - 7.5), Math.round(this.data.y - 20), 15, 20);
+        }
+        return;
+      }
+    }
+
+    const frame = this.getCurrentFrame();
+    if (!frame) return;
 
     const drawX = this.data.x - frame.originX;
     const drawY = this.data.y - frame.originY;

@@ -10,6 +10,7 @@ import { directionOf } from './Enemy';
  * is frozen, then flies off to the top-right with the leaving bezier.
  */
 export const NPCS_SHEET = '/assets/ui/npcs.png'; // copied from `_ref_repo/Data/Map Objects/npcs.png`
+const GHIBLI_OWL = '/assets/ui/ghibli_characters/owl.png';
 const ENTER_MS = 2000; // ObjOwl._enterTime
 const FLY_SFX_MS = 500;
 const LEAVE_SFX_MS = 175;
@@ -79,6 +80,7 @@ export class Owl {
     this.leaveTo = { x: ox + 64, y: oy - 64, z: 64 };
     this.pos = { ...this.start };
     void images.load(NPCS_SHEET);
+    void images.load(GHIBLI_OWL);
   }
 
   /** True while the owl freezes Link (ObjLink.FreezePlayer during enter / talk / leave). */
@@ -154,27 +156,18 @@ export class Owl {
     this.animSpeed = 1.5;
   }
 
-  public renderable(ctx: CanvasRenderingContext2D): { y: number; render: () => void } | null {
+  public renderable(ctx: CanvasRenderingContext2D, useGhibli = false): { y: number; render: () => void } | null {
     if (!this.active) return null;
     // Drawn above everything while airborne, Y-sorted once landed
     const y = this.pos.z > 4 ? 999 : this.pos.y;
-    return { y, render: () => this.render(ctx) };
+    return { y, render: () => this.render(ctx, useGhibli) };
   }
 
-  private render(ctx: CanvasRenderingContext2D): void {
+  private render(ctx: CanvasRenderingContext2D, useGhibli = false): void {
     const sheet = this.images.get(NPCS_SHEET);
-    if (!sheet) return;
-    const frames = ANIMS[this.anim];
-    const total = frames.reduce((t, f) => t + f.ms, 0);
-    let t = this.animTimer % total;
-    let f = frames[0];
-    for (const fr of frames) {
-      if (t < fr.ms) {
-        f = fr;
-        break;
-      }
-      t -= fr.ms;
-    }
+    const ghibliOwl = useGhibli ? this.images.get(GHIBLI_OWL) : undefined;
+    if (!sheet && !ghibliOwl) return;
+
     ctx.save();
     ctx.globalAlpha = Math.max(0, Math.min(1, this.alpha));
     // BodyDrawShadowComponent: shadow at the ground position, shrinking as the owl rises (1 - z / 10)
@@ -183,9 +176,29 @@ export class Owl {
     ctx.beginPath();
     ctx.ellipse(this.pos.x, this.pos.y - 1, 5 * shadowScale, 2 * shadowScale, 0, 0, Math.PI * 2);
     ctx.fill();
-    // CSprite draws at (x, y - z) + frame offset
-    const dy = Math.round(this.pos.y - this.pos.z + f.oy);
-    ctx.drawImage(sheet, f.x, f.y, f.w, f.h, Math.round(this.pos.x + f.ox), dy, f.w, f.h);
+
+    if (useGhibli && ghibliOwl) {
+      const ow = 14;
+      const oh = 20;
+      const ox = Math.round(this.pos.x - ow / 2);
+      const oy = Math.round(this.pos.y - this.pos.z - oh);
+      ctx.drawImage(ghibliOwl, ox, oy, ow, oh);
+    } else if (sheet) {
+      const frames = ANIMS[this.anim];
+      const total = frames.reduce((t, f) => t + f.ms, 0);
+      let t = this.animTimer % total;
+      let f = frames[0];
+      for (const fr of frames) {
+        if (t < fr.ms) {
+          f = fr;
+          break;
+        }
+        t -= fr.ms;
+      }
+      // CSprite draws at (x, y - z) + frame offset
+      const dy = Math.round(this.pos.y - this.pos.z + f.oy);
+      ctx.drawImage(sheet, f.x, f.y, f.w, f.h, Math.round(this.pos.x + f.ox), dy, f.w, f.h);
+    }
     ctx.restore();
   }
 }

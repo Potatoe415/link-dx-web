@@ -13,6 +13,33 @@ export interface ShieldPose {
   itemGetSprite?: 'shield' | 'sword' | 'toadstool' | 'powder';
 }
 
+function drawShieldArm(ctx: CanvasRenderingContext2D, shoulderX: number, shoulderY: number, handX: number, handY: number): void {
+  ctx.save();
+  // Green tunic sleeve
+  ctx.strokeStyle = '#16a34a';
+  ctx.lineWidth = 1.6;
+  ctx.lineCap = 'round';
+  ctx.beginPath();
+  ctx.moveTo(shoulderX, shoulderY);
+  ctx.lineTo(shoulderX + (handX - shoulderX) * 0.6, shoulderY + (handY - shoulderY) * 0.6);
+  ctx.stroke();
+
+  // Forearm & peach skin hand
+  ctx.strokeStyle = '#fbcfe8';
+  ctx.lineWidth = 1.2;
+  ctx.beginPath();
+  ctx.moveTo(shoulderX + (handX - shoulderX) * 0.5, shoulderY + (handY - shoulderY) * 0.5);
+  ctx.lineTo(handX, handY);
+  ctx.stroke();
+
+  // Hand knuckle dot
+  ctx.fillStyle = '#f59e0b';
+  ctx.beginPath();
+  ctx.arc(handX, handY, 0.7, 0, Math.PI * 2);
+  ctx.fill();
+  ctx.restore();
+}
+
 export function renderEquippedShield(ctx: CanvasRenderingContext2D, p: ShieldPose): void {
   const bob = p.state === 'WALKING' && (p.animFrameIndex % 2 === 0) ? -0.6 : 0;
 
@@ -21,21 +48,25 @@ export function renderEquippedShield(ctx: CanvasRenderingContext2D, p: ShieldPos
     const sx = p.isBlocking ? p.x + 1.0 : p.x - 4.2;
     const sy = (p.isBlocking ? p.y - 6.8 : p.y - 6.2) + bob;
     const scale = p.isBlocking ? 1.08 : 0.9;
+    drawShieldArm(ctx, p.x - 1.5, p.y - 7.5 + bob, sx, sy);
     drawCocolintShield(ctx, sx, sy, scale, false);
   } else if (p.direction === 1) {
     // Facing Up: shield on right-viewer side (his right arm)
     const sx = p.isBlocking ? p.x : p.x + 4.2;
     const sy = (p.isBlocking ? p.y - 9.5 : p.y - 6.8) + bob;
+    drawShieldArm(ctx, p.x + 1.5, p.y - 7.5 + bob, sx, sy);
     drawCocolintShield(ctx, sx, sy, 0.88, false);
   } else if (p.direction === 0) {
     // Facing Left: shield in profile on the left edge
     const sx = p.isBlocking ? p.x - 5.5 : p.x - 3.8;
     const sy = (p.isBlocking ? p.y - 7.2 : p.y - 6.2) + bob;
+    drawShieldArm(ctx, p.x - 0.5, p.y - 7.0 + bob, sx + 0.5, sy);
     drawCocolintShield(ctx, sx, sy, p.isBlocking ? 0.95 : 0.78, true);
   } else if (p.direction === 2) {
     // Facing Right: shield in profile on the right edge
     const sx = p.isBlocking ? p.x + 5.5 : p.x + 3.8;
     const sy = (p.isBlocking ? p.y - 7.2 : p.y - 6.2) + bob;
+    drawShieldArm(ctx, p.x + 0.5, p.y - 7.0 + bob, sx - 0.5, sy);
     drawCocolintShield(ctx, sx, sy, p.isBlocking ? 0.95 : 0.78, true);
   }
 }
