@@ -65,6 +65,7 @@ Checkpoint: the working tree is committed before you start. If it is not, ask.
 - **Display Resolution**: The HTML5 Canvas renders at `1280x1024` (`8x` scale factor). Toggle `G` switches seamlessly between Studio Ghibli HD (`*_bg.png`) and Original Pixel-Art (`*_bg_pixel.png`).
 - **Dual-Pass Room Architecture**: Every room defines both `bgPixel` (reconstructed from `_ref_repo/Data/Maps/*.map`) and `bgGhibli` (painted `1280x1024` illustration matching the exact collision geometry), plus optional `fgPixel` / `fgGhibli` for roof/treetop occlusion.
 - **Sprite Aspect Ratios**: Never squash sprites into `16x16` squares. Always preserve true aspect ratios via `renderW` and `renderH` in `src/data/animations.ts`.
+- **Visual Affordance & Path Fidelity**: Every Ghibli painted background MUST strictly match the walkable openings and impassable barriers of the underlying Game Boy pixel-art and colliders (`*_manifest.json`). Never paint paths, openings, stairs, or clearings that cross room boundaries where a collider blocks movement (e.g. tree walls, cliff ledges, fences, water). Blocked edges must always be clearly depicted with solid physical barriers (dense tree foliage, cliff walls, water) so players never hit invisible walls on visual paths.
 
 ## Security invariants
 

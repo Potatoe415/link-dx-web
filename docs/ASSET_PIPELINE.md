@@ -20,7 +20,7 @@ Toutes les cartes originales du jeu se trouvent dans `_ref_repo/Data/Maps/` :
 2. **Directive de style (Prompt / Image Generator) :**
    - *Style :* Illustration peinte à la main à la gouache / aquarelle dans le style des décors de **Studio Ghibli (Kazuo Oga — Mon Voisin Totoro, Kiki la Petite Sorcière)**.
    - *Perspective :* Vue **strictement de dessus aux trois-quarts (2D RPG top-down)** fidèle au jeu *Link's Awakening*. Ne jamais basculer en perspective isométrique 45° en losange.
-   - *Fidélité géométrique :* Chaque mur, porte, meuble, barrière, arbre et chemin doit conserver **exactement** sa boîte englobante en coordonnées `1280x1024` pour correspondre à la grille de collision `160x128`.
+   - *Fidélité géométrique & Affordance visuelle des chemins :* Chaque mur, porte, meuble, barrière, arbre et chemin doit conserver **exactement** sa boîte englobante en coordonnées `1280x1024` pour correspondre à la grille de collision `160x128`. Inspecter systématiquement les 4 bordures (Nord, Sud, Est, Ouest) dans `*_manifest.json` : si une bordure est bloquée par des colliders (rangée d'arbres, falaise, eau, clôture), le décor peint **DOIT OBLIGATOIREMENT** peindre une barrière physique infranchissable continue. Ne JAMAIS peindre de chemin, de clairière ou d'échappée vers un bord bloqué, sous peine de créer un "mur invisible" frustrant pour le joueur.
    - *Exclusion :* Aucun personnage (ni Link, ni PNJ, ni ennemis) ne doit être peint dans le décor de fond.
 3. **Vérification sur grille :**
    - Superposer une grille `160x128` (tous les `10` ou `16` pixels logiques) sur l'image `1280x1024` générée pour relever au pixel près les boîtes `colliders` et `warpTriggers` dans `src/data/rooms/<region>.ts`.
