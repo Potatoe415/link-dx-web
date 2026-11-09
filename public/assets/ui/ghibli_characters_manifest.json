@@ -1,0 +1,290 @@
+{
+  "link_guard": {
+    "label": "Link (Posture de Garde & Bouclier)",
+    "path": "/assets/ui/ghibli_characters/link_guard.png",
+    "cell": {
+      "row": 0,
+      "col": 0
+    },
+    "sheet_coords": {
+      "x": 105,
+      "y": 65,
+      "w": 372,
+      "h": 400
+    },
+    "crop_size": {
+      "w": 372,
+      "h": 400
+    }
+  },
+  "link_item_get": {
+    "label": "Link (Pose Victoire Item Get)",
+    "path": "/assets/ui/ghibli_characters/link_item_get.png",
+    "cell": {
+      "row": 0,
+      "col": 1
+    },
+    "sheet_coords": {
+      "x": 639,
+      "y": 23,
+      "w": 282,
+      "h": 472
+    },
+    "crop_size": {
+      "w": 282,
+      "h": 472
+    }
+  },
+  "marin": {
+    "label": "Marine (Village des Mouettes)",
+    "path": "/assets/ui/ghibli_characters/marin.png",
+    "cell": {
+      "row": 0,
+      "col": 2
+    },
+    "sheet_coords": {
+      "x": 1184,
+      "y": 46,
+      "w": 211,
+      "h": 437
+    },
+    "crop_size": {
+      "w": 211,
+      "h": 437
+    }
+  },
+  "tarin": {
+    "label": "Tarkin (Père de Marine)",
+    "path": "/assets/ui/ghibli_characters/tarin.png",
+    "cell": {
+      "row": 0,
+      "col": 3
+    },
+    "sheet_coords": {
+      "x": 1637,
+      "y": 56,
+      "w": 308,
+      "h": 412
+    },
+    "crop_size": {
+      "w": 308,
+      "h": 412
+    }
+  },
+  "owl": {
+    "label": "Le Grand Hibou Sage",
+    "path": "/assets/ui/ghibli_characters/owl.png",
+    "cell": {
+      "row": 1,
+      "col": 0
+    },
+    "sheet_coords": {
+      "x": 116,
+      "y": 563,
+      "w": 253,
+      "h": 396
+    },
+    "crop_size": {
+      "w": 253,
+      "h": 396
+    }
+  },
+  "raccoon_tarin": {
+    "label": "Tarin Raton-Laveur (Forêt)",
+    "path": "/assets/ui/ghibli_characters/raccoon_tarin.png",
+    "cell": {
+      "row": 1,
+      "col": 1
+    },
+    "sheet_coords": {
+      "x": 664,
+      "y": 592,
+      "w": 326,
+      "h": 359
+    },
+    "crop_size": {
+      "w": 326,
+      "h": 359
+    }
+  },
+  "witch_syrup": {
+    "label": "Sorcière Syrup (Chaudron)",
+    "path": "/assets/ui/ghibli_characters/witch_syrup.png",
+    "cell": {
+      "row": 1,
+      "col": 2
+    },
+    "sheet_coords": {
+      "x": 1117,
+      "y": 529,
+      "w": 335,
+      "h": 481
+    },
+    "crop_size": {
+      "w": 335,
+      "h": 481
+    }
+  },
+  "ulrira": {
+    "label": "Pépé le Ramollo (Téléphone)",
+    "path": "/assets/ui/ghibli_characters/ulrira.png",
+    "cell": {
+      "row": 1,
+      "col": 3
+    },
+    "sheet_coords": {
+      "x": 1683,
+      "y": 562,
+      "w": 223,
+      "h": 421
+    },
+    "crop_size": {
+      "w": 223,
+      "h": 421
+    }
+  },
+  "grandma_ulrira": {
+    "label": "Mamie Youpi (Balai)",
+    "path": "/assets/ui/ghibli_characters/grandma_ulrira.png",
+    "cell": {
+      "row": 2,
+      "col": 0
+    },
+    "sheet_coords": {
+      "x": 128,
+      "y": 1053,
+      "w": 296,
+      "h": 440
+    },
+    "crop_size": {
+      "w": 296,
+      "h": 440
+    }
+  },
+  "madam_meowmeow": {
+    "label": "Mme Miaou (Dame Coquette)",
+    "path": "/assets/ui/ghibli_characters/madam_meowmeow.png",
+    "cell": {
+      "row": 2,
+      "col": 1
+    },
+    "sheet_coords": {
+      "x": 576,
+      "y": 1036,
+      "w": 365,
+      "h": 465
+    },
+    "crop_size": {
+      "w": 365,
+      "h": 465
+    }
+  },
+  "bowwow": {
+    "label": "Toutou (Chain Chomp & Piquet)",
+    "path": "/assets/ui/ghibli_characters/bowwow.png",
+    "cell": {
+      "row": 2,
+      "col": 2
+    },
+    "sheet_coords": {
+      "x": 1127,
+      "y": 1155,
+      "w": 316,
+      "h": 268
+    },
+    "crop_size": {
+      "w": 316,
+      "h": 268
+    }
+  },
+  "baby_bowwow": {
+    "label": "Petit Toutou (Chomp & Ruban)",
+    "path": "/assets/ui/ghibli_characters/baby_bowwow.png",
+    "cell": {
+      "row": 2,
+      "col": 3
+    },
+    "sheet_coords": {
+      "x": 1685,
+      "y": 1168,
+      "w": 206,
+      "h": 227
+    },
+    "crop_size": {
+      "w": 206,
+      "h": 227
+    }
+  },
+  "shopkeeper": {
+    "label": "Le Marchand du Bazar",
+    "path": "/assets/ui/ghibli_characters/shopkeeper.png",
+    "cell": {
+      "row": 3,
+      "col": 0
+    },
+    "sheet_coords": {
+      "x": 127,
+      "y": 1566,
+      "w": 326,
+      "h": 430
+    },
+    "crop_size": {
+      "w": 326,
+      "h": 430
+    }
+  },
+  "trendy_owner": {
+    "label": "Le Gérant du Jeu de Hasard",
+    "path": "/assets/ui/ghibli_characters/trendy_owner.png",
+    "cell": {
+      "row": 3,
+      "col": 1
+    },
+    "sheet_coords": {
+      "x": 661,
+      "y": 1553,
+      "w": 302,
+      "h": 463
+    },
+    "crop_size": {
+      "w": 302,
+      "h": 463
+    }
+  },
+  "fisherman": {
+    "label": "Le Pêcheur du Village",
+    "path": "/assets/ui/ghibli_characters/fisherman.png",
+    "cell": {
+      "row": 3,
+      "col": 2
+    },
+    "sheet_coords": {
+      "x": 1103,
+      "y": 1545,
+      "w": 424,
+      "h": 470
+    },
+    "crop_size": {
+      "w": 424,
+      "h": 470
+    }
+  },
+  "village_kids": {
+    "label": "Les Gamins Jouant au Ballon",
+    "path": "/assets/ui/ghibli_characters/village_kids.png",
+    "cell": {
+      "row": 3,
+      "col": 3
+    },
+    "sheet_coords": {
+      "x": 1591,
+      "y": 1612,
+      "w": 378,
+      "h": 363
+    },
+    "crop_size": {
+      "w": 378,
+      "h": 363
+    }
+  }
+}

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Studio Ghibli Characters Preview (16 PNJ)</title>
+<style>
+  body {
+    background: #14161f;
+    color: #e0e4f0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    padding: 28px;
+    margin: 0;
+  }
+  h1 { color: #7fe09f; margin-bottom: 6px; }
+  p { color: #94a3b8; margin-top: 0; }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    max-width: 1200px;
+    margin-top: 24px;
+  }
+  .card {
+    background: #1e2230;
+    border-radius: 10px;
+    padding: 14px;
+    border: 1px solid #2e364f;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .preview-box {
+    width: 220px;
+    height: 220px;
+    background-image: 
+      linear-gradient(45deg, #262b3d 25%, transparent 25%), 
+      linear-gradient(-45deg, #262b3d 25%, transparent 25%), 
+      linear-gradient(45deg, transparent 75%, #262b3d 75%), 
+      linear-gradient(-45deg, transparent 75%, #262b3d 75%);
+    background-size: 20px 20px;
+    background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+    background-color: #191c28;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .preview-box img {
+    max-width: 200px;
+    max-height: 200px;
+    object-fit: contain;
+    filter: drop-shadow(0 6px 12px rgba(0,0,0,0.5));
+  }
+  .label {
+    margin-top: 12px;
+    font-weight: 600;
+    font-size: 14px;
+    color: #ffffff;
+    text-align: center;
+  }
+  .meta {
+    font-size: 11px;
+    color: #64748b;
+    font-family: monospace;
+    margin-top: 4px;
+  }
+</style>
+</head>
+<body>
+  <h1>Studio Ghibli Characters & Sprites (16 Personnages Extraits)</h1>
+  <p>Source : Gemini 2048x2048 &bull; Village des Mouettes, Plage & Forêt &bull; Détourage sans altération des tuniques vertes</p>
+  <div class="grid">
+    <div class="card">
+      <div class="preview-box">
+        <img src="/assets/ui/ghibli_characters/link_guard.png" alt="Link (Posture de Garde & Bouclier)">
+      </div>
+      <div class="label">Link (Posture de Garde & Bouclier)</div>
+      <div class="meta">link_guard.png &bull; 372x400px</div>
+    </div>
+    <div class="card">
+      <div class="preview-box">
+        <img src="/assets/ui/ghibli_characters/link_item_get.png" alt="Link (Pose Victoire Item Get)">
+      </div>
+      <div class="label">Link (Pose Victoire Item Get)</div>
+      <div class="meta">link_item_get.png &bull; 282x472px</div>
+    </div>
+    <div class="card">
+      <div class="preview-box">
+        <img src="/assets/ui/ghibli_characters/marin.png" alt="Marine (Village des Mouettes)">
+      </div>
+      <div class="label">Marine (Village des Mouettes)</div>
+      <div class="meta">marin.png &bull; 211x437px</div>
+    </div>
+    <div class="card">
+      <div class="preview-box">
+        <img src="/assets/ui/ghibli_characters/tarin.png" alt="Tarkin (Père de Marine)">
+      </div>
+      <div class="label">Tarkin (Père de Marine)</div>
+      <div class="meta">tarin.png &bull; 308x412px</div>
+    </div>
+    <div class="card">
+      <div class="preview-box">
+        <img src="/assets/ui/ghibli_characters/owl.png" alt="Le Grand Hibou Sage">
+      </div>
+      <div class="label">Le Grand Hibou Sage</div>
+      <div class="meta">owl.png &bull; 253x396px</div>
+    </div>
+    <div class="card">
+      <div class="preview-box">
+        <img src="/assets/ui/ghibli_characters/raccoon_tarin.png" alt="Tarin Raton-Laveur (Forêt)">
+      </div>
+      <div class="label">Tarin Raton-Laveur (Forêt)</div>
+      <div class="meta">raccoon_tarin.png &bull; 326x359px</div>
+    </div>
+    <div class="card">
+      <div class="preview-box">
+        <img src="/assets/ui/ghibli_characters/witch_syrup.png" alt="Sorcière Syrup (Chaudron)">
+      </div>
+      <div class="label">Sorcière Syrup (Chaudron)</div>
+      <div class="meta">witch_syrup.png &bull; 335x481px</div>
+    </div>
+    <div class="card">
+      <div class="preview-box">
+        <img src="/assets/ui/ghibli_characters/ulrira.png" alt="Pépé le Ramollo (Téléphone)">
+      </div>
+      <div class="label">Pépé le Ramollo (Téléphone)</div>
+      <div class="meta">ulrira.png &bull; 223x421px</div>
+    </div>
+    <div class="card">
+      <div class="preview-box">
+        <img src="/assets/ui/ghibli_characters/grandma_ulrira.png" alt="Mamie Youpi (Balai)">
+      </div>
+      <div class="label">Mamie Youpi (Balai)</div>
+      <div class="meta">grandma_ulrira.png &bull; 296x440px</div>
+    </div>
+    <div class="card">
+      <div class="preview-box">
+        <img src="/assets/ui/ghibli_characters/madam_meowmeow.png" alt="Mme Miaou (Dame Coquette)">
+      </div>
+      <div class="label">Mme Miaou (Dame Coquette)</div>
+      <div class="meta">madam_meowmeow.png &bull; 365x465px</div>
+    </div>
+    <div class="card">
+      <div class="preview-box">
+        <img src="/assets/ui/ghibli_characters/bowwow.png" alt="Toutou (Chain Chomp & Piquet)">
+      </div>
+      <div class="label">Toutou (Chain Chomp & Piquet)</div>
+      <div class="meta">bowwow.png &bull; 316x268px</div>
+    </div>
+    <div class="card">
+      <div class="preview-box">
+        <img src="/assets/ui/ghibli_characters/baby_bowwow.png" alt="Petit Toutou (Chomp & Ruban)">
+      </div>
+      <div class="label">Petit Toutou (Chomp & Ruban)</div>
+      <div class="meta">baby_bowwow.png &bull; 206x227px</div>
+    </div>
+    <div class="card">
+      <div class="preview-box">
+        <img src="/assets/ui/ghibli_characters/shopkeeper.png" alt="Le Marchand du Bazar">
+      </div>
+      <div class="label">Le Marchand du Bazar</div>
+      <div class="meta">shopkeeper.png &bull; 326x430px</div>
+    </div>
+    <div class="card">
+      <div class="preview-box">
+        <img src="/assets/ui/ghibli_characters/trendy_owner.png" alt="Le Gérant du Jeu de Hasard">
+      </div>
+      <div class="label">Le Gérant du Jeu de Hasard</div>
+      <div class="meta">trendy_owner.png &bull; 302x463px</div>
+    </div>
+    <div class="card">
+      <div class="preview-box">
+        <img src="/assets/ui/ghibli_characters/fisherman.png" alt="Le Pêcheur du Village">
+      </div>
+      <div class="label">Le Pêcheur du Village</div>
+      <div class="meta">fisherman.png &bull; 424x470px</div>
+    </div>
+    <div class="card">
+      <div class="preview-box">
+        <img src="/assets/ui/ghibli_characters/village_kids.png" alt="Les Gamins Jouant au Ballon">
+      </div>
+      <div class="label">Les Gamins Jouant au Ballon</div>
+      <div class="meta">village_kids.png &bull; 378x363px</div>
+    </div>
+  </div>
+</body>
+</html>

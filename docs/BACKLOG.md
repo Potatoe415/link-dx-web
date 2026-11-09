@@ -34,8 +34,9 @@ Current work queue. Synced with `docs/decisions/0006-scope-lock-act1-outdoor-san
 
 ### D. Sprites, Animations & Polish Visuel
 - [x] Planche 16 Objets & Props Studio Ghibli HD (Village, Plage, Forêt) intégrée en dual-pass (`G`).
+- [x] Planche 16 Personnages & Sprites Studio Ghibli HD (Village, Plage, Forêt) : détourage avec préservation des tuniques vertes, découpe en 16 PNGs individuels (`public/assets/ui/ghibli_characters/`), feuille unifiée `characters_ghibli.png` et manifeste.
+- [x] **Sprite pour le bras de Link tenant le bouclier** : posture de garde avec bras relié (`link_guard.png`) et pose victoire (`link_item_get.png`).
 - [ ] **Animation des tentacules / pattes des pieuvres (Octoroks)** : frames de marche 4 directions.
-- [ ] **Sprite pour le bras de Link tenant le bouclier** : bras reliant le corps au bouclier en posture de garde et marche.
 
 ### E. Tests, Collisions & Affordance
 - [ ] Vérification systématique via `scripts/verify_bg_alignment.py` pour chaque décor (zéro faux chemin, murs végétaux hermétiques).
