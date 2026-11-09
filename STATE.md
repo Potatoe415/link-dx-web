@@ -2,23 +2,24 @@
 
 Replace on every update. Max 40 lines. History lives in git and `docs/decisions/`.
 
-Status: 16-item Studio Ghibli props sheet extracted, despilled, and wired to engine dual-pass rendering.
-Focus: Tail Cave dungeon entrance & map progression.
+Status: Scope locked to Act 1 Outdoor Sandbox (Village + Plage + Forêt ext.). Donjon 1 et grottes gelés.
+Focus: Finition 100% graphismes, décors Ghibli, tests et affordances sur Village, Plage, Forêt ext.
 Level: L1
 
 Context:
-- Working_On: `public/assets/ui/ghibli_props/`, `src/entities/`, `src/main.ts`
-- Relevant_Files: `Bushes.ts`, `Interactables.ts`, `MoveStone.ts`, `EnemyManager.ts`, `main.ts`
+- Working_On: `docs/BACKLOG.md`, `docs/decisions/0006-scope-lock-act1-outdoor-sandbox.md`, `docs/MASTER_PLAN.md`
+- Relevant_Files: `BACKLOG.md`, `MASTER_PLAN.md`, `0006-scope-lock-act1-outdoor-sandbox.md`
 - Do_Not_Touch: `_ref_repo/`, `docs/la_dx_knowledge_base/`
-- Relevant_Decisions: 0002, 0003, 0004, 0005
+- Relevant_Decisions: 0002, 0003, 0004, 0005, 0006
 
 Next:
-- `[T-2.5.1-*]` Tail Cave exterior entrance (`ow_r13_c03`) & extraction from `_ref_repo/Data/Maps/dungeon1.map`.
-- Octopus tentacles animation & Link shield-arm sprite in backlog.
-- Audio SFX & music enhancements.
+- Décors Ghibli Village extérieurs restants (`ow_r11_c01` Bibliothèque avec chemin fidèle, `ow_r08_c01..c03`).
+- Décors Ghibli Forêt extérieure (`ow_r05_c00` Champignon, `ow_r05_c01` Tarin, `ow_r04_c01` Clé).
+- Sprites : tentacules Octorok & bras de garde Link.
+- Validation des tests de quêtes et affordance des colliders.
 
 Open_Questions:
 - None.
 
 Blockers:
-- None.
+- Dungeons & caves frozen until explicit user confirmation.

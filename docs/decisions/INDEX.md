@@ -11,6 +11,7 @@ Template: `docs/_templates/DECISION.md`.
 | 0003 | 2026-11-06 | Single GameState with validated localStorage autosave | Accepted |
 | 0004 | 2026-11-06 | Generated region modules + neighbor-based screen scrolling | Accepted |
 | 0005 | 2026-11-06 | Data-driven enemies + ported damage model | Accepted |
+| 0006 | 2026-11-09 | Scope lock on Act 1 Outdoor Sandbox (Village, Plage, Forêt ext.) | Accepted |
 
 ## When to log a decision
 Any of:

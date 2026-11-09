@@ -148,16 +148,24 @@
 ---
 
 ## 2.4 — Chapitre 1.4 : La Forêt Enchantée, la Sorcière & la Clé Flagello (`FLAG_TAIL_KEY_OBTAINED`)
+*(Note de scope : exploration extérieure uniquement ; les grottes souterraines restent hors scope pour cette étape).*
 ### 2.4.1 — Écrans de la Forêt Enchantée & Plaine Koholint (`ow_r04_c00` à `ow_r07_c05`)
 - [x] **[T-2.4.1-01]** `TASK_ROOM_EXTRACT` sur les écrans de la Forêt Enchantée (`ow_r04_c00..c03`, `ow_r05_c00..c03`, `ow_r06_c00..c03`, `ow_r07_c00..c03`) + grotte du tronc creux (`forest_cave.map`) + Plaine Koholint & Cabane de la Sorcière (`ow_r05_c04`, `ow_r06_c04`, `witch_hut.map`). Fait : région `mysterious_forest` (+ `ow_r08_c00`, `ow_r06_c05` où se trouve réellement la cabane, intérieur `shop3.map` → `witch_hut`, grotte `cave1.map` → `forest_cave_r0_c0/r0_c1/r1_c1`). Coffre de la Clé Flagello (`dkey1`) et quart de cœur de la grotte câblés ; ennemis `e5`/`e15`/`e17`/`moblinSword` listés « not ported » pour `[T-2.4.1-02]`.
 - [x] **[T-2.4.1-02]** `TASK_ENTITY_PORT` : Porter `EnemyMoblin.cs` (Moblins à lance et à épée/bouclier), `EnemyMiniMoldorm.cs` et `EnemyKeese.cs` (chauves-souris de la grotte) + rochers poussables (`ObjMoveStone.cs`). Fait : Moblin à lance (`e5`, lance `EnemySpear`), Moblin à épée (`moblinSword`, lame qui blesse et pare), Zol rouge (`e15`, se divise en 2 Gels qui collent à Link), Zol vert (`e9`, grotte), Keese (`e10`), Buzz Blob (`e17`, électrocute Link quand on le frappe à l'épée), murs `enemyWall` réservés aux ennemis et rochers poussables `moveStone*`. Le Mini-Moldorm (`e12`) n'est placé que sur `ow_r00_c00`, `ow_r00_c04`, `ow_r00_c05`, `ow_r01_c04` (Monts Tal Tal / Montagne) : reporté à ces écrans.
-- [ ] **[T-2.4.1-03]** `TASK_ROOM_GHIBLI` sur les écrans de la Forêt Enchantée (avec brume légère et arbres géants Ghibli) et la Cabane de la Sorcière.
+- [ ] **[T-2.4.1-03]** `TASK_ROOM_GHIBLI` sur les écrans extérieurs de la Forêt Enchantée (arbres géants Ghibli, clairières, hutte de la sorcière).
 
 ### 2.4.2 — Quête du Champignon, Poudre Magique, Raton-Laveur & Clé Flagello
-- [x] **[T-2.4.2-01]** `TASK_ENTITY_PORT(sleepy_toadstool)` : Ramassage du **Champignon** (`toadstool`) au sortir de la grotte de la forêt (`ow_r05_c00`).
+- [x] **[T-2.4.2-01]** `TASK_ENTITY_PORT(sleepy_toadstool)` : Ramassage du **Champignon** (`toadstool`) au sortir de la forêt (`ow_r05_c00`).
 - [x] **[T-2.4.2-02]** `TASK_QUEST_WIRE(witch_magic_powder)` : Remettre le Champignon à la Sorcière Syrup (`witch_hut`) -> animation de brassage du chaudron -> obtention de la **Poudre Magique** (`powder`) équipable.
 - [x] **[T-2.4.2-03]** `TASK_ENTITY_PORT(raccoon_tarin)` : Porter `ObjRaccoon.cs` sur `ow_r05_c01` (le raton-laveur farceur qui téléporte Link dans une boucle tant qu'on monte sans lui jeter de Poudre Magique).
 - [x] **[T-2.4.2-04]** `TASK_QUEST_WIRE(FLAG_TAIL_KEY_OBTAINED)` : Utiliser la Poudre Magique sur le raton-laveur -> transformation en Tarkin -> accès au coffre au nord (`ow_r04_c01`) -> obtention de la **Clé Flagello** (`tail_key`) + intervention du Hibou.
+
+---
+
+> [!CAUTION]
+> **FRONTIÈRE DE SCOPE VERROUILLÉE (Décision 0006 — Acte 1 Bac à Sable Extérieur)** :
+> Le périmètre actuel s'arrête strictement avant l'entrée dans la Cave Flagello et exclut les grottes souterraines.
+> Toute tâche ci-dessous (Donjons 1 à 8, grottes souterraines, Prairie Oukoukou, etc.) est **GELÉE** jusqu'à confirmation explicite de l'utilisateur. Le focus absolu reste sur la finition à 100 % des graphismes, décors Ghibli, affordances et tests de la triade extérieure (Village des Mouettes + Plage de Toronbo + Forêt Enchantée extérieure).
 
 ---
 
