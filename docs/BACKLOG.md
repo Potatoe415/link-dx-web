@@ -21,8 +21,11 @@ Current work queue (synced with the full 3-level living checklist in `docs/MASTE
 - [ ] Enemy hole falls (`AiFallState`): Moblins / Gels walking into `hole` zones; enemies currently treat holes as floor.
 - [ ] Village mini-systems: shop purchasing flow, Trendy Game crane physics, side-view fishing pond (`pond.map`), stairs/cave doors (`cave_rooster`, `cave0`, `dreamShrine01`).
 
-## Blocked (Until 22:44 UTC / 23:44 CET Quota Reset)
-- [ ] Studio Ghibli image generation API calls (`gemini-3.1-flash-image` HTTP 429 quota window resets at 22:44 UTC):
-  - Toronbo Shores corridor: `ow_r12_c02` (done), `ow_r13_c02` (prompt ready), `ow_r14_c02`, `ow_r15_c02`.
-  - Mysterious Forest: `ow_r05_c00`, `ow_r05_c01`, `ow_r04_c01`, `witch_hut`.
-  *(Note: Dual-pass engine runs seamlessly on pixel-art backgrounds `*_bg_pixel.png` in the meantime).*
+## Assets & Sprites Backlog
+- [ ] **Animation des tentacules / pattes des pieuvres (Octoroks)** : dessiner plusieurs frames pour animer la marche et l'ondulation des tentacules de l'Octorok lors de ses déplacements en 4 directions.
+- [ ] **Sprite pour le bras de Link tenant le bouclier** : ajouter un calque/sprite de bras reliant explicitement le corps de Link au bouclier (en posture de garde et pendant la marche) pour éviter l'effet de flottement du bouclier à côté du corps.
+
+## Pipeline & Backgrounds Ghibli
+- [ ] Intégration systématique du `scripts/generate_prompt_spec.py` et validation `scripts/verify_bg_alignment.py` pour chaque nouveau décor extérieur.
+- [ ] Toronbo Shores corridor : `ow_r12_c02` (fait), `ow_r13_c02` (fait), `ow_r14_c02` (fait), `ow_r15_c02` (en cours de régénération stricte).
+- [ ] Forêt Enchantée : `ow_r05_c00`, `ow_r05_c01`, `ow_r04_c01`, `witch_hut`.
