@@ -62,6 +62,8 @@ export interface StatsSnapshot {
   ghibli: boolean;
   colliders: boolean;
   fps: number;
+  godMode: boolean;
+  gameSpeed: number;
 }
 
 const setText = (id: string, text: string, className?: string) => {
@@ -71,7 +73,7 @@ const setText = (id: string, text: string, className?: string) => {
   if (className !== undefined) el.className = className;
 };
 
-/** Refreshes the HTML debug dashboard under the canvas. */
+/** Refreshes the HTML debug dashboard and left sidebar. */
 export function updateStatsUI(s: StatsSnapshot): void {
   setText('stat-room', s.roomName);
   setText('stat-state', s.playerState);
@@ -97,4 +99,26 @@ export function updateStatsUI(s: StatsSnapshot): void {
     s.colliders ? 'text-rose-400 font-bold' : 'text-slate-400'
   );
   setText('stat-fps', `${s.fps} FPS`);
+
+  // God Mode button text & active status in sidebar
+  const godBtn = document.getElementById('btn-toggle-god');
+  if (godBtn) {
+    godBtn.innerHTML = s.godMode
+      ? `<span>🛡️ Mode God : <strong class="text-emerald-400">ON (Traversée)</strong></span>`
+      : `<span>🛡️ Mode God : <span class="text-slate-400">OFF</span></span>`;
+    if (s.godMode) godBtn.classList.add('active-god');
+    else godBtn.classList.remove('active-god');
+  }
+
+  // Speed buttons active styling (x1, x2, x4)
+  for (const spd of [1, 2, 4]) {
+    const spdBtn = document.getElementById(`btn-speed-${spd}`);
+    if (spdBtn) {
+      if (s.gameSpeed === spd) {
+        spdBtn.classList.add('active-speed');
+      } else {
+        spdBtn.classList.remove('active-speed');
+      }
+    }
+  }
 }

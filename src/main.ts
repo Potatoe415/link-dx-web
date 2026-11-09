@@ -53,6 +53,8 @@ export class GameEngine {
   // Render mode: true = Pre-rendered Ghibli HD, false = Original Pixel-Art Whitebox
   public useGhibliMode = true;
   public showColliders = false;
+  public godMode = false;
+  public gameSpeed: 1 | 2 | 4 = 4; // default x4 speed for rapid testing
 
   // Fixed timestep loop (60 FPS: 16.666 ms per tick)
   private readonly fixedStepMs = 1000 / 60;
@@ -154,7 +156,7 @@ export class GameEngine {
   private gameLoop(currentTime: number): void {
     const elapsed = currentTime - this.lastTime;
     this.lastTime = currentTime;
-    this.accumulatorMs += Math.min(elapsed, 250); // Cap excessive delta time (e.g. tab switched away)
+    this.accumulatorMs += Math.min(elapsed * this.gameSpeed, 250 * this.gameSpeed);
 
     while (this.accumulatorMs >= this.fixedStepMs) {
       this.update(this.fixedStepMs);
@@ -179,6 +181,10 @@ export class GameEngine {
     if (this.input.wasJustPressed('KeyG')) this.toggleGhibli();
     if (this.input.wasJustPressed('KeyC')) this.toggleColliders();
     if (this.input.wasJustPressed('KeyM')) this.toggleMute();
+    if (this.input.wasJustPressed('KeyH')) this.toggleGodMode();
+    if (this.input.wasJustPressed('Digit1')) this.setGameSpeed(1);
+    if (this.input.wasJustPressed('Digit2')) this.setGameSpeed(2);
+    if (this.input.wasJustPressed('Digit4')) this.setGameSpeed(4);
 
     this.sound.update(dtMs);
     this.camera.update(dtMs);
@@ -266,21 +272,22 @@ export class GameEngine {
     if (this.input.wasInteractJustPressed() && this.tryAction()) return;
 
     const ground = [...(this.currentRoom.groundZones ?? []), ...this.bushes.grassZones()];
-    // Sea urchins block Link but not the other enemies' movement checks
-    const playerColliders = [...allColliders, ...this.enemies.solidColliders()];
-    this.player.slowedByGel = this.enemies.linkGrabbed;
+    // In God Mode, Link passes through solid enemies and cannot be slowed
+    const playerColliders = this.godMode ? allColliders : [...allColliders, ...this.enemies.solidColliders()];
+    this.player.slowedByGel = this.godMode ? false : this.enemies.linkGrabbed;
     this.player.update(dtMs, this.input, playerColliders, this.sound, ground, this.currentRoom);
     this.updateStonePush(dtMs);
     const swordHit = this.player.sword.hit(this.player.x, this.player.y);
     if (swordHit) {
       const { repel } = this.enemies.hitArea(swordHit.area, swordHit.damage, this.player.x, this.player.y);
-      if (repel) this.player.repel(repel[0], repel[1]);
+      if (repel && !this.godMode) this.player.repel(repel[0], repel[1]);
       for (const d of this.bushes.cut(swordHit.area).drops) this.enemies.addPickup(d.kind, d.x, d.y);
     }
     this.bushes.update(dtMs);
     this.npcs.update(dtMs, this.player, [...this.currentRoom.colliders, ...this.interactables.colliders(), ...this.bushes.colliders()]);
-    this.enemies.update(dtMs, allColliders, this.player, ground, this.currentRoom.enemyWalls);
-    this.applyShock(dtMs);
+    this.enemies.update(dtMs, allColliders, this.player, ground, this.currentRoom.enemyWalls, this.godMode);
+    if (!this.godMode) this.applyShock(dtMs);
+    else if (this.game.healthQuarters <= 0) this.game.healthQuarters = this.game.maxHearts * 4;
     const picked = this.interactables.checkPickups(this.player);
     if (picked?.item === 'sword') {
       this.giveSword();
@@ -321,7 +328,9 @@ export class GameEngine {
     const walking = this.player.state === 'WALKING' && this.input.getMovement().isMoving && !this.player.isBlocking;
     const feet = Collision.getPlayerCollisionBox(this.player.x, this.player.y);
     const walls = [...this.currentRoom.colliders, ...this.interactables.colliders(), ...this.bushes.colliders(), ...this.npcs.colliders()];
-    for (const e of this.enemies.enemies) walls.push(e.bodyBox);
+    if (!this.godMode) {
+      for (const e of this.enemies.enemies) walls.push(e.bodyBox);
+    }
     this.stones.update(dtMs, feet, walking ? this.player.direction : -1, walls);
   }
 
@@ -533,6 +542,20 @@ export class GameEngine {
     this.refreshStats();
   }
 
+  public toggleGodMode(): boolean {
+    this.godMode = !this.godMode;
+    if (this.godMode) {
+      this.game.healthQuarters = this.game.maxHearts * 4;
+    }
+    this.refreshStats();
+    return this.godMode;
+  }
+
+  public setGameSpeed(speed: 1 | 2 | 4): void {
+    this.gameSpeed = speed;
+    this.refreshStats();
+  }
+
   /** Debug: wipe the save and restart a new game in Marin's bed. */
   public resetSave(): void {
     this.game.reset();
@@ -560,7 +583,9 @@ export class GameEngine {
       y: this.player.y,
       ghibli: this.useGhibliMode,
       colliders: this.showColliders,
-      fps: this.fps
+      fps: this.fps,
+      godMode: this.godMode,
+      gameSpeed: this.gameSpeed
     });
   }
 }
@@ -580,6 +605,17 @@ window.addEventListener('DOMContentLoaded', async () => {
   document.getElementById('btn-toggle-mode')?.addEventListener('click', () => engine.toggleGhibli());
   document.getElementById('btn-toggle-coll')?.addEventListener('click', () => engine.toggleColliders());
   document.getElementById('btn-toggle-audio')?.addEventListener('click', () => engine.toggleMute());
+  document.getElementById('btn-toggle-god')?.addEventListener('click', () => engine.toggleGodMode());
+  document.getElementById('btn-speed-1')?.addEventListener('click', () => engine.setGameSpeed(1));
+  document.getElementById('btn-speed-2')?.addEventListener('click', () => engine.setGameSpeed(2));
+  document.getElementById('btn-speed-4')?.addEventListener('click', () => engine.setGameSpeed(4));
+
+  const sidebar = document.getElementById('sidebar');
+  const toggleSidebar = () => {
+    sidebar?.classList.toggle('collapsed');
+  };
+  document.getElementById('btn-toggle-sidebar')?.addEventListener('click', toggleSidebar);
+  document.getElementById('btn-floating-open')?.addEventListener('click', toggleSidebar);
   document.getElementById('btn-copy-debug')?.addEventListener('click', async () => {
     const btn = document.getElementById('btn-copy-debug');
     if (!btn) return;

@@ -78,7 +78,7 @@ export class EnemyManager {
    * Returns true when Link just took damage. `enemyWalls` (NPCWall colliders) only block enemies;
    * projectiles fly over them.
    */
-  public update(dtMs: number, colliders: Rect[], player: Player, zones?: GroundZone[], enemyWalls: Rect[] = []): boolean {
+  public update(dtMs: number, colliders: Rect[], player: Player, zones?: GroundZone[], enemyWalls: Rect[] = [], godMode: boolean = false): boolean {
     const world: EnemyWorld = {
       isWater: (x, y) => {
         const g = groundAt(zones, x, y);
@@ -89,47 +89,49 @@ export class EnemyManager {
     const spawned: Enemy[] = [];
     for (const e of this.enemies) {
       e.update(dtMs, enemyColliders, player.x, player.y, world);
-      for (const ev of e.events.splice(0)) this.handleEvent(ev, colliders, spawned);
+      for (const ev of e.events.splice(0)) this.handleEvent(ev, colliders, spawned, godMode);
     }
 
     for (const e of this.enemies) {
       if (e.dead && !e.lootless) this.dropLoot(e);
     }
     this.enemies = [...this.enemies.filter((e) => !e.dead), ...spawned];
-    this.linkGrabbed = this.enemies.some((e) => e instanceof Gel && e.holdsLink);
+    this.linkGrabbed = godMode ? false : this.enemies.some((e) => e instanceof Gel && e.holdsLink);
 
     let hurt = false;
     const feet = Collision.getPlayerCollisionBox(player.x, player.y);
     this.pushSfxTimer = Math.max(0, this.pushSfxTimer - dtMs);
-    for (const e of this.enemies) {
-      if (!e.isHarmful || !e.damageBoxes().some((b) => Collision.intersects(feet, b))) continue;
-      // EnemySeaUrchin.OnPush: the raised shield facing the urchin pushes it instead of getting hurt
-      if (e.isSolid && player.isBlocking && directionOf(e.x - player.x, e.y - player.y) === player.direction) {
-        const [dx, dy] = DIR_VEC[player.direction];
-        if (e.push(dx * e.config.speed, dy * e.config.speed, colliders) && this.pushSfxTimer <= 0) {
-          this.sound.playSfx('urchin_push', 0.5);
-          this.pushSfxTimer = URCHIN_PUSH_SFX_MS;
+    if (!godMode) {
+      for (const e of this.enemies) {
+        if (!e.isHarmful || !e.damageBoxes().some((b) => Collision.intersects(feet, b))) continue;
+        // EnemySeaUrchin.OnPush: the raised shield facing the urchin pushes it instead of getting hurt
+        if (e.isSolid && player.isBlocking && directionOf(e.x - player.x, e.y - player.y) === player.direction) {
+          const [dx, dy] = DIR_VEC[player.direction];
+          if (e.push(dx * e.config.speed, dy * e.config.speed, colliders) && this.pushSfxTimer <= 0) {
+            this.sound.playSfx('urchin_push', 0.5);
+            this.pushSfxTimer = URCHIN_PUSH_SFX_MS;
+          }
+          continue;
         }
-        continue;
+        // Knock Link away from the enemy's centre (ObjLink.HitPlayer(box) direction)
+        const result = player.takeHit(e.config.contactDamage, player.x - e.x, player.y - e.y, true);
+        if (result === 'hit') {
+          this.sound.playSfx('link_hurt', 0.75);
+          hurt = true;
+        } else if (result === 'blocked') {
+          this.sound.playSfx('shield', 0.6);
+          e.shieldBounce(e.x - player.x, e.y - player.y);
+        }
       }
-      // Knock Link away from the enemy's centre (ObjLink.HitPlayer(box) direction)
-      const result = player.takeHit(e.config.contactDamage, player.x - e.x, player.y - e.y, true);
-      if (result === 'hit') {
-        this.sound.playSfx('link_hurt', 0.75);
-        hurt = true;
-      } else if (result === 'blocked') {
-        this.sound.playSfx('shield', 0.6);
-        e.shieldBounce(e.x - player.x, e.y - player.y);
-      }
-    }
 
-    if (this.updateShots(dtMs, colliders, player)) hurt = true;
+      if (this.updateShots(dtMs, colliders, player)) hurt = true;
+    }
     this.updatePickups(dtMs, player);
-    this.updateLowHealthBeep(dtMs, player);
+    if (!godMode) this.updateLowHealthBeep(dtMs, player);
     return hurt;
   }
 
-  private handleEvent(ev: EnemyEvent, colliders: Rect[], spawned: Enemy[]): void {
+  private handleEvent(ev: EnemyEvent, colliders: Rect[], spawned: Enemy[], godMode: boolean = false): void {
     switch (ev.type) {
       case 'shot': {
         const shot = Projectile.spawn(ev.projectile, ev.x, ev.y, ev.vx, ev.vy, colliders);
@@ -147,8 +149,10 @@ export class EnemyManager {
         return;
       }
       case 'shock':
-        this.pendingShock = { ms: ev.ms, damage: ev.damage };
-        this.sound.playSfx('shock', 0.75);
+        if (!godMode) {
+          this.pendingShock = { ms: ev.ms, damage: ev.damage };
+          this.sound.playSfx('shock', 0.75);
+        }
         return;
       case 'sfx':
         this.sound.playSfx(ev.name, 0.5);

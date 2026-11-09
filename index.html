@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Zelda: Link's Awakening — Pre-rendered Background + Collision Grid</title>
+  <title>Zelda: Link's Awakening — Studio Ghibli HD</title>
   <style>
     * {
       box-sizing: border-box;
@@ -18,30 +18,265 @@
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
       min-height: 100vh;
       display: flex;
+      flex-direction: row;
+      overflow-x: hidden;
+    }
+
+    /* ==========================================================================
+       Collapsible Left Sidebar
+       ========================================================================== */
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 290px;
+      background: rgba(15, 23, 42, 0.94);
+      backdrop-filter: blur(16px);
+      border-right: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 10px 0 30px rgba(0, 0, 0, 0.6);
+      display: flex;
+      flex-direction: column;
+      padding: 1.25rem 1rem;
+      gap: 1.1rem;
+      z-index: 1000;
+      overflow-y: auto;
+      transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .sidebar.collapsed {
+      transform: translateX(-100%);
+    }
+
+    .sidebar-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding-bottom: 0.75rem;
+    }
+
+    .sidebar-title {
+      font-size: 1rem;
+      font-weight: 700;
+      background: linear-gradient(to right, #f59e0b, #fbbf24);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .sidebar-close-btn {
+      background: rgba(255, 255, 255, 0.06);
+      color: #94a3b8;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 6px;
+      padding: 0.25rem 0.5rem;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .sidebar-close-btn:hover {
+      background: rgba(255, 255, 255, 0.15);
+      color: #fff;
+    }
+
+    .sidebar-section {
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+    }
+
+    .sidebar-section-title {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #94a3b8;
+      font-weight: 600;
+      margin-bottom: 0.15rem;
+    }
+
+    /* Speed control buttons */
+    .speed-btn-group {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 0.35rem;
+      background: rgba(30, 41, 59, 0.6);
+      padding: 0.25rem;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .btn-speed {
+      background: transparent;
+      color: #94a3b8;
+      border: none;
+      padding: 0.35rem 0.5rem;
+      border-radius: 6px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-align: center;
+      transition: all 0.15s ease;
+      box-shadow: none;
+    }
+
+    .btn-speed:hover {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.08);
+      transform: none;
+      box-shadow: none;
+    }
+
+    .btn-speed.active-speed {
+      background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+      color: #ffffff;
+      box-shadow: 0 0 10px rgba(245, 158, 11, 0.4);
+    }
+
+    /* General Sidebar Buttons */
+    .sidebar-btn {
+      width: 100%;
+      background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+      color: #ffffff;
+      border: none;
+      padding: 0.5rem 0.75rem;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.4rem;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.25);
+      transition: all 0.15s ease-in-out;
+    }
+
+    .sidebar-btn:hover {
+      background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 12px -2px rgba(59, 130, 246, 0.4);
+    }
+
+    .sidebar-btn:active {
+      transform: translateY(0);
+    }
+
+    .sidebar-btn.secondary {
+      background: linear-gradient(135deg, #334155 0%, #1e293b 100%);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .sidebar-btn.secondary:hover {
+      background: linear-gradient(135deg, #475569 0%, #334155 100%);
+      box-shadow: 0 6px 12px -2px rgba(100, 116, 139, 0.3);
+    }
+
+    .sidebar-btn.danger {
+      background: linear-gradient(135deg, #991b1b 0%, #7f1d1d 100%);
+    }
+
+    .sidebar-btn.danger:hover {
+      background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+    }
+
+    .sidebar-btn.active-god {
+      background: linear-gradient(135deg, #059669 0%, #10b981 100%) !important;
+      color: #fff !important;
+      box-shadow: 0 0 15px rgba(16, 185, 129, 0.5) !important;
+    }
+
+    .sidebar-hint {
+      font-size: 0.7rem;
+      color: #64748b;
+      line-height: 1.3;
+      padding-left: 0.15rem;
+    }
+
+    .sidebar-shortcuts {
+      font-size: 0.72rem;
+      color: #94a3b8;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      background: rgba(30, 41, 59, 0.4);
+      padding: 0.6rem;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.04);
+    }
+
+    /* Floating button when sidebar is collapsed */
+    .floating-sidebar-btn {
+      position: fixed;
+      top: 1rem;
+      left: 1rem;
+      z-index: 900;
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(8px);
+      color: #f59e0b;
+      border: 1px solid rgba(245, 158, 11, 0.4);
+      border-radius: 8px;
+      padding: 0.45rem 0.85rem;
+      font-size: 0.82rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: none;
+      align-items: center;
+      gap: 0.4rem;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+      transition: all 0.15s ease;
+    }
+
+    .floating-sidebar-btn:hover {
+      background: rgba(30, 41, 59, 0.95);
+      border-color: #fbbf24;
+      transform: translateY(-1px);
+    }
+
+    .sidebar.collapsed ~ .main-content .floating-sidebar-btn {
+      display: flex;
+    }
+
+    /* ==========================================================================
+       Main Game Stage
+       ========================================================================== */
+    .main-content {
+      flex: 1;
+      display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       padding: 1rem;
-      overflow-x: hidden;
+      margin-left: 290px;
+      transition: margin-left 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+      width: calc(100% - 290px);
+    }
+
+    .sidebar.collapsed ~ .main-content {
+      margin-left: 0;
+      width: 100%;
     }
 
     header {
       text-align: center;
-      margin-bottom: 0.75rem;
+      margin-bottom: 0.6rem;
     }
 
     h1 {
-      font-size: 1.5rem;
+      font-size: 1.45rem;
       font-weight: 700;
       letter-spacing: -0.025em;
       background: linear-gradient(to right, #f59e0b, #fbbf24, #10b981);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      margin-bottom: 0.25rem;
+      margin-bottom: 0.2rem;
     }
 
     .subtitle {
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       color: #94a3b8;
     }
 
@@ -53,7 +288,7 @@
       box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.8), 0 0 30px rgba(245, 158, 11, 0.15);
       overflow: hidden;
       max-width: 90vw;
-      max-height: 75vh;
+      max-height: 72vh;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -64,7 +299,7 @@
       width: 100%;
       height: auto;
       max-width: 960px;
-      aspect-ratio: 5 / 4; /* 1280x1024 or 160x128 */
+      aspect-ratio: 5 / 4; /* 1280x1024 */
       image-rendering: auto;
     }
 
@@ -72,17 +307,17 @@
       margin-top: 0.75rem;
       display: flex;
       flex-wrap: wrap;
-      gap: 0.75rem;
+      gap: 0.6rem;
       justify-content: center;
       align-items: center;
       max-width: 960px;
       width: 100%;
       background: rgba(15, 23, 42, 0.85);
       backdrop-filter: blur(12px);
-      padding: 0.65rem 1.25rem;
+      padding: 0.6rem 1rem;
       border-radius: 10px;
       border: 1px solid rgba(255, 255, 255, 0.1);
-      font-size: 0.85rem;
+      font-size: 0.82rem;
     }
 
     .stat-badge {
@@ -90,7 +325,7 @@
       align-items: center;
       gap: 0.35rem;
       background: rgba(30, 41, 59, 0.7);
-      padding: 0.25rem 0.6rem;
+      padding: 0.22rem 0.55rem;
       border-radius: 6px;
       border: 1px solid rgba(255, 255, 255, 0.05);
     }
@@ -98,7 +333,7 @@
     .stat-label {
       color: #94a3b8;
       font-weight: 500;
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       text-transform: uppercase;
       letter-spacing: 0.05em;
     }
@@ -108,64 +343,15 @@
       font-weight: 600;
     }
 
-    .controls-panel {
-      margin-top: 0.5rem;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      justify-content: center;
-    }
-
-    button {
-      background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
-      color: #ffffff;
-      border: none;
-      padding: 0.4rem 0.85rem;
-      border-radius: 6px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 0.35rem;
-      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
-      transition: all 0.15s ease-in-out;
-    }
-
-    button:hover {
-      background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%);
-      transform: translateY(-1px);
-      box-shadow: 0 6px 12px -2px rgba(59, 130, 246, 0.4);
-    }
-
-    button:active {
-      transform: translateY(0);
-    }
-
-    button.secondary {
-      background: linear-gradient(135deg, #475569 0%, #334155 100%);
-    }
-
-    button.secondary:hover {
-      background: linear-gradient(135deg, #64748b 0%, #475569 100%);
-      box-shadow: 0 6px 12px -2px rgba(100, 116, 139, 0.3);
-    }
-
-    .keys-legend {
-      margin-top: 0.5rem;
-      font-size: 0.75rem;
-      color: #64748b;
-      text-align: center;
-    }
-
     .key-cap {
       display: inline-block;
       background: #1e293b;
       color: #cbd5e1;
       border: 1px solid #475569;
       border-radius: 4px;
-      padding: 0.1rem 0.35rem;
+      padding: 0.08rem 0.3rem;
       font-family: monospace;
+      font-size: 0.75rem;
       font-weight: 600;
       margin: 0 0.15rem;
     }
@@ -179,83 +365,132 @@
 </head>
 <body>
 
-  <header>
-    <h1>The Legend of Zelda: Link's Awakening</h1>
-    <div class="subtitle">Architecture Pre-rendered Background + Collision Grid (Vanilla TS + Canvas 2D)</div>
-  </header>
-
-  <main class="game-container">
-    <canvas id="game-canvas" width="1280" height="1024"></canvas>
-  </main>
-
-  <section class="dashboard">
-    <div class="stat-badge">
-      <span class="stat-label">Room</span>
-      <span id="stat-room" class="stat-val">Marin's House (Indoor)</span>
+  <!-- Collapsible Left Sidebar -->
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-header">
+      <div class="sidebar-title">
+        <span>🎮</span>
+        <span>Contrôles & Triche</span>
+      </div>
+      <button id="btn-toggle-sidebar" class="sidebar-close-btn" title="Réduire le panneau">◀</button>
     </div>
 
-    <div class="stat-badge">
-      <span class="stat-label">Link</span>
-      <span id="stat-state" class="stat-val">SLEEPING</span>
+    <!-- Section: Game Speed -->
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">⚡ Vitesse de Jeu</div>
+      <div class="speed-btn-group">
+        <button id="btn-speed-1" class="btn-speed">x1</button>
+        <button id="btn-speed-2" class="btn-speed">x2</button>
+        <button id="btn-speed-4" class="btn-speed active-speed">x4 (Défaut)</button>
+      </div>
+      <div class="sidebar-hint">Touches <span class="key-cap">1</span>, <span class="key-cap">2</span>, <span class="key-cap">4</span></div>
     </div>
 
-    <div class="stat-badge">
-      <span class="stat-label">Équipement</span>
-      <span id="stat-shield" class="stat-val text-slate-400">Mains nues</span>
+    <!-- Section: God Mode -->
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">🛡️ Mode Test / God</div>
+      <button id="btn-toggle-god" class="sidebar-btn secondary">
+        <span>🛡️ Mode God : <span class="text-slate-400">OFF</span></span>
+      </button>
+      <div class="sidebar-hint">Traverser les ennemis & invulnérabilité (Touche <span class="key-cap">H</span>)</div>
     </div>
 
-    <div class="stat-badge">
-      <span class="stat-label">Audio</span>
-      <span id="stat-audio" class="stat-val text-emerald-400 font-bold">🔊 GBS + SFX</span>
+    <!-- Section: Render & Display -->
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">🎨 Rendu & Affichage</div>
+      <button id="btn-toggle-mode" class="sidebar-btn">
+        <span>🎨 Basculer Rendu</span>
+        <span class="key-cap">G</span>
+      </button>
+      <button id="btn-toggle-coll" class="sidebar-btn secondary">
+        <span>📐 Colliders AABB</span>
+        <span class="key-cap">C</span>
+      </button>
+      <button id="btn-toggle-audio" class="sidebar-btn secondary">
+        <span>🔇 Son (Muet/Actif)</span>
+        <span class="key-cap">M</span>
+      </button>
     </div>
 
-    <div class="stat-badge">
-      <span class="stat-label">Pos (Native 160x128)</span>
-      <span id="stat-pos" class="stat-val">(56, 51)</span>
+    <!-- Section: Debug & Save -->
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">🔧 Débogage & Sauvegarde</div>
+      <button id="btn-copy-debug" class="sidebar-btn secondary">
+        <span>📋 Copier Infos (LLM)</span>
+      </button>
+      <button id="btn-reset-save" class="sidebar-btn secondary danger">
+        <span>🗑️ Reset Sauvegarde</span>
+      </button>
     </div>
 
-    <div class="stat-badge">
-      <span class="stat-label">Render Mode</span>
-      <span id="stat-mode" class="stat-val text-amber-400 font-bold">Studio Ghibli HD</span>
+    <!-- Section: Shortcuts Legend -->
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">⌨️ Commandes Link</div>
+      <div class="sidebar-shortcuts">
+        <div><span class="key-cap">WASD</span> / <span class="key-cap">ZQSD</span> Déplacement</div>
+        <div><span class="key-cap">Espace</span> / <span class="key-cap">E</span> Réveil & Parler</div>
+        <div><span class="key-cap">Shift</span> / <span class="key-cap">X</span> Bouclier levé</div>
+        <div><span class="key-cap">Tab</span> / <span class="key-cap">I</span> Inventaire</div>
+      </div>
     </div>
+  </aside>
 
-    <div class="stat-badge">
-      <span class="stat-label">Collision Grid</span>
-      <span id="stat-coll" class="stat-val text-slate-400">Hidden (OFF)</span>
-    </div>
-
-    <div class="stat-badge">
-      <span class="stat-label">FPS</span>
-      <span id="stat-fps" class="stat-val">60 FPS</span>
-    </div>
-  </section>
-
-  <div class="controls-panel">
-    <button id="btn-toggle-mode">
-      <span>🎨 Switch Render (Ghibli HD ⇋ Pixel-Art)</span>
-      <span class="key-cap">G</span>
+  <!-- Main Game Stage -->
+  <div class="main-content">
+    <button id="btn-floating-open" class="floating-sidebar-btn" title="Ouvrir le panneau">
+      <span>☰ Menu</span>
     </button>
-    <button id="btn-toggle-coll" class="secondary">
-      <span>📐 Toggle Colliders (AABB & Triggers)</span>
-      <span class="key-cap">C</span>
-    </button>
-    <button id="btn-toggle-audio" class="secondary">
-      <span>🔊 Toggle Audio (GBS + SFX)</span>
-      <span class="key-cap">M</span>
-    </button>
-    <button id="btn-copy-debug" class="secondary">
-      <span>📋 Copier Infos (LLM)</span>
-    </button>
-    <button id="btn-reset-save" class="secondary">
-      <span>🗑️ Reset Save (localStorage)</span>
-    </button>
-  </div>
 
-  <div class="keys-legend">
-    Controls: <span class="key-cap">WASD</span> / <span class="key-cap">ZQSD</span> / <span class="key-cap">Arrows</span> to move &middot;
-    <span class="key-cap">Space</span> / <span class="key-cap">Enter</span> / <span class="key-cap">E</span> to wake up &amp; talk &middot;
-    <span class="key-cap">Shift</span> / <span class="key-cap">X</span> to hold Shield &middot;
-    <span class="key-cap">Tab</span> / <span class="key-cap">I</span> inventory
+    <header>
+      <h1>The Legend of Zelda: Link's Awakening</h1>
+      <div class="subtitle">Architecture Pre-rendered Background + Collision Grid (Vanilla TS + Canvas 2D)</div>
+    </header>
+
+    <main class="game-container">
+      <canvas id="game-canvas" width="1280" height="1024"></canvas>
+    </main>
+
+    <section class="dashboard">
+      <div class="stat-badge">
+        <span class="stat-label">Room</span>
+        <span id="stat-room" class="stat-val">Marin's House (Indoor)</span>
+      </div>
+
+      <div class="stat-badge">
+        <span class="stat-label">Link</span>
+        <span id="stat-state" class="stat-val">SLEEPING</span>
+      </div>
+
+      <div class="stat-badge">
+        <span class="stat-label">Équipement</span>
+        <span id="stat-shield" class="stat-val text-slate-400">Mains nues</span>
+      </div>
+
+      <div class="stat-badge">
+        <span class="stat-label">Audio</span>
+        <span id="stat-audio" class="stat-val text-rose-400 font-bold">🔇 Muet</span>
+      </div>
+
+      <div class="stat-badge">
+        <span class="stat-label">Pos</span>
+        <span id="stat-pos" class="stat-val">(56, 51)</span>
+      </div>
+
+      <div class="stat-badge">
+        <span class="stat-label">Rendu</span>
+        <span id="stat-mode" class="stat-val text-amber-400 font-bold">Studio Ghibli HD</span>
+      </div>
+
+      <div class="stat-badge">
+        <span class="stat-label">Colliders</span>
+        <span id="stat-coll" class="stat-val text-slate-400">Hidden (OFF)</span>
+      </div>
+
+      <div class="stat-badge">
+        <span class="stat-label">FPS</span>
+        <span id="stat-fps" class="stat-val">60 FPS</span>
+      </div>
+    </section>
   </div>
 
   <script type="module" src="/src/main.ts"></script>

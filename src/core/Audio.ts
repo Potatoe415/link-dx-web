@@ -94,7 +94,7 @@ export class SoundManager {
   private currentMusic: MusicTrack | null = null;
   private desiredMusic: MusicTrack = 'indoor';
   private unlocked: boolean = false;
-  public muted: boolean = false;
+  public muted: boolean = true;
   private stopped: boolean = false;
 
   private musicVolume: number = 0.42;
