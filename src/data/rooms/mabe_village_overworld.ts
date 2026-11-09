@@ -484,11 +484,11 @@ export const MABE_VILLAGE_OVERWORLD_ROOMS: Record<string, RoomDef> = {
 
   ow_r11_c01: {
     id: "ow_r11_c01",
-    name: "Village des Mouettes — Bibliothèque",
+    name: "Village des Mouettes — Maison de Pépé le Ramollo",
     width: 160,
     height: 128,
     bgPixel: "/assets/rooms/ow_r11_c01_bg_pixel.png",
-    bgGhibli: "/assets/rooms/ow_r11_c01_bg_pixel.png", // TEMP: pixel fallback until TASK_ROOM_GHIBLI
+    bgGhibli: "/assets/rooms/ow_r11_c01_bg.png",
     music: "outdoor",
     ambience: "outdoor",
     neighbors: { north: "ow_r10_c01", south: "ow_r12_c01", west: "ow_r11_c00", east: "ow_r11_c02" },
