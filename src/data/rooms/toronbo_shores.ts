@@ -6,11 +6,11 @@ import { RoomDef } from './types';
 export const TORONBO_SHORES_ROOMS: Record<string, RoomDef> = {
   ow_r11_c00: {
     id: "ow_r11_c00",
-    name: "Village des Mouettes — Sortie sud-ouest",
+    name: "Village des Mouettes — Bibliothèque",
     width: 160,
     height: 128,
     bgPixel: "/assets/rooms/ow_r11_c00_bg_pixel.png",
-    bgGhibli: "/assets/rooms/ow_r11_c00_bg_pixel.png", // TEMP: pixel fallback until TASK_ROOM_GHIBLI
+    bgGhibli: "/assets/rooms/ow_r11_c00_bg.png",
     music: "outdoor",
     ambience: "outdoor",
     neighbors: { north: "ow_r10_c00", south: "ow_r12_c00", east: "ow_r11_c01" },
