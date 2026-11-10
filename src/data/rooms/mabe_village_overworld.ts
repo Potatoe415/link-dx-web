@@ -87,11 +87,11 @@ export const MABE_VILLAGE_OVERWORLD_ROOMS: Record<string, RoomDef> = {
 
   ow_r08_c02: {
     id: "ow_r08_c02",
-    name: "Village des Mouettes — Maison de Mme Miaou",
+    name: "Village des Mouettes — Maison de Mme Miaou & Toutou",
     width: 160,
     height: 128,
     bgPixel: "/assets/rooms/ow_r08_c02_bg_pixel.png",
-    bgGhibli: "/assets/rooms/ow_r08_c02_bg_pixel.png", // TEMP: pixel fallback until TASK_ROOM_GHIBLI
+    bgGhibli: "/assets/rooms/ow_r08_c02_bg.png",
     music: "outdoor",
     ambience: "outdoor",
     neighbors: { north: "ow_r07_c02", south: "ow_r09_c02", west: "ow_r08_c01", east: "ow_r08_c03" },
