@@ -113,7 +113,8 @@
   - [x] `ow_r09_c01` (Verger des chênes centenaires / ouest de la place centrale)
   - [x] `ow_r09_c03` (Boutique d'outils du village ext. / toit rouge, enseigne SHOP & escalier nord)
   - [x] `ow_r08_c02` (Maison de Mme Miaou & Toutou / toit bleu, double porte & muret sud)
-  - [ ] *Restants à générer* : `ow_r08_c01`, `ow_r08_c03`
+  - [x] `ow_r08_c01` (Étang de pêche du village / nénuphars, ponton & berge en pierre)
+  - [ ] *Restants à générer* : `ow_r08_c03`
 - [ ] **[T-2.2.1-03]** `TASK_ROOM_GHIBLI` sur le secteur nord et étang de pêche (`ow_r08_c01..c03`, `ow_r09_c01`, `ow_r09_c03`).
 
 ### 2.2.2 — Intérieurs & Habitants du Village des Mouettes
