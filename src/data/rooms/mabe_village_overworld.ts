@@ -10,7 +10,7 @@ export const MABE_VILLAGE_OVERWORLD_ROOMS: Record<string, RoomDef> = {
     width: 160,
     height: 128,
     bgPixel: "/assets/rooms/ow_r09_c00_bg_pixel.png",
-    bgGhibli: "/assets/rooms/ow_r09_c00_bg_pixel.png", // TEMP: pixel fallback until TASK_ROOM_GHIBLI
+    bgGhibli: "/assets/rooms/ow_r09_c00_bg.png",
     music: "outdoor",
     ambience: "outdoor",
     neighbors: { north: "ow_r08_c00", south: "ow_r10_c00", east: "ow_r09_c01" },

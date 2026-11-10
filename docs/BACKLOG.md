@@ -33,6 +33,8 @@ Current work queue. Synced with `docs/decisions/0006-scope-lock-act1-outdoor-san
 - [ ] `ow_r06_c01`, `ow_r07_c01`, `ow_r07_c02` (Chemins de ronde sud de la forêt)
 
 ### D. Sprites, Animations & Polish Visuel
+- [x] Planches de référence Game Boy originales (Planche 1 & 2 HD 6x) générées sur fond blanc pour guider la production d'assets.
+- [ ] **Planche 1 Ghibli Personnages (Style Studio Ghibli adapté au jeu)** : Génération dès rétablissement de l'API d'images, calquée exactement sur la [Planche 1 Game Boy](file:///m:/Users/admin/Documents/DEV/dev-projects/zelda-la-web/public/assets/planche_1_village_et_link_hd.png) (Marine, Tarkin, Ulrira, MeowMeow, Toutou, gamins, marchands, etc.). **Conserver le Link actuel**.
 - [x] Planche 16 Objets & Props Studio Ghibli HD (Village, Plage, Forêt) intégrée en dual-pass (`G`).
 - [x] Planche 16 Personnages & Sprites Studio Ghibli HD (Village, Plage, Forêt) : détourage avec préservation des tuniques vertes, découpe en 16 PNGs individuels (`public/assets/ui/ghibli_characters/`), feuille unifiée `characters_ghibli.png` et manifeste.
 - [x] **Sprite pour le bras de Link tenant le bouclier** : posture de garde avec bras relié (`link_guard.png`) et pose victoire (`link_item_get.png`).

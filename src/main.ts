@@ -477,7 +477,7 @@ export class GameEngine {
     ctx.translate(Math.round(this.shock.shakeX), 0);
 
     const swordSheet = this.images.get('/assets/ui/link0.png');
-    const playerRenderable = { y: this.player.y, render: () => this.player.render(ctx, spritesheet, swordSheet) };
+    const playerRenderable = { y: this.player.y, render: () => this.player.render(ctx, spritesheet, swordSheet, this.useGhibliMode) };
 
     if (this.scroller.pending) {
       const next = ROOMS[this.scroller.pending.nextKey];

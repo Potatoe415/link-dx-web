@@ -94,6 +94,23 @@ export class Sword {
     return (SWORD_FRAMES[key] ?? []).reduce((t, f) => t + f.ms, 0);
   }
 
+  public get slashFrameIndex(): number {
+    if (this.phase !== 'slash') return 0;
+    const frames = SWORD_FRAMES[this.animKey()];
+    if (!frames || frames.length === 0) return 0;
+    let t = this.timer;
+    for (let i = 0; i < frames.length; i++) {
+      if (t < frames[i].ms) return i;
+      t -= frames[i].ms;
+    }
+    return frames.length - 1;
+  }
+
+  public get spinFrameIndex(): number {
+    if (this.phase !== 'spin') return 0;
+    return Math.floor(this.timer / 60) % 2;
+  }
+
   private currentFrame(): SwordFrame | null {
     const frames = SWORD_FRAMES[this.animKey()];
     if (!frames || frames.length === 0) return null;

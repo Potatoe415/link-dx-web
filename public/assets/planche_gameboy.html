@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Planches Sprites Game Boy Originaux HD — Link's Awakening</title>
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --border: #e2e8f0;
+      --text: #0f172a;
+      --text-muted: #64748b;
+      --primary: #0284c7;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      padding: 24px;
+    }
+    header {
+      max-width: 1600px;
+      margin: 0 auto 20px auto;
+      background: var(--card-bg);
+      padding: 20px 28px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+    h1 {
+      font-size: 22px;
+      font-weight: 700;
+      color: #0f172a;
+    }
+    p.sub {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+    .controls {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      color: #334155;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.15s ease;
+    }
+    .btn:hover {
+      background: #f1f5f9;
+      border-color: #94a3b8;
+    }
+    .btn.active {
+      background: #0284c7;
+      color: #ffffff;
+      border-color: #0284c7;
+    }
+    .btn-download {
+      background: #16a34a;
+      color: white;
+      border-color: #16a34a;
+    }
+    .btn-download:hover {
+      background: #15803d;
+    }
+    .viewer-container {
+      max-width: 1600px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      padding: 24px;
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+      overflow-x: auto;
+      text-align: center;
+    }
+    .image-wrapper {
+      display: inline-block;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 16px;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+    }
+    img.board-img {
+      display: block;
+      image-rendering: pixelated;
+      image-rendering: -moz-crisp-edges;
+      image-rendering: crisp-edges;
+      max-width: 100%;
+      height: auto;
+    }
+    .badge {
+      display: inline-block;
+      padding: 2px 8px;
+      font-size: 11px;
+      font-weight: 700;
+      border-radius: 4px;
+      margin-left: 8px;
+      background: #e0f2fe;
+      color: #0369a1;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div>
+      <h1>Planches Game Boy Originaux HD (Résolution 6x) <span class="badge">Pixel Art Brut</span></h1>
+      <p class="sub">Découpage en 2 grandes planches haute résolution : Le Village & Link / La Mer, la Forêt, les Ennemis & les Objets.</p>
+    </div>
+    <div class="controls">
+      <button class="btn active" id="btn-p1" onclick="switchPlanche('p1')">Planche 1 : Village & Link</button>
+      <button class="btn" id="btn-p2" onclick="switchPlanche('p2')">Planche 2 : Mer, Forêt, Ennemis & Objets</button>
+      <button class="btn" id="btn-single" onclick="switchPlanche('single')">Planche Complète (Vue d'ensemble)</button>
+      <a class="btn btn-download" id="btn-dl" href="planche_1_village_et_link_hd.png" download="planche_1_village_et_link_hd.png">Télécharger le PNG HD</a>
+    </div>
+  </header>
+
+  <div class="viewer-container">
+    <div class="image-wrapper">
+      <img id="main-board" class="board-img" src="planche_1_village_et_link_hd.png" alt="Planche Game Boy">
+    </div>
+  </div>
+
+  <script>
+    const IMAGES = {
+      p1: { src: 'planche_1_village_et_link_hd.png', name: 'planche_1_village_et_link_hd.png' },
+      p2: { src: 'planche_2_mer_foret_ennemis_objets_hd.png', name: 'planche_2_mer_foret_ennemis_objets_hd.png' },
+      single: { src: 'planche_gameboy_original.png', name: 'planche_gameboy_original.png' }
+    };
+
+    function switchPlanche(key) {
+      const img = document.getElementById('main-board');
+      const btnP1 = document.getElementById('btn-p1');
+      const btnP2 = document.getElementById('btn-p2');
+      const btnSingle = document.getElementById('btn-single');
+      const btnDl = document.getElementById('btn-dl');
+
+      btnP1.classList.remove('active');
+      btnP2.classList.remove('active');
+      btnSingle.classList.remove('active');
+
+      if (key === 'p1') btnP1.classList.add('active');
+      else if (key === 'p2') btnP2.classList.add('active');
+      else if (key === 'single') btnSingle.classList.add('active');
+
+      img.src = IMAGES[key].src;
+      btnDl.href = IMAGES[key].src;
+      btnDl.download = IMAGES[key].name;
+    }
+  </script>
+
+</body>
+</html>

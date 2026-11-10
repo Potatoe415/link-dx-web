@@ -2,21 +2,22 @@
 
 Replace on every update. Max 40 lines. History lives in git and `docs/decisions/`.
 
-Status: Décor Ghibli HD ow_r08_c01 intégré (Étang de pêche). Plus qu'un seul écran (ow_r08_c03) pour clore le Village !
-Focus: Décor Ghibli final Village des Mouettes : ow_r08_c03 (Sanctuaire des Rêves / terrasse nord).
+Status: Planches Game Boy 1 & 2 HD générées et validées comme référence exacte.
+Focus: Prêt pour génération Planche 1 Ghibli Personnages dès rétablissement de l'API Image.
 Level: L1
 
 Context:
-- Working_On: `public/assets/rooms/`, `src/data/rooms/`
-- Relevant_Files: `ow_r08_c01_bg.png`, `mabe_village_overworld.ts`
+- Working_On: Référence Planche 1 (`public/assets/planche_1_village_et_link_hd.png`)
+- Specification: Générer les équivalents Studio Ghibli des personnages du Village (Planche 1) en conservant le Link actuel.
+- Relevant_Files: `scripts/generate_split_sheets.py`, `public/assets/planche_gameboy.html`
 - Do_Not_Touch: `_ref_repo/`, `docs/la_dx_knowledge_base/`
 - Relevant_Decisions: 0002, 0003, 0004, 0005, 0006
 
 Next:
-- Génération & intégration de `ow_r08_c03` (Sanctuaire des Rêves / terrasse nord boutique).
+- Dès rétablissement API Image : générer la Planche 1 Ghibli adaptée au jeu (Marine, Tarkin, Ulrira, MeowMeow, Toutou, gamins, marchands, etc., Link conservé).
+- Décor final du Village des Mouettes : `ow_r08_c03` (Sanctuaire des Rêves).
 - Clôture complète des extérieurs du Village des Mouettes (100% Ghibli HD).
-- Transition vers les écrans extérieurs de la Forêt Enchantée (`ow_r05_c00` Champignon, `ow_r05_c01` Tarin, etc.).
-- Validation des tests de quêtes et affordance des colliders.
+- Poursuite du bac à sable extérieur Acte 1 (Plage & Forêt).
 
 Open_Questions:
 - None.

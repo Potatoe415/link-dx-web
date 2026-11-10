@@ -348,6 +348,220 @@ export const ANIMATIONS: Record<string, AnimationDef> = {
       }
     ]
   },
+  "link_sword_down": {
+    "frameTime": 50,
+    "loop": false,
+    "frames": [
+      {
+        "x": 4,
+        "y": 600,
+        "w": 209,
+        "h": 210,
+        "renderW": 28.32,
+        "renderH": 28.45,
+        "originX": 8.33,
+        "originY": 27.91
+      },
+      {
+        "x": 225,
+        "y": 600,
+        "w": 254,
+        "h": 176,
+        "renderW": 34.41,
+        "renderH": 23.85,
+        "originX": 19.32,
+        "originY": 23.3
+      },
+      {
+        "x": 491,
+        "y": 600,
+        "w": 210,
+        "h": 169,
+        "renderW": 28.45,
+        "renderH": 22.9,
+        "originX": 12.86,
+        "originY": 22.76
+      }
+    ]
+  },
+  "link_sword_up": {
+    "frameTime": 50,
+    "loop": false,
+    "frames": [
+      {
+        "x": 4,
+        "y": 822,
+        "w": 150,
+        "h": 208,
+        "renderW": 20.32,
+        "renderH": 28.18,
+        "originX": 10.19,
+        "originY": 27.64
+      },
+      {
+        "x": 166,
+        "y": 822,
+        "w": 254,
+        "h": 206,
+        "renderW": 34.41,
+        "renderH": 27.91,
+        "originX": 19.7,
+        "originY": 27.37
+      },
+      {
+        "x": 432,
+        "y": 822,
+        "w": 119,
+        "h": 212,
+        "renderW": 16.12,
+        "renderH": 28.72,
+        "originX": 9.1,
+        "originY": 28.59
+      }
+    ]
+  },
+  "link_sword_side": {
+    "frameTime": 50,
+    "loop": false,
+    "frames": [
+      {
+        "x": 4,
+        "y": 1046,
+        "w": 154,
+        "h": 200,
+        "renderW": 20.86,
+        "renderH": 27.1,
+        "originX": 11.29,
+        "originY": 26.55
+      },
+      {
+        "x": 170,
+        "y": 1046,
+        "w": 310,
+        "h": 169,
+        "renderW": 42.0,
+        "renderH": 22.9,
+        "originX": 11.75,
+        "originY": 22.35
+      },
+      {
+        "x": 492,
+        "y": 1046,
+        "w": 276,
+        "h": 205,
+        "renderW": 37.39,
+        "renderH": 27.77,
+        "originX": 7.6,
+        "originY": 27.23
+      }
+    ]
+  },
+  "link_sword_charge": {
+    "frameTime": 100,
+    "loop": false,
+    "frames": [
+      {
+        "x": 4,
+        "y": 1263,
+        "w": 192,
+        "h": 184,
+        "renderW": 26.01,
+        "renderH": 24.93,
+        "originX": 8.33,
+        "originY": 24.39
+      }
+    ]
+  },
+  "link_spin_attack": {
+    "frameTime": 60,
+    "loop": true,
+    "frames": [
+      {
+        "x": 208,
+        "y": 1263,
+        "w": 395,
+        "h": 179,
+        "renderW": 53.52,
+        "renderH": 24.25,
+        "originX": 33.69,
+        "originY": 23.71
+      },
+      {
+        "x": 615,
+        "y": 1263,
+        "w": 231,
+        "h": 187,
+        "renderW": 31.3,
+        "renderH": 25.34,
+        "originX": 16.15,
+        "originY": 24.79
+      }
+    ]
+  },
+  "link_shield_block_down": {
+    "frameTime": 100,
+    "loop": false,
+    "frames": [
+      {
+        "x": 713,
+        "y": 600,
+        "w": 124,
+        "h": 167,
+        "renderW": 16.8,
+        "renderH": 22.63,
+        "originX": 10.97,
+        "originY": 22.08
+      }
+    ]
+  },
+  "link_shield_block_up": {
+    "frameTime": 100,
+    "loop": false,
+    "frames": [
+      {
+        "x": 563,
+        "y": 822,
+        "w": 110,
+        "h": 194,
+        "renderW": 14.9,
+        "renderH": 26.28,
+        "originX": 7.43,
+        "originY": 25.74
+      }
+    ]
+  },
+  "link_shield_block_side": {
+    "frameTime": 100,
+    "loop": false,
+    "frames": [
+      {
+        "x": 780,
+        "y": 1046,
+        "w": 137,
+        "h": 176,
+        "renderW": 18.56,
+        "renderH": 23.85,
+        "originX": 6.08,
+        "originY": 23.3
+      }
+    ]
+  },
+  "link_shield_bash": {
+    "frameTime": 100,
+    "loop": false,
+    "frames": [
+      {
+        "x": 4,
+        "y": 1462,
+        "w": 207,
+        "h": 170,
+        "renderW": 28.05,
+        "renderH": 23.03,
+        "originX": 10.13,
+        "originY": 22.49
+      }
+    ]
+  },
   "marin_idle": {
     "frameTime": 600,
     "loop": true,

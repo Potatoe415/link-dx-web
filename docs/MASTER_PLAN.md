@@ -110,6 +110,7 @@
   - [x] `ow_r11_c00` (Bibliothèque du Village ext. & falaise côtière ouest)
   - [x] `ow_r11_c03` (Jeu de hasard / Trendy Game extérieur, mur d'arbres sud continu & canal est)
   - [x] `ow_r10_c00` (Entrée ouest du village / falaise ouest, terrasse rocheuse & vieux puits)
+  - [x] `ow_r09_c00` (Sentier vers la Forêt / couloir côtier ouest & grand sentier terre)
   - [x] `ow_r09_c01` (Verger des chênes centenaires / ouest de la place centrale)
   - [x] `ow_r09_c03` (Boutique d'outils du village ext. / toit rouge, enseigne SHOP & escalier nord)
   - [x] `ow_r08_c02` (Maison de Mme Miaou & Toutou / toit bleu, double porte & muret sud)
@@ -138,7 +139,8 @@
 ### 2.3.1 — Sentier Côtier & Oursins (`ow_r12_c01` à `ow_r15_c03`)
 - [x] **[T-2.3.1-01]** `TASK_ROOM_EXTRACT` sur les écrans de la Plage Coco (*Toronbo Shores*) : `ow_r12_c01`, `ow_r12_c02`, `ow_r13_c01`, `ow_r13_c02`, `ow_r14_c01`, `ow_r14_c02`, `ow_r15_c00`, `ow_r15_c01`, `ow_r15_c02` (écran de l'Épée), `ow_r15_c03`.
 - [x] **[T-2.3.1-02]** `TASK_ENTITY_PORT(sea_urchin)` : Porter `ObjSeaUrchin.cs` (les oursins piquants qui bloquent le chemin et que Link doit **repousser avec son Bouclier levé** + son `D360-62-3E.wav`).
-- [x] **[T-2.3.1-03]** `TASK_ENTITY_PORT(octorok)` : Porter `EnemyOctorok.cs` (marche 4 directions + tir de rocher que le Bouclier L-1 dévie avec `D360-11-0B.wav`).
+- [x] **[T-2.3.1-03]** `TASK_ENTITY_PORT(octorok)` : Porter `EnemyOctorok.cs` (marche 4 directions + tir de rocher que le Bouclier L-1 dévie avec `D360-11-0B.wav`). Fait : sprites Ghibli nettoyés et calibrés sans herbe résiduelle dans `src/data/enemies.ts`.
+- [x] **[T-2.3.1-05]** Génération des planches de référence officielles Game Boy HD 6x ([Planche 1](file:///m:/Users/admin/Documents/DEV/dev-projects/zelda-la-web/public/assets/planche_1_village_et_link_hd.png) & [Planche 2](file:///m:/Users/admin/Documents/DEV/dev-projects/zelda-la-web/public/assets/planche_2_mer_foret_ennemis_objets_hd.png)) sur fond blanc pour guider la production d'assets Ghibli du Village, de la Plage et de la Forêt.
 - [x] **[T-2.3.1-04]** `TASK_ROOM_GHIBLI` sur la séquence d'écrans menant à la plage (`ow_r12_c02` $\rightarrow$ `ow_r15_c02`) avec vagues animées (`wave1`, `wave2`) :
   - [x] `ow_r12_c02` (Sentier nord vers la plage)
   - [x] `ow_r13_c02` (Corniche)

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Comparatif & Analyse : Nouveaux Sprites Épée / Bouclier</title>
+<style>
+  body {
+    background: #0f111a;
+    color: #e2e8f0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    padding: 24px;
+    margin: 0;
+  }
+  h1 { color: #34d399; margin-bottom: 6px; font-size: 24px; }
+  .subtitle { color: #94a3b8; margin-top: 0; font-size: 14px; margin-bottom: 24px; }
+  
+  .section-title {
+    color: #f59e0b;
+    font-size: 18px;
+    margin-top: 32px;
+    margin-bottom: 12px;
+    border-bottom: 1px solid #334155;
+    padding-bottom: 6px;
+  }
+  
+  .comparison-row {
+    display: flex;
+    gap: 20px;
+    background: #1e2230;
+    padding: 16px;
+    border-radius: 10px;
+    border: 1px solid #3b4261;
+    align-items: center;
+    overflow-x: auto;
+  }
+  .comp-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .comp-box {
+    width: 140px;
+    height: 140px;
+    background: #141724;
+    border: 1px solid #2d3748;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: 
+      linear-gradient(45deg, #1a202c 25%, transparent 25%), 
+      linear-gradient(-45deg, #1a202c 25%, transparent 25%), 
+      linear-gradient(45deg, transparent 75%, #1a202c 75%), 
+      linear-gradient(-45deg, transparent 75%, #1a202c 75%);
+    background-size: 16px 16px;
+    background-position: 0 0, 0 8px, 8px -8px, -8px 0px;
+  }
+  .comp-box img {
+    max-width: 120px;
+    max-height: 120px;
+    object-fit: contain;
+  }
+  .comp-label {
+    font-size: 12px;
+    font-weight: 600;
+    margin-top: 8px;
+    color: #cbd5e1;
+  }
+  .comp-tag {
+    font-size: 10px;
+    padding: 2px 6px;
+    border-radius: 4px;
+    margin-top: 4px;
+  }
+  .tag-current { background: #3b82f6; color: white; }
+  .tag-yesterday { background: #8b5cf6; color: white; }
+  .tag-new { background: #10b981; color: white; }
+
+  .grid-4x4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-top: 16px;
+  }
+  .card {
+    background: #181c2b;
+    border-radius: 8px;
+    border: 1px solid #2a3147;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .sprite-box {
+    width: 100%;
+    height: 180px;
+    background: #12141f;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: 
+      linear-gradient(45deg, #1e2436 25%, transparent 25%), 
+      linear-gradient(-45deg, #1e2436 25%, transparent 25%), 
+      linear-gradient(45deg, transparent 75%, #1e2436 75%), 
+      linear-gradient(-45deg, transparent 75%, #1e2436 75%);
+    background-size: 16px 16px;
+    background-position: 0 0, 0 8px, 8px -8px, -8px 0px;
+    overflow: hidden;
+  }
+  .sprite-box img {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.4));
+  }
+  .card-title {
+    font-size: 13px;
+    font-weight: 600;
+    margin-top: 10px;
+    color: #f1f5f9;
+    text-align: center;
+  }
+  .card-meta {
+    font-size: 11px;
+    color: #64748b;
+    font-family: monospace;
+    margin-top: 4px;
+  }
+</style>
+</head>
+<body>
+
+  <h1>Comparatif Link : Sprites Actuels vs Nouveaux Sprites de Combat</h1>
+  <p class="subtitle">Analyse des proportions, de la cohérence visuelle et du comportement en jeu</p>
+
+  <div class="section-title">1. Comparaison Directe d'Alignement</div>
+  <div class="comparison-row">
+    <div class="comp-item">
+      <div class="comp-box"><img src="link_current_idle.png"></div>
+      <div class="comp-label">Link Moteur Actuel</div>
+      <span class="comp-tag tag-current">Spritesheet jeu</span>
+    </div>
+    <div class="comp-item">
+      <div class="comp-box"><img src="/assets/ui/ghibli_characters/link_guard.png"></div>
+      <div class="comp-label">Link Garde (Hier)</div>
+      <span class="comp-tag tag-yesterday">Planche 16 PNJ</span>
+    </div>
+    <div class="comp-item">
+      <div class="comp-box"><img src="/assets/ui/ghibli_characters/link_item_get.png"></div>
+      <div class="comp-label">Link Victoire (Hier)</div>
+      <span class="comp-tag tag-yesterday">Planche 16 PNJ</span>
+    </div>
+    <div class="comp-item">
+      <div class="comp-box"><img src="link_shield_block_down.png"></div>
+      <div class="comp-label">Garde Bouclier (Nouveau)</div>
+      <span class="comp-tag tag-new">Nouveau combat</span>
+    </div>
+    <div class="comp-item">
+      <div class="comp-box"><img src="link_sword_down_swing.png"></div>
+      <div class="comp-label">Taillade Épée Bas (Nouveau)</div>
+      <span class="comp-tag tag-new">Nouveau combat</span>
+    </div>
+    <div class="comp-item">
+      <div class="comp-box"><img src="link_spin_front.png"></div>
+      <div class="comp-label">Attaque Tourbillon (Nouveau)</div>
+      <span class="comp-tag tag-new">Nouveau combat</span>
+    </div>
+  </div>
+
+  <div class="section-title">2. Les 16 Sprites Découpés et Détourés (Chroma #00FF00 préservé)</div>
+  <div class="grid-4x4">
+    <div class="card">
+      <div class="sprite-box"><img src="link_sword_down_windup.png"></div>
+      <div class="card-title">Épée Bas - Armement</div>
+      <div class="card-meta">link_sword_down_windup.png</div>
+    </div>
+    <div class="card">
+      <div class="sprite-box"><img src="link_sword_down_swing.png"></div>
+      <div class="card-title">Épée Bas - Taillade</div>
+      <div class="card-meta">link_sword_down_swing.png</div>
+    </div>
+    <div class="card">
+      <div class="sprite-box"><img src="link_sword_down_thrust.png"></div>
+      <div class="card-title">Épée Bas - Estoc</div>
+      <div class="card-meta">link_sword_down_thrust.png</div>
+    </div>
+    <div class="card">
+      <div class="sprite-box"><img src="link_shield_block_down.png"></div>
+      <div class="card-title">Garde Bouclier Face</div>
+      <div class="card-meta">link_shield_block_down.png</div>
+    </div>
+    <div class="card">
+      <div class="sprite-box"><img src="link_sword_up_windup.png"></div>
+      <div class="card-title">Épée Haut - Armement</div>
+      <div class="card-meta">link_sword_up_windup.png</div>
+    </div>
+    <div class="card">
+      <div class="sprite-box"><img src="link_sword_up_swing.png"></div>
+      <div class="card-title">Épée Haut - Arc Ascendant</div>
+      <div class="card-meta">link_sword_up_swing.png</div>
+    </div>
+    <div class="card">
+      <div class="sprite-box"><img src="link_sword_up_thrust.png"></div>
+      <div class="card-title">Épée Haut - Estoc</div>
+      <div class="card-meta">link_sword_up_thrust.png</div>
+    </div>
+    <div class="card">
+      <div class="sprite-box"><img src="link_shield_block_up.png"></div>
+      <div class="card-title">Garde Bouclier Dos</div>
+      <div class="card-meta">link_shield_block_up.png</div>
+    </div>
+    <div class="card">
+      <div class="sprite-box"><img src="link_sword_side_windup.png"></div>
+      <div class="card-title">Épée Côté - Armement</div>
+      <div class="card-meta">link_sword_side_windup.png</div>
+    </div>
+    <div class="card">
+      <div class="sprite-box"><img src="link_sword_side_swing.png"></div>
+      <div class="card-title">Épée Côté - Balayage</div>
+      <div class="card-meta">link_sword_side_swing.png</div>
+    </div>
+    <div class="card">
+      <div class="sprite-box"><img src="link_sword_side_thrust.png"></div>
+      <div class="card-title">Épée Côté - Estoc</div>
+      <div class="card-meta">link_sword_side_thrust.png</div>
+    </div>
+    <div class="card">
+      <div class="sprite-box"><img src="link_shield_block_side.png"></div>
+      <div class="card-title">Garde Bouclier Côté</div>
+      <div class="card-meta">link_shield_block_side.png</div>
+    </div>
+    <div class="card">
+      <div class="sprite-box"><img src="link_sword_charge.png"></div>
+      <div class="card-title">Charge Tourbillon</div>
+      <div class="card-meta">link_sword_charge.png</div>
+    </div>
+    <div class="card">
+      <div class="sprite-box"><img src="link_spin_front.png"></div>
+      <div class="card-title">Tourbillon 360° Face</div>
+      <div class="card-meta">link_spin_front.png</div>
+    </div>
+    <div class="card">
+      <div class="sprite-box"><img src="link_spin_back.png"></div>
+      <div class="card-title">Tourbillon 360° Dos</div>
+      <div class="card-meta">link_spin_back.png</div>
+    </div>
+    <div class="card">
+      <div class="sprite-box"><img src="link_shield_bash.png"></div>
+      <div class="card-title">Coup de Bouclier Charge</div>
+      <div class="card-meta">link_shield_bash.png</div>
+    </div>
+  </div>
+</body>
+</html>

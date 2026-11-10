@@ -1,0 +1,194 @@
+{
+  "octorok_down_walk1": {
+    "label": "Octorok Plage - Marche Face 1",
+    "path": "/assets/characters/enemies/octorok_down_walk1.png",
+    "cell": {
+      "row": 0,
+      "col": 0
+    },
+    "crop_size": {
+      "w": 499,
+      "h": 368
+    }
+  },
+  "octorok_down_walk2": {
+    "label": "Octorok Plage - Marche Face 2",
+    "path": "/assets/characters/enemies/octorok_down_walk2.png",
+    "cell": {
+      "row": 0,
+      "col": 1
+    },
+    "crop_size": {
+      "w": 500,
+      "h": 372
+    }
+  },
+  "octorok_down_shoot": {
+    "label": "Octorok Plage - Tir Joues Gonflées",
+    "path": "/assets/characters/enemies/octorok_down_shoot.png",
+    "cell": {
+      "row": 0,
+      "col": 2
+    },
+    "crop_size": {
+      "w": 400,
+      "h": 366
+    }
+  },
+  "octorok_rock_projectile": {
+    "label": "Octorok Plage - Projectile Pierre",
+    "path": "/assets/characters/enemies/octorok_rock_projectile.png",
+    "cell": {
+      "row": 0,
+      "col": 3
+    },
+    "crop_size": {
+      "w": 518,
+      "h": 296
+    }
+  },
+  "octorok_up_walk": {
+    "label": "Octorok Plage - Marche Dos",
+    "path": "/assets/characters/enemies/octorok_up_walk.png",
+    "cell": {
+      "row": 1,
+      "col": 0
+    },
+    "crop_size": {
+      "w": 518,
+      "h": 436
+    }
+  },
+  "octorok_up_shoot": {
+    "label": "Octorok Plage - Tir Haut",
+    "path": "/assets/characters/enemies/octorok_up_shoot.png",
+    "cell": {
+      "row": 1,
+      "col": 1
+    },
+    "crop_size": {
+      "w": 309,
+      "h": 405
+    }
+  },
+  "octorok_side_walk": {
+    "label": "Octorok Plage - Marche Profil",
+    "path": "/assets/characters/enemies/octorok_side_walk.png",
+    "cell": {
+      "row": 1,
+      "col": 2
+    },
+    "crop_size": {
+      "w": 569,
+      "h": 415
+    }
+  },
+  "octorok_side_shoot": {
+    "label": "Octorok Plage - Tir Profil",
+    "path": "/assets/characters/enemies/octorok_side_shoot.png",
+    "cell": {
+      "row": 1,
+      "col": 3
+    },
+    "crop_size": {
+      "w": 504,
+      "h": 416
+    }
+  },
+  "moblin_spear_down_walk": {
+    "label": "Moblin Cochon Lance - Patrouille Face",
+    "path": "/assets/characters/enemies/moblin_spear_down_walk.png",
+    "cell": {
+      "row": 2,
+      "col": 0
+    },
+    "crop_size": {
+      "w": 435,
+      "h": 448
+    }
+  },
+  "moblin_spear_down_attack": {
+    "label": "Moblin Cochon Lance - Coup de Lance",
+    "path": "/assets/characters/enemies/moblin_spear_down_attack.png",
+    "cell": {
+      "row": 2,
+      "col": 1
+    },
+    "crop_size": {
+      "w": 525,
+      "h": 405
+    }
+  },
+  "moblin_spear_up_walk": {
+    "label": "Moblin Cochon Lance - Marche Dos",
+    "path": "/assets/characters/enemies/moblin_spear_up_walk.png",
+    "cell": {
+      "row": 2,
+      "col": 2
+    },
+    "crop_size": {
+      "w": 383,
+      "h": 448
+    }
+  },
+  "moblin_spear_side_throw": {
+    "label": "Moblin Cochon Lance - Lancer Profil",
+    "path": "/assets/characters/enemies/moblin_spear_side_throw.png",
+    "cell": {
+      "row": 2,
+      "col": 3
+    },
+    "crop_size": {
+      "w": 461,
+      "h": 448
+    }
+  },
+  "moblin_sword_down_guard": {
+    "label": "Moblin Cochon Épée - Garde & Bouclier",
+    "path": "/assets/characters/enemies/moblin_sword_down_guard.png",
+    "cell": {
+      "row": 3,
+      "col": 0
+    },
+    "crop_size": {
+      "w": 566,
+      "h": 448
+    }
+  },
+  "moblin_sword_down_slash": {
+    "label": "Moblin Cochon Épée - Taillade",
+    "path": "/assets/characters/enemies/moblin_sword_down_slash.png",
+    "cell": {
+      "row": 3,
+      "col": 1
+    },
+    "crop_size": {
+      "w": 419,
+      "h": 399
+    }
+  },
+  "moblin_sword_side_charge": {
+    "label": "Moblin Cochon Épée - Charge Profil",
+    "path": "/assets/characters/enemies/moblin_sword_side_charge.png",
+    "cell": {
+      "row": 3,
+      "col": 2
+    },
+    "crop_size": {
+      "w": 596,
+      "h": 448
+    }
+  },
+  "moblin_hurt_stun": {
+    "label": "Moblin Cochon - Recul / Touché",
+    "path": "/assets/characters/enemies/moblin_hurt_stun.png",
+    "cell": {
+      "row": 3,
+      "col": 3
+    },
+    "crop_size": {
+      "w": 390,
+      "h": 442
+    }
+  }
+}

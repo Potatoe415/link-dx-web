@@ -158,7 +158,12 @@ export class Projectile {
     return frames[(this.dir + 1 + Math.floor(this.despawnTimer / 100)) % frames.length];
   }
 
-  public render(ctx: CanvasRenderingContext2D, sheet: HTMLImageElement | undefined): void {
+  public render(
+    ctx: CanvasRenderingContext2D,
+    sheet: HTMLImageElement | undefined,
+    ghibliSheet?: HTMLImageElement | undefined,
+    useGhibli = false
+  ): void {
     if (!sheet) return;
     const remaining = this.spec.despawnMs - this.despawnTimer;
     const fadeMs = this.spec.despawnMs * this.spec.fadeFraction;
@@ -174,9 +179,14 @@ export class Projectile {
     if (this.kind === 'spear') {
       drawFrame(ctx, sheet, this.spearFrame(), this.x, this.y - this.z);
     } else {
-      // AnimationComponent offset (-5, -10)
-      const s = ROCK_SPRITE;
-      ctx.drawImage(sheet, s.x, s.y, s.w, s.h, Math.round(this.x - 5), Math.round(this.y - 10 - this.z), s.w, s.h);
+      if (useGhibli && ghibliSheet) {
+        // Studio Ghibli hand-painted river pebble projectile
+        ctx.drawImage(ghibliSheet, 772, 1583, 244, 197, Math.round(this.x - 5), Math.round(this.y - 8 - this.z), 10, 8);
+      } else {
+        // AnimationComponent offset (-5, -10)
+        const s = ROCK_SPRITE;
+        ctx.drawImage(sheet, s.x, s.y, s.w, s.h, Math.round(this.x - 5), Math.round(this.y - 10 - this.z), s.w, s.h);
+      }
     }
     ctx.restore();
   }

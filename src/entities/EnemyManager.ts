@@ -268,7 +268,7 @@ export class EnemyManager {
       y: e.sortY,
       render: () => e.render(ctx, enemySheet, ghibliSheet, useGhibli)
     }));
-    for (const shot of this.shots) out.push({ y: shot.y, render: () => shot.render(ctx, enemySheet) });
+    for (const shot of this.shots) out.push({ y: shot.y, render: () => shot.render(ctx, enemySheet, ghibliSheet, useGhibli) });
     const items = this.images.get(ITEMS_SHEET);
     const ghibliRupee = useGhibli ? this.images.get(GHIBLI_RUPEE) : undefined;
     const ghibliHeart = useGhibli ? this.images.get(GHIBLI_HEART) : undefined;

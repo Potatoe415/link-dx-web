@@ -575,7 +575,58 @@ export class Player {
   /**
    * Render Link and his soft contact shadow
    */
-  public render(ctx: CanvasRenderingContext2D, spritesheet: HTMLImageElement, swordSheet?: HTMLImageElement): void {
+  private getGhibliCombatFrame(): { frame: AnimationFrame; flipH: boolean } | null {
+    if (this.sword.active) {
+      if (this.sword.phase === 'slash') {
+        const frameIdx = this.sword.slashFrameIndex;
+        if (this.direction === 3) {
+          const anim = ANIMATIONS['link_sword_down'];
+          if (anim && anim.frames[frameIdx]) return { frame: anim.frames[frameIdx], flipH: false };
+        } else if (this.direction === 1) {
+          const anim = ANIMATIONS['link_sword_up'];
+          if (anim && anim.frames[frameIdx]) return { frame: anim.frames[frameIdx], flipH: false };
+        } else if (this.direction === 2) {
+          const anim = ANIMATIONS['link_sword_side'];
+          if (anim && anim.frames[frameIdx]) return { frame: anim.frames[frameIdx], flipH: false };
+        } else if (this.direction === 0) {
+          const anim = ANIMATIONS['link_sword_side'];
+          if (anim && anim.frames[frameIdx]) return { frame: anim.frames[frameIdx], flipH: true };
+        }
+      } else if (this.sword.phase === 'hold') {
+        const anim = ANIMATIONS['link_sword_charge'];
+        if (anim && anim.frames[0]) return { frame: anim.frames[0], flipH: this.direction === 0 };
+      } else if (this.sword.phase === 'spin') {
+        const anim = ANIMATIONS['link_spin_attack'];
+        const frameIdx = this.sword.spinFrameIndex;
+        if (anim && anim.frames[frameIdx]) return { frame: anim.frames[frameIdx], flipH: false };
+      }
+    } else if (this.isBlocking) {
+      if (this.direction === 3) {
+        const anim = ANIMATIONS['link_shield_block_down'];
+        if (anim && anim.frames[0]) return { frame: anim.frames[0], flipH: false };
+      } else if (this.direction === 1) {
+        const anim = ANIMATIONS['link_shield_block_up'];
+        if (anim && anim.frames[0]) return { frame: anim.frames[0], flipH: false };
+      } else if (this.direction === 2) {
+        const anim = ANIMATIONS['link_shield_block_side'];
+        if (anim && anim.frames[0]) return { frame: anim.frames[0], flipH: false };
+      } else if (this.direction === 0) {
+        const anim = ANIMATIONS['link_shield_block_side'];
+        if (anim && anim.frames[0]) return { frame: anim.frames[0], flipH: true };
+      }
+    }
+    return null;
+  }
+
+  /**
+   * Render Link and his soft contact shadow
+   */
+  public render(
+    ctx: CanvasRenderingContext2D,
+    spritesheet: HTMLImageElement,
+    swordSheet?: HTMLImageElement,
+    useGhibliMode: boolean = true
+  ): void {
     const frame = this.getCurrentFrame();
     if (!frame || !this.isVisible) return;
 
@@ -605,40 +656,80 @@ export class Player {
       ctx.restore();
     }
 
-    // Sprite position with vertical jump offset z (sub-pixel smooth on 1280x1024 canvas)
-    const drawX = this.x - frame.originX;
-    const drawY = this.y - frame.originY - this.z;
+    // Ghibli Combat Render: if attacking or blocking, use hand-painted Studio Ghibli combat animation
+    const ghibliCombat = useGhibliMode ? this.getGhibliCombatFrame() : null;
 
-    const renderW = frame.renderW ?? frame.w;
-    const renderH = frame.renderH ?? frame.h;
+    if (ghibliCombat) {
+      const cFrame = ghibliCombat.frame;
+      const renderW = cFrame.renderW ?? cFrame.w;
+      const renderH = cFrame.renderH ?? cFrame.h;
+      const drawY = this.y - cFrame.originY - this.z;
 
-    // Sword pointing up is drawn behind Link (ObjLink draws the weapon before the body when facing Up)
-    const swordBehind = this.sword.active && this.sword.behindLink;
-    if (swordBehind) this.sword.render(ctx, swordSheet, this.x, this.y, this.z);
+      ctx.save();
+      if (ghibliCombat.flipH) {
+        ctx.translate(this.x, 0);
+        ctx.scale(-1, 1);
+        ctx.drawImage(
+          spritesheet,
+          cFrame.x,
+          cFrame.y,
+          cFrame.w,
+          cFrame.h,
+          -cFrame.originX,
+          drawY,
+          renderW,
+          renderH
+        );
+      } else {
+        ctx.drawImage(
+          spritesheet,
+          cFrame.x,
+          cFrame.y,
+          cFrame.w,
+          cFrame.h,
+          this.x - cFrame.originX,
+          drawY,
+          renderW,
+          renderH
+        );
+      }
+      ctx.restore();
+    } else {
+      // Standard Link Rendering (Walking, Idling, Jumping)
+      const drawX = this.x - frame.originX;
+      const drawY = this.y - frame.originY - this.z;
 
-    // If facing UP (direction === 1) and carrying shield, draw shield behind Link's body
-    const showShield = this.hasShield && this.state !== 'ITEM_GET' && drawShadow && this.sword.phase !== 'spin';
-    if (showShield && this.direction === 1) {
-      renderEquippedShield(ctx, this.pose());
+      const renderW = frame.renderW ?? frame.w;
+      const renderH = frame.renderH ?? frame.h;
+
+      // Sword pointing up is drawn behind Link (ObjLink draws the weapon before the body when facing Up)
+      const swordBehind = this.sword.active && this.sword.behindLink;
+      if (swordBehind) this.sword.render(ctx, swordSheet, this.x, this.y, this.z);
+
+      // If facing UP (direction === 1) and carrying shield, draw shield behind Link's body
+      const showShield = this.hasShield && this.state !== 'ITEM_GET' && drawShadow && this.sword.phase !== 'spin';
+      if (showShield && this.direction === 1) {
+        renderEquippedShield(ctx, this.pose());
+      }
+
+      ctx.drawImage(
+        spritesheet,
+        frame.x,
+        frame.y,
+        frame.w,
+        frame.h,
+        drawX,
+        drawY,
+        renderW,
+        renderH
+      );
+
+      // If facing Left/Right/Down and carrying shield, draw shield in front of Link
+      if (showShield && this.direction !== 1) {
+        renderEquippedShield(ctx, this.pose());
+      }
+      if (this.sword.active && !swordBehind) this.sword.render(ctx, swordSheet, this.x, this.y, this.z);
     }
-
-    ctx.drawImage(
-      spritesheet,
-      frame.x,
-      frame.y,
-      frame.w,
-      frame.h,
-      drawX,
-      drawY,
-      renderW,
-      renderH
-    );
-
-    // If facing Left/Right/Down and carrying shield, draw shield in front of Link
-    if (showShield && this.direction !== 1) {
-      renderEquippedShield(ctx, this.pose());
-    }
-    if (this.sword.active && !swordBehind) this.sword.render(ctx, swordSheet, this.x, this.y, this.z);
 
     // If in ITEM_GET celebration pose, draw radiant golden rays + Shield held overhead
     if (this.state === 'ITEM_GET') {

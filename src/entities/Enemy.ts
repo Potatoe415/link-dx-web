@@ -33,14 +33,24 @@ export type EnemyState =
  */
 export type EnemyBehavior = 'wander' | 'static' | 'leever' | 'crab' | 'custom';
 
-type Frame = { x: number; y: number; w: number; h: number; flip?: boolean; renderW?: number; renderH?: number };
+type Frame = {
+  x: number;
+  y: number;
+  w: number;
+  h: number;
+  flip?: boolean;
+  renderW?: number;
+  renderH?: number;
+  originX?: number;
+  originY?: number;
+};
 
 export const ENEMIES_SHEET = '/assets/ui/enemies.png'; // copied from `_ref_repo/Data/Map Objects/enemies.png`
 export const ENEMIES_GHIBLI_SHEET = '/assets/ui/beach_enemies_ghibli_transparent.png'; // Studio Ghibli HD beach enemies
 
 export interface EnemySprite {
   frames: Record<number, Frame[]>; // per direction (direction 3 is the fallback for 1-direction enemies)
-  anims?: Partial<Record<'spawn' | 'leave', Frame[]>>; // one-shot 200 ms/frame animations (Leever)
+  anims?: Partial<Record<'spawn' | 'leave' | 'stun', Frame[]>>; // one-shot animations
   frameMs: number;
   originX: number;
   originY: number;
@@ -460,6 +470,9 @@ export class Enemy {
   }
 
   private currentFrame(s: EnemySprite): Frame | undefined {
+    if ((this.state === 'STUNNED' || this.state === 'KNOCKBACK') && s.anims?.stun && s.anims.stun.length > 0) {
+      return s.anims.stun[0];
+    }
     if (this.state === 'SPAWNING' || this.state === 'LEAVING') {
       const anim = s.anims?.[this.state === 'SPAWNING' ? 'spawn' : 'leave'];
       if (anim) return anim[Math.min(anim.length - 1, Math.floor(this.stateTimer / ONE_SHOT_FRAME_MS))];
@@ -499,8 +512,10 @@ export class Enemy {
 
     const rw = f.renderW ?? f.w;
     const rh = f.renderH ?? f.h;
-    const dx = Math.round(this.x - s.originX);
-    const dy = Math.round(this.y - s.originY);
+    const ox = f.originX ?? s.originX;
+    const oy = f.originY ?? s.originY;
+    const dx = Math.round(this.x - ox);
+    const dy = Math.round(this.y - oy);
 
     if (!f.flip) {
       ctx.drawImage(targetSheet, f.x, f.y, f.w, f.h, dx, dy, rw, rh);

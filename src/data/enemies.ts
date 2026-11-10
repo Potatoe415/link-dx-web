@@ -33,13 +33,25 @@ export const ENEMIES: Record<string, EnemyConfig> = {
     },
     ghibliSprite: {
       frameMs: 200,
-      originX: 8,
-      originY: 15,
+      originX: 10,
+      originY: 17,
       frames: {
-        0: [{ x: 659, y: 253, w: 252, h: 248, flip: true, renderW: 16, renderH: 16 }],
-        3: [{ x: 27, y: 255, w: 247, h: 239, renderW: 16, renderH: 16 }],
-        1: [{ x: 349, y: 255, w: 241, h: 240, renderW: 16, renderH: 16 }],
-        2: [{ x: 659, y: 253, w: 252, h: 248, renderW: 16, renderH: 16 }]
+        0: [
+          { x: 772, y: 265, w: 244, h: 225, flip: true, renderW: 20, renderH: 18, originX: 10, originY: 17 },
+          { x: 260, y: 1643, w: 244, h: 137, flip: true, renderW: 24, renderH: 14, originX: 14, originY: 14 }
+        ],
+        1: [
+          { x: 528, y: 250, w: 219, h: 240, renderW: 18, renderH: 20, originX: 9, originY: 19 },
+          { x: 531, y: 1540, w: 214, h: 240, renderW: 18, renderH: 20, originX: 9, originY: 19 }
+        ],
+        2: [
+          { x: 772, y: 265, w: 244, h: 225, renderW: 20, renderH: 18, originX: 10, originY: 17 },
+          { x: 260, y: 1643, w: 244, h: 137, renderW: 24, renderH: 14, originX: 10, originY: 14 }
+        ],
+        3: [
+          { x: 4, y: 282, w: 244, h: 208, renderW: 20, renderH: 18, originX: 10, originY: 17 },
+          { x: 260, y: 287, w: 244, h: 203, renderW: 20, renderH: 18, originX: 10, originY: 17 }
+        ]
       }
     }
   },
@@ -191,7 +203,32 @@ export const ENEMIES: Record<string, EnemyConfig> = {
     idleMs: [0, 0],
     behavior: 'custom',
     ai: 'moblin',
-    animator: { id: 'moblin', offsetX: -8, offsetY: -16 }
+    animator: { id: 'moblin', offsetX: -8, offsetY: -16 },
+    ghibliSprite: {
+      frameMs: 250,
+      originX: 12,
+      originY: 25,
+      frames: {
+        0: [
+          { x: 772, y: 1072, w: 244, h: 198, flip: true, renderW: 28, renderH: 23, originX: 16, originY: 22 }
+        ],
+        1: [
+          { x: 526, y: 1030, w: 224, h: 240, renderW: 24, renderH: 26, originX: 12, originY: 25 }
+        ],
+        2: [
+          { x: 772, y: 1072, w: 244, h: 198, renderW: 28, renderH: 23, originX: 12, originY: 22 }
+        ],
+        3: [
+          { x: 18, y: 1030, w: 216, h: 240, renderW: 23, renderH: 26, originX: 11, originY: 25 },
+          { x: 260, y: 1119, w: 244, h: 151, renderW: 26, renderH: 18, originX: 13, originY: 17 }
+        ]
+      },
+      anims: {
+        stun: [
+          { x: 772, y: 1292, w: 244, h: 233, renderW: 26, renderH: 26, originX: 13, originY: 25 }
+        ]
+      }
+    }
   },
 
   // EnemyMoblinSword.cs + EnemyMoblinSwordSword.cs: 2 lives, charges Link, parrying blade
@@ -207,7 +244,32 @@ export const ENEMIES: Record<string, EnemyConfig> = {
     idleMs: [0, 0],
     behavior: 'custom',
     ai: 'moblinSword',
-    animator: { id: 'moblin_sword', offsetX: -8, offsetY: -16 }
+    animator: { id: 'moblin_sword', offsetX: -8, offsetY: -16 },
+    ghibliSprite: {
+      frameMs: 250,
+      originX: 13,
+      originY: 24,
+      frames: {
+        0: [
+          { x: 516, y: 1300, w: 244, h: 225, flip: true, renderW: 26, renderH: 25, originX: 13, originY: 24 }
+        ],
+        1: [
+          { x: 526, y: 1030, w: 224, h: 240, renderW: 24, renderH: 26, originX: 12, originY: 25 }
+        ],
+        2: [
+          { x: 516, y: 1300, w: 244, h: 225, renderW: 26, renderH: 25, originX: 13, originY: 24 }
+        ],
+        3: [
+          { x: 4, y: 1321, w: 244, h: 204, renderW: 26, renderH: 24, originX: 13, originY: 23 },
+          { x: 260, y: 1326, w: 244, h: 199, renderW: 26, renderH: 23, originX: 13, originY: 22 }
+        ]
+      },
+      anims: {
+        stun: [
+          { x: 772, y: 1292, w: 244, h: 233, renderW: 26, renderH: 26, originX: 13, originY: 25 }
+        ]
+      }
+    }
   },
 
   // EnemyRedZol.cs: 1 life, splits into two Gels on a 1-damage hit
