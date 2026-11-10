@@ -233,11 +233,11 @@ export const MABE_VILLAGE_OVERWORLD_ROOMS: Record<string, RoomDef> = {
 
   ow_r09_c03: {
     id: "ow_r09_c03",
-    name: "Village des Mouettes — Champ est",
+    name: "Village des Mouettes — Boutique d'outils",
     width: 160,
     height: 128,
     bgPixel: "/assets/rooms/ow_r09_c03_bg_pixel.png",
-    bgGhibli: "/assets/rooms/ow_r09_c03_bg_pixel.png", // TEMP: pixel fallback until TASK_ROOM_GHIBLI
+    bgGhibli: "/assets/rooms/ow_r09_c03_bg.png",
     music: "outdoor",
     ambience: "outdoor",
     neighbors: { north: "ow_r08_c03", south: "ow_r10_c03", west: "ow_r09_c02", east: "ow_r09_c04" },

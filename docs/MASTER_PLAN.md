@@ -111,7 +111,8 @@
   - [x] `ow_r11_c03` (Jeu de hasard / Trendy Game extérieur, mur d'arbres sud continu & canal est)
   - [x] `ow_r10_c00` (Entrée ouest du village / falaise ouest, terrasse rocheuse & vieux puits)
   - [x] `ow_r09_c01` (Verger des chênes centenaires / ouest de la place centrale)
-  - [ ] *Restants à générer* : `ow_r08_c01`, `ow_r08_c02`, `ow_r08_c03`, `ow_r09_c03`
+  - [x] `ow_r09_c03` (Boutique d'outils du village ext. / toit rouge, enseigne SHOP & escalier nord)
+  - [ ] *Restants à générer* : `ow_r08_c01`, `ow_r08_c02`, `ow_r08_c03`
 - [ ] **[T-2.2.1-03]** `TASK_ROOM_GHIBLI` sur le secteur nord et étang de pêche (`ow_r08_c01..c03`, `ow_r09_c01`, `ow_r09_c03`).
 
 ### 2.2.2 — Intérieurs & Habitants du Village des Mouettes
